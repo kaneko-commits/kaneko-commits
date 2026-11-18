@@ -55,8 +55,8 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .sub-h{font-size:9.2pt;font-weight:700;color:var(--muted);margin-top:.8mm}
 .sub-h em{font-style:normal;color:var(--warm)}
 .sub-h small{font-size:7pt;font-weight:500;margin-left:2mm}
-.scenes{display:grid;grid-template-columns:15mm 1fr 6mm 1.25fr;margin-top:3mm;text-align:center;font-size:8.8pt;line-height:1.45}
-.scenes>div{padding:1mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.scenes{display:grid;grid-template-columns:15mm 1fr 6mm 1.25fr;margin-top:2.5mm;text-align:center;font-size:8.5pt;line-height:1.45}
+.scenes>div{padding:.8mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
 .scenes .hd{font-size:8.6pt;font-weight:700;justify-content:center;padding:1.4mm}
 .scenes .hd.ar{background:linear-gradient(90deg,#e7e7e2 50%,var(--forest) 50%)}
 .scenes .hd.now{background:#e7e7e2;color:var(--muted)}
@@ -67,20 +67,31 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .scenes .fut{background:#eef3ee;font-weight:700;color:var(--forest)}
 .plan-lead{font-size:8.8pt;color:var(--muted);margin-top:1.2mm;line-height:1.65}
 .plan-lead b{color:var(--forest)}
-.price-line{display:inline-block;margin-top:1.5mm;font-size:9pt;background:#fff;border:1px solid var(--warm);border-radius:1mm;padding:.8mm 3mm}
-.price-line b{color:var(--warm);margin-right:2mm}
+.price-tbl{display:flex;align-items:stretch;margin-top:2mm;border:1px solid var(--warm);border-radius:1.5mm;background:#fff;overflow:hidden}
+.price-tbl .pl{background:var(--warm);color:#fff;padding:1.2mm 3mm;display:flex;flex-direction:column;justify-content:center;line-height:1.3}
+.price-tbl .pl b{font-size:9pt}
+.price-tbl .pl span{font-size:6.8pt;opacity:.9;margin-top:.5mm}
+.price-tbl .pt{flex:1;text-align:center;border-left:1px solid var(--line);padding:1mm .5mm;display:flex;flex-direction:column;justify-content:center;line-height:1.2;position:relative}
+.price-tbl .pt span{font-size:8pt;font-weight:700;color:var(--muted)}
+.price-tbl .pt b{font-family:Georgia,serif;font-size:14pt;color:var(--ink);font-weight:400}
+.price-tbl .pt b small{font-family:'Noto Sans JP';font-size:7.5pt;font-weight:700}
+.price-tbl .pt em{font-style:normal;font-size:6.3pt;color:var(--muted)}
+.price-tbl .pt.cur{background:#fbeee6}
+.price-tbl .pt.cur b{color:var(--warm)}
+.price-tbl .pt i{position:absolute;top:0;left:0;font-style:normal;font-size:6pt;font-weight:900;background:var(--warm);color:#fff;padding:0 1.2mm}
+.price-tbl .pn{font-size:6.5pt;color:var(--muted);padding:1mm 2mm;display:flex;flex-direction:column;justify-content:center;line-height:1.5;border-left:1px solid var(--line)}
 .plans{display:flex;justify-content:space-between;gap:4mm;margin-top:2.5mm;align-items:flex-end}
 .plans figure{margin:0}
 .plans figcaption{white-space:nowrap;font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:.8mm;text-align:left}
-.plan{height:30mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
-.plan.site{height:36mm}
+.plan{height:26.5mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
+.plan.site{height:31mm}
 .pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5mm 4mm;margin:2.5mm 0 0;text-align:left}
 .pts li{display:flex;gap:1.5mm;font-size:8.2pt;line-height:1.35}
 .pts li i{flex:none;font-style:normal;width:4.2mm;height:4.2mm;border-radius:50%;background:var(--warm);color:#fff;font-size:7pt;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:.3mm}
 .pts li b{display:block}
 .pts li span{display:block;color:var(--muted);font-size:7.3pt;line-height:1.4}
 .plan-note{font-size:6.8pt;color:var(--muted);margin-top:1.2mm}
-.track{border-top:1px solid var(--line);margin-top:2.5mm;padding-top:2.2mm}
+.track{border-top:1px solid var(--line);margin-top:2mm;padding-top:1.6mm}
 .track-h{display:flex;align-items:baseline;gap:3mm}
 .track-h b{font-family:'Noto Serif JP',serif;font-size:12.5pt;white-space:nowrap}
 .track-h span{font-size:8.6pt;font-weight:700;color:var(--muted)}
@@ -103,7 +114,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .mini span{flex:1;background:var(--forest);color:#fff;font-size:8.4pt;font-weight:700;text-align:center;padding:1.6mm 0 1.6mm 2mm;clip-path:polygon(0 0,calc(100% - 2.5mm) 0,100% 50%,calc(100% - 2.5mm) 100%,0 100%,2.5mm 50%)}
 .mini span:nth-child(even){background:var(--deep)}
 .steps-note{font-size:7.8pt;color:var(--muted);margin-top:1.2mm}
-.cta{position:absolute;left:0;right:0;bottom:0;height:90mm;background:var(--deep);color:#fff;padding:4.5mm 13mm 0;display:grid;grid-template-columns:1fr 1fr 27mm;column-gap:3mm;align-content:start}
+.cta{position:absolute;left:0;right:0;bottom:0;height:88mm;background:var(--deep);color:#fff;padding:4.5mm 13mm 0;display:grid;grid-template-columns:1fr 1fr 27mm;column-gap:3mm;align-content:start}
 .cta .head{grid-column:1/4;text-align:left}
 .cta .facts{justify-content:flex-start}
 .cta .gift{display:contents}
@@ -111,7 +122,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .cta .when{grid-column:1/4;text-align:left}
 .cta .ev{display:inline-block;background:var(--warm);font-size:9pt;font-weight:700;padding:.8mm 3mm;letter-spacing:.06em}
 .cta h2{font-family:'Noto Serif JP',serif;font-size:16pt;line-height:1.35;margin-top:1.2mm;font-weight:700}
-.cta .story{font-family:'Noto Serif JP',serif;font-size:10.3pt;font-weight:700;color:var(--sun);margin-top:1.5mm;line-height:1.5}
+.cta .story{font-family:'Noto Serif JP',serif;font-size:10.3pt;font-weight:700;color:var(--sun);margin-top:1mm;line-height:1.45}
 .cta .who{font-size:8.3pt;color:#cfdccf;margin-top:.5mm}
 .facts{display:flex;flex-wrap:wrap;gap:1.5mm;margin-top:2mm}
 .facts span{font-size:8.2pt;border:1px solid #ffffff55;padding:.3mm 2mm;color:#e9efe8}
@@ -125,7 +136,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .qr p{font-size:7pt;margin-top:.8mm;font-weight:700;line-height:1.2}
 .telrow{grid-column:1/4;display:flex;align-items:center;justify-content:flex-start;gap:3mm;margin-top:2mm;padding-top:2mm;border-top:1px solid #ffffff2a}
 .telrow .l{font-size:8.5pt;border:1px solid #fff9;padding:.3mm 2mm}
-.telrow .num{font-family:Georgia,serif;font-size:24pt;letter-spacing:.04em;line-height:1.1}
+.telrow .num{font-family:Georgia,serif;font-size:22pt;letter-spacing:.04em;line-height:1.1}
 .telrow .h{font-size:8pt;color:#cfdccf}
 .co{grid-column:1/4;margin-top:1.5mm;display:flex;justify-content:space-between;font-size:6.8pt;color:#b9c6ba}
 </style></head><body>
@@ -161,10 +172,10 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
     <div class="scenes"><div class="hd"></div><div class="hd now">いまのアパート</div><div class="hd ar"></div><div class="hd fut">S様邸での光景</div><div class="lb">子ども</div><div class="now">「走らないで！」と、今日も言ってしまう</div><div class="ar">▶</div><div class="fut">吹抜けのリビングに響く足音を、笑って聞いていられる</div><div class="lb">駐車場</div><div class="now">雨の日、離れた月極から子どもを抱えて歩く</div><div class="ar">▶</div><div class="fut">玄関の前に3台分。抱っこのまま数歩で家の中へ</div><div class="lb">収納</div><div class="now">押し入れはいっぱい。一部屋が物置に</div><div class="ar">▶</div><div class="fut">ベビーカーもBBQ道具も外部収納へ。部屋は家族のために</div><div class="lb">週末</div><div class="now">BBQは車で遠くの公園まで。片付けでへとへと</div><div class="ar">▶</div><div class="fut">南の小さな庭で七輪。焼ける間に、子どもは水遊び</div><div class="lb">お金</div><div class="now">家賃を払っても、手元に何も残らない</div><div class="ar">▶</div><div class="fut">毎月の支払いが、土地と家という資産に変わっていく</div></div>
   </div>
 
-  <div class="sec" style="padding-top:3.5mm">
+  <div class="sec" style="padding-top:2.8mm">
     <div class="sec-h">土地を読み解き、一から設計する<em>「おまかせプラン」</em>。</div>
     <p class="plan-lead">規格住宅ではありません。<b>設計事務所がつくった工務店</b>が、土地の形や周辺環境、風・光・眺望まで読み解いて一から設計・施工。<br><b>クセのない、誰もが住みやすい間取り</b>だから、将来<b>売るときも、貸すときも価値が残りやすい</b>。</p>
-    <p class="price-line"><b>おまかせプランは、坪あたりの定額制。</b>坪単価 <span class="ph">【要確認】○○万円（税込・含まれる範囲）</span> × S様邸 延床 約25坪</p>
+    <div class="price-tbl"><div class="pl"><b>おまかせプランは<br>広さごとの定額制</b><span>建物本体価格（税込）</span></div><div class="pt cur"><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div><div class="pn">※付帯工事・外構・諸費用は別途<br>※価格は<span class="ph">【要確認】○年○月</span>時点</div></div>
     <div class="plans">
       <figure><figcaption>配置図　土地 約44坪（144.74㎡）</figcaption><svg viewBox="-1900 -1250 18500 10750" class="plan site">
 <rect x="-1700" y="-250" width="1700" height="9750" fill="#e3e3dd"/>
