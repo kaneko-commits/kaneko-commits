@@ -1,0 +1,327 @@
+"""マンション版・アパート版のチラシHTMLを共通テンプレートから生成する。
+
+    python3 build.py   ->  flyer.html（マンション版） / flyer-apartment.html（アパート版）
+"""
+from pathlib import Path
+
+HERE = Path(__file__).parent
+
+# ---------------------------------------------------------------- アイコン
+ICON = {
+    'kid': '<path d="M16 22c-3 0-5 3-5 8s2 8 5 8 4-3 4-6-1-10-4-10z"/><circle cx="12" cy="16" r="1.6"/><circle cx="16" cy="14.5" r="1.6"/><circle cx="20" cy="16" r="1.6"/><path d="M32 12c-3 0-5 3-5 8s2 8 5 8 4-3 4-6-1-10-4-10z"/><circle cx="28" cy="6.5" r="1.4"/><circle cx="32" cy="5" r="1.4"/><circle cx="36" cy="6.5" r="1.4"/>',
+    'box': '<rect x="6" y="26" width="16" height="14"/><rect x="24" y="26" width="18" height="14"/><rect x="11" y="12" width="20" height="14"/><path d="M6 33h16M24 33h18M11 19h20"/><path d="M34 22l4-14"/>',
+    'tower': '<path d="M8 30l3-9a4 4 0 0 1 4-3h18a4 4 0 0 1 4 3l3 9"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/><path d="M6 10h36M6 6h36"/>',
+    'far': '<path d="M8 30l3-9a4 4 0 0 1 4-3h18a4 4 0 0 1 4 3l3 9"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/><path d="M6 10h24" stroke-dasharray="3 3"/><path d="M36 4v12M36 4h6v5h-6"/>',
+    'door': '<rect x="30" y="8" width="12" height="32" rx="1"/><circle cx="38" cy="25" r="1"/><path d="M4 40h22" stroke-dasharray="3 3"/><circle cx="12" cy="12" r="3"/><path d="M12 15v11l-4 10M12 26l4 10M12 18l-5 5M12 18l6 3"/>',
+    'bbq': '<path d="M8 24h32a16 10 0 0 1-32 0z"/><path d="M14 34l-4 8M34 34l4 8"/><path d="M16 18c0-3 3-4 2-8M24 18c0-3 3-4 2-8M32 18c0-3 3-4 2-8"/>',
+    'yen': '<circle cx="24" cy="24" r="16"/><path d="M17 15l7 9 7-9M24 24v11M18 26h12M18 31h12"/>',
+    'wall': '<rect x="21" y="6" width="6" height="36"/><path d="M21 14h6M21 22h6M21 30h6"/><path d="M33 18c3 2 3 10 0 12M37 14c5 4 5 16 0 20M15 18c-3 2-3 10 0 12M11 14c-5 4-5 16 0 20"/>',
+}
+
+# ---------------------------------------------------------------- 間取り（概略図）
+W = 'stroke="#25312c" stroke-width="70" fill="none" stroke-linecap="square"'
+w = 'stroke="#25312c" stroke-width="35" fill="none"'
+D = 'stroke="#7d9583" stroke-width="22" fill="none" stroke-dasharray="90 70"'
+
+
+def t(x, y, txt, size=290, bold=True, fill="#25312c"):
+    return f'<text x="{x}" y="{y}" font-size="{size}" text-anchor="middle" font-weight="{700 if bold else 500}" fill="{fill}">{txt}</text>'
+
+
+def num(x, y, n):
+    return f'<circle cx="{x}" cy="{y}" r="250" fill="#c8643b"/><text x="{x}" y="{y + 95}" font-size="270" text-anchor="middle" font-weight="900" fill="#fff">{n}</text>'
+
+
+def stairs(x0, y0, x1, y1, n=8):
+    out = f'<rect x="{x0}" y="{y0}" width="{x1 - x0}" height="{y1 - y0}" {w}/>'
+    h = (y1 - y0) / n
+    for i in range(1, n):
+        out += f'<line x1="{x0}" y1="{y0 + h * i:.0f}" x2="{x1}" y2="{y0 + h * i:.0f}" {w}/>'
+    return out
+
+
+PLAN_1F = f'''<svg viewBox="-150 -150 9400 6670" class="plan">
+<rect x="0" y="5460" width="6370" height="910" fill="#eef3ee"/>
+<rect x="4550" y="0" width="1730" height="5460" fill="#f6efe3"/>
+<line x1="4550" y1="0" x2="6280" y2="5460" {D}/><line x1="6280" y1="0" x2="4550" y2="5460" {D}/>
+<polygon points="0,0 9100,0 9100,6370 6370,6370 6370,5460 0,5460" {W}/>
+<path d="M910 0 V1820 M0 1820 H1820 M1820 0 V1365 M1820 2400 V5460 M0 3185 H900 M7280 0 V1500 M7280 2300 V6370 M7280 1820 H9100 M7280 4095 H9100" {W}/>
+<rect x="6370" y="5460" width="910" height="910" {W}/>
+<rect x="0" y="3185" width="455" height="1365" {w}/>
+<rect x="1950" y="80" width="2500" height="480" {w}/><rect x="2000" y="1365" width="2550" height="455" {w}/>
+{stairs(6280, 2900, 7280, 5460)}
+{t(3150, 3500, "LDK 18帖", 420)}{t(5415, 2300, "吹抜", 300, False, "#7d6a4a")}
+{t(1365, 1000, "食品庫", 230)}{t(455, 1000, "WC", 230)}{t(1000, 2650, "ホール", 230)}{t(1150, 4500, "玄関", 270)}
+{t(8190, 1000, "浴室", 260)}{t(8190, 3050, "洗面脱衣", 250)}{t(8190, 5100, "ファミリー", 230)}{t(8190, 5400, "クローゼット", 230)}
+{t(6825, 5850, "外部", 200)}{t(6825, 6130, "収納", 200)}{t(3100, 6030, "ポーチ・軒下", 230, False, "#5d675f")}
+{num(3150, 2700, "①")}{num(6780, 2550, "②")}{num(1365, 450, "③")}{num(8190, 4500, "④")}{num(6825, 5150, "⑤")}
+</svg>'''
+
+PLAN_2F = f'''<svg viewBox="-150 -150 7580 6670" class="plan">
+<rect x="4550" y="0" width="2730" height="4100" fill="#f6efe3"/>
+<rect x="0" y="0" width="7280" height="6370" {W}/>
+<path d="M0 2730 H4550 M4550 0 V2730 M0 3640 H3412 M3412 3640 V6370 M1500 2730 V3640" {W}/>
+<line x1="2275" y1="0" x2="2275" y2="2730" stroke="#c8643b" stroke-width="45" stroke-dasharray="120 80"/>
+<path d="M4550 1400 H7280 M4550 2750 H7280" stroke="#7d6a4a" stroke-width="30" stroke-dasharray="60 50"/>
+{stairs(6280, 4100, 7280, 6370, 6)}
+{t(2275, 1500, "子供室 7.5帖", 360)}{t(1700, 5150, "寝室 5.8帖", 340)}{t(750, 3300, "CL", 230)}
+{t(5915, 2150, "吹抜", 320, False, "#7d6a4a")}{t(4900, 4950, "ホール", 230)}
+{num(2275, 2300, "⑥")}
+</svg>'''
+
+PLAN_POINTS = [
+    ('18帖LDK＋吹抜け', '家族が自然と集まる中心'),
+    ('リビング階段', '子どもの「ただいま」が見える'),
+    ('食品庫＋玄関収納', '物があふれない'),
+    ('洗面横にファミリーCL', '洗う・しまうが一直線'),
+    ('外部収納', 'ベビーカー・BBQ道具に'),
+    ('子供室7.5帖', '将来2部屋に分けられる'),
+]
+
+# ---------------------------------------------------------------- 版ごとの文言
+VARIANTS = {
+    'mansion': dict(
+        file='flyer.html',
+        title='マンション住み替え 完成見学会チラシ｜樹の家こころ舎',
+        h1='「走らないで！」って、<br><em>本当は言いたくない。</em>',
+        lead_big='下の階を気にせず、家でも庭でも思いきり。',
+        lead='駅近に、庭と駐車場のある注文住宅を。マンションからの住み替えという選択肢。',
+        q='マンションの「ちょっと不便」、ありませんか？',
+        icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('tower', '立体駐車場の<br>出し入れ'),
+               ('door', '駐車場から<br>玄関が遠い'), ('bbq', '七輪やBBQが<br>できない')],
+        foot_sub='実際の家を見ながら、住み替えのご相談もどうぞ',
+        back_h='人生で何時間、<em>車が下りてくるのを</em>待つんだろう。',
+        back_sub='出庫待ちだけで<em>年間約36時間</em>。その時間を、子どもと遊ぶ時間に。<small>※1回3分・1日2回で試算</small>',
+        now_label='いまのマンション',
+        scenes=[
+            ('子ども', '「走らないで！」と、今日も言ってしまう', '吹抜けのリビングに響く足音を、笑って聞いていられる'),
+            ('駐車場', '寝た子を抱いて、出庫待ちとエレベーター', '玄関の前に車を停めて、抱っこのまま数歩で家の中へ'),
+            ('収納', '開かずの一部屋に、段ボールが積み上がる', 'ベビーカーもBBQ道具も外部収納へ。部屋は家族のために'),
+            ('週末', 'BBQは車で遠くの公園まで。片付けでへとへと', '土曜の夕方、庭で七輪。焼ける間に、子どもは水遊び'),
+            ('お金', '管理費・修繕積立金・駐車場代が毎月引かれる', '管理費も駐車場代もかからない。その分を家族の時間に'),
+        ],
+        steps=['無料相談', '資金計画', '土地探し・プラン', '売却・お引越し'],
+        steps_note='※マンションの売却は、お客様がお選びの不動産会社で行っていただきます。',
+        event='住み替え相談会',
+        gift1=('住み替え資金シミュレーション', 'ローンが残っていても住み替えられるか、売却額の想定から試算します'),
+    ),
+    'apartment': dict(
+        file='flyer-apartment.html',
+        title='アパートから家づくり 完成見学会チラシ｜樹の家こころ舎',
+        h1='駅チカがいい。<br><em>でも、マンションは嫌。</em>',
+        lead_big='大分駅近く、マンション以外の選択肢があったんだ。',
+        lead='庭と駐車場のある、街なかの注文住宅。家賃を払い続ける暮らしから、卒業しませんか。',
+        q='「走らないで」って、本当は言いたくない。',
+        icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('yen', '家賃を払っても<br>何も残らない'),
+               ('far', '駐車場が<br>家から離れている'), ('wall', '壁が薄くて<br>お隣の音が気になる')],
+        foot_sub='実際の家を見ながら「いまの家賃で建つ？」もご相談ください',
+        back_h='アパートの毎日は、<em>こう変わります。</em>',
+        back_sub='引っ越したあとの、ある一日を想像してみてください。',
+        now_label='いまのアパート',
+        scenes=[
+            ('子ども', '「走らないで！」と、今日も言ってしまう', '吹抜けのリビングに響く足音を、笑って聞いていられる'),
+            ('駐車場', '雨の日、離れた月極から子どもを抱えて歩く', '玄関の前に車を停めて、抱っこのまま数歩で家の中へ'),
+            ('収納', '押し入れはいっぱい。一部屋が物置に', 'ベビーカーもBBQ道具も外部収納へ。部屋は家族のために'),
+            ('週末', 'BBQは車で遠くの公園まで。片付けでへとへと', '土曜の夕方、庭で七輪。焼ける間に、子どもは水遊び'),
+            ('お金', '家賃を払っても、手元に何も残らない', '毎月の支払いが、土地と家という資産に変わっていく'),
+        ],
+        steps=['無料相談', '資金計画', '土地探し・プラン', '着工・お引越し'],
+        steps_note='「頭金がない」「何から始めればいいかわからない」段階からのご相談で大丈夫です。',
+        event='家づくり相談会',
+        gift1=('家づくり資金シミュレーション', 'いまの家賃や収入から、無理なく建てられる予算を試算します'),
+    ),
+}
+
+CSS = """
+@page{size:A4;margin:0}
+:root{--ink:#25312c;--muted:#5d675f;--forest:#3a5144;--deep:#283a30;--sage:#7d9583;--ivory:#faf9f5;--cream:#f2f0e8;--line:#d6d8cf;--warm:#c8643b;--sun:#f3d27a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;margin:10mm auto;background:var(--ivory);position:relative;overflow:hidden;box-shadow:0 4px 24px #0004;page-break-after:always}
+@media print{body{background:none}.page{margin:0;box-shadow:none}}
+.ph{color:var(--ink);background:#fff5b8;outline:1.5px dashed #d4a800;padding:0 1mm;border-radius:1mm}
+.serif{font-family:'Noto Serif JP',serif}
+
+/* ===== 表面 ===== */
+.hero{position:absolute;left:0;right:0;top:0;height:200mm;background:url('img/exterior.jpg') 47% 50%/cover no-repeat;text-align:center;color:#fff}
+.hero:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,32,25,.84) 0%,rgba(18,32,25,.5) 25%,transparent 45%),linear-gradient(0deg,rgba(18,32,25,.72) 0%,rgba(18,32,25,.3) 22%,transparent 36%)}
+.hero>*{position:absolute;left:0;right:0}
+.hero .to{top:12mm;font-size:10pt;font-weight:700;letter-spacing:.12em}
+.hero .to span{background:var(--warm);padding:1mm 4mm}
+.hero h1{top:22mm;font-family:'Noto Serif JP',serif;font-weight:700;font-size:33pt;line-height:1.42;letter-spacing:.06em;text-shadow:0 2px 10px #0007}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero .lead{bottom:17mm;font-family:'Noto Serif JP',serif;font-size:11.5pt;font-weight:600;line-height:1.7;letter-spacing:.04em;text-shadow:0 1px 6px #0009}
+.hero .lead .big{display:block;font-size:17pt;font-weight:700;margin-bottom:1mm}
+.hero .cg{left:auto;right:3mm;top:3mm;font-size:6.5pt;background:#0005;padding:.5mm 2mm}
+.band{position:absolute;left:14mm;right:14mm;top:190mm;height:22mm;background:#fff;border:1.5px solid var(--forest);border-radius:2mm;display:flex;align-items:stretch;box-shadow:0 3px 12px #0003;overflow:hidden}
+.band .tag{background:var(--forest);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 4mm;font-weight:900;font-size:9pt;line-height:1.35;letter-spacing:.08em;text-align:center}
+.band .tag b{font-size:12.5pt;color:var(--sun)}
+.band .mid{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;line-height:1.35}
+.band .mid .nm{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;letter-spacing:.12em;color:var(--forest)}
+.band .mid .nm small{font-size:9pt;letter-spacing:.04em;margin-left:2mm;color:var(--ink)}
+.band .mid .sb{font-size:8.2pt;font-weight:700;color:var(--muted)}
+.band .price{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 5mm;border-left:1px solid var(--line)}
+.band .price span{font-size:7.5pt;font-weight:700;color:var(--muted)}
+.band .price b{font-family:Georgia,serif;font-size:22pt;line-height:1;color:var(--warm);font-weight:400}
+.band .price b small{font-family:'Noto Sans JP';font-size:10pt;font-weight:700}
+.lower{position:absolute;left:0;right:0;top:217mm;bottom:22mm;padding:5mm 13mm 0;text-align:center}
+.q{font-family:'Noto Serif JP',serif;font-weight:700;font-size:13.5pt;color:var(--forest);letter-spacing:.05em}
+.icons{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm;margin-top:4.5mm}
+.ic .c{width:23mm;height:23mm;margin:auto;border-radius:50%;background:#fff;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative}
+.ic .c:after{content:'×';position:absolute;right:-1mm;top:-1mm;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--warm);color:#fff;font-weight:900;font-size:11pt;line-height:6.2mm;text-align:center}
+.ic svg{width:14mm;height:14mm;stroke:var(--forest);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ic p{font-size:9pt;font-weight:700;line-height:1.4;margin-top:1.8mm}
+.foot{position:absolute;left:0;right:0;bottom:0;height:22mm;background:var(--deep);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.5}
+.foot .msg{font-size:12pt;font-weight:700}
+.foot .msg small{font-size:8.5pt;font-weight:500;color:#cfdccf;margin-left:2mm}
+.foot .brand{font-family:'Noto Serif JP',serif;font-weight:700;font-size:11pt;letter-spacing:.12em;margin-top:.5mm}
+.foot .brand small{font-family:'Noto Sans JP';font-size:7.5pt;font-weight:500;letter-spacing:.04em;color:#cfdccf;margin-right:2mm}
+
+/* ===== 裏面 ===== */
+.sec{padding:0 13mm;text-align:center}
+.sec-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:16.5pt;line-height:1.45;letter-spacing:.04em}
+.sec-h em{font-style:normal;color:var(--warm)}
+.sub-h{font-size:9.2pt;font-weight:700;color:var(--muted);margin-top:.8mm}
+.sub-h em{font-style:normal;color:var(--warm)}
+.sub-h small{font-size:7pt;font-weight:500;margin-left:2mm}
+.scenes{display:grid;grid-template-columns:15mm 1fr 6mm 1.25fr;margin-top:3mm;text-align:left;font-size:8.8pt;line-height:1.45}
+.scenes>div{padding:1.2mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center}
+.scenes .hd{font-size:8.6pt;font-weight:700;justify-content:center;padding:1.4mm}
+.scenes .hd.ar{background:linear-gradient(90deg,#e7e7e2 50%,var(--forest) 50%)}
+.scenes .hd.now{background:#e7e7e2;color:var(--muted)}
+.scenes .hd.fut{background:var(--forest);color:#fff}
+.scenes .lb{font-weight:700;color:var(--forest);justify-content:center;padding:1.7mm 0}
+.scenes .now{background:#f6f6f2;color:var(--muted)}
+.scenes .ar{justify-content:center;color:var(--warm);font-weight:900;padding:0;background:linear-gradient(90deg,#f6f6f2 50%,#eef3ee 50%)}
+.scenes .fut{background:#eef3ee;font-weight:700;color:var(--forest)}
+.plan-lead{font-size:8.8pt;color:var(--muted);margin-top:1.2mm;line-height:1.65}
+.plan-lead b{color:var(--forest)}
+.plans{display:flex;justify-content:center;gap:7mm;margin-top:2.5mm;align-items:flex-end}
+.plans figure{margin:0}
+.plans figcaption{font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:.8mm;text-align:left}
+.plan{height:37mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
+.pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5mm 4mm;margin:2.5mm auto 0;max-width:176mm;text-align:left}
+.pts li{display:flex;gap:1.5mm;font-size:8.2pt;line-height:1.35}
+.pts li i{flex:none;font-style:normal;width:4.2mm;height:4.2mm;border-radius:50%;background:var(--warm);color:#fff;font-size:7pt;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:.3mm}
+.pts li b{display:block}
+.pts li span{color:var(--muted);font-size:7.5pt}
+.plan-note{font-size:6.8pt;color:var(--muted);margin-top:1.2mm}
+.srow{display:flex;align-items:center;justify-content:center;gap:3mm;border-top:1px solid var(--line);padding-top:2.5mm;margin-top:2.5mm}
+.srow>b{font-family:'Noto Serif JP',serif;font-size:12.5pt;white-space:nowrap}
+.srow>b em{font-style:normal;color:var(--warm)}
+.mini{display:flex;gap:1mm;width:118mm}
+.mini span{flex:1;background:var(--forest);color:#fff;font-size:8.4pt;font-weight:700;text-align:center;padding:1.6mm 0 1.6mm 2mm;clip-path:polygon(0 0,calc(100% - 2.5mm) 0,100% 50%,calc(100% - 2.5mm) 100%,0 100%,2.5mm 50%)}
+.mini span:nth-child(even){background:var(--deep)}
+.steps-note{font-size:7.8pt;color:var(--muted);margin-top:1.2mm}
+.cta{position:absolute;left:0;right:0;bottom:0;height:109mm;background:var(--deep);color:#fff;padding:5.5mm 13mm 0;display:grid;grid-template-columns:1fr 1fr 27mm;column-gap:3mm;align-content:start}
+.cta .head{grid-column:1/4;text-align:center}
+.cta .facts{justify-content:center}
+.cta .gift{display:contents}
+.cta .gift>div{margin-top:2.5mm;display:flex;flex-direction:column;justify-content:center}
+.cta .when{grid-column:1/4;text-align:center}
+.cta .ev{display:inline-block;background:var(--warm);font-size:9pt;font-weight:700;padding:.8mm 3mm;letter-spacing:.06em}
+.cta h2{font-family:'Noto Serif JP',serif;font-size:16.5pt;line-height:1.4;margin-top:1.5mm;font-weight:700}
+.cta .story{font-family:'Noto Serif JP',serif;font-size:10.3pt;font-weight:700;color:var(--sun);margin-top:1.5mm;line-height:1.5}
+.cta .who{font-size:8.3pt;color:#cfdccf;margin-top:.5mm}
+.facts{display:flex;flex-wrap:wrap;gap:1.5mm;margin-top:2mm}
+.facts span{font-size:8.2pt;border:1px solid #ffffff55;padding:.3mm 2mm;color:#e9efe8}
+.facts span.ph{color:var(--ink);border:0}
+.gift{margin-top:2.5mm;display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}
+.gift div{background:#ffffff14;border:1px solid #ffffff40;padding:2mm 3mm;font-size:8.4pt;line-height:1.45;color:#dfe7de}
+.gift b{display:block;color:var(--sun);font-size:10pt}
+.cta .when{font-size:9pt;margin-top:2mm;line-height:1.7}
+.qr{background:#fff;color:var(--ink);text-align:center;align-self:stretch;padding:1.5mm;border-radius:1.5mm;margin-top:2.5mm;display:flex;flex-direction:column;justify-content:center}
+.qr .box{width:16mm;height:16mm;margin:auto;border:1.5px dashed #d4a800;background:#fff5b8;display:flex;align-items:center;justify-content:center;font-size:7pt;line-height:1.4;color:#8a6d00}
+.qr p{font-size:7.5pt;margin-top:1.2mm;font-weight:700}
+.telrow{grid-column:1/4;display:flex;align-items:center;justify-content:center;gap:3mm;margin-top:3mm;padding-top:2.5mm;border-top:1px solid #ffffff2a}
+.telrow .l{font-size:8.5pt;border:1px solid #fff9;padding:.3mm 2mm}
+.telrow .num{font-family:Georgia,serif;font-size:24pt;letter-spacing:.04em;line-height:1.1}
+.telrow .h{font-size:8pt;color:#cfdccf}
+.co{grid-column:1/4;margin-top:2.5mm;display:flex;justify-content:space-between;font-size:6.8pt;color:#b9c6ba}
+"""
+
+
+def build(v):
+    icons = ''.join(f'<div class="ic"><div class="c"><svg viewBox="0 0 48 48">{ICON[k]}</svg></div><p>{lbl}</p></div>' for k, lbl in v['icons'])
+    scenes = (f'<div class="hd"></div><div class="hd now">{v["now_label"]}</div><div class="hd ar"></div><div class="hd fut">こころ舎の注文住宅での光景</div>'
+              + ''.join(f'<div class="lb">{a}</div><div class="now">{b}</div><div class="ar">▶</div><div class="fut">{c}</div>' for a, b, c in v['scenes']))
+    pts = ''.join(f'<li><i>{i}</i><div><b>{a}</b><span>{b}</span></div></li>' for i, (a, b) in enumerate(PLAN_POINTS, 1))
+    chips = ''.join(f'<span>{s}</span>' for s in v['steps'])
+    g1t, g1d = v['gift1']
+    return f'''<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{v['title']}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet">
+<style>{CSS}</style></head><body>
+
+<!-- ============ 表面 ============ -->
+<section class="page front">
+  <div class="hero">
+    <div class="to"><span>大分駅付近に職場があるご夫婦が建てた家</span></div>
+    <h1>{v['h1']}</h1>
+    <p class="lead"><span class="big">{v['lead_big']}</span>{v['lead']}</p>
+    <span class="cg">※イメージCG</span>
+  </div>
+  <div class="band">
+    <div class="tag">注文住宅<b>完成見学会</b></div>
+    <div class="mid"><div class="nm">S様邸<small>金池小学校区・上野ヶ丘中学校区</small></div><div class="sb">土地を読み解き一から設計する、こころ舎の「おまかせプラン」</div></div>
+    <div class="price"><span>この家は</span><b>4,000<small>万円台</small></b></div>
+  </div>
+  <div class="lower">
+    <p class="q">{v['q']}</p>
+    <div class="icons">{icons}</div>
+  </div>
+  <div class="foot">
+    <div class="msg">注文住宅の完成見学会、開催します。<small>{v['foot_sub']} ▶ 裏面へ</small></div>
+    <div class="brand"><small>設計事務所がつくった工務店</small>樹の家こころ舎</div>
+  </div>
+</section>
+
+<!-- ============ 裏面 ============ -->
+<section class="page back">
+  <div class="sec" style="padding-top:6mm">
+    <div class="sec-h">{v['back_h']}</div>
+    <p class="sub-h">{v['back_sub']}</p>
+    <div class="scenes">{scenes}</div>
+  </div>
+
+  <div class="sec" style="padding-top:3.5mm">
+    <div class="sec-h">土地を読み解き、一から設計する<em>「おまかせプラン」</em>。</div>
+    <p class="plan-lead">規格住宅ではありません。<b>設計事務所がつくった工務店</b>だから、設計から施工まで一貫。<br>土地の形や周辺環境、風・光・眺望まで読み解き、多くの家づくりで磨いた<b>クセのない、誰もが住みやすい間取り</b>に。<br>だから将来、<b>売るときも、貸すときも価値が残りやすい</b>。</p>
+    <div class="plans">
+      <figure><figcaption>1階</figcaption>{PLAN_1F}</figure>
+      <figure><figcaption>2階</figcaption>{PLAN_2F}</figure>
+    </div>
+    <ol class="pts">{pts}</ol>
+    <p class="plan-note">※実施図面をもとにした概略図　土地 約44坪（144.74㎡）／延床 約25坪（83.63㎡）</p>
+    <div class="srow"><b>走り回れるのは、<em>あと数年。</em></b><div class="mini">{chips}</div></div>
+    <p class="steps-note">{v['steps_note']}</p>
+  </div>
+
+  <div class="cta">
+    <div class="head">
+      <span class="ev">ご予約制・無料</span>
+      <h2>S様邸 注文住宅 完成見学会 ＆ {v['event']}</h2>
+      <p class="story">「庭は少しでいい。駐車場は3台欲しい。金池小校区で家を建てたい。」<br>その想いに「おまかせプラン」で応えた、44坪・4人家族の家。</p>
+      <p class="who">金池小・上野ヶ丘中校区／※販売物件ではありません。施主様のご厚意で公開する注文住宅です。</p>
+      <div class="facts"><span>土地44坪</span><span>駐車場3台</span><span>18帖LDK＋吹抜け</span><span>4,000万円台</span><span class="ph">【要確認】耐震・断熱等級</span></div>
+    </div>
+      <div class="gift">
+        <div><b>特典1　{g1t}</b>{g1d}</div>
+        <div><b>特典2　「建つかどうか」ラフプラン</b>気になる土地に、どんな家が建つか間取りでお見せします</div>
+      </div>
+      <div class="qr"><div class="box">【要確認】<br>QR</div><p>スマホから予約</p></div>
+      <p class="when">ご夫婦でのご参加歓迎・無理な売り込みはいたしません<br><span class="ph">【要確認】○月○日（土）・○日（日）10:00〜17:00　会場はご予約時にご案内します</span></p>
+    <div class="telrow"><span class="l">お電話でのご予約</span><span class="num">0972-83-5918</span><span class="h">受付 <span class="ph">【要確認】9:00〜18:00</span></span></div>
+    <div class="co"><span>設計事務所がつくった工務店　株式会社 樹の家こころ舎　<span class="ph">【要確認】住所・建設業許可番号</span></span><span>※掲載画像はイメージCGです　<span class="ph">【要確認】価格の内訳</span></span></div>
+  </div>
+</section>
+</body></html>
+'''
+
+
+if __name__ == '__main__':
+    for v in VARIANTS.values():
+        (HERE / v['file']).write_text(build(v), encoding='utf-8')
+        print('wrote', v['file'])
