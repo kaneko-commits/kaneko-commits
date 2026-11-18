@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>アパート向けチラシ｜樹の家こころ舎</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+:root{--ink:#25312c;--muted:#5d675f;--forest:#3a5144;--deep:#283a30;--sage:#7d9583;--ivory:#faf9f5;--cream:#f2f0e8;--line:#d6d8cf;--warm:#c8643b;--sun:#f3d27a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;margin:10mm auto;background:var(--ivory);position:relative;overflow:hidden;box-shadow:0 4px 24px #0004;page-break-after:always}
+@media print{body{background:none}.page{margin:0;box-shadow:none}}
+.ph{color:var(--ink);background:#fff5b8;outline:1.5px dashed #d4a800;padding:0 1mm;border-radius:1mm}
+
+/* ===== 表面 ===== */
+.hero{position:absolute;left:0;right:0;top:0;height:206mm;background:url('img/exterior.jpg') 47% 50%/cover no-repeat}
+.hero:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,32,25,.82) 0%,rgba(18,32,25,.45) 26%,transparent 46%),linear-gradient(0deg,rgba(18,32,25,.55) 0%,transparent 28%)}
+.hero .to{position:absolute;left:13mm;top:13mm;color:#fff;font-size:10pt;font-weight:700;letter-spacing:.12em}
+.hero .to span{background:var(--warm);padding:1mm 3mm}
+.hero h1{position:absolute;left:13mm;top:25mm;color:#fff;font-family:'Noto Serif JP',serif;font-weight:700;font-size:33pt;white-space:nowrap;line-height:1.42;letter-spacing:.06em;text-shadow:0 2px 10px #0006}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero .lead{position:absolute;left:13mm;bottom:9mm;color:#fff;font-family:'Noto Serif JP',serif;font-size:13pt;font-weight:600;line-height:1.6;letter-spacing:.05em;text-shadow:0 1px 6px #0008}
+.hero .lead .big{display:block;font-size:17pt;font-weight:700;margin-bottom:1.5mm}
+.hero .cg{position:absolute;right:3mm;bottom:2.5mm;font-size:6.5pt;color:#fff;background:#0005;padding:.5mm 2mm}
+.lower{position:absolute;left:0;right:0;top:206mm;bottom:22mm;padding:6.5mm 13mm 0}
+.q{text-align:center;font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;color:var(--forest);letter-spacing:.05em}
+.icons{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm;margin-top:5mm}
+.ic{text-align:center}
+.ic .c{width:25mm;height:25mm;margin:auto;border-radius:50%;background:#fff;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative}
+.ic .c:after{content:'×';position:absolute;right:-1mm;top:-1mm;width:8mm;height:8mm;border-radius:50%;background:var(--warm);color:#fff;font-weight:900;font-size:13pt;line-height:7.6mm;text-align:center}
+.ic svg{width:15mm;height:15mm;stroke:var(--forest);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ic p{font-size:9.8pt;font-weight:700;line-height:1.4;margin-top:2.5mm}
+.foot{position:absolute;left:0;right:0;bottom:0;height:22mm;background:var(--deep);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 13mm}
+.foot .msg{font-size:11pt;font-weight:700;line-height:1.5}
+.foot .msg small{display:block;font-size:8.5pt;font-weight:500;color:#cfdccf}
+.foot .brand{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14pt;letter-spacing:.14em}
+
+/* ===== 裏面 ===== */
+.b-pad{padding:8mm 13mm 0}
+.sec-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:17pt;line-height:1.45;letter-spacing:.04em}
+.sec-h em{font-style:normal;color:var(--warm)}
+.compare{margin-top:4mm;border-collapse:collapse;width:100%;font-size:10.5pt;line-height:1.5}
+.compare th,.compare td{border-bottom:1px solid var(--line);padding:2.6mm 3mm;vertical-align:middle}
+.compare thead th{font-size:9.5pt;padding:2mm}
+.compare thead th:nth-child(2){background:#e7e7e2;color:var(--muted)}
+.compare thead th:nth-child(3){background:var(--forest);color:#fff}
+.compare td:first-child{font-weight:700;width:22mm;color:var(--forest);white-space:nowrap}
+.compare td:nth-child(2){color:var(--muted);background:#f6f6f2;width:58mm}
+.compare td:nth-child(3){background:#eef3ee;font-weight:700;color:var(--forest)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-top:4mm}
+.card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--forest);padding:3.2mm 4mm;border-radius:0 0 2mm 2mm}
+.card .n{font-family:Georgia,serif;font-size:18pt;color:#a3b0a5;line-height:1}
+.card h3{font-family:'Noto Serif JP',serif;font-size:11.5pt;line-height:1.45;margin:2mm 0 1.5mm;font-weight:700}
+.card p{font-size:9.2pt;line-height:1.6;color:var(--muted)}
+.steps{display:flex;gap:1.5mm;margin-top:4mm}
+.step{flex:1;background:var(--deep);color:#fff;text-align:center;padding:2.6mm 1mm;clip-path:polygon(0 0,calc(100% - 3.5mm) 0,100% 50%,calc(100% - 3.5mm) 100%,0 100%,3.5mm 50%)}
+.step:first-child{clip-path:polygon(0 0,calc(100% - 3.5mm) 0,100% 50%,calc(100% - 3.5mm) 100%,0 100%)}
+.step:nth-child(even){background:var(--forest)}
+.step .s{font-family:Georgia,serif;font-size:7.5pt;color:var(--sun);letter-spacing:.1em}
+.step b{display:block;font-size:11pt;line-height:1.4}
+.steps-note{font-size:8.6pt;color:var(--muted);margin-top:2mm}
+.clock{margin:4.5mm 13mm 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:3mm 0;text-align:center;font-family:'Noto Serif JP',serif;font-weight:700;font-size:12pt;color:var(--forest)}
+.clock b{color:var(--warm);font-size:16pt;margin:0 1mm}
+.cta{position:absolute;left:0;right:0;bottom:0;height:80mm;background:var(--deep);color:#fff;padding:6mm 13mm 0;display:grid;grid-template-columns:1fr 32mm;column-gap:6mm;align-content:start}
+.cta .ev{display:inline-block;background:var(--warm);font-size:9pt;font-weight:700;padding:.8mm 3mm;letter-spacing:.06em}
+.cta h2{font-family:'Noto Serif JP',serif;font-size:17pt;line-height:1.4;margin-top:2mm;font-weight:700}
+.gift{margin-top:3mm;display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}
+.gift div{background:#ffffff14;border:1px solid #ffffff40;padding:2mm 3mm;font-size:8.4pt;line-height:1.45;color:#dfe7de}
+.gift b{display:block;color:var(--sun);font-size:10pt}
+.cta .when{font-size:9pt;margin-top:2mm;line-height:1.7}
+.qr{background:#fff;color:var(--ink);text-align:center;align-self:start;padding:2mm;border-radius:1.5mm;margin-top:9mm}
+.qr .box{width:28mm;height:28mm;margin:auto;border:1.5px dashed #d4a800;background:#fff5b8;display:flex;align-items:center;justify-content:center;font-size:7pt;line-height:1.4;color:#8a6d00}
+.qr p{font-size:7.5pt;margin-top:1.2mm;font-weight:700}
+.telrow{grid-column:1/3;display:flex;align-items:center;gap:3mm;margin-top:3mm;padding-top:2.5mm;border-top:1px solid #ffffff2a}
+.telrow .l{font-size:8.5pt;border:1px solid #fff9;padding:.3mm 2mm}
+.telrow .num{font-family:Georgia,serif;font-size:24pt;letter-spacing:.04em;line-height:1.1}
+.telrow .h{font-size:8pt;color:#cfdccf}
+.co{grid-column:1/3;margin-top:2.5mm;display:flex;justify-content:space-between;font-size:6.8pt;color:#b9c6ba}
+</style></head><body>
+
+<!-- ============ 表面 ============ -->
+<section class="page front">
+  <div class="hero">
+    <div class="to"><span>大分駅近くのアパートで子育て中のパパ・ママへ</span></div>
+    <h1>「走らないで！」って、<br><em>本当は言いたくない。</em></h1>
+    <p class="lead"><span class="big">下の階もお隣も気にせず、家でも庭でも思いきり。</span>小さな土地でも建てられる、街なかの一戸建て。<br>家賃を払い続ける暮らしから、卒業しませんか。</p>
+    <span class="cg">※イメージCG</span>
+  </div>
+
+  <div class="lower">
+    <p class="q">アパート暮らしの「ちょっと不便」、ありませんか？</p>
+    <div class="icons">
+      <div class="ic"><div class="c"><svg viewBox="0 0 48 48"><path d="M16 22c-3 0-5 3-5 8s2 8 5 8 4-3 4-6-1-10-4-10z"/><circle cx="12" cy="16" r="1.6"/><circle cx="16" cy="14.5" r="1.6"/><circle cx="20" cy="16" r="1.6"/><path d="M32 12c-3 0-5 3-5 8s2 8 5 8 4-3 4-6-1-10-4-10z"/><circle cx="28" cy="6.5" r="1.4"/><circle cx="32" cy="5" r="1.4"/><circle cx="36" cy="6.5" r="1.4"/></svg></div><p>子どもの足音が<br>気になる</p></div>
+      <div class="ic"><div class="c"><svg viewBox="0 0 48 48"><rect x="6" y="26" width="16" height="14"/><rect x="24" y="26" width="18" height="14"/><rect x="11" y="12" width="20" height="14"/><path d="M6 33h16M24 33h18M11 19h20"/><path d="M34 22l4-14"/></svg></div><p>収納が足りず<br>一部屋が物置に</p></div>
+      <div class="ic"><div class="c"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M17 15l7 9 7-9M24 24v11M18 26h12M18 31h12"/></svg></div><p>家賃を払っても<br>何も残らない</p></div>
+      <div class="ic"><div class="c"><svg viewBox="0 0 48 48"><path d="M8 30l3-9a4 4 0 0 1 4-3h18a4 4 0 0 1 4 3l3 9"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/><path d="M6 10h24" stroke-dasharray="3 3"/><path d="M36 4v12M36 4h6v5h-6"/></svg></div><p>駐車場が<br>家から離れている</p></div>
+      <div class="ic"><div class="c"><svg viewBox="0 0 48 48"><rect x="21" y="6" width="6" height="36"/><path d="M21 14h6M21 22h6M21 30h6"/><path d="M33 18c3 2 3 10 0 12M37 14c5 4 5 16 0 20M15 18c-3 2-3 10 0 12M11 14c-5 4-5 16 0 20"/></svg></div><p>壁が薄くて<br>お隣の音が気になる</p></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="msg">家づくりの無料相談会、開催します。<small>「いまの家賃で、どんな家が建つ？」からご相談ください ▶ 裏面へ</small></div>
+    <div class="brand">樹の家こころ舎</div>
+  </div>
+</section>
+
+<!-- ============ 裏面 ============ -->
+<section class="page back">
+  <div class="b-pad">
+    <div class="sec-h">アパートの「不満」は、<em>一戸建て</em>でこう変わります。</div>
+    <table class="compare">
+      <thead><tr><th></th><th>いまのアパート</th><th>こころ舎の街なか一戸建て</th></tr></thead>
+      <tbody>
+        <tr><td>子ども</td><td>「走らないで」が口ぐせ</td><td>家の中でも庭でも、思いきり遊べる</td></tr>
+        <tr><td>駐車場</td><td>月極が家から離れている</td><td>玄関の目の前。雨の日も数歩で家へ</td></tr>
+        <tr><td>収納</td><td>一部屋が物置に</td><td>食品庫・外部収納で、部屋は部屋として</td></tr>
+        <tr><td>週末</td><td>BBQは遠くの公園まで</td><td>庭で七輪・BBQ・水遊び</td></tr>
+        <tr><td>お金</td><td>家賃を払っても何も残らない</td><td>支払いが、土地と家という資産に</td></tr>
+        <tr><td>将来</td><td>更新のたびに迷う</td><td>土地が残り、売る・貸す・住み継ぐを選べる</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="b-pad" style="padding-top:5.5mm">
+    <div class="sec-h">樹の家こころ舎が選ばれる、<em>3つの理由</em>。</div>
+    <div class="three">
+      <div class="card"><div class="n">01</div><h3>狭小地でも、<br>広く暮らせる</h3><p>吹抜けで縦に広げる設計。小さな土地でも18帖のLDKを。</p></div>
+      <div class="card"><div class="n">02</div><h3>価値が残り、<br>選択肢が残る</h3><p>長く住み継げる性能とシンプルな間取りで、将来も選べる家に。</p></div>
+      <div class="card"><div class="n">03</div><h3>土地探しから、<br>一緒に</h3><p>いまの家賃をもとに、無理のない資金計画から一緒に考えます。</p></div>
+    </div>
+  </div>
+
+  <div class="b-pad" style="padding-top:5.5mm">
+    <div class="sec-h">家づくりは、この4ステップ。</div>
+    <div class="steps">
+      <div class="step"><span class="s">STEP 1</span><b>無料相談</b></div>
+      <div class="step"><span class="s">STEP 2</span><b>資金計画</b></div>
+      <div class="step"><span class="s">STEP 3</span><b>土地探し・プラン</b></div>
+      <div class="step"><span class="s">STEP 4</span><b>着工・お引越し</b></div>
+    </div>
+    <p class="steps-note">「頭金がない」「何から始めればいいかわからない」段階からのご相談で大丈夫です。</p>
+  </div>
+  <div class="clock"><span>子どもが家でも庭でも思いきり走り回れるのは、</span><b>あと数年。</b><span>だから、知るなら今。</span></div>
+
+  <div class="cta">
+    <div>
+      <span class="ev">ご予約制・無料</span>
+      <h2>アパートからの家づくり相談会</h2>
+      <div class="gift">
+        <div><b>特典1　家づくり資金シミュレーション</b>いまの家賃や収入から、無理なく建てられる予算を試算します</div>
+        <div><b>特典2　「建つかどうか」ラフプラン</b>気になる土地に、どんな家が建つか間取りでお見せします</div>
+      </div>
+      <p class="when">ご夫婦でのご参加歓迎・無理な売り込みはいたしません<br><span class="ph">【要確認】○月○日（土）・○日（日）10:00〜17:00　会場：○○○○</span></p>
+    </div>
+    <div class="qr"><div class="box">【要確認】<br>予約フォーム<br>QRコード</div><p>スマホから予約</p></div>
+    <div class="telrow"><span class="l">お電話でのご予約</span><span class="num">0972-83-5918</span><span class="h">受付 <span class="ph">【要確認】9:00〜18:00</span></span></div>
+    <div class="co"><span>株式会社 樹の家こころ舎　<span class="ph">【要確認】住所・建設業許可番号</span></span><span>※掲載画像はイメージCGです</span></div>
+  </div>
+</section>
+</body></html>
