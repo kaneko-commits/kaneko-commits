@@ -69,6 +69,27 @@ PLAN_2F = f'''<svg viewBox="-150 -150 7580 6670" class="plan">
 {num(2275, 2300, "⑥")}
 </svg>'''
 
+
+def car(x, y):
+    return (f'<rect x="{x}" y="{y}" width="4700" height="2100" rx="450" fill="#fff" stroke="#3a5144" stroke-width="70"/>'
+            f'<rect x="{x+2900}" y="{y+250}" width="1100" height="1600" rx="200" fill="#d6dfd8"/>')
+
+
+PLAN_SITE = f'''<svg viewBox="-1900 -1250 18500 10750" class="plan site">
+<rect x="-1700" y="-250" width="1700" height="9750" fill="#e3e3dd"/>
+<text x="-850" y="4500" font-size="620" text-anchor="middle" font-weight="700" fill="#5d675f" writing-mode="tb">道路</text>
+<polygon points="0,0 16308,0 16308,1914 15728,9015 0,9015" fill="#faf9f5" stroke="#5d675f" stroke-width="60" stroke-dasharray="260 140"/>
+<polygon points="5700,7370 15900,7370 15728,9015 5700,9015" fill="#dfe9dc"/>
+<text x="10700" y="8420" font-size="650" text-anchor="middle" font-weight="700" fill="#3a5144">庭</text>
+<rect x="5700" y="6460" width="6370" height="910" fill="#eef3ee"/>
+<polygon points="5700,1000 14800,1000 14800,7370 12070,7370 12070,6460 5700,6460" fill="#f6efe3" stroke="#25312c" stroke-width="110"/>
+<text x="10250" y="4300" font-size="700" text-anchor="middle" font-weight="700" fill="#25312c">家</text>
+<text x="6600" y="5900" font-size="560" text-anchor="middle" font-weight="900" fill="#c8643b">玄関</text>
+{car(500, 450)}{car(500, 3300)}{car(500, 6150)}
+<text x="2850" y="-330" font-size="800" text-anchor="middle" font-weight="900" fill="#c8643b">駐車場 3台</text>
+</svg>'''
+
+
 PLAN_POINTS = [
     ('18帖LDK＋吹抜け', '家族が自然と集まる中心'),
     ('リビング階段', '子どもの「ただいま」が見える'),
@@ -143,11 +164,11 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .serif{font-family:'Noto Serif JP',serif}
 
 /* ===== 表面 ===== */
-.hero{position:absolute;left:0;right:0;top:0;height:200mm;background:url('img/exterior.jpg') 47% 50%/cover no-repeat;text-align:center;color:#fff}
+.hero{position:absolute;left:0;right:0;top:0;height:200mm;background:url('img/exterior.jpg') 47% 50%/cover no-repeat;text-align:left;color:#fff}
 .hero:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,32,25,.84) 0%,rgba(18,32,25,.5) 25%,transparent 45%),linear-gradient(0deg,rgba(18,32,25,.72) 0%,rgba(18,32,25,.3) 22%,transparent 36%)}
-.hero>*{position:absolute;left:0;right:0}
+.hero>*{position:absolute;left:13mm;right:13mm}
 .hero .to{top:12mm;font-size:10pt;font-weight:700;letter-spacing:.12em}
-.hero .to span{background:var(--warm);padding:1mm 4mm}
+.hero .to span{background:var(--warm);padding:1mm 3mm}
 .hero h1{top:22mm;font-family:'Noto Serif JP',serif;font-weight:700;font-size:33pt;line-height:1.42;letter-spacing:.06em;text-shadow:0 2px 10px #0007}
 .hero h1 em{font-style:normal;color:var(--sun)}
 .hero .lead{bottom:17mm;font-family:'Noto Serif JP',serif;font-size:11.5pt;font-weight:600;line-height:1.7;letter-spacing:.04em;text-shadow:0 1px 6px #0009}
@@ -171,21 +192,21 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .ic .c:after{content:'×';position:absolute;right:-1mm;top:-1mm;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--warm);color:#fff;font-weight:900;font-size:11pt;line-height:6.2mm;text-align:center}
 .ic svg{width:14mm;height:14mm;stroke:var(--forest);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ic p{font-size:9pt;font-weight:700;line-height:1.4;margin-top:1.8mm}
-.foot{position:absolute;left:0;right:0;bottom:0;height:22mm;background:var(--deep);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.5}
+.foot{position:absolute;left:0;right:0;bottom:0;height:22mm;background:var(--deep);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 13mm;line-height:1.5}
 .foot .msg{font-size:12pt;font-weight:700}
-.foot .msg small{font-size:8.5pt;font-weight:500;color:#cfdccf;margin-left:2mm}
-.foot .brand{font-family:'Noto Serif JP',serif;font-weight:700;font-size:11pt;letter-spacing:.12em;margin-top:.5mm}
-.foot .brand small{font-family:'Noto Sans JP';font-size:7.5pt;font-weight:500;letter-spacing:.04em;color:#cfdccf;margin-right:2mm}
+.foot .msg small{display:block;font-size:8.5pt;font-weight:500;color:#cfdccf}
+.foot .brand{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14pt;letter-spacing:.12em;text-align:right}
+.foot .brand small{display:block;font-family:'Noto Sans JP';font-size:7.5pt;font-weight:500;letter-spacing:.04em;color:#cfdccf}
 
 /* ===== 裏面 ===== */
-.sec{padding:0 13mm;text-align:center}
+.sec{padding:0 13mm;text-align:left}
 .sec-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:16.5pt;line-height:1.45;letter-spacing:.04em}
 .sec-h em{font-style:normal;color:var(--warm)}
 .sub-h{font-size:9.2pt;font-weight:700;color:var(--muted);margin-top:.8mm}
 .sub-h em{font-style:normal;color:var(--warm)}
 .sub-h small{font-size:7pt;font-weight:500;margin-left:2mm}
-.scenes{display:grid;grid-template-columns:15mm 1fr 6mm 1.25fr;margin-top:3mm;text-align:left;font-size:8.8pt;line-height:1.45}
-.scenes>div{padding:1.2mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center}
+.scenes{display:grid;grid-template-columns:15mm 1fr 6mm 1.25fr;margin-top:3mm;text-align:center;font-size:8.8pt;line-height:1.45}
+.scenes>div{padding:1.2mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
 .scenes .hd{font-size:8.6pt;font-weight:700;justify-content:center;padding:1.4mm}
 .scenes .hd.ar{background:linear-gradient(90deg,#e7e7e2 50%,var(--forest) 50%)}
 .scenes .hd.now{background:#e7e7e2;color:var(--muted)}
@@ -196,17 +217,18 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .scenes .fut{background:#eef3ee;font-weight:700;color:var(--forest)}
 .plan-lead{font-size:8.8pt;color:var(--muted);margin-top:1.2mm;line-height:1.65}
 .plan-lead b{color:var(--forest)}
-.plans{display:flex;justify-content:center;gap:7mm;margin-top:2.5mm;align-items:flex-end}
+.plans{display:flex;justify-content:space-between;gap:4mm;margin-top:2.5mm;align-items:flex-end}
 .plans figure{margin:0}
-.plans figcaption{font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:.8mm;text-align:left}
-.plan{height:37mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
-.pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5mm 4mm;margin:2.5mm auto 0;max-width:176mm;text-align:left}
+.plans figcaption{white-space:nowrap;font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:.8mm;text-align:left}
+.plan{height:35mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
+.plan.site{height:41mm}
+.pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5mm 4mm;margin:2.5mm 0 0;text-align:left}
 .pts li{display:flex;gap:1.5mm;font-size:8.2pt;line-height:1.35}
 .pts li i{flex:none;font-style:normal;width:4.2mm;height:4.2mm;border-radius:50%;background:var(--warm);color:#fff;font-size:7pt;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:.3mm}
 .pts li b{display:block}
 .pts li span{color:var(--muted);font-size:7.5pt}
 .plan-note{font-size:6.8pt;color:var(--muted);margin-top:1.2mm}
-.srow{display:flex;align-items:center;justify-content:center;gap:3mm;border-top:1px solid var(--line);padding-top:2.5mm;margin-top:2.5mm}
+.srow{display:flex;align-items:center;justify-content:space-between;gap:3mm;border-top:1px solid var(--line);padding-top:2.5mm;margin-top:2.5mm}
 .srow>b{font-family:'Noto Serif JP',serif;font-size:12.5pt;white-space:nowrap}
 .srow>b em{font-style:normal;color:var(--warm)}
 .mini{display:flex;gap:1mm;width:118mm}
@@ -214,11 +236,11 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .mini span:nth-child(even){background:var(--deep)}
 .steps-note{font-size:7.8pt;color:var(--muted);margin-top:1.2mm}
 .cta{position:absolute;left:0;right:0;bottom:0;height:109mm;background:var(--deep);color:#fff;padding:5.5mm 13mm 0;display:grid;grid-template-columns:1fr 1fr 27mm;column-gap:3mm;align-content:start}
-.cta .head{grid-column:1/4;text-align:center}
-.cta .facts{justify-content:center}
+.cta .head{grid-column:1/4;text-align:left}
+.cta .facts{justify-content:flex-start}
 .cta .gift{display:contents}
 .cta .gift>div{margin-top:2.5mm;display:flex;flex-direction:column;justify-content:center}
-.cta .when{grid-column:1/4;text-align:center}
+.cta .when{grid-column:1/4;text-align:left}
 .cta .ev{display:inline-block;background:var(--warm);font-size:9pt;font-weight:700;padding:.8mm 3mm;letter-spacing:.06em}
 .cta h2{font-family:'Noto Serif JP',serif;font-size:16.5pt;line-height:1.4;margin-top:1.5mm;font-weight:700}
 .cta .story{font-family:'Noto Serif JP',serif;font-size:10.3pt;font-weight:700;color:var(--sun);margin-top:1.5mm;line-height:1.5}
@@ -233,7 +255,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .qr{background:#fff;color:var(--ink);text-align:center;align-self:stretch;padding:1.5mm;border-radius:1.5mm;margin-top:2.5mm;display:flex;flex-direction:column;justify-content:center}
 .qr .box{width:16mm;height:16mm;margin:auto;border:1.5px dashed #d4a800;background:#fff5b8;display:flex;align-items:center;justify-content:center;font-size:7pt;line-height:1.4;color:#8a6d00}
 .qr p{font-size:7.5pt;margin-top:1.2mm;font-weight:700}
-.telrow{grid-column:1/4;display:flex;align-items:center;justify-content:center;gap:3mm;margin-top:3mm;padding-top:2.5mm;border-top:1px solid #ffffff2a}
+.telrow{grid-column:1/4;display:flex;align-items:center;justify-content:flex-start;gap:3mm;margin-top:3mm;padding-top:2.5mm;border-top:1px solid #ffffff2a}
 .telrow .l{font-size:8.5pt;border:1px solid #fff9;padding:.3mm 2mm}
 .telrow .num{font-family:Georgia,serif;font-size:24pt;letter-spacing:.04em;line-height:1.1}
 .telrow .h{font-size:8pt;color:#cfdccf}
@@ -290,11 +312,11 @@ def build(v):
     <div class="sec-h">土地を読み解き、一から設計する<em>「おまかせプラン」</em>。</div>
     <p class="plan-lead">規格住宅ではありません。<b>設計事務所がつくった工務店</b>だから、設計から施工まで一貫。<br>土地の形や周辺環境、風・光・眺望まで読み解き、多くの家づくりで磨いた<b>クセのない、誰もが住みやすい間取り</b>に。<br>だから将来、<b>売るときも、貸すときも価値が残りやすい</b>。</p>
     <div class="plans">
-      <figure><figcaption>1階</figcaption>{PLAN_1F}</figure>
-      <figure><figcaption>2階</figcaption>{PLAN_2F}</figure>
+      <figure><figcaption>配置図　土地 約44坪（144.74㎡）</figcaption>{PLAN_SITE}</figure>
+      <figure><figcaption>1階　延床 約25坪（83.63㎡）</figcaption>{PLAN_1F}</figure>
+      <figure><figcaption>2階 <span style="font-weight:500;color:var(--muted);font-size:6.5pt">※概略図。車・植栽はイメージ</span></figcaption>{PLAN_2F}</figure>
     </div>
     <ol class="pts">{pts}</ol>
-    <p class="plan-note">※実施図面をもとにした概略図　土地 約44坪（144.74㎡）／延床 約25坪（83.63㎡）</p>
     <div class="srow"><b>走り回れるのは、<em>あと数年。</em></b><div class="mini">{chips}</div></div>
     <p class="steps-note">{v['steps_note']}</p>
   </div>
