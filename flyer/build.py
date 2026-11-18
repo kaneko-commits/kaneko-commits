@@ -119,12 +119,12 @@ VARIANTS = {
             ('駐車場', '寝た子を抱いて、出庫待ちとエレベーター', '玄関の前に3台分。抱っこのまま数歩で家の中へ'),
             ('収納', '開かずの一部屋に、段ボールが積み上がる', 'ベビーカーもBBQ道具も外部収納へ。部屋は家族のために'),
             ('週末', 'BBQは車で遠くの公園まで。片付けでへとへと', '南の小さな庭で七輪。焼ける間に、子どもは水遊び'),
-            ('お金', '管理費・修繕積立金・駐車場代が毎月引かれる', '管理費も駐車場代もかからない。その分を家族の時間に'),
+            ('お金', '管理費・修繕積立金・駐車場代が毎月引かれる', '管理費・駐車場代はゼロ。修繕は自分たちのペースで計画'),
         ],
         steps=['無料相談', '資金計画', '土地探し・プラン', '売却・お引越し'],
         steps_note='※マンションの売却は、お客様がお選びの不動産会社で行っていただきます。',
         event='住み替え相談会',
-        gift1=('住み替え資金シミュレーション', 'ローンが残っていても住み替えられるかを試算'),
+        gift1=('住み替え資金シミュレーション', 'ローン残債・売る順番・二重ローンの不安まで整理'),
     ),
     'apartment': dict(
         file='flyer-apartment.html',
@@ -316,7 +316,7 @@ def build(v):
   </div>
   <div class="band">
     <div class="tag">注文住宅<b>完成見学会</b></div>
-    <div class="mid"><div class="nm">S様邸<small>金池小学校区・上野ヶ丘中学校区</small></div><div class="sb">土地を読み解き一から設計する、こころ舎の「おまかせプラン」</div></div>
+    <div class="mid"><div class="nm">S様邸<small>金池小・上野ヶ丘中校区／大分駅から<span class="ph">○分</span></small></div><div class="sb">土地を読み解き一から設計する、こころ舎の「おまかせプラン」</div></div>
     <div class="price"><span>この家は</span><b>4,000<small>万円台</small></b></div>
   </div>
   <div class="lower">
@@ -324,7 +324,7 @@ def build(v):
     <div class="icons">{icons}</div>
   </div>
   <div class="foot">
-    <div class="msg">注文住宅の完成見学会、開催します。<small>{v['foot_sub']} ▶ 裏面へ</small></div>
+    <div class="msg">注文住宅の完成見学会　<span class="ph" style="font-size:10pt">【要確認】○/○（土）・○（日）</span><small>ご予約制・お子さま連れ歓迎。{v['foot_sub']} ▶ 裏面へ</small></div>
     <div class="brand"><small>設計事務所がつくった工務店</small>樹の家こころ舎</div>
   </div>
 </section>
@@ -339,7 +339,7 @@ def build(v):
 
   <div class="sec" style="padding-top:2.8mm">
     <div class="sec-h">土地を読み解き、一から設計する<em>「おまかせプラン」</em>。</div>
-    <p class="plan-lead">規格住宅ではありません。<b>設計事務所がつくった工務店</b>が、土地の形や周辺環境、風・光・眺望まで読み解いて一から設計・施工。<br><b>クセのない、誰もが住みやすい間取り</b>だから、将来<b>売るときも、貸すときも価値が残りやすい</b>。</p>
+    <p class="plan-lead">規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計。<br><b>設計事務所がつくった工務店</b>が施工まで一貫。<b>クセのない間取り</b>だから、<b>売るときも、貸すときも価値が残りやすい</b>。</p>
     <div class="price-tbl"><div class="pl"><b>おまかせプランは<br>広さごとの定額制</b><span>建物本体価格（税込）</span></div><div class="pt cur"><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div><div class="pn">※付帯工事・外構・諸費用は別途<br>※価格は<span class="ph">【要確認】○年○月</span>時点</div></div>
     <div class="plans">
       <figure><figcaption>配置図　土地 約44坪（144.74㎡）</figcaption>{PLAN_SITE}</figure>
@@ -363,17 +363,16 @@ def build(v):
 
   <div class="cta">
     <div class="head">
-      <span class="ev">ご予約制・無料</span>
+      <span class="ev">ご予約制・無料</span><span style="font-size:7.5pt;color:#cfdccf;margin-left:3mm">※販売物件ではありません。施主様のご厚意で公開する注文住宅です。</span>
       <h2>S様邸 注文住宅 完成見学会 ＆ {v['event']}</h2>
-      <p class="story">「庭は少しでいい。駐車場は3台欲しい。金池小校区で家を建てたい。」<br>その想いに「おまかせプラン」で応えた、44坪・4人家族の家。</p>
-      <p class="who">※販売物件ではありません。施主様のご厚意で公開する注文住宅です。<span class="ph">【要確認】耐震・断熱等級</span></p>
+      <p class="story">「庭は少しでいい。駐車場は3台欲しい。金池小校区で家を建てたい。」<br>その想いに「おまかせプラン」で応えた、44坪・4人家族の家。<span class="ph" style="font-size:7.5pt;font-family:'Noto Sans JP'">【要確認】耐震・断熱等級</span></p>
     </div>
       <div class="gift">
         <div><b>特典1　{g1t}</b>{g1d}</div>
         <div><b>特典2　「建つかどうか」ラフプラン</b>気になる土地に建つ間取りをお見せします</div>
       </div>
       <div class="qr"><div class="box">【要確認】<br>QR</div><p>スマホから予約</p></div>
-      <p class="when">ご夫婦歓迎・無理な売り込みはいたしません　<span class="ph">【要確認】○月○日（土）・○日（日）10:00〜17:00／会場はご予約時にご案内</span></p>
+      <p class="when">ご夫婦・お子さま連れ歓迎／見学は約<span class="ph">○分</span>／無理な売り込みはいたしません<br><span class="ph">【要確認】○月○日（土）・○日（日）10:00〜17:00／各回○組限定／会場はご予約時にご案内</span></p>
     <div class="telrow"><span class="l">お電話でのご予約</span><span class="num">0972-83-5918</span><span class="h">受付 <span class="ph">【要確認】9:00〜18:00</span></span></div>
     <div class="co"><span>設計事務所がつくった工務店　株式会社 樹の家こころ舎　<span class="ph">【要確認】住所・建設業許可番号</span></span><span>※掲載画像はイメージCGです　<span class="ph">【要確認】価格の内訳</span></span></div>
   </div>
