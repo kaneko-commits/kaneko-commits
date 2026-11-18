@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>住み替えチラシ｜樹の家こころ舎</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+:root{--ink:#25312c;--muted:#5d675f;--forest:#3a5144;--deep:#283a30;--sage:#7d9583;--ivory:#faf9f5;--cream:#f2f0e8;--line:#d6d8cf;--warm:#c8643b;--warm-bg:#fbeee6;--sun:#f3d27a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;margin:10mm auto;background:var(--ivory);position:relative;overflow:hidden;box-shadow:0 4px 24px #0004;page-break-after:always}
+@media print{body{background:none}.page{margin:0;box-shadow:none}}
+.serif{font-family:'Noto Serif JP',serif}
+.ph{color:var(--ink);background:#fff5b8;outline:1.5px dashed #d4a800;padding:0 1mm;border-radius:1mm}
+
+/* ===== 表面 ===== */
+.top{background:var(--deep);color:#fff;padding:9mm 12mm 7mm;position:relative}
+.top .to{font-size:9.5pt;letter-spacing:.12em;color:#cfdccf;font-weight:500}
+.top h1{font-family:'Noto Serif JP',serif;font-weight:700;font-size:25pt;line-height:1.45;letter-spacing:.04em;margin-top:3mm}
+.top h1 em{font-style:normal;color:var(--sun)}
+.top .sub{margin-top:2.5mm;font-size:10pt;line-height:1.75;color:#e6ece5}
+.pains{padding:6mm 12mm 0}
+.pains-h{display:flex;align-items:center;gap:3mm;font-weight:700;font-size:11.5pt;color:var(--forest)}
+.pains-h:before,.pains-h:after{content:'';flex:1;height:1px;background:var(--line)}
+.grid5{display:grid;grid-template-columns:1fr 1fr;gap:2.6mm 3.5mm;margin-top:3.5mm}
+.pain{background:#fff;border:1px solid var(--line);border-radius:2.5mm;padding:2.8mm 3.2mm 2.8mm 11mm;position:relative;font-size:9pt;line-height:1.6}
+.pain:before{content:'✓';position:absolute;left:3mm;top:2.8mm;width:5.5mm;height:5.5mm;border:1.5px solid var(--warm);border-radius:1mm;color:var(--warm);font-weight:900;font-size:10pt;line-height:5mm;text-align:center}
+.pain b{display:block;font-size:10.5pt;color:var(--ink);font-weight:700;margin-bottom:.6mm}
+.pain span{color:var(--muted)}
+.pain.wide{grid-column:1/3}
+.bridge{text-align:center;margin:4.5mm 0 0;font-family:'Noto Serif JP',serif;font-size:12pt;font-weight:600;color:var(--forest);letter-spacing:.05em}
+.bridge small{display:block;font-family:'Noto Sans JP';font-size:8.5pt;font-weight:500;color:var(--muted);letter-spacing:0}
+.arrow{width:0;height:0;margin:1.5mm auto 0;border-left:7mm solid transparent;border-right:7mm solid transparent;border-top:4.5mm solid var(--sage)}
+.visual{position:relative;margin-top:3mm;height:104mm;background:url('img/exterior.jpg') center 62%/cover}
+.visual:before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,26,20,.78) 0%,rgba(14,26,20,.15) 52%,transparent 70%)}
+.visual .copy{position:absolute;left:12mm;right:12mm;bottom:8mm;color:#fff}
+.visual .kicker{display:inline-block;background:var(--warm);color:#fff;font-size:9pt;font-weight:700;padding:1mm 3mm;letter-spacing:.08em}
+.visual h2{font-family:'Noto Serif JP',serif;font-weight:700;font-size:21pt;line-height:1.5;margin-top:2.5mm;letter-spacing:.04em;text-shadow:0 1px 6px #0006}
+.visual p{font-size:9.5pt;line-height:1.75;margin-top:1.5mm;text-shadow:0 1px 4px #0008}
+.visual .cg{position:absolute;right:3mm;top:2.5mm;font-size:6.5pt;color:#fff;background:#0005;padding:.5mm 2mm}
+.front-foot{position:absolute;left:0;right:0;bottom:0;height:19mm;background:var(--cream);display:flex;align-items:center;justify-content:space-between;padding:0 12mm;border-top:1px solid var(--line)}
+.front-foot .msg{font-size:9pt;line-height:1.55;font-weight:500}
+.front-foot .msg b{color:var(--warm);font-size:11pt}
+.front-foot .brand{text-align:right;font-family:'Noto Serif JP',serif;font-weight:700;font-size:13pt;letter-spacing:.14em;color:var(--forest)}
+.front-foot .brand small{display:block;font-family:'Noto Sans JP';font-size:7pt;letter-spacing:.05em;color:var(--muted);font-weight:500}
+
+/* ===== 裏面 ===== */
+.b-pad{padding:8mm 12mm 0}
+.sec-tag{font-size:8pt;letter-spacing:.25em;color:var(--sage);font-weight:700}
+.sec-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:16pt;line-height:1.45;letter-spacing:.04em;margin-top:1mm}
+.sec-h em{font-style:normal;color:var(--warm)}
+.compare{margin-top:3mm;border-collapse:collapse;width:100%;font-size:8.6pt;line-height:1.5}
+.compare th,.compare td{border-bottom:1px solid var(--line);padding:1.5mm 2.2mm;vertical-align:middle}
+.compare thead th{font-size:9pt;padding:1.8mm}
+.compare thead th:nth-child(2){background:#e7e7e2;color:var(--muted)}
+.compare thead th:nth-child(3){background:var(--forest);color:#fff}
+.compare td:first-child{font-weight:700;width:23mm;white-space:nowrap;color:var(--forest);font-size:8.6pt}
+.compare td:nth-child(2){color:var(--muted);background:#f6f6f2;width:62mm}
+.compare td:nth-child(3){background:#eef3ee;font-weight:500}
+.compare td:nth-child(3) b{color:var(--forest)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:3.5mm}
+.card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--forest);padding:3mm 3mm 3.2mm;border-radius:0 0 2mm 2mm}
+.card .n{font-family:Georgia,serif;font-size:17pt;color:#a3b0a5;line-height:1}
+.card h3{font-family:'Noto Serif JP',serif;font-size:10.8pt;line-height:1.45;margin:1.2mm 0 1.5mm;font-weight:700}
+.card p{font-size:8pt;line-height:1.65;color:var(--muted)}
+.card .pt{margin-top:1.8mm;background:var(--cream);font-size:7.8pt;line-height:1.55;padding:1.5mm 2mm;border-radius:1mm}
+.card .pt b{color:var(--forest)}
+.steps{display:flex;gap:1.5mm;margin-top:3mm}
+.step{flex:1;background:var(--deep);color:#fff;text-align:center;padding:2.2mm 1mm 2.4mm;position:relative;clip-path:polygon(0 0,calc(100% - 3mm) 0,100% 50%,calc(100% - 3mm) 100%,0 100%,3mm 50%)}
+.step:first-child{clip-path:polygon(0 0,calc(100% - 3mm) 0,100% 50%,calc(100% - 3mm) 100%,0 100%)}
+.step:nth-child(even){background:var(--forest)}
+.step .s{font-family:Georgia,serif;font-size:7pt;color:var(--sun);letter-spacing:.1em}
+.step b{display:block;font-size:8.6pt;line-height:1.35;font-weight:700}
+.step small{display:block;font-size:6.6pt;color:#d5e0d5;line-height:1.35;margin-top:.5mm}
+.steps-note{font-size:7.8pt;color:var(--muted);margin-top:1.8mm;line-height:1.6}
+.steps-note b{color:var(--warm)}
+.cta{position:absolute;left:0;right:0;bottom:0;height:70mm;background:var(--deep);color:#fff;padding:5mm 12mm 0;display:grid;grid-template-columns:1fr 31mm;column-gap:5mm;align-content:start}.cta .telrow{grid-column:1/3;display:flex;align-items:center;gap:3mm;margin-top:1.5mm;padding-top:1.5mm;border-top:1px solid #ffffff2a}
+.cta .ev{display:inline-block;background:var(--warm);font-size:8.5pt;font-weight:700;padding:.8mm 3mm;letter-spacing:.06em}
+.cta h2{font-family:'Noto Serif JP',serif;font-size:15pt;line-height:1.4;margin-top:1.5mm;font-weight:700}
+.cta .info{font-size:8.4pt;line-height:1.62;margin-top:1mm;color:#e3e9e2}
+.cta .info b{color:#fff}
+.tel{display:flex;align-items:baseline;gap:2.5mm}
+.tel .l{font-size:8pt;border:1px solid #fff9;padding:.3mm 2mm}
+.tel .num{font-family:Georgia,serif;font-size:23pt;letter-spacing:.04em;line-height:1.1}
+.tel .h{font-size:7.5pt;color:#cfdccf}
+.qr{background:#fff;color:var(--ink);text-align:center;align-self:start;padding:2mm;border-radius:1.5mm}
+.qr .box{width:27mm;height:27mm;margin:auto;border:1.5px dashed #d4a800;background:#fff5b8;display:flex;align-items:center;justify-content:center;font-size:7pt;line-height:1.4;color:#8a6d00}
+.qr p{font-size:7pt;line-height:1.4;margin-top:1.2mm;font-weight:700}
+.co{grid-column:1/3;margin-top:2mm;display:flex;justify-content:space-between;font-size:6.6pt;color:#b9c6ba;border-top:1px solid #ffffff2a;padding-top:1.5mm}
+.notes{font-size:6.6pt;color:#8a918b;line-height:1.5;margin-top:2mm}
+</style></head><body>
+
+<!-- ============ 表面 ============ -->
+<section class="page front">
+  <div class="top">
+    <div class="to">大分駅周辺のマンションにお住まいの、子育て中のご家族へ</div>
+    <h1>「駅近だから」と選んだマンション。<br>いまの暮らしに、<em>ちょうどいい</em>ですか？</h1>
+    <p class="sub">通勤には便利。でも、子どもが生まれて、毎日の「ちょっとした我慢」が増えていませんか。</p>
+  </div>
+
+  <div class="pains">
+    <div class="pains-h">ひとつでも当てはまったら、住み替えを考えるタイミングかもしれません</div>
+    <div class="grid5">
+      <div class="pain"><b>立体駐車場の出し入れが面倒</b><span>出庫待ちの数分。雨の日、チャイルドシートの乗せ降ろしがひと苦労。</span></div>
+      <div class="pain"><b>駐車場から玄関までが遠い</b><span>寝てしまった子と買い物袋を抱えて、エレベーターと長い廊下。</span></div>
+      <div class="pain"><b>「走らないで！」が口ぐせに</b><span>下の階への足音が気になって、家の中でも思いきり遊ばせられない。</span></div>
+      <div class="pain"><b>七輪やBBQができない</b><span>週末、家族で庭ごはん…は、ベランダでは規約で難しい。</span></div>
+      <div class="pain wide"><b>管理費・修繕積立金・駐車場代……「住んでいるだけ」でかかるお金がじわじわ増える</b><span>ローンが終わっても続く固定費。この先も払い続けるのか、少し気になっている。</span></div>
+    </div>
+    <p class="bridge">駅の近くに戸建ては、予算的にムリ ── そう思っていませんか？<small>じつは、その思い込みがいちばんの「我慢」の原因かもしれません。</small></p>
+    <div class="arrow"></div>
+  </div>
+
+  <div class="visual">
+    <span class="cg">※イメージCG。外構・植栽は演出を含みます</span>
+    <div class="copy">
+      <span class="kicker">マンションから、街なかの戸建てへ</span>
+      <h2>小さな土地でも、<br>車は玄関の前。子どもは庭へ。</h2>
+      <p>大分駅周辺の“狭小地”を活かして、18帖のLDKと吹抜けのある家。<br>樹の家こころ舎は、マンション売却から土地探し・家づくりまで、住み替えをまるごとお手伝いします。</p>
+    </div>
+  </div>
+
+  <div class="front-foot">
+    <div class="msg">「うちの場合はどうなる？」がわかる<br><b>住み替え無料相談</b>のご案内は裏面へ ▶</div>
+    <div class="brand">樹の家こころ舎<small>設計・施工　株式会社 樹の家こころ舎</small></div>
+  </div>
+</section>
+
+<!-- ============ 裏面 ============ -->
+<section class="page back">
+  <div class="b-pad">
+    <div class="sec-tag">BEFORE / AFTER</div>
+    <div class="sec-h">マンションの「不満」は、<em>戸建て</em>でこう変わります。</div>
+    <table class="compare">
+      <thead><tr><th></th><th>いまのマンション</th><th>こころ舎の街なか戸建て</th></tr></thead>
+      <tbody>
+        <tr><td>駐車場</td><td>立体式。出庫待ち・車種制限・雨の日の乗せ降ろし</td><td><b>玄関の目の前に駐車。</b>雨の日も濡れずに数歩で家の中へ</td></tr>
+        <tr><td>子ども</td><td>足音や声が気になり、つい注意してしまう</td><td>上下階を気にせず、<b>家の中でも庭でも思いきり</b></td></tr>
+        <tr><td>週末</td><td>ベランダは火気NG。BBQは遠くの公園まで</td><td>小さな庭で<b>七輪・BBQ・プール・家庭菜園</b></td></tr>
+        <tr><td>毎月の固定費</td><td>管理費・修繕積立金・駐車場代が毎月かかる</td><td><b>管理費・駐車場代は不要。</b>メンテナンスは自分たちの計画で</td></tr>
+        <tr><td>将来</td><td>築年数とともに価格・管理状況が左右されやすい</td><td><b>土地が残る。</b>売る・貸す・住み継ぐ、選べる住まい</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="b-pad" style="padding-top:4.5mm">
+    <div class="sec-tag">WHY KOKOROSHA</div>
+    <div class="sec-h">駅近・予算内・将来も安心。<br>それを叶える<em>3つの理由</em>。</div>
+    <div class="three">
+      <div class="card"><div class="n">01</div><h3>狭小地でも、<br>広く暮らせる設計力</h3><p>駅近で手の届く小さな土地や変形地こそ得意分野。吹抜けで縦に広がりをつくり、限られた面積でもゆとりのLDKを実現します。</p><div class="pt">施工例：<b>18帖LDK＋吹抜け</b>、子供室7.5帖・寝室5.8帖、食品庫・外部収納付き</div></div>
+      <div class="card"><div class="n">02</div><h3>価値が残りやすく、<br>将来の選択肢が残る家</h3><p>立地のよい土地と、長く住み継げる性能・シンプルな間取り。子どもの独立後も「売る・貸す・住み続ける」を自由に選べます。</p><div class="pt"><span class="ph">【要確認】耐震等級3／長期優良住宅 等の性能根拠</span></div></div>
+      <div class="card"><div class="n">03</div><h3>マンション売却から<br>土地探しまで、まるごと</h3><p>「いまの部屋がいくらで売れるか」「その予算でどこに建てられるか」を同時に整理。売り買いのタイミングも一緒に組み立てます。</p><div class="pt"><b>査定・土地探し・資金計画・設計・施工</b>を一つの窓口で</div></div>
+    </div>
+  </div>
+
+  <div class="b-pad" style="padding-top:4.5mm">
+    <div class="sec-tag">HOW TO START</div>
+    <div class="sec-h" style="font-size:13.5pt">住み替えは、この5ステップ。まずは「知る」だけでOK。</div>
+    <div class="steps">
+      <div class="step"><span class="s">STEP 1</span><b>無料相談</b><small>いまの不満と<br>理想をお聞きします</small></div>
+      <div class="step"><span class="s">STEP 2</span><b>マンション査定</b><small>売却価格と<br>残債を確認</small></div>
+      <div class="step"><span class="s">STEP 3</span><b>資金計画</b><small>無理のない<br>予算を整理</small></div>
+      <div class="step"><span class="s">STEP 4</span><b>土地探し・プラン</b><small>駅近の狭小地で<br>間取りをご提案</small></div>
+      <div class="step"><span class="s">STEP 5</span><b>売却・お引越し</b><small>住みながら進めて<br>仮住まいも相談可</small></div>
+    </div>
+    <p class="steps-note">相談したら必ず住み替え、ではありません。<b>「いま売ったらいくら？」「この予算でどこに建つ？」を知るだけ</b>でも、将来の選択肢が広がります。</p>
+  </div>
+
+  <div class="cta">
+    <div>
+      <span class="ev">ご予約制・無料</span>
+      <h2>マンションからの<br>住み替え相談会</h2>
+      <p class="info"><b>日時</b>　<span class="ph">【要確認】○月○日（土）・○日（日）10:00〜17:00</span><br><b>会場</b>　<span class="ph">【要確認】会場名・住所</span><br><b>特典</b>　<span class="ph">【要確認】ご来場特典（例：マンション無料査定＋土地情報リスト）</span><br>お子さま連れ歓迎・キッズスペースあり<span class="ph">【要確認】</span></p>
+    </div>
+    <div class="qr"><div class="box">【要確認】<br>予約フォーム<br>QRコード</div><p>スマホから<br>24時間予約OK</p></div>
+    <div class="telrow"><span class="l" style="font-size:8pt;border:1px solid #fff9;padding:.3mm 2mm">お電話でのご予約</span><span class="num" style="font-family:Georgia,serif;font-size:22pt;letter-spacing:.04em;line-height:1.1">0972-83-5918</span><span class="h" style="font-size:7.5pt;color:#cfdccf">受付 <span class="ph">【要確認】9:00〜18:00（水曜定休）</span></span></div>
+    <div class="co"><span>株式会社 樹の家こころ舎　<span class="ph">【要確認】住所・建設業許可番号</span></span><span>※掲載画像はイメージCGです。</span></div>
+  </div>
+</section>
+</body></html>
