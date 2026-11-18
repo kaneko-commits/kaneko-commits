@@ -108,21 +108,21 @@ VARIANTS = {
         lead_big='下の階を気にせず、家でも庭でも思いきり。',
         lead='駅近に、庭と駐車場のある注文住宅を。マンションからの住み替えという選択肢。',
         q='マンションの「ちょっと不便」、ありませんか？',
-        icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('tower', '立体駐車場の<br>出し入れ'),
+        icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('tower', '機械式駐車場の<br>出庫待ち'),
                ('door', '駐車場から<br>玄関が遠い'), ('bbq', '七輪やBBQが<br>できない')],
         foot_sub='実際の家を見ながら、住み替えのご相談もどうぞ',
-        back_h='人生で何時間、<em>車が下りてくるのを</em>待つんだろう。',
-        back_sub='出庫待ちだけで<em>年間約36時間</em>。その時間を、子どもと遊ぶ時間に。<small>※1回3分・1日2回で試算</small>',
+        back_h='人生で何時間、<em>車が下りてくるのを</em>待つんだろう。<small class="hs">出庫待ち <b>年間約36時間</b>※</small>',
+        back_sub='',
         now_label='いまのマンション',
         scenes=[
             ('子ども', '「走らないで！」と、今日も言ってしまう', '吹抜けのリビングに響く足音を、笑って聞いていられる'),
-            ('駐車場', '寝た子を抱いて、出庫待ちとエレベーター', '玄関の前に3台分。抱っこのまま数歩で家の中へ'),
+            ('駐車場', '寝た子を抱いて、機械式の出庫待ち', '玄関の前に3台分。抱っこのまま数歩で家の中へ'),
             ('収納', '開かずの一部屋に、段ボールが積み上がる', 'ベビーカーもBBQ道具も外部収納へ。部屋は家族のために'),
             ('週末', 'BBQは車で遠くの公園まで。片付けでへとへと', '南の小さな庭で七輪。焼ける間に、子どもは水遊び'),
-            ('お金', '管理費・修繕積立金・駐車場代が毎月引かれる', '管理費・駐車場代はゼロ。修繕は自分たちのペースで計画'),
+            ('お金', '機械式の更新で、修繕積立金が上がる不安', '管理費・駐車場代はゼロ。修繕は自分たちのペースで計画'),
         ],
         steps=['無料相談', '資金計画', '土地探し・プラン', '売却・お引越し'],
-        steps_note='※マンションの売却は、お客様がお選びの不動産会社で行っていただきます。',
+        steps_note='※マンションの売却は、お客様がお選びの不動産会社で行っていただきます。※出庫待ち時間は1回3分・1日2回で試算',
         event='住み替え相談会',
         gift1=('住み替え資金シミュレーション', 'ローン残債・売る順番・二重ローンの不安まで整理'),
     ),
@@ -136,8 +136,8 @@ VARIANTS = {
         icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('yen', '家賃を払っても<br>何も残らない'),
                ('far', '駐車場が<br>家から離れている'), ('wall', '壁が薄くて<br>お隣の音が気になる')],
         foot_sub='実際の家を見ながら「いまの家賃で建つ？」もご相談ください',
-        back_h='アパートの毎日は、<em>こう変わります。</em>',
-        back_sub='引っ越したあとの、ある一日を想像してみてください。',
+        back_h='アパートの毎日は、<em>こう変わります。</em><small class="hs">引っ越したあとの、ある一日を想像してみてください</small>',
+        back_sub='',
         now_label='いまのアパート',
         scenes=[
             ('子ども', '「走らないで！」と、今日も言ってしまう', '吹抜けのリビングに響く足音を、笑って聞いていられる'),
@@ -202,11 +202,13 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .sec{padding:0 13mm;text-align:left}
 .sec-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:16.5pt;line-height:1.45;letter-spacing:.04em}
 .sec-h em{font-style:normal;color:var(--warm)}
+.sec-h .hs{font-family:'Noto Sans JP',sans-serif;font-size:8.6pt;font-weight:700;color:var(--muted);margin-left:3mm;letter-spacing:0}
+.sec-h .hs b{color:var(--warm)}
 .sub-h{font-size:9.2pt;font-weight:700;color:var(--muted);margin-top:.8mm}
 .sub-h em{font-style:normal;color:var(--warm)}
 .sub-h small{font-size:7pt;font-weight:500;margin-left:2mm}
 .scenes{display:grid;grid-template-columns:15mm 1fr 6mm 1.25fr;margin-top:2.5mm;text-align:center;font-size:8.5pt;line-height:1.45}
-.scenes>div{padding:.8mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.scenes>div{padding:.6mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
 .scenes .hd{font-size:8.6pt;font-weight:700;justify-content:center;padding:1.4mm}
 .scenes .hd.ar{background:linear-gradient(90deg,#e7e7e2 50%,var(--forest) 50%)}
 .scenes .hd.now{background:#e7e7e2;color:var(--muted)}
@@ -217,6 +219,10 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .scenes .fut{background:#eef3ee;font-weight:700;color:var(--forest)}
 .plan-lead{font-size:8.8pt;color:var(--muted);margin-top:1.2mm;line-height:1.65}
 .plan-lead b{color:var(--forest)}
+.total{margin-top:1.2mm;font-size:7.9pt;white-space:nowrap;color:var(--ink)}
+.total b{background:var(--forest);color:#fff;font-size:7.8pt;padding:.3mm 2mm;margin-right:2mm;border-radius:.6mm}
+.total em{font-style:normal;font-weight:900;color:var(--warm)}
+.total small{font-size:7pt;color:var(--muted)}
 .price-tbl{display:flex;align-items:stretch;margin-top:2mm;border:1px solid var(--warm);border-radius:1.5mm;background:#fff;overflow:hidden}
 .price-tbl .pl{background:var(--warm);color:#fff;padding:1.2mm 3mm;display:flex;flex-direction:column;justify-content:center;line-height:1.3}
 .price-tbl .pl b{font-size:9pt}
@@ -233,8 +239,8 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .plans{display:flex;justify-content:space-between;gap:4mm;margin-top:2.5mm;align-items:flex-end}
 .plans figure{margin:0}
 .plans figcaption{white-space:nowrap;font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:.8mm;text-align:left}
-.plan{height:26.5mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
-.plan.site{height:31mm}
+.plan{height:25.5mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
+.plan.site{height:30mm}
 .pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5mm 4mm;margin:2.5mm 0 0;text-align:left}
 .pts li{display:flex;gap:1.5mm;font-size:8.2pt;line-height:1.35}
 .pts li i{flex:none;font-style:normal;width:4.2mm;height:4.2mm;border-radius:50%;background:var(--warm);color:#fff;font-size:7pt;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:.3mm}
@@ -264,7 +270,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .mini span{flex:1;background:var(--forest);color:#fff;font-size:8.4pt;font-weight:700;text-align:center;padding:1.6mm 0 1.6mm 2mm;clip-path:polygon(0 0,calc(100% - 2.5mm) 0,100% 50%,calc(100% - 2.5mm) 100%,0 100%,2.5mm 50%)}
 .mini span:nth-child(even){background:var(--deep)}
 .steps-note{font-size:7.8pt;color:var(--muted);margin-top:1.2mm}
-.cta{position:absolute;left:0;right:0;bottom:0;height:88mm;background:var(--deep);color:#fff;padding:4.5mm 13mm 0;display:grid;grid-template-columns:1fr 1fr 27mm;column-gap:3mm;align-content:start}
+.cta{position:absolute;left:0;right:0;bottom:0;height:84mm;background:var(--deep);color:#fff;padding:3.5mm 13mm 0;display:grid;grid-template-columns:1fr 1fr 27mm;column-gap:3mm;align-content:start}
 .cta .head{grid-column:1/4;text-align:left}
 .cta .facts{justify-content:flex-start}
 .cta .gift{display:contents}
@@ -278,9 +284,9 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .facts span{font-size:8.2pt;border:1px solid #ffffff55;padding:.3mm 2mm;color:#e9efe8}
 .facts span.ph{color:var(--ink);border:0}
 .gift{margin-top:2.5mm;display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}
-.gift div{background:#ffffff14;border:1px solid #ffffff40;padding:1.5mm 3mm;font-size:8.4pt;line-height:1.45;color:#dfe7de}
+.gift div{background:#ffffff14;border:1px solid #ffffff40;padding:1mm 3mm;font-size:8.4pt;line-height:1.45;color:#dfe7de}
 .gift b{display:block;color:var(--sun);font-size:10pt}
-.cta .when{font-size:9pt;margin-top:2mm;line-height:1.7}
+.cta .when{font-size:8.8pt;margin-top:1.5mm;line-height:1.6}
 .qr{background:#fff;color:var(--ink);text-align:center;align-self:stretch;padding:1mm;border-radius:1.5mm;margin-top:2mm;display:flex;flex-direction:column;justify-content:center}
 .qr .box{width:12mm;height:12mm;font-size:6pt;margin:auto;border:1.5px dashed #d4a800;background:#fff5b8;display:flex;align-items:center;justify-content:center;font-size:7pt;line-height:1.4;color:#8a6d00}
 .qr p{font-size:7pt;margin-top:.8mm;font-weight:700;line-height:1.2}
@@ -333,7 +339,7 @@ def build(v):
 <section class="page back">
   <div class="sec" style="padding-top:5.5mm">
     <div class="sec-h">{v['back_h']}</div>
-    <p class="sub-h">{v['back_sub']}</p>
+    {('<p class="sub-h">'+v['back_sub']+'</p>') if v['back_sub'] else ''}
     <div class="scenes">{scenes}</div>
   </div>
 
@@ -341,6 +347,7 @@ def build(v):
     <div class="sec-h">土地を読み解き、一から設計する<em>「おまかせプラン」</em>。</div>
     <p class="plan-lead">規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計。<br><b>設計事務所がつくった工務店</b>が施工まで一貫。<b>クセのない間取り</b>だから、<b>売るときも、貸すときも価値が残りやすい</b>。</p>
     <div class="price-tbl"><div class="pl"><b>おまかせプランは<br>広さごとの定額制</b><span>建物本体価格（税込）</span></div><div class="pt cur"><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div><div class="pn">※付帯工事・外構・諸費用は別途<br>※価格は<span class="ph">【要確認】○年○月</span>時点</div></div>
+    <p class="total"><b>S様邸の総額例</b>土地<span class="ph">○○○○万</span>＋建物2,475万＋付帯工事・外構・諸費用<span class="ph">○○○万</span>＝<em><span class="ph">4,○○○万円</span></em>　月々<span class="ph">○万円</span>〜<small>（<span class="ph">35年</span>）</small></p>
     <div class="plans">
       <figure><figcaption>配置図　土地 約44坪（144.74㎡）</figcaption>{PLAN_SITE}</figure>
       <figure><figcaption>1階　延床 約25坪（83.63㎡）</figcaption>{PLAN_1F}</figure>
