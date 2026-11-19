@@ -208,7 +208,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .sub-h em{font-style:normal;color:var(--warm)}
 .sub-h small{font-size:7pt;font-weight:500;margin-left:2mm}
 .scenes{display:grid;grid-template-columns:15mm 1fr 6mm 1.25fr;margin-top:2.5mm;text-align:center;font-size:8.5pt;line-height:1.45}
-.scenes>div{padding:.6mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.scenes>div{padding:1.5mm 2.5mm;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
 .scenes .hd{font-size:8.6pt;font-weight:700;justify-content:center;padding:1.4mm}
 .scenes .hd.ar{background:linear-gradient(90deg,#e7e7e2 50%,var(--forest) 50%)}
 .scenes .hd.now{background:#e7e7e2;color:var(--muted)}
@@ -241,13 +241,23 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .plans figcaption{white-space:nowrap;font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:.8mm;text-align:left}
 .plan{height:25.5mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
 .plan.site{height:30mm}
+.life{display:grid;grid-template-columns:80mm 1fr;gap:6mm;margin-top:4.5mm;align-items:center}
+.life figure{margin:0}
+.life figcaption{font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:1mm;white-space:nowrap}
+.life figcaption span{font-weight:500;color:var(--muted);font-size:6.5pt}
+.life .plan.site{width:100%;height:auto}
+.life-h{font-family:'Noto Serif JP',serif;font-size:11pt;font-weight:700;color:var(--forest);margin-bottom:1.5mm}
+.pts2{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2.2mm 4mm}
+.pts2 li{border-left:2.5px solid var(--warm);padding-left:2mm;line-height:1.4}
+.pts2 b{display:block;font-size:8.4pt}
+.pts2 span{display:block;font-size:7.6pt;color:var(--muted)}
 .pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5mm 4mm;margin:2.5mm 0 0;text-align:left}
 .pts li{display:flex;gap:1.5mm;font-size:8.2pt;line-height:1.35}
 .pts li i{flex:none;font-style:normal;width:4.2mm;height:4.2mm;border-radius:50%;background:var(--warm);color:#fff;font-size:7pt;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:.3mm}
 .pts li b{display:block}
 .pts li span{display:block;color:var(--muted);font-size:7.3pt;line-height:1.4}
 .plan-note{font-size:6.8pt;color:var(--muted);margin-top:1.2mm}
-.track{border-top:1px solid var(--line);margin-top:2mm;padding-top:1.6mm}
+.track{border-top:1px solid var(--line);margin-top:4mm;padding-top:2.5mm}
 .track-h{display:flex;align-items:baseline;gap:3mm}
 .track-h b{font-family:'Noto Serif JP',serif;font-size:12.5pt;white-space:nowrap}
 .track-h span{font-size:8.6pt;font-weight:700;color:var(--muted)}
@@ -302,7 +312,7 @@ def build(v):
     icons = ''.join(f'<div class="ic"><div class="c"><svg viewBox="0 0 48 48">{ICON[k]}</svg></div><p>{lbl}</p></div>' for k, lbl in v['icons'])
     scenes = (f'<div class="hd"></div><div class="hd now">{v["now_label"]}</div><div class="hd ar"></div><div class="hd fut">S様邸での光景</div>'
               + ''.join(f'<div class="lb">{a}</div><div class="now">{b}</div><div class="ar">▶</div><div class="fut">{c}</div>' for a, b, c in v['scenes']))
-    pts = ''.join(f'<li><i>{i}</i><div><b>{a}</b><span>{b}</span></div></li>' for i, (a, b) in enumerate(PLAN_POINTS, 1))
+    pts = ''.join(f'<li><b>{a}</b><span>{b}</span></li>' for a, b in PLAN_POINTS)
     chips = ''.join(f'<span>{s}</span>' for s in v['steps'])
     g1t, g1d = v['gift1']
     return f'''<!doctype html>
@@ -343,17 +353,15 @@ def build(v):
     <div class="scenes">{scenes}</div>
   </div>
 
-  <div class="sec" style="padding-top:2.8mm">
+  <div class="sec" style="padding-top:5mm">
     <div class="sec-h">土地を読み解き、一から設計する<em>「おまかせプラン」</em>。</div>
     <p class="plan-lead">規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計。<br><b>設計事務所がつくった工務店</b>が施工まで一貫。<b>クセのない間取り</b>だから、<b>売るときも、貸すときも価値が残りやすい</b>。</p>
     <div class="price-tbl"><div class="pl"><b>おまかせプランは<br>広さごとの定額制</b><span>建物本体価格（税込）</span></div><div class="pt cur"><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div><div class="pn">※付帯工事・外構・諸費用は別途<br>※価格は<span class="ph">【要確認】○年○月</span>時点</div></div>
     <p class="total"><b>S様邸の総額例</b>土地<span class="ph">○○○○万</span>＋建物2,475万＋付帯工事・外構・諸費用<span class="ph">○○○万</span>＝<em><span class="ph">4,○○○万円</span></em>　月々<span class="ph">○万円</span>〜<small>（<span class="ph">35年</span>）</small></p>
-    <div class="plans">
-      <figure><figcaption>配置図　土地 約44坪（144.74㎡）</figcaption>{PLAN_SITE}</figure>
-      <figure><figcaption>1階　延床 約25坪（83.63㎡）</figcaption>{PLAN_1F}</figure>
-      <figure><figcaption>2階 <span style="font-weight:500;color:var(--muted);font-size:6.5pt">※概略図。車・植栽はイメージ</span></figcaption>{PLAN_2F}</figure>
+    <div class="life">
+      <figure><figcaption>配置図　土地 約44坪／延床 約25坪 <span>※概略図。車・植栽はイメージ</span></figcaption>{PLAN_SITE}</figure>
+      <div><p class="life-h">S様邸の、ある一日</p><ul class="pts2">{pts}</ul></div>
     </div>
-    <ol class="pts">{pts}</ol>
     <div class="track">
       <div class="track-h"><b>S様の家づくり</b><span>はじめてのご相談から、お引渡しまで<em>約1年2ヶ月</em>。走り回れる毎日は、もうすぐそこに。</span></div>
       <ol class="tl">
