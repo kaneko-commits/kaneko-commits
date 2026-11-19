@@ -41,7 +41,7 @@ em{font-style:normal}
 .answer .sub{font-family:'Noto Serif JP',serif;font-weight:700;font-size:16pt;margin-top:2.5mm;letter-spacing:.06em;text-shadow:0 1px 6px #000a}
 .answer .nice{position:absolute;right:10mm;bottom:6mm;background:#fffdf6;color:var(--forest);font-family:'Zen Maru Gothic';font-size:13pt;padding:2.5mm 5mm;border-radius:6mm;box-shadow:0 2px 8px #0003}
 
-.staff{padding:4mm 12mm 5mm}
+.staff{padding:6mm 12mm 0}
 .staff-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;text-align:center;letter-spacing:.06em}
 .staff-h em{color:var(--warm)}
 .staff-row{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:2.5mm}
@@ -92,7 +92,7 @@ em{font-style:normal}
 .qa .a{font-size:10.5pt;line-height:1.55;margin-top:1.5mm}
 .qa .a b{color:var(--warm)}
 
-.flow{margin:6mm 12mm 0}
+.flow{margin:5mm 12mm 5mm}
 .flow h4{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;text-align:center;letter-spacing:.06em}
 .flow h4 em{color:var(--warm)}
 .flow ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;margin-top:2.5mm;counter-reset:s}
@@ -135,16 +135,14 @@ em{font-style:normal}
     <div class="nice">プロが来てくれるって、素敵。</div>
   </div>
 
-  <div class="staff">
-    <p class="staff-h">ご自宅に伺うのは、<em>この3人</em>です。</p>
-    <div class="staff-row">
-      <div class="person"><figure class="face" style="background-image:url('img/staff-kudo.jpg')"><span class="ph">顔写真</span></figure>
-        <div><b>耐震診断士・設計士</b><p class="nm">工藤</p><p class="ds">家の強さを診て、<br>間取りを考えます</p></div></div>
-      <div class="person"><figure class="face" style="background-image:url('img/staff-narita.jpg')"><span class="ph">顔写真</span></figure>
-        <div><b>施工管理技士</b><p class="nm">成田</p><p class="ds">工事の段取りと<br>仕上がりを守ります</p></div></div>
-      <div class="person"><figure class="face" style="background-image:url('img/staff-himeno.jpg')"><span class="ph">顔写真</span></figure>
-        <div><b>大工・職人</b><p class="nm">姫野</p><p class="ds">網戸1枚から、<br>この手で直します</p></div></div>
-    </div>
+  <div class="flow">
+    <h4>お打ち合わせは、<em>すべてご自宅で</em>。</h4>
+    <ol>
+      <li><b>お電話</b><span>困りごとを<br>そのままお話しください</span></li>
+      <li><b>ご自宅へ</b><span>大工・設計士が<br>伺って拝見します</span></li>
+      <li><b>ご提案・<br>お見積もり</b><span>ご自宅で<br>ご説明します</span></li>
+      <li><b>工事</b><span>ご納得いただけたら<br>着工します</span></li>
+    </ol>
   </div>
 
   <div class="cta">
@@ -192,14 +190,16 @@ em{font-style:normal}
     <div><p class="q">こんなことから頼んでいいの？</p><p class="a"><b>網戸1枚からどうぞ。</b>小さな困りごとこそ、お気軽にお声がけください。</p></div>
   </div>
 
-  <div class="flow">
-    <h4>お打ち合わせは、<em>すべてご自宅で</em>。</h4>
-    <ol>
-      <li><b>お電話</b><span>困りごとを<br>そのままお話しください</span></li>
-      <li><b>ご自宅へ</b><span>大工・設計士が<br>伺って拝見します</span></li>
-      <li><b>ご提案・<br>お見積もり</b><span>ご自宅で<br>ご説明します</span></li>
-      <li><b>工事</b><span>ご納得いただけたら<br>着工します</span></li>
-    </ol>
+  <div class="staff">
+    <p class="staff-h">ご自宅に伺うのは、<em>この3人</em>です。</p>
+    <div class="staff-row">
+      <div class="person"><figure class="face" style="background-image:url('img/staff-kudo.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>耐震診断士・設計士</b><p class="nm">工藤</p><p class="ds">家の強さを診て、<br>間取りを考えます</p></div></div>
+      <div class="person"><figure class="face" style="background-image:url('img/staff-narita.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>施工管理技士</b><p class="nm">成田</p><p class="ds">工事の段取りと<br>仕上がりを守ります</p></div></div>
+      <div class="person"><figure class="face" style="background-image:url('img/staff-himeno.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>大工・職人</b><p class="nm">姫野</p><p class="ds">網戸1枚から、<br>この手で直します</p></div></div>
+    </div>
   </div>
 
   <div class="cta back-cta">
