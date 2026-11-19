@@ -41,10 +41,15 @@ em{font-style:normal}
 .answer .sub{font-family:'Noto Serif JP',serif;font-weight:700;font-size:16pt;margin-top:2.5mm;letter-spacing:.06em;text-shadow:0 1px 6px #000a}
 .answer .nice{position:absolute;right:10mm;bottom:6mm;background:#fffdf6;color:var(--forest);font-family:'Zen Maru Gothic';font-size:13pt;padding:2.5mm 5mm;border-radius:6mm;box-shadow:0 2px 8px #0003}
 
-.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5mm;padding:5mm 12mm}
-.promise div{background:#fff;border-top:3mm solid var(--forest);padding:3mm 3mm 3.5mm;text-align:center;box-shadow:0 1px 3px #0001}
-.promise b{display:block;font-size:9.5pt;color:var(--warm);letter-spacing:.08em}
-.promise p{font-family:'Noto Serif JP',serif;font-weight:700;font-size:13pt;line-height:1.45;margin-top:1mm}
+.staff{padding:4mm 12mm 5mm}
+.staff-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;text-align:center;letter-spacing:.06em}
+.staff-h em{color:var(--warm)}
+.staff-row{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:2.5mm}
+.person{background:#fff;border-radius:3mm;padding:3mm;display:flex;gap:2.5mm;align-items:center;box-shadow:0 1px 3px #0002}
+.face{flex:0 0 21mm;height:21mm;border-radius:50%;background:#e4e6df 50% 30%/cover no-repeat;border:1.2mm solid var(--cream);display:flex;align-items:center;justify-content:center;font-size:8pt}
+.person b{display:block;font-size:8.6pt;color:var(--warm);line-height:1.3;white-space:nowrap}
+.person .nm{font-family:'Noto Serif JP',serif;font-weight:900;font-size:19pt;line-height:1.2;letter-spacing:.2em}
+.person .ds{font-size:8.6pt;line-height:1.45;color:var(--muted);margin-top:.5mm}
 
 .cta{background:var(--deep);color:#fff;padding:5mm 12mm 6mm;text-align:center}
 .cta .msg{font-size:13.5pt;font-weight:700;letter-spacing:.06em}
@@ -130,10 +135,16 @@ em{font-style:normal}
     <div class="nice">プロが来てくれるって、素敵。</div>
   </div>
 
-  <div class="promise">
-    <div><b>お電話には</b><p>心優しいスタッフが<br>出ます</p></div>
-    <div><b>駆け付けるのは</b><p>臼杵で育った<br>大工・設計士です</p></div>
-    <div><b>お打ち合わせは</b><p>すべて<br>ご自宅で</p></div>
+  <div class="staff">
+    <p class="staff-h">ご自宅に伺うのは、<em>この3人</em>です。</p>
+    <div class="staff-row">
+      <div class="person"><figure class="face" style="background-image:url('img/staff-kudo.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>耐震診断士・設計士</b><p class="nm">工藤</p><p class="ds">家の強さを診て、<br>間取りを考えます</p></div></div>
+      <div class="person"><figure class="face" style="background-image:url('img/staff-narita.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>施工管理技士</b><p class="nm">成田</p><p class="ds">工事の段取りと<br>仕上がりを守ります</p></div></div>
+      <div class="person"><figure class="face" style="background-image:url('img/staff-himeno.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>大工・職人</b><p class="nm">姫野</p><p class="ds">網戸1枚から、<br>この手で直します</p></div></div>
+    </div>
   </div>
 
   <div class="cta">
