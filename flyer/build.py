@@ -124,6 +124,8 @@ VARIANTS = {
         steps=['無料相談', '資金計画', '土地探し・プラン', '売却・お引越し'],
         steps_note='※マンションの売却は、お客様がお選びの不動産会社で行っていただきます。※出庫待ち時間は1回3分・1日2回で試算',
         event='住み替え相談会',
+        now_cost='いまのローン＋管理費・修繕積立金＋駐車場代',
+        new_cost_note='売却額を頭金に',
         gift1=('住み替え資金シミュレーション', 'ローン残債・売る順番・二重ローンの不安まで整理'),
     ),
     'apartment': dict(
@@ -149,6 +151,8 @@ VARIANTS = {
         steps=['無料相談', '資金計画', '土地探し・プラン', '着工・お引越し'],
         steps_note='「頭金がない」「何から始めればいいかわからない」段階からのご相談で大丈夫です。',
         event='家づくり相談会',
+        now_cost='いまの家賃＋駐車場代',
+        new_cost_note='頭金なし',
         gift1=('家づくり資金シミュレーション', 'いまの家賃・収入から、無理のない予算を試算'),
     ),
 }
@@ -174,7 +178,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .hero .lead{bottom:17mm;font-family:'Noto Serif JP',serif;font-size:11.5pt;font-weight:600;line-height:1.7;letter-spacing:.04em;text-shadow:0 1px 6px #0009}
 .hero .lead .big{display:block;font-size:17pt;font-weight:700;margin-bottom:1mm}
 .hero .cg{left:auto;right:3mm;top:3mm;font-size:6.5pt;background:#0005;padding:.5mm 2mm}
-.band{position:absolute;left:14mm;right:14mm;top:190mm;height:22mm;background:#fff;border:1.5px solid var(--forest);border-radius:2mm;display:flex;align-items:stretch;box-shadow:0 3px 12px #0003;overflow:hidden}
+.band{position:absolute;left:14mm;right:14mm;top:188mm;height:25mm;background:#fff;border:1.5px solid var(--forest);border-radius:2mm;display:flex;align-items:stretch;box-shadow:0 3px 12px #0003;overflow:hidden}
 .band .tag{background:var(--forest);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 4mm;font-weight:900;font-size:9pt;line-height:1.35;letter-spacing:.08em;text-align:center}
 .band .tag b{font-size:12.5pt;color:var(--sun)}
 .band .mid{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;line-height:1.35}
@@ -184,15 +188,21 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .band .price{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 5mm;border-left:1px solid var(--line)}
 .band .price span{font-size:7.5pt;font-weight:700;color:var(--muted)}
 .band .price b{font-family:Georgia,serif;font-size:22pt;line-height:1;color:var(--warm);font-weight:400}
+.band .price em{font-style:normal;font-size:6.6pt;font-weight:700;color:var(--forest);line-height:1.3;text-align:center;margin-top:1mm}
 .band .price b small{font-family:'Noto Sans JP';font-size:10pt;font-weight:700}
-.lower{position:absolute;left:0;right:0;top:217mm;bottom:22mm;padding:5mm 13mm 0;text-align:center}
+.lower{position:absolute;left:0;right:0;top:214mm;bottom:30mm;padding:4mm 13mm 0;text-align:center}
 .q{font-family:'Noto Serif JP',serif;font-weight:700;font-size:13.5pt;color:var(--forest);letter-spacing:.05em}
 .icons{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm;margin-top:4.5mm}
 .ic .c{width:23mm;height:23mm;margin:auto;border-radius:50%;background:#fff;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative}
 .ic .c:after{content:'×';position:absolute;right:-1mm;top:-1mm;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--warm);color:#fff;font-weight:900;font-size:11pt;line-height:6.2mm;text-align:center}
 .ic svg{width:14mm;height:14mm;stroke:var(--forest);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ic p{font-size:9pt;font-weight:700;line-height:1.4;margin-top:1.8mm}
-.foot{position:absolute;left:0;right:0;bottom:0;height:22mm;background:var(--deep);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 13mm;line-height:1.5}
+.fbrand{display:block;font-size:7.5pt;color:#cfdccf;margin-top:.8mm}
+.fbrand b{font-family:'Noto Serif JP',serif;font-size:11pt;color:#fff;letter-spacing:.1em}
+.fqr{display:flex;align-items:center;gap:2.5mm;background:#fff;color:var(--ink);padding:1.5mm 2.5mm 1.5mm 1.5mm;border-radius:1.5mm}
+.fqr .box{width:22mm;height:22mm;border:1.5px dashed #d4a800;background:#fff5b8;display:flex;align-items:center;justify-content:center;text-align:center;font-size:7pt;line-height:1.4;color:#8a6d00}
+.fqr span{font-size:8.5pt;font-weight:900;line-height:1.4;color:var(--forest)}
+.foot{position:absolute;left:0;right:0;bottom:0;height:30mm;background:var(--deep);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 13mm;line-height:1.5}
 .foot .msg{font-size:12pt;font-weight:700}
 .foot .msg small{display:block;font-size:8.5pt;font-weight:500;color:#cfdccf}
 .foot .brand{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14pt;letter-spacing:.12em;text-align:right}
@@ -219,6 +229,14 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .scenes .fut{background:#eef3ee;font-weight:700;color:var(--forest)}
 .plan-lead{font-size:8.8pt;color:var(--muted);margin-top:1.2mm;line-height:1.65}
 .plan-lead b{color:var(--forest)}
+.month{display:grid;grid-template-columns:1fr 7mm 1fr;margin-top:1.8mm;border-radius:1.5mm;overflow:hidden}
+.month>div{padding:1.3mm 3mm;display:flex;align-items:center;justify-content:space-between;gap:2mm}
+.month span{font-size:7.6pt;line-height:1.3}
+.month b{font-size:11.5pt;white-space:nowrap}
+.m-now{background:#e7e7e2;color:var(--muted)}
+.m-ar{background:linear-gradient(90deg,#e7e7e2 50%,var(--forest) 50%);color:var(--warm);font-weight:900;justify-content:center!important;padding:0!important}
+.m-new{background:var(--forest);color:#fff}
+.m-new b{color:var(--sun)}
 .total{margin-top:1.2mm;font-size:7.9pt;white-space:nowrap;color:var(--ink)}
 .total b{background:var(--forest);color:#fff;font-size:7.8pt;padding:.3mm 2mm;margin-right:2mm;border-radius:.6mm}
 .total em{font-style:normal;font-weight:900;color:var(--warm)}
@@ -241,14 +259,14 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .plans figcaption{white-space:nowrap;font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:.8mm;text-align:left}
 .plan{height:25.5mm;width:auto;display:block;font-family:'Noto Sans JP',sans-serif}
 .plan.site{height:30mm}
-.life{margin-top:5mm}
+.life{margin-top:3.5mm}
 .life figure{margin:0}
 .life figcaption{font-size:8pt;font-weight:700;color:var(--forest);margin-bottom:1mm;white-space:nowrap}
 .life figcaption span{font-weight:500;color:var(--muted);font-size:6.5pt}
 .life .plan.site{width:100%;height:auto}
 .life-h{font-family:'Noto Serif JP',serif;font-size:13pt;font-weight:700;color:var(--forest);margin-bottom:2.5mm}
 .life-h span{font-family:'Noto Sans JP',sans-serif;font-size:8.4pt;color:var(--muted);margin-left:3mm}
-.pts2{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:4mm 5mm}
+.pts2{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2.8mm 5mm}
 .pts2 li{border-left:2.5px solid var(--warm);padding-left:2.5mm;line-height:1.4}
 .pts2 b{display:block;font-size:9.4pt}
 .pts2 span{display:block;font-size:8.2pt;color:var(--muted);line-height:1.5;margin-top:.5mm}
@@ -258,7 +276,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .pts li b{display:block}
 .pts li span{display:block;color:var(--muted);font-size:7.3pt;line-height:1.4}
 .plan-note{font-size:6.8pt;color:var(--muted);margin-top:1.2mm}
-.track{border-top:1px solid var(--line);margin-top:4.5mm;padding-top:3mm}
+.track{border-top:1px solid var(--line);margin-top:3mm;padding-top:2mm}
 .track-h{display:flex;align-items:baseline;gap:3mm}
 .track-h b{font-family:'Noto Serif JP',serif;font-size:12.5pt;white-space:nowrap}
 .track-h span{font-size:8.6pt;font-weight:700;color:var(--muted)}
@@ -281,7 +299,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .mini span{flex:1;background:var(--forest);color:#fff;font-size:8.4pt;font-weight:700;text-align:center;padding:1.6mm 0 1.6mm 2mm;clip-path:polygon(0 0,calc(100% - 2.5mm) 0,100% 50%,calc(100% - 2.5mm) 100%,0 100%,2.5mm 50%)}
 .mini span:nth-child(even){background:var(--deep)}
 .steps-note{font-size:7.8pt;color:var(--muted);margin-top:1.2mm}
-.cta{position:absolute;left:0;right:0;bottom:0;height:92mm;background:var(--deep);color:#fff;padding:3.5mm 13mm 0;display:grid;grid-template-columns:1fr 1fr 27mm;column-gap:3mm;align-content:start}
+.cta{position:absolute;left:0;right:0;bottom:0;height:84mm;background:var(--deep);color:#fff;padding:3.5mm 13mm 0;display:grid;grid-template-columns:1fr 1fr 27mm;column-gap:3mm;align-content:start}
 .cta .head{grid-column:1/4;text-align:left}
 .cta .facts{justify-content:flex-start}
 .cta .gift{display:contents}
@@ -299,7 +317,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .gift b{display:block;color:var(--sun);font-size:10pt}
 .cta .when{font-size:8.8pt;margin-top:1.5mm;line-height:1.6}
 .qr{background:#fff;color:var(--ink);text-align:center;align-self:stretch;padding:1mm;border-radius:1.5mm;margin-top:2mm;display:flex;flex-direction:column;justify-content:center}
-.qr .box{width:19mm;height:19mm;font-size:6.5pt;margin:auto;border:1.5px dashed #d4a800;background:#fff5b8;display:flex;align-items:center;justify-content:center;font-size:7pt;line-height:1.4;color:#8a6d00}
+.qr .box{width:14mm;height:14mm;font-size:6.5pt;margin:auto;border:1.5px dashed #d4a800;background:#fff5b8;display:flex;align-items:center;justify-content:center;font-size:7pt;line-height:1.4;color:#8a6d00}
 .qr p{font-size:7pt;margin-top:.8mm;font-weight:700;line-height:1.2}
 .telrow{grid-column:1/4;display:flex;align-items:center;justify-content:flex-start;gap:3mm;margin-top:2mm;padding-top:2mm;border-top:1px solid #ffffff2a}
 .telrow .l{font-size:8.5pt;border:1px solid #fff9;padding:.3mm 2mm}
@@ -334,15 +352,15 @@ def build(v):
   <div class="band">
     <div class="tag">注文住宅<b>完成見学会</b></div>
     <div class="mid"><div class="nm">S様邸<small>金池小・上野ヶ丘中校区／大分駅から<span class="ph">○分</span></small></div><div class="sb">土地を読み解き一から設計する、こころ舎の「essence atelier」</div></div>
-    <div class="price"><span>この家は</span><b>4,000<small>万円台</small></b></div>
+    <div class="price"><span>駅近の注文住宅が</span><b>4,000<small>万円台</small></b><em>駅周辺の新築マンションと<br>比べてみてください</em></div>
   </div>
   <div class="lower">
     <p class="q">{v['q']}</p>
     <div class="icons">{icons}</div>
   </div>
   <div class="foot">
-    <div class="msg">注文住宅の完成見学会　<span class="ph" style="font-size:10pt">【要確認】○/○（土）・○（日）</span><small>ご予約制・お子さま連れ歓迎。{v['foot_sub']} ▶ 裏面へ</small></div>
-    <div class="brand"><small>設計事務所がつくった工務店</small>樹の家こころ舎</div>
+    <div class="msg">注文住宅の完成見学会　<span class="ph" style="font-size:10pt">【要確認】○/○（土）・○（日）</span><small>ご予約制・各回<span class="ph">○</span>組限定・お子さま連れ歓迎</small><small>{v['foot_sub']} ▶ 裏面へ</small><span class="fbrand">設計事務所がつくった工務店　<b>樹の家こころ舎</b></span></div>
+    <div class="fqr"><div class="box">【要確認】<br>予約QR</div><span>スマホで<br>かんたん予約</span></div>
   </div>
 </section>
 
@@ -358,7 +376,8 @@ def build(v):
     <div class="sec-h">土地を読み解き、一から設計する<em>「essence atelier」</em>。</div>
     <p class="plan-lead"><b>essence atelier</b>（エッセンス アトリエ）は規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計。<br><b>設計事務所がつくった工務店</b>が施工まで一貫。<b>クセのない間取り</b>だから、<b>売るときも、貸すときも価値が残りやすい</b>。</p>
     <div class="price-tbl"><div class="pl"><b>essence atelierは<br>広さごとの定額制</b><span>建物本体価格（税込）</span></div><div class="pt cur"><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div><div class="pn">※付帯工事・外構・諸費用は別途<br>※価格は<span class="ph">【要確認】○年○月</span>時点</div></div>
-    <p class="total"><b>S様邸の総額例</b>土地<span class="ph">○○○○万</span>＋建物2,475万＋付帯工事・外構・諸費用<span class="ph">○○○万</span>＝<em><span class="ph">4,○○○万円</span></em>　月々<span class="ph">○万円</span>〜<small>（<span class="ph">35年</span>）</small></p>
+    <p class="total"><b>S様邸の総額例</b>土地<span class="ph">○○○○万</span>＋建物2,475万＋付帯工事・外構・諸費用<span class="ph">○○○万</span>＝<em><span class="ph">4,○○○万円</span></em></p>
+    <div class="month"><div class="m-now"><span>{v['now_cost']}</span><b>月 <span class="ph">○○.○</span>万円</b></div><div class="m-ar">▶</div><div class="m-new"><span>S様邸なら<br>（{v['new_cost_note']}・<span class="ph">35年・○%</span>）</span><b>月 <span class="ph">○○.○</span>万円〜</b></div></div>
     <div class="life">
       <p class="life-h">S様邸の、ある一日<span>土地 約44坪／延床 約25坪／駐車場3台／18帖LDK＋吹抜け</span></p><ul class="pts2">{pts}</ul>
     </div>
