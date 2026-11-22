@@ -73,7 +73,7 @@ VARIANTS = {
         title='アパートから家づくり｜S様邸 注文住宅 完成見学会｜樹の家こころ舎',
         desc='大分駅近く・金池小校区。庭と駐車場3台のある注文住宅の完成見学会。「いまの家賃で建つ？」もご相談ください。ご予約制・無料・お子さま連れ歓迎。',
         h1='駅チカがいい。<br><em>でも、マンションは嫌。</em>',
-        lead_big='大分駅近く、<br class="sp">マンション以外の選択肢があったんだ。',
+        lead_big='大分駅近く、<br class="sp">マンション以外の選択肢が<br class="sp">あったんだ。',
         lead='庭と駐車場のある、街なかの注文住宅。<br class="sp">家賃を払い続ける暮らしから、卒業しませんか。',
         q='「走らないで」って、<br class="sp">本当は言いたくない。',
         icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('yen', '家賃を払っても<br>何も残らない'),
@@ -282,6 +282,48 @@ section.s.alt{background:var(--ivory)}
 .ptbl .pt i{position:absolute;top:10px;left:50%;transform:translateX(-50%);font-style:normal;font-size:10px;letter-spacing:.2em;color:var(--accent);white-space:nowrap}
 .ptbl .pn{font-size:12px;color:var(--soft);padding:12px 4px;border-top:1px solid var(--line2)}
 @media(max-width:520px){.ptbl .row{grid-template-columns:repeat(2,1fr)}.ptbl .pt:nth-child(3){border-left:0}.ptbl .pt:nth-child(n+3){border-top:1px solid var(--line2)}}
+.concept{margin-bottom:8px}
+.concept .quote{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(17px,4vw,21px);line-height:2;letter-spacing:.08em;text-align:center;color:var(--forest)}
+.concept .quote em{color:var(--accent)}
+.concept p.body{margin-top:28px;color:var(--muted);font-size:15px;line-height:2.1}
+.concept p.body b{color:var(--ink)}
+.life3{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);margin:56px 0 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);position:relative}
+.life3 li{padding:28px 22px 26px;border-left:1px solid var(--line2);position:relative}
+.life3 li:first-child{border-left:0}
+.life3 .t{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.22em;color:var(--accent);text-transform:uppercase}
+.life3 b{display:block;font-family:'Noto Serif JP',serif;font-weight:500;font-size:17px;letter-spacing:.06em;margin-top:6px}
+.life3 span{display:block;font-size:13.5px;color:var(--muted);line-height:1.9;margin-top:8px}
+.life3 svg{width:100%;max-width:150px;height:auto;margin:16px 0 4px}
+.life3-note{font-size:12.5px;color:var(--soft);margin-top:12px;text-align:center}
+@media(max-width:720px){.life3{grid-template-columns:1fr}.life3 li{border-left:0;border-top:1px solid var(--line2);display:grid;grid-template-columns:96px 1fr;column-gap:18px;padding:22px 0}.life3 li:first-child{border-top:0}.life3 svg{grid-row:1/4;grid-column:1;margin:4px 0 0}.life3 .t,.life3 b,.life3 span{grid-column:2}}
+.pr-h{margin-top:88px;text-align:center}
+.pr-h .h3{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(19px,4.4vw,25px);line-height:1.8;letter-spacing:.08em}
+.pr-h .h3 em{color:var(--accent)}
+.pr-h p{color:var(--muted);font-size:14.5px;margin-top:14px}
+.ptbl label.pt{cursor:pointer;transition:background .2s}
+.ptbl label.pt:hover{background:#ffffff80}
+.ptbl label.pt input{position:absolute;opacity:0;pointer-events:none}
+.ptbl label.pt:has(input:checked){background:#fff;box-shadow:inset 0 -2px 0 var(--accent)}
+.ptbl label.pt:has(input:checked) b{color:var(--accent)}
+.ptbl label.pt:has(input:focus-visible){outline:2px solid var(--forest);outline-offset:-2px}
+.sim{margin-top:28px;background:#fff;border:1px solid var(--line);padding:30px 30px 26px}
+.sim .step{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center}
+.step-n{font-style:normal;margin-right:12px}
+.sim .step>span,.ptbl .pl .step-n{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;color:var(--accent)}
+.sim .step label{font-weight:500;font-size:15px;letter-spacing:.06em}
+.sim .in{grid-column:1/3;display:flex;align-items:center;gap:10px;margin-top:6px}
+.sim .in input{flex:1;max-width:240px;font:inherit;font-size:22px;font-family:'Cormorant Garamond','Noto Serif JP',serif;text-align:right;padding:8px 14px;border:1px solid var(--line);border-radius:0;background:var(--paper);color:var(--ink)}
+.sim .in input:focus{outline:none;border-color:var(--forest);background:#fff}
+.sim .in em{font-size:14px;color:var(--muted)}
+.sim .hint{grid-column:1/3;font-size:12.5px;color:var(--soft);line-height:1.8}
+.sim .res{margin-top:24px;padding-top:22px;border-top:1px solid var(--line2);display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:4px 10px;font-size:14px;color:var(--muted);text-align:center}
+.sim .res b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;color:var(--ink);letter-spacing:.02em}
+.sim .res .sum b{font-size:clamp(36px,8vw,48px);color:var(--accent)}
+.sim .res .sum small{font-family:'Noto Serif JP',serif;font-size:15px;color:var(--accent)}
+.sim .res .plus{width:100%;font-size:12.5px;color:var(--soft)}
+.sim .go{margin-top:20px;text-align:center}
+.sim .go p{font-size:13.5px;color:var(--muted);margin-bottom:12px}
+@media(max-width:620px){.sim{padding:24px 20px}}
 .total{margin-top:20px;font-size:14px;line-height:2;color:var(--muted)}
 .total b{display:inline-block;font-size:11px;letter-spacing:.2em;color:var(--forest);border:1px solid var(--forest);padding:0 10px;margin-right:10px;line-height:1.9}
 .total em{font-weight:500;color:var(--ink)}
@@ -498,17 +540,44 @@ def build(key, v):
 
 <section class="s alt">
   <div class="wrap narrow">
-    {head(PRODUCT, f'土地を読み解き、<br class="sp">一から設計する<em>「{PRODUCT}」</em>。')}
-    <p class="plan-lead rv"><b>{PRODUCT}</b>（アトリエ）は規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計。<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。<b>クセのない間取り</b>だから、<b>売るときも、貸すときも価値が残りやすい</b>。</p>
-    <div class="ptbl rv">
-      <div class="pl"><span>{PRODUCT}は、広さごとの定額制</span><small>建物本体価格（税込）</small></div>
+    {head(PRODUCT, f'設計し、建て続けてきた<br class="sp">私たちの答え。<br><em>「{PRODUCT}」</em>')}
+    <div class="concept rv">
+      <p class="quote">人生の、ある一時期の<br class="sp">ためだけの家ではなく。<br>暮らしのかたちが変わっても、<br class="sp"><em>ずっと応えつづける家</em>を。</p>
+      <p class="body"><b>{PRODUCT}</b>（アトリエ）は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。子どもが小さい「いま」だけに合わせて間取りを決めると、数年後には使いにくい家になってしまう。だから{PRODUCT}は、家族の成長やはたらき方の変化を受け止められる<b>間取りの骨格</b>から考えます。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。クセのない間取りだから、<b>売るときも、貸すときも価値が残りやすい</b>のも特長です。</p>
+    </div>
+    <ol class="life3 rv">
+      <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><circle cx="55" cy="44" r="7" fill="none" stroke="#a8714a" stroke-width="1.6"/><circle cx="85" cy="48" r="6" fill="none" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Now</span><b>きょうだいで広々と</b><span>子どもが小さいうちは、ひと続きの広い部屋で一緒に。</span></li>
+      <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><line x1="75" y1="2" x2="75" y2="78" stroke="#a8714a" stroke-width="2" stroke-dasharray="5 4"/><circle cx="38" cy="42" r="8" fill="none" stroke="#a8714a" stroke-width="1.6"/><circle cx="112" cy="42" r="8" fill="none" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Growing</span><b>成長したら、ふた部屋に</b><span>思春期には、間仕切りでそれぞれの個室へ。</span></li>
+      <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><rect x="18" y="20" width="44" height="24" fill="none" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="22" x2="132" y2="22" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="34" x2="132" y2="34" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="46" x2="132" y2="46" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Later</span><b>夫婦ふたりの時間へ</b><span>子どもが巣立ったあとは、書斎や趣味の部屋として。</span></li>
+    </ol>
+    <p class="life3-note rv">子ども部屋を例にした考え方のイメージです。S様邸の子供室7.5帖も、将来2部屋に分けられるつくりです。</p>
+
+    <div class="pr-h rv">
+      <span class="eyebrow">Price</span>
+      <p class="h3">建物は、広さごとの定額制。<br><em>ご希望のエリアの土地価格</em>を<br class="sp">当てはめてみてください。</p>
+      <p>建物の価格が決まっているから、<br class="sp">土地を選べば総額の目安が見えてきます。</p>
+    </div>
+    <div class="ptbl rv" role="radiogroup" aria-label="建物の広さ">
+      <div class="pl"><span><em class="step-n">01</em>建物の広さを選ぶ</span><small>建物本体価格（税込）</small></div>
       <div class="row">
-        <div class="pt cur"><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div>
-        <div class="pt"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div>
-        <div class="pt"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div>
-        <div class="pt"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div>
+        <label class="pt"><input type="radio" name="size" value="2475" data-tsubo="25.5" checked><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></label>
+        <label class="pt"><input type="radio" name="size" value="2585" data-tsubo="27"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></label>
+        <label class="pt"><input type="radio" name="size" value="2695" data-tsubo="28.5"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></label>
+        <label class="pt"><input type="radio" name="size" value="2860" data-tsubo="30"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></label>
       </div>
       <div class="pn">※付帯工事・外構・諸費用は別途　※価格は{ph('【要確認】○年○月')}時点</div>
+    </div>
+    <div class="sim rv">
+      <div class="step"><span class="step-n">02</span><label for="land">ご希望のエリアの土地価格を入れる</label>
+        <div class="in"><input type="text" id="land" inputmode="numeric" placeholder="1,500" autocomplete="off"><em>万円</em></div>
+        <p class="hint">不動産サイトなどで見かける、気になるエリアの土地価格を入れてみてください。</p>
+      </div>
+      <div class="res" aria-live="polite">
+        <span>土地 <b id="r-land">—</b> 万円</span><span>＋</span><span>建物 <b id="r-bld">2,475</b> 万円</span><span>＝</span>
+        <span class="sum"><b id="r-sum">—</b><small>万円</small></span>
+        <span class="plus">＋ 付帯工事・外構・諸費用（土地の条件によって変わります）</span>
+      </div>
+      <div class="go"><p>この総額で、月々いくらになる？ 見学会で、<br class="sp">ご夫婦の収入に合わせて試算します。</p><a class="btn" href="#reserve" id="sim-go">見学会で相談する</a></div>
     </div>
     <p class="total rv"><b>S様邸の総額例</b>土地{ph('○○○○万')}＋建物2,475万＋付帯工事・外構・諸費用{ph('○○○万')}＝<em>{ph('4,○○○万円')}</em></p>
   </div>
@@ -557,6 +626,7 @@ def build(key, v):
     <form id="form" action="" method="post" novalidate>
       <input type="hidden" name="variant" value="{key}">
       <input type="hidden" name="source" id="source" value="">
+      <input type="hidden" name="sim_size" id="sim_size" value=""><input type="hidden" name="sim_land" id="sim_land" value="">
       <div class="f"><p>ご希望の日時<span class="req">必須</span></p>
         <div class="choices two">
           <label><input type="radio" name="date" value="day1-am" required>{ph('○/○（土）')} 午前</label>
@@ -623,6 +693,23 @@ def build(key, v):
   var bar=document.getElementById('bar'),r=document.getElementById('reserve');
   if(!('IntersectionObserver' in window))return;
   new IntersectionObserver(function(e){{bar.classList.toggle('hide',e[0].isIntersecting)}}).observe(r);
+}})();
+// 定額制の価格に、土地価格を当てはめて総額の目安を出す
+(function(){{
+  var land=document.getElementById('land');if(!land)return;
+  var fmt=function(n){{return n.toLocaleString('ja-JP')}};
+  function calc(){{
+    var r=document.querySelector('input[name=size]:checked');var bld=+r.value;
+    var v=land.value.replace(/[０-９]/g,function(c){{return String.fromCharCode(c.charCodeAt(0)-65248)}}).replace(/[^0-9]/g,'');
+    document.getElementById('r-bld').textContent=fmt(bld);
+    document.getElementById('sim_size').value=r.dataset.tsubo+'坪';
+    if(v){{var l=+v;document.getElementById('r-land').textContent=fmt(l);document.getElementById('r-sum').textContent=fmt(l+bld);document.getElementById('sim_land').value=l+'万円';}}
+    else{{document.getElementById('r-land').textContent='—';document.getElementById('r-sum').textContent='—';document.getElementById('sim_land').value='';}}
+  }}
+  land.addEventListener('input',calc);
+  land.addEventListener('blur',function(){{var v=land.value.replace(/[^0-9０-９]/g,'');if(v){{calc();land.value=document.getElementById('r-land').textContent}}}});
+  document.querySelectorAll('input[name=size]').forEach(function(e){{e.addEventListener('change',calc)}});
+  calc();
 }})();
 // 入力チェック。送信先（action）が未設定の間は送信せず、完了表示だけ確認できる
 (function(){{
