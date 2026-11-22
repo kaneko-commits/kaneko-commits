@@ -29,10 +29,10 @@ VARIANTS = {
     'mansion': dict(
         file='mansion.html',
         title='マンションからの住み替え｜S様邸 注文住宅 完成見学会｜樹の家こころ舎',
-        desc='ご希望の土地に、注文住宅を定額制で。金池小校区・庭と駐車場3台のS様邸 完成見学会。マンションからの住み替えのご相談もどうぞ。ご予約制・無料・お子さま連れ歓迎。',
+        desc='ご希望の土地に、注文住宅を定額で。金池小校区・庭と駐車場3台のS様邸 完成見学会。マンションからの住み替えのご相談もどうぞ。ご予約制・無料・お子さま連れ歓迎。',
         h1='「走らないで！」って、<br><em>本当は言いたくない。</em>',
         lead_big='下の階を気にせず、<br class="sp">家でも庭でも思いきり。',
-        lead='ご希望の土地に、庭と駐車場のある注文住宅を定額制で。<br class="sp">マンションからの住み替えという選択肢。',
+        lead='ご希望の土地に、庭と駐車場のある注文住宅を定額で。<br class="sp">マンションからの住み替えという選択肢。',
         q='マンションの<br class="sp">「ちょっと不便」、<br class="sp">ありませんか？',
         icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('tower', '機械式駐車場の<br>出庫待ち'),
                ('door', '駐車場から<br>玄関が遠い'), ('bbq', '七輪やBBQが<br>できない')],
@@ -71,10 +71,10 @@ VARIANTS = {
     'apartment': dict(
         file='apartment.html',
         title='アパートから家づくり｜S様邸 注文住宅 完成見学会｜樹の家こころ舎',
-        desc='ご希望の土地に、注文住宅を定額制で。金池小校区・庭と駐車場3台のS様邸 完成見学会。資金計画のご相談もどうぞ。ご予約制・無料・お子さま連れ歓迎。',
+        desc='ご希望の土地に、注文住宅を定額で。金池小校区・庭と駐車場3台のS様邸 完成見学会。資金計画のご相談もどうぞ。ご予約制・無料・お子さま連れ歓迎。',
         h1='駅チカがいい。<br><em>でも、マンションは嫌。</em>',
         lead_big='希望の土地に、<br class="sp">注文住宅という選択肢があったんだ。',
-        lead='駅の近くでも、子育てしやすいエリアでも。建物は定額制。<br class="sp">子どもが小さいいまも、その先も、住みやすい家を。',
+        lead='駅の近くでも、子育てしやすいエリアでも。建物は定額。<br class="sp">子どもが小さいいまも、その先も、住みやすい家を。',
         q='「走らないで」って、<br class="sp">本当は言いたくない。',
         icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('yen', '家賃を払っても<br>何も残らない'),
                ('far', '駐車場が<br>家から離れている'), ('wall', '壁が薄くて<br>お隣の音が気になる')],
@@ -478,7 +478,7 @@ def build(key, v):
     <div class="top">
       <span class="lbl en">OPEN HOUSE ─ 注文住宅 完成見学会</span>
       <div class="nm"><b>S様邸</b><span>金池小・上野ヶ丘中校区／大分駅から{ph('○分')}<br>土地を読み解き一から設計する、こころ舎の「{PRODUCT}」</span></div>
-      <div class="price"><small>建物は定額制（税込）</small><b>2,475<small>万円〜</small></b></div>
+      <div class="price"><small>建物は定額（税込）</small><b>2,475<small>万円〜</small></b></div>
     </div>
     <dl>
       <dt>日時</dt><dd>{ph('【要確認】○月○日（土）・○日（日）')}<br>10:00〜17:00<small>各回{ph('○')}組限定・見学は約{ph('○分')}</small></dd>
@@ -530,7 +530,7 @@ def build(key, v):
     {head(PRODUCT, f'設計し、建て続けてきた<br class="sp">私たちの答え。<br><em>「{PRODUCT}」</em>')}
     <div class="concept rv">
       <p class="quote">子どもが小さいいまも、<br class="sp">育ちざかりのころも、<br>夫婦ふたりに戻ってからも。<br><em>どの時期にも、住みやすい家</em>を。</p>
-      <p class="body"><b>{PRODUCT}</b>（アトリエ）は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。子どもが小さい「いま」だけに合わせて間取りを決めると、数年後には使いにくい家になってしまう。だから{PRODUCT}は、家族の成長やはたらき方の変化を受け止められる<b>間取りの骨格</b>から考えます。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。そして、住みやすさと同じくらい大切にしているのが、<b>資産としての価値</b>です。</p>
+      <p class="body"><b>{PRODUCT}</b>（アトリエ）は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。家族の成長やはたらき方の変化にも応えられる<b>間取りの骨格</b>から考えるから、どの時期にも住みやすい家になります。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。そして、住みやすさと同じくらい大切にしているのが、<b>資産としての価値</b>です。</p>
     </div>
     <ol class="life3 rv">
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><circle cx="55" cy="44" r="7" fill="none" stroke="#a8714a" stroke-width="1.6"/><circle cx="85" cy="48" r="6" fill="none" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Now</span><b>きょうだいで広々と</b><span>子どもが小さいうちは、ひと続きの広い部屋で一緒に。</span></li>
@@ -556,11 +556,11 @@ def build(key, v):
 
     <div class="pr-h rv">
       <span class="eyebrow">Price</span>
-      <p class="h3"><em>ご希望の土地に</em>、<br class="sp">注文住宅を定額制で。</p>
-      <p>建物は、広さごとの定額制。<br class="sp">土地の価格がわかれば、<br class="sp">総額の目安がすぐに見えてきます。</p>
+      <p class="h3"><em>ご希望の土地に</em>、<br class="sp">注文住宅を定額で。</p>
+      <p>建物の価格は、広さごとに定額。<br class="sp">土地の価格がわかれば、<br class="sp">総額の目安がすぐに見えてきます。</p>
     </div>
     <div class="ptbl rv">
-      <div class="pl"><span>建物本体価格（定額制）</span><small>税込</small></div>
+      <div class="pl"><span>建物本体価格（広さごとに定額）</span><small>税込</small></div>
       <div class="row"><div class="pt cur"><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div></div>
       <div class="pn">※付帯工事・外構・諸費用は別途　※価格は{ph('【要確認】○年○月')}時点</div>
     </div>
