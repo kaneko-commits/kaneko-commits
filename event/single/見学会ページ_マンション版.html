@@ -176,6 +176,19 @@ section.s.alt{background:var(--ivory)}
 .life3 span{display:block;font-size:13.5px;color:var(--muted);line-height:1.9;margin-top:8px}
 .life3 svg{width:100%;max-width:150px;height:auto;margin:16px 0 4px}
 .life3-note{font-size:12.5px;color:var(--soft);margin-top:12px;text-align:center}
+.asset{margin-top:88px}
+.asset-h{text-align:center}
+.asset-h .h3{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(19px,4.4vw,25px);line-height:1.8;letter-spacing:.08em}
+.asset-h .h3 em{color:var(--accent)}
+.asset-h p:not(.h3){color:var(--muted);font-size:14.5px;margin-top:14px}
+.asset-l{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.asset-l li{background:#fff;border:1px solid var(--line);padding:30px 24px 26px;position:relative}
+.asset-l svg{width:40px;height:40px}
+.asset-l .n{position:absolute;top:22px;right:22px;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--accent);letter-spacing:.04em}
+.asset-l b{display:block;font-family:'Noto Serif JP',serif;font-weight:500;font-size:18px;letter-spacing:.1em;margin-top:16px}
+.asset-l span:not(.n){display:block;font-size:13.5px;color:var(--muted);line-height:1.95;margin-top:8px}
+.asset-note{font-size:13px;color:var(--muted);text-align:center;margin-top:18px}
+@media(max-width:720px){.asset{margin-top:72px}.asset-l{grid-template-columns:1fr;gap:12px}.asset-l li{display:grid;grid-template-columns:44px 1fr;column-gap:14px;padding:22px 20px}.asset-l svg{grid-row:1/3;margin-top:4px}.asset-l b{margin-top:0}.asset-l span:not(.n){grid-column:2}}
 @media(max-width:720px){.life3{grid-template-columns:1fr}.life3 li{border-left:0;border-top:1px solid var(--line2);display:grid;grid-template-columns:96px 1fr;column-gap:18px;padding:22px 0}.life3 li:first-child{border-top:0}.life3 svg{grid-row:1/4;grid-column:1;margin:4px 0 0}.life3 .t,.life3 b,.life3 span{grid-column:2}}
 .pr-h{margin-top:88px;text-align:center}
 .pr-h .h3{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(19px,4.4vw,25px);line-height:1.8;letter-spacing:.08em}
@@ -374,7 +387,7 @@ footer .notes{margin-top:20px;padding-top:20px;border-top:1px solid #ffffff1a;fo
     <div class="head rv"><span class="eyebrow">atelier</span><h2 class="h2">設計し、建て続けてきた<br class="sp">私たちの答え。<br><em>「atelier」</em></h2></div>
     <div class="concept rv">
       <p class="quote">子どもが小さいいまも、<br class="sp">育ちざかりのころも、<br>夫婦ふたりに戻ってからも。<br><em>どの時期にも、住みやすい家</em>を。</p>
-      <p class="body"><b>atelier</b>（アトリエ）は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。子どもが小さい「いま」だけに合わせて間取りを決めると、数年後には使いにくい家になってしまう。だからatelierは、家族の成長やはたらき方の変化を受け止められる<b>間取りの骨格</b>から考えます。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。クセのない間取りだから、<b>売るときも、貸すときも価値が残りやすい</b>のも特長です。</p>
+      <p class="body"><b>atelier</b>（アトリエ）は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。子どもが小さい「いま」だけに合わせて間取りを決めると、数年後には使いにくい家になってしまう。だからatelierは、家族の成長やはたらき方の変化を受け止められる<b>間取りの骨格</b>から考えます。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。そして、住みやすさと同じくらい大切にしているのが、<b>資産としての価値</b>です。</p>
     </div>
     <ol class="life3 rv">
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><circle cx="55" cy="44" r="7" fill="none" stroke="#a8714a" stroke-width="1.6"/><circle cx="85" cy="48" r="6" fill="none" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Now</span><b>きょうだいで広々と</b><span>子どもが小さいうちは、ひと続きの広い部屋で一緒に。</span></li>
@@ -382,6 +395,21 @@ footer .notes{margin-top:20px;padding-top:20px;border-top:1px solid #ffffff1a;fo
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><rect x="18" y="20" width="44" height="24" fill="none" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="22" x2="132" y2="22" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="34" x2="132" y2="34" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="46" x2="132" y2="46" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Later</span><b>夫婦ふたりの時間へ</b><span>子どもが巣立ったあとは、書斎や趣味の部屋として。</span></li>
     </ol>
     <p class="life3-note rv">子ども部屋を例にした、考え方のイメージです。S様邸の子供室7.5帖も、将来2部屋に分けられるつくりです。</p>
+
+
+    <div class="asset">
+      <div class="asset-h rv">
+        <span class="eyebrow">Asset Value</span>
+        <p class="h3">売るときも、貸すときも。<br><em>価値が残る家</em>のつくり方。</p>
+        <p>家は、家族の暮らしの器であると<br class="sp">同時に、大切な資産です。<br>atelierは、将来の価値まで見すえて設計します。</p>
+      </div>
+      <ol class="asset-l rv">
+        <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="10" width="28" height="28"/><path d="M4 16V4h12M44 32v12H32M4 4l8 8M44 44l-8-8"/></svg><span class="n">01</span><b>サイズ感</b><span>広ければよい、ではありません。家族が暮らしやすく、将来買う人・借りる人にも選ばれやすい広さに整えます。</span></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="36" height="32"/><path d="M6 24h20M26 8v32M26 30h16"/></svg><span class="n">02</span><b>間取り構成</b><span>特定の家族だけに合わせた、クセの強い間取りにはしません。誰が住んでも使いやすい構成だから、価値が保ちやすい。</span></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30l3-9a4 4 0 0 1 4-3h18a4 4 0 0 1 4 3l3 9"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/><path d="M4 8h40" stroke-dasharray="3 3"/></svg><span class="n">03</span><b>駐車場の取り方</b><span>車での暮らしが前提の大分では、台数と停めやすさが家の価値に大きく関わります。土地の形を読み解き、敷地の中に必要な台数を確保します。</span></li>
+      </ol>
+      <p class="asset-note rv">S様邸は、土地約44坪に延床約25坪・駐車場3台。暮らしやすさと資産価値を両立させた一例です。</p>
+    </div>
 
     <div class="pr-h rv">
       <span class="eyebrow">Price</span>
