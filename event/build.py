@@ -24,6 +24,16 @@ def ph(text):
     return f'<span class="ph">{text}</span>'
 
 
+# 共働きのご夫婦の平日（S様邸の設備にもとづく）
+WEEKDAY = [
+    ('7:00', '朝の身支度', '洗面横のファミリークローゼットで、着替えも身支度も一か所で。夫婦の支度が重なっても慌てません。'),
+    ('8:00', '出勤', '玄関前の駐車場から、それぞれの車で。3台分あるから、車の入れ替えも不要。大分駅付近の職場まで' + ph('○分') + '。'),
+    ('18:30', '帰宅', '保育園の荷物も、週末にまとめ買いした食材も。玄関収納と食品庫へ、帰ってすぐ片づきます。'),
+    ('19:00', '夕食', '吹抜けのある18帖のLDK。キッチンに立ちながら、床いっぱいに遊ぶ子どもの気配を感じられます。'),
+    ('20:30', '子どもと', 'リビング階段だから、2階へ上がる子どもとも自然に顔を合わせて「おやすみ」を。'),
+    ('週末', 'ひと息', '外部収納からBBQコンロを出して、南の小さな庭で七輪。平日がんばった分、家でゆっくり。'),
+]
+
 # ---------------------------------------------------------------- 版ごとの文言
 VARIANTS = {
     'mansion': dict(
@@ -44,6 +54,7 @@ VARIANTS = {
             ('駐車場', '寝た子を抱いて、機械式の出庫待ち', '玄関の前に3台分。抱っこのまま数歩で家の中へ'),
             ('収納', '開かずの一部屋に、段ボールが積み上がる', 'ベビーカーもBBQ道具も外部収納へ。部屋は家族のために'),
             ('週末', 'BBQは車で遠くの公園まで。片付けでへとへと', '南の小さな庭で七輪。焼ける間に、子どもは水遊び'),
+            ('平日', '仕事帰り、保育園の荷物と買い物袋を抱えてエレベーターへ', '玄関前に駐車して、荷物は玄関収納と食品庫へ。帰ってすぐ片づく'),
             ('お金', '機械式の更新で、修繕積立金が上がる不安', '管理費・駐車場代はゼロ。修繕は自分たちのペースで計画'),
         ],
         down_hint='マンションの売却額を頭金に充てる場合は、その見込み額を入れてください。',
@@ -57,6 +68,7 @@ VARIANTS = {
         ],
         gift1=('住み替え資金シミュレーション', 'ローン残債・売る順番・二重ローンの不安まで整理'),
         faq=[
+            ('共働きで、平日はなかなか時間がとれません。', '見学会は土日に開催しています。その後の打ち合わせも、' + ph('【要確認】土日やオンライン') + 'でご相談いただけます。'),
             ('マンションを売るかどうか、まだ決めていません。参加してもいいですか？', 'もちろん大丈夫です。「戸建てにしたら暮らしがどう変わるか」を実際の家で確かめるだけでも、ぜひお越しください。'),
             ('マンションの売却もお願いできますか？', '売却は、お客様がお選びの不動産会社で行っていただきます。売る順番や資金計画は、こころ舎で一緒に整理します。'),
             ('ローンが残っていても、住み替えはできますか？', '売却額と残債の関係によって方法が変わります。見学会の「住み替え資金シミュレーション」で、お客様の場合を試算します。'),
@@ -86,6 +98,7 @@ VARIANTS = {
             ('駐車場', '雨の日、離れた月極から子どもを抱えて歩く', '玄関の前に3台分。抱っこのまま数歩で家の中へ'),
             ('収納', '押し入れはいっぱい。一部屋が物置に', 'ベビーカーもBBQ道具も外部収納へ。部屋は家族のために'),
             ('週末', 'BBQは車で遠くの公園まで。片付けでへとへと', '南の小さな庭で七輪。焼ける間に、子どもは水遊び'),
+            ('平日', '仕事帰り、離れた駐車場から保育園の荷物と買い物袋を抱えて歩く', '玄関前に駐車して、荷物は玄関収納と食品庫へ。帰ってすぐ片づく'),
             ('お金', '家賃を払っても、手元に何も残らない', '毎月の支払いが、土地と家という資産に変わっていく'),
         ],
         down_hint='頭金なしで考える場合は、0のままで大丈夫です。',
@@ -99,6 +112,7 @@ VARIANTS = {
         ],
         gift1=('家づくり資金シミュレーション', 'ご夫婦の収入・ライフプランから、無理のない予算と返済計画を試算'),
         faq=[
+            ('共働きで、平日はなかなか時間がとれません。', '見学会は土日に開催しています。その後の打ち合わせも、' + ph('【要確認】土日やオンライン') + 'でご相談いただけます。'),
             ('まだ家を建てるか決めていません。参加してもいいですか？', 'もちろん大丈夫です。「何から始めればいいかわからない」段階のご相談がいちばん多いです。'),
             ('頭金がなくても家は建てられますか？', '頭金なしで家づくりをされる方もいらっしゃいます。見学会の「家づくり資金シミュレーション」で、お客様の場合を試算します。'),
             ('土地を持っていなくても大丈夫ですか？', '大丈夫です。S様も土地探しから始めました。気になる土地があれば「建つかどうか」ラフプランでお見せします。'),
@@ -242,12 +256,17 @@ section.s.alt{background:var(--ivory)}
 .spec b{font-family:'Noto Serif JP',serif;font-weight:500;font-size:19px;color:var(--forest);letter-spacing:.06em}
 @media(max-width:720px){.spec{grid-template-columns:repeat(2,1fr)}.spec div{border-top:1px solid var(--line2)}.spec div:nth-child(-n+2){border-top:0}.spec div:nth-child(odd){border-left:0}.spec div:last-child{grid-column:1/3;border-left:0}}
 .spec-note{font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
-.pts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0 48px;margin-top:64px}
-.pts li{padding:28px 0;border-top:1px solid var(--line)}
-.pts .n{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:var(--accent);letter-spacing:.04em}
-.pts b{display:block;font-family:'Noto Serif JP',serif;font-weight:500;font-size:17px;margin-top:14px;letter-spacing:.06em}
-.pts span{display:block;color:var(--muted);font-size:14px;line-height:1.9;margin-top:6px}
-@media(max-width:820px){.pts{grid-template-columns:1fr;margin-top:40px}.pts li{display:grid;grid-template-columns:52px 1fr;column-gap:8px;padding:22px 0}.pts .n{grid-row:1/3;font-size:26px}.pts b{margin-top:0}}
+.day-h{margin-top:64px;text-align:center;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(18px,4.2vw,22px);letter-spacing:.08em}
+.day-h .en{display:block;font-size:13px;color:var(--accent);letter-spacing:.24em;text-transform:uppercase;margin-bottom:6px}
+.day{list-style:none;margin:32px auto 0;max-width:820px;position:relative}
+.day:before{content:'';position:absolute;left:96px;top:18px;bottom:18px;width:1px;background:var(--line)}
+.day li{display:grid;grid-template-columns:96px 1fr;column-gap:36px;padding:20px 0;position:relative}
+.day li:before{content:'';position:absolute;left:92px;top:33px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:1px solid var(--accent)}
+.day time{font-family:'Cormorant Garamond','Noto Serif JP',serif;font-weight:500;font-size:26px;color:var(--accent);text-align:right;padding-right:22px;line-height:1.5;letter-spacing:.04em}
+.day time.jp{font-family:'Noto Serif JP',serif;font-size:19px;padding-top:3px}
+.day b{display:block;font-family:'Noto Serif JP',serif;font-weight:500;font-size:17px;letter-spacing:.08em;line-height:1.6;margin-top:6px}
+.day div>span{display:block;color:var(--muted);font-size:14px;line-height:1.9;margin-top:4px}
+@media(max-width:620px){.day:before{left:70px}.day li{grid-template-columns:70px 1fr;column-gap:24px;padding:16px 0}.day li:before{left:66px;top:28px}.day time{font-size:21px;padding-right:16px}.day b{margin-top:2px}}
 
 /* product */
 .plan-lead{color:var(--muted);font-size:15px;line-height:2.1}
@@ -432,8 +451,7 @@ def build(key, v):
         f'<div class="scene"><div class="lb">{a}</div><div class="now"><small>いま</small>{b}</div>'
         f'<div class="ar"></div><div class="fut"><small>これから</small>{c}</div></div>'
         for a, b, c in v['scenes'])
-    pts = ''.join(f'<li class="rv"><span class="n">{i:02d}</span><b>{a}</b><span>{b}</span></li>'
-                  for i, (a, b) in enumerate(fb.PLAN_POINTS, 1))
+    pts = ''.join(f'<li><time{" class=\"jp\"" if not t[0].isdigit() else ""}>{t}</time><div><b>{a}</b><span>{b}</span></div></li>' for t, a, b in WEEKDAY)
     consult = ''.join(f'<div><b>{a}</b><p>{b}</p></div>' for a, b in v['consult'])
     faq = ''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in v['faq'])
     current = ''.join(
@@ -513,7 +531,7 @@ def build(key, v):
 
 <section class="s">
   <div class="wrap">
-    {head('The House', 'S様邸の、ある一日。', '「庭は少しでいい。駐車場は3台欲しい。<br class="sp">金池小校区で家を建てたい。」')}
+    {head('The House', 'S様邸の、ある一日。', '共働きのご夫婦の平日を、<br class="sp">S様邸で想像してみると。<br>忙しい毎日を、<br class="sp">家のつくりが少し軽くしてくれます。')}
     <div class="spec rv">
       <div><small>土地</small><b>約44坪</b></div>
       <div><small>延床</small><b>約25坪</b></div>
@@ -521,7 +539,8 @@ def build(key, v):
       <div><small>家族</small><b>4人</b></div>
       <div><small>性能</small><b style="font-size:14px">{ph('【要確認】耐震・断熱等級')}</b></div>
     </div>
-    <ul class="pts">{pts}</ul>
+    <p class="day-h rv"><span class="en">Weekday</span>共働きの毎日を、軽くする家</p>
+    <ol class="day rv">{pts}</ol>
   </div>
 </section>
 
