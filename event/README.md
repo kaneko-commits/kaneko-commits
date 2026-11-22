@@ -9,6 +9,7 @@
 
 - 元データは `build.py` です。`python3 build.py` で2つの版をまとめて作り直せます。
 - アイコン・間取り図・暮らしのポイントは `../flyer/build.py` の内容を使っています。チラシを直すとページにも反映されます。
+- `single/` には、写真を埋め込んだ確認・共有用のHTML（ファイル1つでブラウザで開けます）ができます。
 - 公開するときは `mansion.html`・`apartment.html`・`img/` をまとめてアップロードしてください。
 - QRコードのURLに `?from=flyer` を付けると、どのチラシから来たかが予約データ（`source`）に残ります。版は `variant`（mansion / apartment）に入ります。
 

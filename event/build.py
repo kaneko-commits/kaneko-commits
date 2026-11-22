@@ -611,7 +611,28 @@ def build(key, v):
 '''
 
 
+SINGLE = {'mansion': '見学会ページ_マンション版.html', 'apartment': '見学会ページ_アパート版.html'}
+
+
+def single_file(html):
+    """写真を埋め込み、HTMLファイル1つで開ける版にする（確認・共有用）"""
+    import base64
+    import io
+    from PIL import Image
+    buf = io.BytesIO()
+    Image.open(HERE / 'img' / 'exterior.jpg').resize((1280, 853)).save(buf, 'JPEG', quality=78, optimize=True, progressive=True)
+    data = base64.b64encode(buf.getvalue()).decode()
+    html = html.replace('src="img/exterior.jpg"', f'src="data:image/jpeg;base64,{data}"')
+    html = html.replace('<meta property="og:image" content="img/ogp.jpg">', '')
+    for k, name in SINGLE.items():
+        html = html.replace(f'href="{VARIANTS[k]["file"]}"', f'href="{name}"')
+    return html
+
+
 if __name__ == '__main__':
+    (HERE / 'single').mkdir(exist_ok=True)
     for key, v in VARIANTS.items():
-        (HERE / v['file']).write_text(build(key, v), encoding='utf-8')
-        print('wrote', v['file'])
+        html = build(key, v)
+        (HERE / v['file']).write_text(html, encoding='utf-8')
+        (HERE / 'single' / SINGLE[key]).write_text(single_file(html), encoding='utf-8')
+        print('wrote', v['file'], '/ single/' + SINGLE[key])
