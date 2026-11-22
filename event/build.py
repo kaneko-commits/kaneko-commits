@@ -15,6 +15,7 @@ fb = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(fb)
 
 PRODUCT = 'atelier'  # 商品名
+RATE = '1.0'  # ローン試算の初期金利（%）。【要確認】公開時点の目安に合わせる
 TEL = '0972-83-5918'
 
 
@@ -45,8 +46,7 @@ VARIANTS = {
             ('週末', 'BBQは車で遠くの公園まで。片付けでへとへと', '南の小さな庭で七輪。焼ける間に、子どもは水遊び'),
             ('お金', '機械式の更新で、修繕積立金が上がる不安', '管理費・駐車場代はゼロ。修繕は自分たちのペースで計画'),
         ],
-        now_cost='いまのローン＋管理費・修繕積立金＋駐車場代',
-        new_cost_note='売却額を頭金に',
+        down_hint='マンションの売却額を頭金に充てる場合は、その見込み額を入れてください。',
         event='住み替え相談会',
         consult_h='見学のついでに、<br class="sp"><em>住み替えの順番</em>まで<br class="sp">整理できます。',
         consult=[
@@ -71,10 +71,10 @@ VARIANTS = {
     'apartment': dict(
         file='apartment.html',
         title='アパートから家づくり｜S様邸 注文住宅 完成見学会｜樹の家こころ舎',
-        desc='大分駅近く・金池小校区。庭と駐車場3台のある注文住宅の完成見学会。「いまの家賃で建つ？」もご相談ください。ご予約制・無料・お子さま連れ歓迎。',
+        desc='大分駅近く・金池小校区。庭と駐車場3台のある注文住宅の完成見学会。資金計画のご相談もどうぞ。ご予約制・無料・お子さま連れ歓迎。',
         h1='駅チカがいい。<br><em>でも、マンションは嫌。</em>',
         lead_big='大分駅近く、<br class="sp">マンション以外の選択肢が<br class="sp">あったんだ。',
-        lead='庭と駐車場のある、街なかの注文住宅。<br class="sp">家賃を払い続ける暮らしから、卒業しませんか。',
+        lead='庭と駐車場のある、街なかの注文住宅。<br class="sp">子どもが小さいいまも、その先も、住みやすい家を。',
         q='「走らないで」って、<br class="sp">本当は言いたくない。',
         icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('yen', '家賃を払っても<br>何も残らない'),
                ('far', '駐車場が<br>家から離れている'), ('wall', '壁が薄くて<br>お隣の音が気になる')],
@@ -88,17 +88,16 @@ VARIANTS = {
             ('週末', 'BBQは車で遠くの公園まで。片付けでへとへと', '南の小さな庭で七輪。焼ける間に、子どもは水遊び'),
             ('お金', '家賃を払っても、手元に何も残らない', '毎月の支払いが、土地と家という資産に変わっていく'),
         ],
-        now_cost='いまの家賃＋駐車場代',
-        new_cost_note='頭金なし',
+        down_hint='頭金なしで考える場合は、0のままで大丈夫です。',
         event='家づくり相談会',
-        consult_h='見学のついでに、<br class="sp"><em>「いまの家賃で建つ？」</em>を<br class="sp">確かめられます。',
+        consult_h='見学のついでに、<br class="sp"><em>無理のない資金計画</em>まで<br class="sp">確かめられます。',
         consult=[
-            ('いまの家賃と、月々いくら違う？', 'いまの家賃・駐車場代と、S様邸のような家の月々の支払いを並べて比べます。'),
+            ('いくらまでなら、無理なく借りられる？', 'ご夫婦の収入やこれからのライフプランから、無理のない借入額と月々の返済額を試算します。'),
             ('頭金がなくても大丈夫？', '頭金なしで組む場合も含めて、収入から無理のない予算を試算します。'),
             ('何から始めればいい？', '土地探し・資金計画・プランづくりの順番と、S様が実際にかかった期間をご説明します。'),
             ('共働きの住宅ローンは、どう組む？', 'ペアローン・収入合算など、ご夫婦の働き方やライフプランに合わせた組み方を比較します。'),
         ],
-        gift1=('家づくり資金シミュレーション', 'いまの家賃・収入から、無理のない予算を試算'),
+        gift1=('家づくり資金シミュレーション', 'ご夫婦の収入・ライフプランから、無理のない予算と返済計画を試算'),
         faq=[
             ('まだ家を建てるか決めていません。参加してもいいですか？', 'もちろん大丈夫です。「何から始めればいいかわからない」段階のご相談がいちばん多いです。'),
             ('頭金がなくても家は建てられますか？', '頭金なしで家づくりをされる方もいらっしゃいます。見学会の「家づくり資金シミュレーション」で、お客様の場合を試算します。'),
@@ -108,7 +107,7 @@ VARIANTS = {
         ],
         current_options=['賃貸アパート・マンション', '社宅・官舎', '分譲マンション（持ち家）', 'その他'],
         current_default=0,
-        topics=['いまの家賃で建つか知りたい', '頭金・住宅ローンのこと', '共働きの住宅ローン（ペアローン・収入合算）', '土地探し（金池小校区など）', '家づくりの進め方', '見学だけしたい'],
+        topics=['無理のない借入額・月々の返済額', '頭金・住宅ローンのこと', '共働きの住宅ローン（ペアローン・収入合算）', '土地探し（金池小校区など）', '家づくりの進め方', '見学だけしたい'],
         note='「頭金がない」「何から始めればいいかわからない」段階からのご相談で大丈夫です。',
     ),
 }
@@ -235,19 +234,6 @@ section.s.alt{background:var(--ivory)}
  .scene .fut small{color:var(--accent)}
 }
 
-/* money */
-.money{margin-top:56px;display:grid;grid-template-columns:1fr 56px 1fr;border:1px solid var(--line);background:#fff}
-.money>div{padding:28px;display:flex;flex-direction:column;justify-content:center}
-.money .m-ar{padding:0;align-items:center;color:var(--accent)}
-.money .m-ar:before{content:'';width:20px;height:20px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg) translate(-4px,4px)}
-.money span{font-size:13px;line-height:1.8;color:var(--muted)}
-.money b{font-family:'Noto Serif JP',serif;font-weight:500;font-size:24px;margin-top:8px;white-space:nowrap;letter-spacing:.04em}
-.money .m-new{background:var(--deep)}
-.money .m-new span{color:#d5ddd6}
-.money .m-new b{color:var(--gold)}
-.money-note{font-size:12px;color:var(--soft);margin-top:12px;text-align:center}
-@media(max-width:620px){.money{grid-template-columns:1fr}.money>div{padding:22px}.money .m-ar{height:40px}.money .m-ar:before{transform:rotate(135deg) translate(-4px,4px)}}
-
 /* house */
 .spec{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
 .spec div{padding:22px 10px;text-align:center;border-left:1px solid var(--line2)}
@@ -320,7 +306,32 @@ section.s.alt{background:var(--ivory)}
 .sim .res b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;color:var(--ink);letter-spacing:.02em}
 .sim .res .sum b{font-size:clamp(36px,8vw,48px);color:var(--accent)}
 .sim .res .sum small{font-family:'Noto Serif JP',serif;font-size:15px;color:var(--accent)}
-.sim .res .plus{width:100%;font-size:12.5px;color:var(--soft)}
+.sim .step+.step{margin-top:22px}
+.sim .step .opt{display:inline-block;font-size:10.5px;font-weight:400;letter-spacing:.1em;padding:0 8px;margin-left:10px;border:1px solid var(--line);color:var(--soft);line-height:1.8;vertical-align:1px}
+.sim .res .sum{width:100%;margin-top:4px;font-size:13px;letter-spacing:.14em}
+.sim .res .sum b{font-size:clamp(34px,7vw,44px)!important}
+.loan{margin-top:30px;padding-top:26px;border-top:1px solid var(--line2)}
+.loan-h{font-weight:500;font-size:15px;letter-spacing:.06em}
+.loan-h .step-n{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.2em;color:var(--accent)}
+.loan-in{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.loan-in label{font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.loan-in label small{font-size:10.5px;margin-left:6px;color:var(--soft)}
+.loan-in .in{display:flex;align-items:center;gap:6px;margin-top:4px}
+.loan-in input,.loan-in select{width:100%;min-width:0;font:inherit;font-size:19px;font-family:'Cormorant Garamond','Noto Serif JP',serif;text-align:right;height:48px;padding:6px 10px;border:1px solid var(--line);border-radius:0;background:var(--paper);color:var(--ink);-webkit-appearance:none;appearance:none}
+.loan-in select{text-align:center;text-align-last:center}
+.loan-in input:focus,.loan-in select:focus{outline:none;border-color:var(--forest);background:#fff}
+.loan-in em{font-size:13px;color:var(--muted);flex:none}
+.loan .hint{font-size:12.5px;color:var(--soft);margin-top:10px}
+@media(max-width:620px){.loan-in{grid-template-columns:1fr 1fr}}
+.pay{margin-top:24px;display:grid;grid-template-columns:1fr 1.5fr 1fr;background:var(--deep);color:#fff;text-align:center}
+.pay>div{padding:20px 10px;display:flex;flex-direction:column;justify-content:center}
+.pay>div+div{border-left:1px solid #ffffff1f}
+.pay small{font-size:11.5px;letter-spacing:.14em;color:#c3cdc5}
+.pay b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;letter-spacing:.02em;margin-top:4px}
+.pay b em{font-family:'Noto Serif JP',serif;font-size:13px;margin-left:3px;color:#c3cdc5}
+.pay .main b{font-size:clamp(36px,8vw,46px);color:var(--gold)}
+@media(max-width:620px){.pay{grid-template-columns:1fr 1fr}.pay .main{grid-column:1/3;order:-1;border-bottom:1px solid #ffffff1f}.pay>div+div{border-left:0}.pay>div:last-child{border-left:1px solid #ffffff1f}}
+.pay-note{font-size:11.5px;color:var(--soft);margin-top:12px;line-height:1.9}
 .sim .go{margin-top:20px;text-align:center}
 .sim .go p{font-size:13.5px;color:var(--muted);margin-bottom:12px}
 @media(max-width:620px){.sim{padding:24px 20px}}
@@ -515,12 +526,6 @@ def build(key, v):
       <div class="scene-hd"><span></span><span>{v['now_label']}</span><span></span><span>S様邸での光景</span></div>
       {scenes}
     </div>
-    <div class="money rv">
-      <div class="m-now"><span>{v['now_cost']}</span><b>月 {ph('○○.○')}万円</b></div>
-      <div class="m-ar"></div>
-      <div class="m-new"><span>S様邸なら（{v['new_cost_note']}・{ph('35年・○%')}）</span><b>月 {ph('○○.○')}万円〜</b></div>
-    </div>
-    <p class="money-note">※月々の金額は目安です。金利・返済期間・お客様の条件により変わります。</p>
   </div>
 </section>
 
@@ -542,7 +547,7 @@ def build(key, v):
   <div class="wrap narrow">
     {head(PRODUCT, f'設計し、建て続けてきた<br class="sp">私たちの答え。<br><em>「{PRODUCT}」</em>')}
     <div class="concept rv">
-      <p class="quote">人生の、ある一時期の<br class="sp">ためだけの家ではなく。<br>暮らしのかたちが変わっても、<br class="sp"><em>ずっと応えつづける家</em>を。</p>
+      <p class="quote">子どもが小さいいまも、<br class="sp">育ちざかりのころも、<br>夫婦ふたりに戻ってからも。<br><em>どの時期にも、住みやすい家</em>を。</p>
       <p class="body"><b>{PRODUCT}</b>（アトリエ）は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。子どもが小さい「いま」だけに合わせて間取りを決めると、数年後には使いにくい家になってしまう。だから{PRODUCT}は、家族の成長やはたらき方の変化を受け止められる<b>間取りの骨格</b>から考えます。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。クセのない間取りだから、<b>売るときも、貸すときも価値が残りやすい</b>のも特長です。</p>
     </div>
     <ol class="life3 rv">
@@ -550,12 +555,12 @@ def build(key, v):
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><line x1="75" y1="2" x2="75" y2="78" stroke="#a8714a" stroke-width="2" stroke-dasharray="5 4"/><circle cx="38" cy="42" r="8" fill="none" stroke="#a8714a" stroke-width="1.6"/><circle cx="112" cy="42" r="8" fill="none" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Growing</span><b>成長したら、ふた部屋に</b><span>思春期には、間仕切りでそれぞれの個室へ。</span></li>
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><rect x="18" y="20" width="44" height="24" fill="none" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="22" x2="132" y2="22" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="34" x2="132" y2="34" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="46" x2="132" y2="46" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Later</span><b>夫婦ふたりの時間へ</b><span>子どもが巣立ったあとは、書斎や趣味の部屋として。</span></li>
     </ol>
-    <p class="life3-note rv">子ども部屋を例にした考え方のイメージです。S様邸の子供室7.5帖も、将来2部屋に分けられるつくりです。</p>
+    <p class="life3-note rv">子ども部屋を例にした、考え方のイメージです。S様邸の子供室7.5帖も、将来2部屋に分けられるつくりです。</p>
 
     <div class="pr-h rv">
       <span class="eyebrow">Price</span>
       <p class="h3">建物は、広さごとの定額制。<br><em>ご希望のエリアの土地価格</em>を<br class="sp">当てはめてみてください。</p>
-      <p>建物の価格が決まっているから、<br class="sp">土地を選べば総額の目安が見えてきます。</p>
+      <p>建物の価格が決まっているから、<br class="sp">土地の価格を入れるだけで、<br class="sp">総額と月々の返済額の目安がわかります。</p>
     </div>
     <div class="ptbl rv" role="radiogroup" aria-label="建物の広さ">
       <div class="pl"><span><em class="step-n">01</em>建物の広さを選ぶ</span><small>建物本体価格（税込）</small></div>
@@ -568,16 +573,36 @@ def build(key, v):
       <div class="pn">※付帯工事・外構・諸費用は別途　※価格は{ph('【要確認】○年○月')}時点</div>
     </div>
     <div class="sim rv">
-      <div class="step"><span class="step-n">02</span><label for="land">ご希望のエリアの土地価格を入れる</label>
+      <div class="step"><span class="step-n">02</span><label for="land">ご希望のエリアの土地価格</label>
         <div class="in"><input type="text" id="land" inputmode="numeric" placeholder="1,500" autocomplete="off"><em>万円</em></div>
         <p class="hint">不動産サイトなどで見かける、気になるエリアの土地価格を入れてみてください。</p>
       </div>
-      <div class="res" aria-live="polite">
-        <span>土地 <b id="r-land">—</b> 万円</span><span>＋</span><span>建物 <b id="r-bld">2,475</b> 万円</span><span>＝</span>
-        <span class="sum"><b id="r-sum">—</b><small>万円</small></span>
-        <span class="plus">＋ 付帯工事・外構・諸費用（土地の条件によって変わります）</span>
+      <div class="step"><span class="step-n">03</span><label for="other">付帯工事・外構・諸費用<span class="opt">任意</span></label>
+        <div class="in"><input type="text" id="other" inputmode="numeric" placeholder="0" autocomplete="off"><em>万円</em></div>
+        <p class="hint">土地の条件で変わります。S様邸の場合は{ph('【要確認】約○○○万円')}でした。わからなければ空欄のままで計算できます。</p>
       </div>
-      <div class="go"><p>この総額で、月々いくらになる？ 見学会で、<br class="sp">ご夫婦の収入に合わせて試算します。</p><a class="btn" href="#reserve" id="sim-go">見学会で相談する</a></div>
+      <div class="res" aria-live="polite">
+        <span>土地 <b id="r-land">—</b></span><span>＋</span><span>建物 <b id="r-bld">2,475</b></span><span>＋</span><span>付帯・諸費用 <b id="r-other">0</b></span><span>＝</span>
+        <span class="sum">総額 <b id="r-sum">—</b><small>万円</small></span>
+      </div>
+
+      <div class="loan">
+        <p class="loan-h"><span class="step-n">04</span>住宅ローンの条件</p>
+        <div class="loan-in">
+          <label>頭金<span class="in"><input type="text" id="down" inputmode="numeric" value="0" autocomplete="off"><em>万円</em></span></label>
+          <label>返済期間<span class="in"><select id="years"><option>25</option><option>30</option><option selected>35</option><option>40</option></select><em>年</em></span></label>
+          <label>金利（年）<span class="in"><input type="text" id="rate" inputmode="decimal" value="{RATE}" autocomplete="off"><em>%</em></span></label>
+          <label>世帯年収<small>任意</small><span class="in"><input type="text" id="income" inputmode="numeric" placeholder="800" autocomplete="off"><em>万円</em></span></label>
+        </div>
+        <p class="hint">{v['down_hint']}</p>
+      </div>
+      <div class="pay" aria-live="polite">
+        <div><small>借入額</small><b><span id="p-loan">—</span><em>万円</em></b></div>
+        <div class="main"><small>月々の返済額（目安）</small><b><span id="p-month">—</span><em>円</em></b></div>
+        <div><small>年収に占める返済の割合</small><b><span id="p-ratio">—</span><em>%</em></b></div>
+      </div>
+      <p class="pay-note">※元利均等返済・ボーナス払いなし・全期間同じ金利として計算した概算です。金利は仮の数字で、実際の金利は金融機関やローンの種類で変わります。年収に占める返済の割合は、一般に25%以内がひとつの目安と言われます。</p>
+      <div class="go"><p>金利タイプの選び方や、<br class="sp">ペアローン・収入合算など、<br class="sp">ご夫婦に合った借り方は<br class="sp">見学会でご相談ください。</p><a class="btn" href="#reserve" id="sim-go">見学会で相談する</a></div>
     </div>
     <p class="total rv"><b>S様邸の総額例</b>土地{ph('○○○○万')}＋建物2,475万＋付帯工事・外構・諸費用{ph('○○○万')}＝<em>{ph('4,○○○万円')}</em></p>
   </div>
@@ -626,7 +651,7 @@ def build(key, v):
     <form id="form" action="" method="post" novalidate>
       <input type="hidden" name="variant" value="{key}">
       <input type="hidden" name="source" id="source" value="">
-      <input type="hidden" name="sim_size" id="sim_size" value=""><input type="hidden" name="sim_land" id="sim_land" value="">
+      <input type="hidden" name="sim_size" id="sim_size" value=""><input type="hidden" name="sim_land" id="sim_land" value=""><input type="hidden" name="sim_loan" id="sim_loan" value="">
       <div class="f"><p>ご希望の日時<span class="req">必須</span></p>
         <div class="choices two">
           <label><input type="radio" name="date" value="day1-am" required>{ph('○/○（土）')} 午前</label>
@@ -694,20 +719,31 @@ def build(key, v):
   if(!('IntersectionObserver' in window))return;
   new IntersectionObserver(function(e){{bar.classList.toggle('hide',e[0].isIntersecting)}}).observe(r);
 }})();
-// 定額制の価格に、土地価格を当てはめて総額の目安を出す
+// 定額制の価格に土地価格などを当てはめ、総額と月々の返済額の目安を出す
 (function(){{
-  var land=document.getElementById('land');if(!land)return;
-  var fmt=function(n){{return n.toLocaleString('ja-JP')}};
+  var $=function(id){{return document.getElementById(id)}};if(!$('land'))return;
+  var fmt=function(n){{return Math.round(n).toLocaleString('ja-JP')}};
+  var num=function(el,dec){{var v=el.value.replace(/[０-９．]/g,function(c){{return String.fromCharCode(c.charCodeAt(0)-65248)}}).replace(dec?/[^0-9.]/g:/[^0-9]/g,'');return v===''?null:+v}};
   function calc(){{
-    var r=document.querySelector('input[name=size]:checked');var bld=+r.value;
-    var v=land.value.replace(/[０-９]/g,function(c){{return String.fromCharCode(c.charCodeAt(0)-65248)}}).replace(/[^0-9]/g,'');
-    document.getElementById('r-bld').textContent=fmt(bld);
-    document.getElementById('sim_size').value=r.dataset.tsubo+'坪';
-    if(v){{var l=+v;document.getElementById('r-land').textContent=fmt(l);document.getElementById('r-sum').textContent=fmt(l+bld);document.getElementById('sim_land').value=l+'万円';}}
-    else{{document.getElementById('r-land').textContent='—';document.getElementById('r-sum').textContent='—';document.getElementById('sim_land').value='';}}
+    var r=document.querySelector('input[name=size]:checked'),bld=+r.value;
+    var land=num($('land')),other=num($('other'))||0,down=num($('down'))||0,rate=num($('rate'),true),years=+$('years').value,income=num($('income'));
+    $('r-bld').textContent=fmt(bld);$('r-other').textContent=fmt(other);
+    $('sim_size').value=r.dataset.tsubo+'坪';
+    if(land===null){{['r-land','r-sum','p-loan','p-month','p-ratio'].forEach(function(k){{$(k).textContent='—'}});$('sim_land').value='';$('sim_loan').value='';return;}}
+    var total=land+bld+other,loan=Math.max(total-down,0);
+    $('r-land').textContent=fmt(land);$('r-sum').textContent=fmt(total);$('p-loan').textContent=fmt(loan);
+    var n=years*12,i=(rate||0)/100/12,P=loan*10000;
+    var m=i>0?P*i/(1-Math.pow(1+i,-n)):P/n;m=Math.round(m/100)*100;
+    $('p-month').textContent=fmt(m);
+    $('p-ratio').textContent=income?(m*12/(income*10000)*100).toFixed(1):'—';
+    $('sim_land').value=land+'万円';
+    $('sim_loan').value='総額'+total+'万円・借入'+loan+'万円・'+years+'年・'+(rate||0)+'%・月々'+m+'円';
   }}
-  land.addEventListener('input',calc);
-  land.addEventListener('blur',function(){{var v=land.value.replace(/[^0-9０-９]/g,'');if(v){{calc();land.value=document.getElementById('r-land').textContent}}}});
+  ['land','other','down','rate','income'].forEach(function(k){{
+    $(k).addEventListener('input',calc);
+    if(k!=='rate')$(k).addEventListener('blur',function(){{var v=num($(k));if(v!==null)$(k).value=fmt(v)}});
+  }});
+  $('years').addEventListener('change',calc);
   document.querySelectorAll('input[name=size]').forEach(function(e){{e.addEventListener('change',calc)}});
   calc();
 }})();
