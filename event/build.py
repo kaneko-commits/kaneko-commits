@@ -434,6 +434,11 @@ section.s.alt{background:var(--ivory)}
 .ex .pt b small{font-family:'Noto Serif JP',serif;font-size:12px}
 .ex-n{font-size:12.5px;color:var(--soft);margin-top:14px;line-height:1.9}
 @media(max-width:520px){.ex{padding:24px 16px 18px}.ex .row{grid-template-columns:repeat(2,1fr)}.ex .pt:nth-child(3){border-left:0}.ex .pt:nth-child(n+3){border-top:1px solid var(--line2)}}
+.cta-mid{margin:56px auto 0;max-width:620px;text-align:center;padding:30px 20px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cta-mid p{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(16px,3.8vw,19px);letter-spacing:.08em;line-height:1.8;color:var(--forest)}
+.cta-b{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.cta-mid small{display:block;font-size:12px;color:var(--soft);margin-top:12px;letter-spacing:.06em}
+@media(max-width:620px){.cta-b .btn{flex:1 1 100%}}
 .loanbox{margin-top:28px;background:var(--deep);color:#d5ddd6;text-align:center;padding:40px 28px;position:relative;font-size:14px;line-height:2}
 .loanbox:before{content:'';position:absolute;inset:8px;border:1px solid #cdb37e40;pointer-events:none}
 .loanbox .en{font-size:13px;color:var(--gold);letter-spacing:.24em;text-transform:uppercase}
@@ -541,6 +546,15 @@ footer .notes{margin-top:20px;padding-top:20px;border-top:1px solid #ffffff1a;fo
 
 
 # ---------------------------------------------------------------- HTML
+def cta(msg):
+    """ページ途中の予約ボタン"""
+    tel = TEL.replace('-', '')
+    return (f'<div class="cta-mid rv"><p>{msg}</p><div class="cta-b">'
+            f'<a class="btn" href="#reserve">Webで予約する</a>'
+            f'<a class="btn ghost plain" href="tel:{tel}">電話で予約</a></div>'
+            f'<small>ご予約制・無料／各回{ph("○")}組限定</small></div>')
+
+
 def head(en, h2, sub=''):
     return (f'<div class="head rv"><span class="eyebrow">{en}</span><h2 class="h2">{h2}</h2>'
             + (f'<p class="sub">{sub}</p>' if sub else '') + '</div>')
@@ -660,6 +674,7 @@ def build(key, v):
       <p class="mk-h">樹の家こころ舎の前身は、<br class="sp">設計事務所です。</p>
       <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
     </div>
+    {cta('ピンときたら、まずは見学だけでも。')}
   </div>
 </section>
 
@@ -684,6 +699,7 @@ def build(key, v):
     </div>
     <p class="day-h rv"><span class="en">Weekday</span>共働きの毎日を、軽くする家</p>
     <ol class="day rv">{pts}</ol>
+    {cta('朝の動きや収納を、<br class="sp">実際の家で確かめてみませんか。')}
 
   </div>
 </section>
@@ -731,6 +747,7 @@ def build(key, v):
       </div>
       <ul class="perf-l rv">{perf}</ul>
     </div>
+    {cta('数字だけでは伝わらない心地よさを、<br class="sp">体感してください。')}
 
     <div class="pr-h rv">
       <span class="eyebrow">Price</span>
@@ -768,6 +785,7 @@ def build(key, v):
       <li class="now"><time>2026.11</time><i></i><b>完成見学会</b><span>いま、ここ</span></li>
       <li><time>2026.12</time><i></i><b>お引渡し</b><span>新しい暮らしへ</span></li>
     </ol>
+    {cta('お引渡し前の、いまだけ見られる家です。')}
   </div>
 </section>
 
