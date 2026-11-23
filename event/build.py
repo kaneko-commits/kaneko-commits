@@ -34,25 +34,23 @@ WEEKDAY = [
     ('週末', 'ひと息', '外部収納からBBQコンロを出して、南の小さな庭で七輪。平日がんばった分、家でゆっくり。'),
 ]
 
-# 来場するとわかること／向いている方／向いていない方（共通部分）
+# 来場するとわかること／向いている人／不向きな人（共通部分）
 LEARN = [
-    '吹抜けのある18帖のLDKの、明るさと広がり。写真では伝わらない体感',
-    '子どもが走り回っても気にならない、一戸建ての暮らしの感覚',
-    '朝の身支度や、帰宅後の片づけ。共働きの毎日を想定した動線',
-    '駐車場3台の停めやすさと、車から玄関までの近さ',
-    'ご希望のエリアの土地価格に置き換えた、総額の目安',
+    '延床約25坪を、面積以上に広く感じさせる吹抜けの使い方',
+    '帰ってすぐ片づく、玄関収納と食品庫の取り方',
+    '共働きの朝がラクになる、身支度動線のひみつ',
+    '約44坪の土地に、駐車場3台と庭を両立させる配置の工夫',
 ]
 FIT = [
-    '子どもを、足音を気にせずのびのび育てたい方',
-    '校区やエリアなど、住む場所にこだわりたい方',
-    '決まった型ではなく、家族の想いから家を考えたい方',
-    '暮らしの変化に合わせて長く住み、資産としての価値も大切にしたい方',
-    '共働きで、毎日の家事や身支度を少しでも軽くしたい方',
+    '流行に左右されない、飽きのこないデザインが好きな人',
+    '家族や友人と過ごす時間を大切にしたい人',
+    '校区や駅の近さなど、住む場所にこだわりたい人',
+    '共働きの毎日を、もう少しラクにしたい人',
 ]
 UNFIT = [
-    ('すぐに入居できる家をお探しの方', '土地探しから設計・施工まで、1年ほどが目安です。建売住宅のような即入居はできません。'),
-    ('価格の安さを、なにより優先したい方', '設計の質と、長く価値が残ることを大切にしているため、最安値を目指す家づくりではありません。'),
-    ('とにかく広さを最優先したい方', '暮らしやすさと資産価値のバランスを考えた広さで設計します。'),
+    '流行りものが好きな人',
+    '価値より、価格の安さが大事な人',
+    '大手ハウスメーカーでないと信用できない人',
 ]
 
 # ---------------------------------------------------------------- 版ごとの文言
@@ -80,9 +78,8 @@ VARIANTS = {
         ],
         down_hint='マンションの売却額を頭金に充てる場合は、その見込み額を入れてください。',
         event='住み替え相談会',
-        learn_extra='いまのマンションをどうするか。売る順番や、二重ローンにならない進め方',
-        fit_extra='マンションからの住み替えを、無理のない順番で考えたい方',
-        unfit_extra=('建物の管理を、管理会社に任せたい方', '一戸建ては、外壁や屋根の修繕を、ご自身で計画していく住まいです。'),
+        learn_extra='マンションからの住み替え、売る順番と二重ローンにしない進め方',
+        fit_extra='マンションも戸建ても色々見たけど、イマイチ…って人',
         consult_h='見学のついでに、<br class="sp"><em>住み替えの順番</em>まで<br class="sp">整理できます。',
         consult=[
             ('いまのマンション、いくらで売れる？', '売却の考え方と、査定の受け方をご説明します。売却はお客様がお選びの不動産会社で行っていただきます。'),
@@ -127,9 +124,8 @@ VARIANTS = {
         ],
         down_hint='頭金なしで考える場合は、0のままで大丈夫です。',
         event='家づくり相談会',
-        learn_extra='頭金がなくても考えられるか。何から始めればいいか',
-        fit_extra='まだ何も決まっていないけれど、まず一戸建ての暮らしを見てみたい方',
-        unfit_extra=('修繕や庭の手入れは、できるだけしたくない方', '一戸建ては、外壁や屋根の修繕、庭の手入れを、ご自身で計画していく住まいです。'),
+        learn_extra='頭金がなくても大丈夫？ 無理のない資金計画のはじめ方',
+        fit_extra='住宅展示場やモデルハウスを色々見たけど、イマイチ…って人',
         consult_h='見学のついでに、<br class="sp"><em>無理のない資金計画</em>まで<br class="sp">確かめられます。',
         consult=[
             ('いくらまでなら、無理なく借りられる？', 'ご夫婦の収入やこれからのライフプランから、無理のない借入額と月々の返済額を試算します。'),
@@ -240,7 +236,7 @@ section.s.alt{background:var(--ivory)}
 
 /* learn / fit */
 .know-s{padding-top:88px}
-.learn{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;border-top:1px solid var(--ink)}
+.learn{list-style:none;display:grid;grid-template-columns:1fr;max-width:720px;margin:0 auto;gap:0 40px;border-top:1px solid var(--ink)}
 .learn li{display:grid;grid-template-columns:40px 1fr;gap:10px;padding:24px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.9}
 .learn .en{font-size:20px;color:var(--accent);line-height:1.5}
 @media(max-width:820px){.learn{grid-template-columns:1fr}.learn li{padding:18px 0}}
@@ -255,10 +251,12 @@ section.s.alt{background:var(--ivory)}
 .fit li{position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--line2);font-size:15px;line-height:1.85}
 .fit li:last-child,.unfit li:last-child{border-bottom:0}
 .fit li:before{content:'';position:absolute;left:4px;top:23px;width:10px;height:5px;border-left:1.5px solid var(--forest);border-bottom:1.5px solid var(--forest);transform:rotate(-45deg)}
-.unfit li{padding:14px 0;border-bottom:1px solid var(--line2)}
-.unfit b{display:block;font-weight:500;font-size:15px;line-height:1.85;color:var(--ink)}
-.unfit span{display:block;font-size:13px;color:var(--muted);line-height:1.85;margin-top:2px}
-.fit-note{text-align:center;color:var(--muted);font-size:14px;margin-top:28px}
+.unfit li{position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--line2);font-size:15px;line-height:1.85;color:var(--muted)}
+.unfit li:before,.unfit li:after{content:'';position:absolute;left:5px;top:28px;width:11px;height:1.5px;background:var(--soft);transform:rotate(45deg)}
+.unfit li:after{transform:rotate(-45deg)}
+.maker{margin-top:28px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 16px}
+.maker .mk-h{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(17px,4vw,21px);letter-spacing:.08em;color:var(--forest)}
+.maker p:not(.mk-h){margin-top:6px;color:var(--ink);font-size:15px;letter-spacing:.06em}
 @media(max-width:820px){.fit-g{grid-template-columns:1fr;gap:18px}.fit,.unfit{padding:24px 20px 20px}}
 
 /* voices */
@@ -513,7 +511,7 @@ def build(key, v):
     consult = ''.join(f'<div><b>{a}</b><p>{b}</p></div>' for a, b in v['consult'])
     learn = ''.join(f'<li><span class="en">{i:02d}</span>{t}</li>' for i, t in enumerate(LEARN + [v['learn_extra']], 1))
     fit = ''.join(f'<li>{t}</li>' for t in FIT + [v['fit_extra']])
-    unfit = ''.join(f'<li><b>{a}</b><span>{b}</span></li>' for a, b in [v['unfit_extra']] + UNFIT)
+    unfit = ''.join(f'<li>{t}</li>' for t in UNFIT)
     faq = ''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in v['faq'])
     current = ''.join(
         f'<label><input type="radio" name="current" value="{o}"{" checked" if i == v["current_default"] else ""}>{o}</label>'
@@ -595,19 +593,22 @@ def build(key, v):
 
 <section class="s know-s">
   <div class="wrap">
-    {head('Open House', '見学会に来ると、<br class="sp">わかること。')}
+    {head('Open House', '見学会に来ると、<br class="sp">こんなことがわかります。')}
     <ol class="learn rv">{learn}</ol>
   </div>
 </section>
 
 <section class="s alt fit-s">
   <div class="wrap">
-    {head('For You?', '向いている方、<br class="sp">向いていない方。')}
+    {head('For You?', '合う人、<br class="sp">合わない人。')}
     <div class="fit-g">
-      <div class="fit rv"><p class="fit-h"><span class="mk">○</span>こんな方に向いています</p><ul>{fit}</ul></div>
-      <div class="unfit rv"><p class="fit-h"><span class="mk">△</span>こんな方には、向いていないかもしれません</p><ul>{unfit}</ul></div>
+      <div class="fit rv"><p class="fit-h"><span class="mk">○</span>こんな人に向いてます</p><ul>{fit}</ul></div>
+      <div class="unfit rv"><p class="fit-h"><span class="mk">×</span>こんな人には不向きです</p><ul>{unfit}</ul></div>
     </div>
-    <p class="fit-note rv">迷っている段階でも大丈夫です。見学だけのご来場も歓迎しています。</p>
+    <div class="maker rv">
+      <p class="mk-h">こころ舎の前身は、<br class="sp">設計事務所です。</p>
+      <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
+    </div>
   </div>
 </section>
 
