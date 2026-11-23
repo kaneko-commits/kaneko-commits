@@ -37,10 +37,10 @@ WEEKDAY = [
 
 # 来場するとわかること／向いている人／不向きな人（共通部分）
 LEARN = [
-    '延床約25坪を、面積以上に広く感じさせる吹抜けの使い方',
+    '延床約25坪（83.63㎡）を、面積以上に広く感じさせる吹抜けの使い方',
     '帰ってすぐ片づく、玄関収納と食品庫の取り方',
     '共働きの朝がラクになる、身支度動線のひみつ',
-    '約44坪の土地に、駐車場3台と庭を両立させる配置の工夫',
+    '約44坪（144.74㎡）の土地に、駐車場3台と庭を両立させる配置の工夫',
 ]
 FIT = [
     '流行に左右されない、飽きのこないデザインが好きな人',
@@ -379,6 +379,7 @@ section.s.alt{background:var(--ivory)}
 .ptbl .pt span{display:block;font-size:13px;letter-spacing:.14em;color:var(--muted)}
 .ptbl .pt b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.6vw,40px);margin:6px 0 2px;letter-spacing:.02em}
 .ptbl .pt b small{font-family:'Noto Serif JP',serif;font-size:13px;letter-spacing:.06em}
+.ptbl .pt .m2,.ex .pt .m2{display:block;font-size:11px;letter-spacing:.04em;color:var(--soft);margin-top:1px}
 .ptbl .pt em{font-size:11px;color:var(--soft)}
 .ptbl .pt.cur{background:#fff}
 .ptbl .pt.cur b{color:var(--accent)}
@@ -738,7 +739,7 @@ def build(key, v):
         <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="36" height="32"/><path d="M6 24h20M26 8v32M26 30h16"/></svg><span class="n">02</span><b>間取り構成</b><span>特定の家族だけに合わせた、クセの強い間取りにはしません。誰が住んでも使いやすい構成だから、価値が保ちやすい。</span></li>
         <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30l3-9a4 4 0 0 1 4-3h18a4 4 0 0 1 4 3l3 9"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/><path d="M4 8h40" stroke-dasharray="3 3"/></svg><span class="n">03</span><b>駐車場の取り方</b><span>車での暮らしが前提の大分では、台数と停めやすさが家の価値に大きく関わります。土地の形を読み解き、敷地の中に必要な台数を確保します。</span></li>
       </ol>
-      <p class="asset-note rv">S様邸は、敷地約44坪に延床約25坪・駐車場3台。暮らしやすさと資産価値を両立させた一例です。</p>
+      <p class="asset-note rv">S様邸は、敷地約44坪（144.74㎡）に延床約25坪（83.63㎡）・駐車場3台。暮らしやすさと資産価値を両立させた一例です。</p>
     </div>
 
     <div class="perf">
@@ -758,13 +759,13 @@ def build(key, v):
     </div>
     <div class="ptbl rv">
       <div class="pl"><span>建物本体価格（広さごとに定額）</span><small>税込</small></div>
-      <div class="row"><div class="pt cur"><i>S様邸</i><span>25.5坪</span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪</span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪</span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪</span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div></div>
+      <div class="row"><div class="pt cur"><i>S様邸</i><span>25.5坪<small class="m2">約84.30㎡</small></span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪<small class="m2">約89.26㎡</small></span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪<small class="m2">約94.21㎡</small></span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪<small class="m2">約99.17㎡</small></span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div></div>
       <div class="pn">※付帯工事・外構・諸費用は別途　※価格は{ph('【要確認】○年○月')}時点</div>
     </div>
     <div class="ex rv">
       <p class="ex-h"><span>例えば</span>土地 <b>{EXAMPLE_LAND:,}</b>万円 の場合</p>
       <p class="ex-s">土地 {EXAMPLE_LAND:,}万円 ＋ 建物 ＝</p>
-      <div class="row"><div class="pt"><span>25.5坪なら</span><b>{EXAMPLE_LAND+2475:,}<small>万円</small></b></div><div class="pt"><span>27坪なら</span><b>{EXAMPLE_LAND+2585:,}<small>万円</small></b></div><div class="pt"><span>28.5坪なら</span><b>{EXAMPLE_LAND+2695:,}<small>万円</small></b></div><div class="pt"><span>30坪なら</span><b>{EXAMPLE_LAND+2860:,}<small>万円</small></b></div></div>
+      <div class="row"><div class="pt"><span>25.5坪なら<small class="m2">約84.30㎡</small></span><b>{EXAMPLE_LAND+2475:,}<small>万円</small></b></div><div class="pt"><span>27坪なら<small class="m2">約89.26㎡</small></span><b>{EXAMPLE_LAND+2585:,}<small>万円</small></b></div><div class="pt"><span>28.5坪なら<small class="m2">約94.21㎡</small></span><b>{EXAMPLE_LAND+2695:,}<small>万円</small></b></div><div class="pt"><span>30坪なら<small class="m2">約99.17㎡</small></span><b>{EXAMPLE_LAND+2860:,}<small>万円</small></b></div></div>
       <p class="ex-n">ご希望のエリアの土地価格に置き換えて、考えてみてください。<br>※金額は計算例です。付帯工事・外構・諸費用は別途かかります（土地の条件によって変わります）。</p>
     </div>
     <div class="loanbox rv">
@@ -781,7 +782,7 @@ def build(key, v):
     {head('Story', 'S様の家づくり', 'はじめてのご相談から、<br class="sp">お引渡しまで<b>約1年2ヶ月</b>。<br class="sp">走り回れる毎日は、もうすぐそこに。')}
     <ol class="tl rv">
       <li><time>2025.10</time><i></i><b>はじめてのご相談</b><span>「金池小校区で建てたい」</span></li>
-      <li><time>{ph('○月')}</time><i></i><b>土地が決まる</b><span>駐車3台が叶う44坪</span></li>
+      <li><time>{ph('○月')}</time><i></i><b>土地が決まる</b><span>駐車3台が叶う約44坪（144.74㎡）</span></li>
       <li><time>{ph('○月')}</time><i></i><b>プランのご提案</b><span>土地を読み解き一から設計</span></li>
       <li><time>{ph('○月')}</time><i></i><b>着工</b><span>設計から施工まで一貫</span></li>
       <li class="now"><time>2026.11</time><i></i><b>完成見学会</b><span>いま、ここ</span></li>
@@ -813,7 +814,7 @@ def build(key, v):
   <div class="wrap narrow">
     <span class="eyebrow">Reservation</span>
     <h2 class="h2" style="text-align:center">S様邸 完成見学会<br class="sp"> ＆ {v['event']}<br>ご予約</h2>
-    <p class="story">「金池小校区で家を建てたい。駐車場は3台欲しい。庭は少しでいい。」<br>その想いに応えた、44坪・4人家族の家。</p>
+    <p class="story">「金池小校区で家を建てたい。駐車場は3台欲しい。庭は少しでいい。」<br>その想いに応えた、約44坪（144.74㎡）・4人家族の家。</p>
     <p class="notice">ご予約制・無料／各回{ph('○')}組限定／会場はご予約時にご案内します</p>
 
     <!-- 【要確認】予約の送信先（フォームサービスのURL等）を action に設定する。未設定の間は送信せず完了表示のみ -->
