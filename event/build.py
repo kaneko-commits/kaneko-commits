@@ -510,9 +510,9 @@ def build(key, v):
   <div class="wrap narrow">
     {head('Wishes', 'S様ご夫婦の家づくりも、<br>3つの想いから<br class="sp">はじまりました。')}
     <ol class="wishes rv">
-      <li><span class="en">01</span>庭は、少しでいい。</li>
+      <li><span class="en">01</span>金池小校区で、家を建てたい。</li>
       <li><span class="en">02</span>駐車場は、3台欲しい。</li>
-      <li><span class="en">03</span>金池小校区で、家を建てたい。</li>
+      <li><span class="en">03</span>庭は、少しでいい。</li>
     </ol>
     <p class="wish-body rv">決まった型に当てはめるのではなく、<br class="sp">まずはご夫婦の想いを伺うことから。<br>土地探しからご一緒し、その形や周辺の環境、風や光まで読み解いて、<br class="sp">一から設計しました。</p>
     <p class="wish-next rv">その家が、まもなく完成します。<br>S様のご厚意で、完成見学会を開きます。</p>
@@ -655,7 +655,7 @@ def build(key, v):
   <div class="wrap narrow">
     <span class="eyebrow">Reservation</span>
     <h2 class="h2" style="text-align:center">S様邸 完成見学会<br class="sp"> ＆ {v['event']}<br>ご予約</h2>
-    <p class="story">「庭は少しでいい。駐車場は3台欲しい。金池小校区で家を建てたい。」<br>その想いに応えた、44坪・4人家族の家。</p>
+    <p class="story">「金池小校区で家を建てたい。駐車場は3台欲しい。庭は少しでいい。」<br>その想いに応えた、44坪・4人家族の家。</p>
     <p class="notice">ご予約制・無料／各回{ph('○')}組限定／会場はご予約時にご案内します</p>
 
     <!-- 【要確認】予約の送信先（フォームサービスのURL等）を action に設定する。未設定の間は送信せず完了表示のみ -->
