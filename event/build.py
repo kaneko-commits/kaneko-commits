@@ -42,10 +42,10 @@ VARIANTS = {
         desc='ご希望の土地に、一戸建てを定額で。金池小校区・庭と駐車場3台のS様邸 完成見学会。マンションからの住み替えのご相談もどうぞ。ご予約制・無料・お子さま連れ歓迎。',
         h1='「走らないで！」って、<br><em>本当は言いたくない。</em>',
         lead_big='下の階を気にせず、<br class="sp">家でも庭でも思いきり。',
-        lead='ご希望の土地に、庭と駐車場のある一戸建てを定額で。<br class="sp">マンションからの住み替えという選択肢。',
-        q='マンションの<br class="sp">「ちょっと不便」、<br class="sp">ありませんか？',
-        icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('tower', '機械式駐車場の<br>出庫待ち'),
-               ('door', '駐車場から<br>玄関が遠い'), ('bbq', '七輪やBBQが<br>できない')],
+        lead='庭も、駐車場も、子どもの足音も。<br class="sp">家族の「こうしたい」を、ひとつずつ形に。',
+        voices=[('kid', '「走らないで！」って、今日も言ってしまった。'), ('box', '段ボールが積み上がった一部屋、本当は子ども部屋にしたい。'),
+                ('tower', '寝た子を抱っこしたまま、機械式駐車場の出庫待ち。'), ('door', '駐車場から玄関まで、荷物を抱えると遠い。'),
+                ('bbq', '休日くらい、家の庭で七輪を囲みたい。')],
         scene_h='人生で何時間、<br class="sp"><em>車が下りてくるのを</em><br class="sp">待つんだろう。',
         scene_sub='機械式駐車場の出庫待ちは、<b>年間約36時間</b>。<br><small>※1回3分・1日2回で試算</small>',
         now_label='いまのマンション',
@@ -86,10 +86,10 @@ VARIANTS = {
         desc='ご希望の土地に、一戸建てを定額で。金池小校区・庭と駐車場3台のS様邸 完成見学会。資金計画のご相談もどうぞ。ご予約制・無料・お子さま連れ歓迎。',
         h1='駅チカがいい。<br><em>でも、マンションは嫌。</em>',
         lead_big='希望の土地に、<br class="sp">一戸建てという選択肢があったんだ。',
-        lead='駅の近くでも、子育てしやすいエリアでも。建物は定額。<br class="sp">子どもが小さいいまも、その先も、住みやすい家を。',
-        q='「走らないで」って、<br class="sp">本当は言いたくない。',
-        icons=[('kid', '子どもの足音が<br>気になる'), ('box', '収納が足りず<br>一部屋が物置に'), ('yen', '家賃を払っても<br>何も残らない'),
-               ('far', '駐車場が<br>家から離れている'), ('wall', '壁が薄くて<br>お隣の音が気になる')],
+        lead='駅の近くでも、子育てしやすいエリアでも。<br class="sp">家族の「こうしたい」を、ひとつずつ形に。',
+        voices=[('kid', '下の階に響いていないか、つい気にしてしまう。'), ('box', '押し入れはいっぱい。一部屋が物置になっている。'),
+                ('far', '雨の日、離れた駐車場から子どもを抱えて歩く。'), ('wall', 'お隣の生活音。うちの声も、聞こえているかも。'),
+                ('yen', 'このまま家賃を払い続けて、いいのかな。')],
         scene_h='アパートの毎日は、<br class="sp"><em>こう変わります。</em>',
         scene_sub='引っ越したあとの、ある一日を想像してみてください。',
         now_label='いまのアパート',
@@ -181,8 +181,8 @@ br.sp{display:inline}
 
 /* event card */
 .card{position:relative;z-index:2;margin-top:-28px;background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px -24px #1f2f2740}
-.card .top{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px 24px;padding:28px 28px 22px;border-bottom:1px solid var(--line2)}
-.card .lbl{grid-column:1/3;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;color:var(--accent)}
+.card .top{display:grid;grid-template-columns:1fr;align-items:end;gap:8px 24px;padding:28px 28px 22px;border-bottom:1px solid var(--line2)}
+.card .lbl{grid-column:1;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;color:var(--accent)}
 .card .lbl:after{content:'';flex:1;height:1px;background:var(--line2)}
 .card .nm b{display:block;font-family:'Noto Serif JP',serif;font-weight:500;font-size:28px;letter-spacing:.16em;color:var(--forest);line-height:1.5}
 .card .nm>span{display:block;font-size:13px;color:var(--muted);line-height:1.8}
@@ -211,16 +211,24 @@ section.s.alt{background:var(--ivory)}
 .sub b{color:var(--accent);font-weight:500}
 @media(max-width:720px){section.s{padding:80px 0}.head{margin-bottom:40px}}
 
-/* concerns */
-.icons{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.ic{text-align:center;padding:36px 12px 30px;border-left:1px solid var(--line2)}
-.ic:first-child{border-left:0}
-.ic .n{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.14em;color:var(--soft)}
-.ic svg{width:46px;height:46px;margin:14px auto 16px;fill:none;stroke:var(--forest);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.ic p{font-size:14px;line-height:1.8}
-@media(max-width:820px){.icons{grid-template-columns:1fr}.ic{display:grid;grid-template-columns:36px 44px 1fr;align-items:center;gap:14px;text-align:left;padding:18px 4px;border-left:0;border-top:1px solid var(--line2)}.ic:first-child{border-top:0}.ic svg{width:38px;height:38px;margin:0}.ic p br{display:none}}
-.answer{margin-top:56px;text-align:center;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(17px,4vw,22px);color:var(--forest);line-height:1.9;letter-spacing:.06em}
-.answer em{color:var(--accent)}
+/* voices */
+.voices{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.voices li{grid-column:span 2;background:#fff;border:1px solid var(--line2);padding:26px 26px 24px;position:relative;display:flex;gap:16px;align-items:flex-start}
+.voices li:nth-child(4){grid-column:2/span 2}
+.voices li:after{content:'';position:absolute;left:30px;bottom:-8px;width:14px;height:14px;background:#fff;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);transform:rotate(45deg)}
+.voices svg{flex:none;width:34px;height:34px;fill:none;stroke:var(--sage);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.voices p{font-family:'Noto Serif JP',serif;font-weight:500;font-size:16px;line-height:1.9;letter-spacing:.04em}
+@media(max-width:900px){.voices{grid-template-columns:1fr;gap:22px}.voices li,.voices li:nth-child(4){grid-column:auto}.voices li:nth-child(even){margin-left:28px}.voices li:nth-child(odd){margin-right:28px}.voices li:nth-child(even):after{left:auto;right:30px}}
+
+/* wishes */
+.wishes{list-style:none;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.wishes li{display:flex;align-items:baseline;gap:22px;padding:22px 8px;border-top:1px solid var(--line2);font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(18px,4.6vw,28px);letter-spacing:.08em;color:var(--forest)}
+.wishes li:first-child{border-top:0}
+.wishes .en{font-size:18px;color:var(--accent)}
+.wish-body{margin-top:40px;text-align:center;color:var(--muted);line-height:2.1}
+.wish-next{margin-top:28px;text-align:center;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(17px,4vw,21px);color:var(--ink);letter-spacing:.08em;line-height:1.9}
+.card-s{padding:72px 0 8px}
+.card-s .card{margin-top:0}
 
 /* scenes */
 .scene-hd,.scene{display:grid;grid-template-columns:7em 1fr 48px 1.15fr;align-items:stretch}
@@ -444,9 +452,9 @@ def head(en, h2, sub=''):
 
 
 def build(key, v):
-    icons = ''.join(
-        f'<div class="ic"><span class="n">{i:02d}</span><svg viewBox="0 0 48 48" aria-hidden="true">{fb.ICON[k]}</svg><p>{lbl}</p></div>'
-        for i, (k, lbl) in enumerate(v['icons'], 1))
+    voices = ''.join(
+        f'<li><svg viewBox="0 0 48 48" aria-hidden="true">{fb.ICON[k]}</svg><p>{t}</p></li>'
+        for k, t in v['voices'])
     scenes = ''.join(
         f'<div class="scene"><div class="lb">{a}</div><div class="now"><small>いま</small>{b}</div>'
         f'<div class="ar"></div><div class="fut"><small>これから</small>{c}</div></div>'
@@ -491,12 +499,32 @@ def build(key, v):
   <span class="scroll en">SCROLL</span>
 </div>
 
+<section class="s voices-s">
+  <div class="wrap">
+    {head('Voices', 'ふとした瞬間に、<br class="sp">こんなこと、<br class="sp">思っていませんか。')}
+    <ul class="voices rv">{voices}</ul>
+  </div>
+</section>
+
+<section class="s alt wishes-s">
+  <div class="wrap narrow">
+    {head('Wishes', 'S様ご夫婦の家づくりも、<br>3つの想いから<br class="sp">はじまりました。')}
+    <ol class="wishes rv">
+      <li><span class="en">01</span>庭は、少しでいい。</li>
+      <li><span class="en">02</span>駐車場は、3台欲しい。</li>
+      <li><span class="en">03</span>金池小校区で、家を建てたい。</li>
+    </ol>
+    <p class="wish-body rv">決まった型に当てはめるのではなく、<br class="sp">まずはご夫婦の想いを伺うことから。<br>土地探しからご一緒し、その形や周辺の環境、風や光まで読み解いて、<br class="sp">一から設計しました。</p>
+    <p class="wish-next rv">その家が、まもなく完成します。<br>S様のご厚意で、完成見学会を開きます。</p>
+  </div>
+</section>
+
+<section class="card-s">
 <div class="wrap narrow">
-  <div class="card">
+  <div class="card rv">
     <div class="top">
       <span class="lbl en">OPEN HOUSE ─ 注文住宅 完成見学会</span>
       <div class="nm"><b>S様邸</b><span>金池小・上野ヶ丘中校区／大分駅から{ph('○分')}<br>土地を読み解き一から設計する、こころ舎の「{PRODUCT}」</span></div>
-      <div class="price"><small>建物は定額（税込）</small><b>2,475<small>万円〜</small></b></div>
     </div>
     <dl>
       <dt>日時</dt><dd>{ph('【要確認】○月○日（土）・○日（日）')}<br>10:00〜17:00<small>各回{ph('○')}組限定・見学は約{ph('○分')}</small></dd>
@@ -510,13 +538,6 @@ def build(key, v):
     </div>
   </div>
 </div>
-
-<section class="s">
-  <div class="wrap">
-    {head('Concerns', v['q'])}
-    <div class="icons rv">{icons}</div>
-    <p class="answer rv">そのお悩み、<br class="sp"><em>ご希望の土地に建てる一戸建て</em>なら<br class="sp">解決できるかもしれません。</p>
-  </div>
 </section>
 
 <section class="s alt">
