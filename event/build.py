@@ -57,20 +57,20 @@ UNFIT = [
 # MinQA の基準線（S様邸の性能）：住み心地と資産性の両面から
 PERF = [
     ('耐震等級', '3', '三次元立体解析',
-     '大きな地震のあとも、家族がそのまま住み続けられることをめざした最高等級の強さ。',
-     '地震保険料の割引（等級3は50%）が受けられ、構造の安心は長く価値として残ります。'),
+     '大きな地震のあとも、家族がそのまま住み続けられることをめざした、最高等級の強さです。',
+     '地震で住めなくなれば、ローンを残したまま住まいを失い、二重ローンを抱えることにもなりかねません。<b>構造の強さは、資産価値の土台</b>。将来手放すときも「耐震等級3」は、買う人・借りる人に選ばれる理由になります。'),
     ('断熱性能等級', '6', '',
      '冬の朝も、リビングと廊下や脱衣室の温度差が小さく、家じゅうどこでも過ごしやすい。',
-     '国が2030年までに新築の標準にすることをめざすZEH水準（等級5）を、すでに上回る性能です。'),
+     '新築に求められる省エネの基準は、年々引き上げられています。いまの時点で上位の等級にしておくことで、将来の基準でも見劣りしにくく、中古になっても選ばれやすい家に。'),
     ('UA値', '0.45', '',
-     '暖かさ・涼しさが逃げにくく、冷暖房がよく効くから、光熱費も抑えやすい。',
-     '性能を数字で示せる家は、将来売るとき・貸すときにも、価値を説明しやすくなります。'),
+     '暖かさ・涼しさが逃げにくく、少ない冷暖房で一年中おだやかに過ごせます。',
+     '性能を数字で示せる家は、将来売るとき・貸すときに、その価値を客観的に伝えられます。'),
     ('C値', '0.4', '実測値',
      'すき間風が少なく、断熱と換気が設計どおりに働く。冬の足もとの冷えも感じにくい。',
-     'S様邸で実際に測定した数値。図面上の計算ではなく、現場の施工精度の証です。'),
+     'S様邸で実際に測定した数値です。施工の確かさを記録として残せることが、将来の買い手・借り手の安心になります。'),
     ('換気設備', '全熱交換型<br>第一種換気', '',
      '室温と湿度を保ちながら空気を入れ替え、冬の乾燥や夏のジメジメをやわらげます。',
-     '湿気をためにくく、結露やカビを抑えやすい。建物を長持ちさせることにもつながります。'),
+     '湿気をためにくく、結露やカビを抑えやすい。建物の傷みを防ぎ、年数がたっても「住みたい」と思われる状態を保ちます。'),
 ]
 
 # ---------------------------------------------------------------- 版ごとの文言
@@ -337,15 +337,18 @@ section.s.alt{background:var(--ivory)}
 .perf-l li{background:#fff;border:1px solid var(--line);display:grid;grid-template-columns:200px 1fr}
 .perf-l .pv{padding:24px 20px;border-right:1px solid var(--line2);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .perf-l small{font-size:12px;letter-spacing:.2em;color:var(--soft)}
-.perf-l b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:54px;line-height:1.1;color:var(--forest);letter-spacing:.02em}
-.perf-l b.t{font-family:'Noto Serif JP',serif;font-size:17px;line-height:1.7;letter-spacing:.06em;margin-top:6px}
+.perf-l .pv b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:54px;line-height:1.1;color:var(--forest);letter-spacing:.02em}
+.perf-l .pv b.t{font-family:'Noto Serif JP',serif;font-size:17px;line-height:1.7;letter-spacing:.06em;margin-top:6px}
 .perf-l i{font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--accent);padding:0 8px;margin-top:6px;line-height:1.8}
 .perf-l dl{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;padding:22px 24px;align-content:center}
 .perf-l dt{font-size:11px;letter-spacing:.12em;padding:1px 8px;line-height:1.9;height:fit-content;margin-top:2px;white-space:nowrap}
 .perf-l dt:nth-of-type(1){background:var(--mint);color:var(--forest)}
 .perf-l dt:nth-of-type(2){background:#f6ece4;color:var(--accent-d)}
 .perf-l dd{font-size:14px;line-height:1.85;color:var(--ink)}
-@media(max-width:720px){.perf-l li{grid-template-columns:1fr}.perf-l .pv{border-right:0;border-bottom:1px solid var(--line2);flex-direction:row;flex-wrap:wrap;gap:4px 14px;padding:16px 18px;justify-content:flex-start;text-align:left}.perf-l small{width:100%}.perf-l b{font-size:42px}.perf-l b.t{margin-top:0}.perf-l i{margin-top:0}.perf-l dl{padding:16px 18px}}
+.perf-l dd b{font-weight:500;color:var(--accent-d)}
+.perf-l li.key{border:1px solid var(--accent);box-shadow:0 14px 30px -22px #a8714a80}
+.perf-l li.key .pv{background:#fbf6f1}
+@media(max-width:720px){.perf-l li{grid-template-columns:1fr}.perf-l .pv{border-right:0;border-bottom:1px solid var(--line2);flex-direction:row;flex-wrap:wrap;gap:4px 14px;padding:16px 18px;justify-content:flex-start;text-align:left}.perf-l small{width:100%}.perf-l .pv b{font-size:42px}.perf-l .pv b.t{margin-top:0}.perf-l i{margin-top:0}.perf-l dl{padding:16px 18px}}
 .spec-note{font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
 .day-h{margin-top:64px;text-align:center;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(18px,4.2vw,22px);letter-spacing:.08em}
 .day-h .en{display:block;font-size:13px;color:var(--accent);letter-spacing:.24em;text-transform:uppercase;margin-bottom:6px}
@@ -549,7 +552,7 @@ def build(key, v):
         f'<div class="ar"></div><div class="fut"><small>これから</small>{c}</div></div>'
         for a, b, c in v['scenes'])
     perf = ''.join(
-        f'<li{" class=\"wide\"" if len(n) > 4 else ""}><div class="pv"><small>{lb}</small><b{" class=\"t\"" if len(n) > 4 else ""}>{n}</b>'
+        f'<li{" class=\"key\"" if lb == "耐震等級" else ""}><div class="pv"><small>{lb}</small><b{" class=\"t\"" if len(n) > 4 else ""}>{n}</b>'
         + (f'<i>{tag}</i>' if tag else '') + f'</div><dl><dt>住み心地</dt><dd>{a}</dd><dt>資産性</dt><dd>{b}</dd></dl></li>'
         for lb, n, tag, a, b in PERF)
     pts = ''.join(f'<li><time{" class=\"jp\"" if not t[0].isdigit() else ""}>{t}</time><div><b>{a}</b><span>{b}</span></div></li>' for t, a, b in WEEKDAY)
@@ -721,7 +724,7 @@ def build(key, v):
       <div class="asset-h rv">
         <span class="eyebrow">Performance</span>
         <p class="h3">{PRODUCT}が譲らない基準線を、<br class="sp"><em>S様邸の数字</em>で。</p>
-        <p>住み心地と、資産性。<br class="sp">その両方を、目に見えない性能が支えています。</p>
+        <p>住み心地と、資産性。<br>ここでいう資産性とは、<br class="sp">将来も「売れる・貸せる」家であること。<br>その土台になるのが、目に見えない性能です。</p>
       </div>
       <ul class="perf-l rv">{perf}</ul>
     </div>
