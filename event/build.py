@@ -14,7 +14,8 @@ _spec = importlib.util.spec_from_file_location('flyer_build', HERE.parent / 'fly
 fb = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(fb)
 
-PRODUCT = 'atelier'  # 商品名
+PRODUCT = 'MinQA'  # 商品名（Minimum Quality Architect）
+PRODUCT_EN = 'Minimum Quality Architect'
 EXAMPLE_LAND = 2000  # 価格例に使う土地の金額（万円）
 TEL = '0972-83-5918'
 
@@ -343,6 +344,12 @@ section.s.alt{background:var(--ivory)}
 .ptbl .pt i{position:absolute;top:10px;left:50%;transform:translateX(-50%);font-style:normal;font-size:10px;letter-spacing:.2em;color:var(--accent);white-space:nowrap}
 .ptbl .pn{font-size:12px;color:var(--soft);padding:12px 4px;border-top:1px solid var(--line2)}
 @media(max-width:520px){.ptbl .row{grid-template-columns:repeat(2,1fr)}.ptbl .pt:nth-child(3){border-left:0}.ptbl .pt:nth-child(n+3){border-top:1px solid var(--line2)}}
+.name{text-align:center;margin:-8px auto 56px;max-width:640px;padding:36px 24px 34px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);position:relative}
+.nm-logo{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(46px,11vw,64px);line-height:1.1;letter-spacing:.06em;color:var(--forest)}
+.nm-en{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,3.8vw,19px);letter-spacing:.16em;color:var(--muted);margin-top:8px}
+.nm-en b{font-weight:500;color:var(--accent)}
+.nm-jp{font-size:12px;letter-spacing:.24em;color:var(--soft);margin-top:2px}
+.nm-body{margin-top:22px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:15.5px;line-height:2.1;letter-spacing:.06em;color:var(--ink)}
 .concept{margin-bottom:8px}
 .concept .quote{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(17px,4vw,21px);line-height:2;letter-spacing:.08em;text-align:center;color:var(--forest)}
 .concept .quote em{color:var(--accent)}
@@ -639,10 +646,16 @@ def build(key, v):
 
 <section class="s alt">
   <div class="wrap narrow">
-    {head(PRODUCT, f'設計し、建て続けてきた<br class="sp">私たちの答え。<br><em>「{PRODUCT}」</em>')}
+    {head('Our Answer', '設計し、建て続けてきた<br class="sp">私たちの答え。')}
+    <div class="name rv">
+      <p class="nm-logo">{PRODUCT}</p>
+      <p class="nm-en"><b>Min</b>imum <b>Q</b>uality <b>A</b>rchitect</p>
+      <p class="nm-jp">ミニマム・クオリティ・アーキテクト</p>
+      <p class="nm-body">資産性と、過ごしやすさ。<br class="sp">家族が長く安心して暮らすために、<br>これだけは譲れない品質の基準線を、<br class="sp">設計で担保した住宅です。<br>流行や飾りを足していくのではなく、<br class="sp">本当に必要な質を、確かに。</p>
+    </div>
     <div class="concept rv">
       <p class="quote">子どもが小さいいまも、<br class="sp">育ちざかりのころも、<br>夫婦ふたりに戻ってからも。<br><em>どの時期にも、住みやすい家</em>を。</p>
-      <p class="body"><b>{PRODUCT}</b>（アトリエ）は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。家族の成長やはたらき方の変化にも応えられる<b>間取りの骨格</b>から考えるから、どの時期にも住みやすい家になります。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。そして、住みやすさと同じくらい大切にしているのが、<b>資産としての価値</b>です。</p>
+      <p class="body"><b>{PRODUCT}</b>は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。家族の成長やはたらき方の変化にも応えられる<b>間取りの骨格</b>から考えるから、どの時期にも住みやすい家になります。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。そして、過ごしやすさと同じくらい大切にしているのが、<b>資産としての価値</b>です。</p>
     </div>
     <ol class="life3 rv">
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><circle cx="55" cy="44" r="7" fill="none" stroke="#a8714a" stroke-width="1.6"/><circle cx="85" cy="48" r="6" fill="none" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Now</span><b>きょうだいで広々と</b><span>子どもが小さいうちは、ひと続きの広い部屋で一緒に。</span></li>
