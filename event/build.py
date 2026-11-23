@@ -92,7 +92,7 @@ VARIANTS = {
         faq=[
             ('共働きで、平日はなかなか時間がとれません。', '見学会は土日に開催しています。その後の打ち合わせも、' + ph('【要確認】土日やオンライン') + 'でご相談いただけます。'),
             ('マンションを売るかどうか、まだ決めていません。参加してもいいですか？', 'もちろん大丈夫です。「戸建てにしたら暮らしがどう変わるか」を実際の家で確かめるだけでも、ぜひお越しください。'),
-            ('マンションの売却もお願いできますか？', '売却は、お客様がお選びの不動産会社で行っていただきます。売る順番や資金計画は、こころ舎で一緒に整理します。'),
+            ('マンションの売却もお願いできますか？', '売却は、お客様がお選びの不動産会社で行っていただきます。売る順番や資金計画は、樹の家こころ舎で一緒に整理します。'),
             ('ローンが残っていても、住み替えはできますか？', '売却額と残債の関係によって方法が変わります。見学会の「住み替え資金シミュレーション」で、お客様の場合を試算します。'),
             ('子ども連れで行っても大丈夫ですか？', 'お子さま連れ歓迎です。実際に走り回って、足音を気にしなくていい暮らしを体感してください。'),
             ('しつこい営業はありませんか？', '無理な売り込みはいたしません。見学だけで帰られても大丈夫です。'),
@@ -306,12 +306,23 @@ section.s.alt{background:var(--ivory)}
 }
 
 /* house */
-.spec{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.spec{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
 .spec div{padding:22px 10px;text-align:center;border-left:1px solid var(--line2)}
 .spec div:first-child{border-left:0}
 .spec small{display:block;font-size:11px;letter-spacing:.2em;color:var(--soft)}
-.spec b{font-family:'Noto Serif JP',serif;font-weight:500;font-size:19px;color:var(--forest);letter-spacing:.06em}
-@media(max-width:720px){.spec{grid-template-columns:repeat(2,1fr)}.spec div{border-top:1px solid var(--line2)}.spec div:nth-child(-n+2){border-top:0}.spec div:nth-child(odd){border-left:0}.spec div:last-child{grid-column:1/3;border-left:0}}
+.spec b{display:block;font-family:'Noto Serif JP',serif;font-weight:500;font-size:19px;color:var(--forest);letter-spacing:.06em}
+.spec em{display:block;font-size:12px;color:var(--muted);letter-spacing:.06em}
+@media(max-width:720px){.spec{grid-template-columns:repeat(2,1fr)}.spec div:nth-child(odd){border-left:0}.spec div:nth-child(n+3){border-top:1px solid var(--line2)}}
+.perf{margin-top:16px}
+.perf-l{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px;margin:32px auto 0}
+.perf-l li{background:#fff;border:1px solid var(--line);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;column-gap:20px;align-items:center}
+.perf-l li.wide{grid-column:1/3}
+.perf-l small{grid-column:1/3;font-size:12px;letter-spacing:.2em;color:var(--soft)}
+.perf-l b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:52px;line-height:1.1;color:var(--forest);letter-spacing:.02em}
+.perf-l b.t{font-family:'Noto Serif JP',serif;font-size:20px;line-height:1.6;letter-spacing:.08em}
+.perf-l span{font-size:13.5px;color:var(--muted);line-height:1.9}
+.perf-l span em{color:var(--accent);font-weight:500}
+@media(max-width:720px){.perf-l{grid-template-columns:1fr;gap:12px}.perf-l li.wide{grid-column:auto}.perf-l li{padding:20px;column-gap:16px}.perf-l b{font-size:44px}.perf-l li.wide{display:block}.perf-l li.wide small,.perf-l li.wide b,.perf-l li.wide span{display:block}.perf-l li.wide span{margin-top:8px}}
 .spec-note{font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
 .day-h{margin-top:64px;text-align:center;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(18px,4.2vw,22px);letter-spacing:.08em}
 .day-h .en{display:block;font-size:13px;color:var(--accent);letter-spacing:.24em;text-transform:uppercase;margin-bottom:6px}
@@ -582,7 +593,7 @@ def build(key, v):
   <div class="card rv">
     <div class="top">
       <span class="lbl en">OPEN HOUSE ─ 注文住宅 完成見学会</span>
-      <div class="nm"><b>S様邸</b><span>金池小・上野ヶ丘中校区／大分駅から{ph('○分')}<br>土地を読み解き一から設計する、こころ舎の「{PRODUCT}」</span></div>
+      <div class="nm"><b>S様邸</b><span>金池小・上野ヶ丘中校区／大分駅から{ph('○分')}<br>土地を読み解き一から設計する、樹の家こころ舎の「{PRODUCT}」</span></div>
     </div>
     <dl>
       <dt>日時</dt><dd>{ph('【要確認】○月○日（土）・○日（日）')}<br>10:00〜17:00<small>各回{ph('○')}組限定・見学は約{ph('○分')}</small></dd>
@@ -613,7 +624,7 @@ def build(key, v):
       <div class="unfit rv"><p class="fit-h"><span class="mk">×</span>こんな人には不向きです</p><ul>{unfit}</ul></div>
     </div>
     <div class="maker rv">
-      <p class="mk-h">こころ舎の前身は、<br class="sp">設計事務所です。</p>
+      <p class="mk-h">樹の家こころ舎の前身は、<br class="sp">設計事務所です。</p>
       <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
     </div>
   </div>
@@ -633,14 +644,24 @@ def build(key, v):
   <div class="wrap">
     {head('The House', 'S様邸の、ある一日。', '共働きのご夫婦の平日を、<br class="sp">S様邸で想像してみると。<br>忙しい毎日を、<br class="sp">家のつくりが少し軽くしてくれます。')}
     <div class="spec rv">
-      <div><small>土地</small><b>約44坪</b></div>
-      <div><small>延床</small><b>約25坪</b></div>
+      <div><small>敷地面積</small><b>144.74㎡</b><em>43.78坪</em></div>
+      <div><small>延床面積</small><b>83.63㎡</b><em>25.29坪</em></div>
       <div><small>駐車場</small><b>3台</b></div>
       <div><small>家族</small><b>4人</b></div>
-      <div><small>性能</small><b style="font-size:14px">{ph('【要確認】耐震・断熱等級')}</b></div>
     </div>
     <p class="day-h rv"><span class="en">Weekday</span>共働きの毎日を、軽くする家</p>
     <ol class="day rv">{pts}</ol>
+
+    <div class="perf">
+      <p class="day-h rv"><span class="en">Performance</span>数字で見る、S様邸の性能</p>
+      <ul class="perf-l rv">
+        <li><small>耐震等級</small><b>3</b><span>最高等級。建築基準法で定める地震の力の1.5倍に耐える強さ。<br><em>三次元立体解析</em>で、建物全体の揺れ方まで確かめています。</span></li>
+        <li><small>断熱性能等級</small><b>6</b><span>ZEH水準（等級5）を上回る断熱性能。夏も冬も、家じゅうの温度差が小さく過ごしやすい。</span></li>
+        <li><small>UA値</small><b>0.45</b><span>家全体から逃げる熱の量。小さいほど、暖かさ・涼しさが逃げにくい家です。</span></li>
+        <li><small>C値</small><b>0.4</b><span>家全体のすき間の量。小さいほどすき間が少なく、一般に1.0以下が高気密の目安とされます。</span></li>
+        <li class="wide"><small>換気設備</small><b class="t">全熱交換型<br class="sp">第一種換気</b><span>給気も排気も機械で行い、外へ出す空気から温度と湿度を回収。窓を開けなくても、室温を保ちながら空気を入れ替えます。</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -676,7 +697,7 @@ def build(key, v):
         <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="36" height="32"/><path d="M6 24h20M26 8v32M26 30h16"/></svg><span class="n">02</span><b>間取り構成</b><span>特定の家族だけに合わせた、クセの強い間取りにはしません。誰が住んでも使いやすい構成だから、価値が保ちやすい。</span></li>
         <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30l3-9a4 4 0 0 1 4-3h18a4 4 0 0 1 4 3l3 9"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/><path d="M4 8h40" stroke-dasharray="3 3"/></svg><span class="n">03</span><b>駐車場の取り方</b><span>車での暮らしが前提の大分では、台数と停めやすさが家の価値に大きく関わります。土地の形を読み解き、敷地の中に必要な台数を確保します。</span></li>
       </ol>
-      <p class="asset-note rv">S様邸は、土地約44坪に延床約25坪・駐車場3台。暮らしやすさと資産価値を両立させた一例です。</p>
+      <p class="asset-note rv">S様邸は、敷地約44坪に延床約25坪・駐車場3台。暮らしやすさと資産価値を両立させた一例です。</p>
     </div>
 
     <div class="pr-h rv">
