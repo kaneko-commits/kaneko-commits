@@ -56,9 +56,6 @@ UNFIT = [
 
 # MinQA の基準線（S様邸の性能）：住み心地と資産性の両面から
 PERF = [
-    ('長期優良住宅', '認定', '国の認定制度',
-     '耐震性・省エネ性・劣化対策・維持管理のしやすさなど、長く快適に住み続けるための国の基準を満たした家です。',
-     '定期的な点検と修繕の計画を立て、その記録を家とともに残していきます。<b>家の状態を書類で証明できる</b>ことが、将来売るとき・貸すときの信頼になります。'),
     ('耐震等級', '3', '三次元立体解析',
      '大きな地震のあとも、家族がそのまま住み続けられることをめざした、最高等級の強さです。',
      '地震で住めなくなれば、ローンを残したまま住まいを失い、二重ローンを抱えることにもなりかねません。<b>構造の強さは、資産価値の土台</b>。将来手放すときも「耐震等級3」は、買う人・借りる人に選ばれる理由になります。'),
@@ -74,6 +71,10 @@ PERF = [
     ('換気設備', '全熱交換型<br>第一種換気', '',
      '室温と湿度を保ちながら空気を入れ替え、冬の乾燥や夏のジメジメをやわらげます。',
      '湿気をためにくく、結露やカビを抑えやすい。建物の傷みを防ぎ、年数がたっても「住みたい」と思われる状態を保ちます。'),
+    ('長期優良住宅', '標準で<br>認定取得', 'MinQAの標準',
+     '耐震性・省エネ性・劣化対策・維持管理のしやすさなど、長く快適に住み続けるための国の基準を満たし、認定を取得します。',
+     '定期的な点検と修繕の計画を立て、その記録を家とともに残していきます。<b>家の状態を書類で証明できる</b>ことが、将来売るとき・貸すときの信頼になります。',
+     '※S様邸は、敷地のエリアの関係で認定を受けていません。MinQAでは、基本的に長期優良住宅の認定を取得します。'),
 ]
 
 # ---------------------------------------------------------------- 版ごとの文言
@@ -349,6 +350,7 @@ section.s.alt{background:var(--ivory)}
 .perf-l dt:nth-of-type(2){background:#f6ece4;color:var(--accent-d)}
 .perf-l dd{font-size:14px;line-height:1.85;color:var(--ink)}
 .perf-l dd b{font-weight:500;color:var(--accent-d)}
+.perf-l dd.note{grid-column:1/3;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line2);padding-top:10px;margin-top:2px}
 .perf-l li.key{border:1px solid var(--accent);box-shadow:0 14px 30px -22px #a8714a80}
 .perf-l li.key .pv{background:#fbf6f1}
 @media(max-width:720px){.perf-l li{grid-template-columns:1fr}.perf-l .pv{border-right:0;border-bottom:1px solid var(--line2);flex-direction:row;flex-wrap:wrap;gap:4px 14px;padding:16px 18px;justify-content:flex-start;text-align:left}.perf-l small{width:100%}.perf-l .pv b{font-size:42px}.perf-l .pv b.t{margin-top:0}.perf-l i{margin-top:0}.perf-l dl{padding:16px 18px}}
@@ -570,8 +572,9 @@ def build(key, v):
         for a, b, c in v['scenes'])
     perf = ''.join(
         f'<li{" class=\"key\"" if lb == "耐震等級" else ""}><div class="pv"><small>{lb}</small><b{" class=\"t\"" if not n[0].isdigit() else ""}>{n}</b>'
-        + (f'<i>{tag}</i>' if tag else '') + f'</div><dl><dt>住み心地</dt><dd>{a}</dd><dt>資産性</dt><dd>{b}</dd></dl></li>'
-        for lb, n, tag, a, b in PERF)
+        + (f'<i>{tag}</i>' if tag else '') + f'</div><dl><dt>住み心地</dt><dd>{a}</dd><dt>資産性</dt><dd>{b}</dd>'
+        + (f'<dd class="note">{x[0]}</dd>' if x else '') + '</dl></li>'
+        for lb, n, tag, a, b, *x in PERF)
     pts = ''.join(f'<li><time{" class=\"jp\"" if not t[0].isdigit() else ""}>{t}</time><div><b>{a}</b><span>{b}</span></div></li>' for t, a, b in WEEKDAY)
     consult = ''.join(f'<div><b>{a}</b><p>{b}</p></div>' for a, b in v['consult'])
     learn = ''.join(f'<li><span class="en">{i:02d}</span>{t}</li>' for i, t in enumerate(LEARN + [v['learn_extra']], 1))
