@@ -257,6 +257,25 @@ section.s.alt{background:var(--ivory)}
 .sub b{color:var(--accent);font-weight:500}
 @media(max-width:720px){section.s{padding:80px 0}.head{margin-bottom:40px}}
 
+
+/* story flow */
+.bridge{text-align:center;margin-top:56px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(17px,4vw,21px);line-height:1.9;letter-spacing:.08em;color:var(--forest);position:relative;padding-bottom:56px}
+.bridge:after{content:'';position:absolute;left:50%;bottom:0;width:1px;height:40px;background:var(--accent)}
+.sub-h{text-align:center;margin-bottom:36px}
+.sub-h .en,.reason .en{display:block;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+.sub-h .h3,.reason .h3{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(19px,4.6vw,26px);line-height:1.8;letter-spacing:.08em}
+.sub-h .h3 em,.reason .h3 em{color:var(--accent)}
+.sub-h p:not(.h3),.reason p:not(.h3){color:var(--muted);font-size:14.5px;margin-top:12px}
+.reason{text-align:center;margin:104px 0 40px;padding-top:48px;border-top:1px solid var(--line)}
+.reason .en{font-size:16px}
+.wishes li>div{display:flex;flex-direction:column}
+.wishes li small{font-family:'Noto Sans JP',sans-serif;font-size:13.5px;letter-spacing:.04em;color:var(--muted);margin-top:4px;line-height:1.8}
+.wishes-s .spec{margin-top:28px;background:#fff}
+.minqa-s .name{margin-top:0}
+.story-h{margin-top:96px}
+.fit-head{margin-top:80px}
+@media(max-width:720px){.reason{margin-top:80px;padding-top:40px}.bridge{margin-top:44px}}
+
 /* learn / fit */
 .know-s{padding-top:88px}
 .learn{list-style:none;display:grid;grid-template-columns:1fr;max-width:720px;margin:0 auto;gap:0 40px;border-top:1px solid var(--ink)}
@@ -618,23 +637,32 @@ def build(key, v):
   <span class="scroll en">SCROLL</span>
 </div>
 
+<!-- ================= Chapter 01：S様ご夫婦の想い ================= -->
 <section class="s voices-s">
   <div class="wrap">
-    {head('Voices', 'ふとした瞬間に、<br class="sp">こんなこと、<br class="sp">思っていませんか。')}
+    {head('Chapter 01', 'ふとした瞬間に、<br class="sp">こんなこと、<br class="sp">思っていませんか。')}
     <ul class="voices rv">{voices}</ul>
+    <p class="bridge rv">S様ご夫婦の家づくりも、<br class="sp">そんな毎日のなかの想いから<br class="sp">はじまりました。</p>
   </div>
 </section>
 
 <section class="s alt wishes-s">
   <div class="wrap narrow">
-    {head('Wishes', 'S様ご夫婦の家づくりも、<br>3つの想いから<br class="sp">はじまりました。')}
+    <div class="sub-h rv"><p class="h3">S様ご夫婦が描いた、<br class="sp"><em>3つの想い</em>。</p></div>
     <ol class="wishes rv">
-      <li><span class="en">01</span>金池小校区で、家を建てたい。</li>
-      <li><span class="en">02</span>駐車場は、3台欲しい。</li>
-      <li><span class="en">03</span>庭は、少しでいい。</li>
+      <li><span class="en">01</span><div>金池小校区で、家を建てたい。<small>子どもの学校も、夫婦の職場も近い場所で。</small></div></li>
+      <li><span class="en">02</span><div>駐車場は、3台欲しい。<small>夫婦それぞれの車と、来客やこれからの暮らしのために。</small></div></li>
+      <li><span class="en">03</span><div>庭は、少しでいい。<small>手入れに追われず、子どもと七輪を囲めるくらいの庭を。</small></div></li>
     </ol>
     <p class="wish-body rv">決まった型に当てはめるのではなく、<br class="sp">まずはご夫婦の想いを伺うことから。<br>土地探しからご一緒し、その形や周辺の環境、風や光まで読み解いて、<br class="sp">一から設計しました。</p>
-    <p class="wish-next rv">その家が、まもなく完成します。<br>S様のご厚意で、完成見学会を開きます。</p>
+    <p class="wish-next rv">その想いを形にした家が、<br class="sp">まもなく完成します。</p>
+    <div class="spec rv">
+      <div><small>敷地面積</small><b>144.74㎡</b><em>43.78坪</em></div>
+      <div><small>延床面積</small><b>83.63㎡</b><em>25.29坪</em></div>
+      <div><small>駐車場</small><b>3台</b></div>
+      <div><small>家族</small><b>4人</b></div>
+    </div>
+    <p class="wish-body rv">S様のご厚意で、完成見学会を開きます。<br>3つの想いがどう叶ったのか、<br class="sp">実際の家で確かめてください。</p>
   </div>
 </section>
 
@@ -659,57 +687,10 @@ def build(key, v):
 </div>
 </section>
 
-<section class="s know-s">
-  <div class="wrap">
-    {head('Open House', '見学会に来ると、<br class="sp">こんなことがわかります。')}
-    <ol class="learn rv">{learn}</ol>
-  </div>
-</section>
-
-<section class="s alt fit-s">
-  <div class="wrap">
-    {head('For You?', '合う人、<br class="sp">合わない人。')}
-    <div class="fit-g">
-      <div class="fit rv"><p class="fit-h"><span class="mk">○</span>こんな人に向いてます</p><ul>{fit}</ul></div>
-      <div class="unfit rv"><p class="fit-h"><span class="mk">×</span>こんな人には不向きです</p><ul>{unfit}</ul></div>
-    </div>
-    <div class="maker rv">
-      <p class="mk-h">樹の家こころ舎の前身は、<br class="sp">設計事務所です。</p>
-      <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
-    </div>
-    {cta('ピンときたら、まずは見学だけでも。')}
-  </div>
-</section>
-
-<section class="s alt">
-  <div class="wrap">
-    {head('Before / After', v['scene_h'], v['scene_sub'])}
-    <div class="rv">
-      <div class="scene-hd"><span></span><span>{v['now_label']}</span><span></span><span>S様邸での光景</span></div>
-      {scenes}
-    </div>
-  </div>
-</section>
-
-<section class="s">
-  <div class="wrap">
-    {head('The House', 'S様邸の、ある一日。', '共働きのご夫婦の平日を、<br class="sp">S様邸で想像してみると。<br>忙しい毎日を、<br class="sp">家のつくりが少し軽くしてくれます。')}
-    <div class="spec rv">
-      <div><small>敷地面積</small><b>144.74㎡</b><em>43.78坪</em></div>
-      <div><small>延床面積</small><b>83.63㎡</b><em>25.29坪</em></div>
-      <div><small>駐車場</small><b>3台</b></div>
-      <div><small>家族</small><b>4人</b></div>
-    </div>
-    <p class="day-h rv"><span class="en">Weekday</span>共働きの毎日を、軽くする家</p>
-    <ol class="day rv">{pts}</ol>
-    {cta('朝の動きや収納を、<br class="sp">実際の家で確かめてみませんか。')}
-
-  </div>
-</section>
-
-<section class="s alt">
+<!-- ================= Chapter 02：S様が選んだ MinQA ================= -->
+<section class="s minqa-s">
   <div class="wrap narrow">
-    {head('Our Answer', '設計し、建て続けてきた<br class="sp">私たちの答え。')}
+    {head('Chapter 02', f'S様ご夫婦が選んだのは、<br>「{PRODUCT}」という<br class="sp">家づくりでした。', f'想いを叶えるだけでなく、<br class="sp">この先何十年も、安心して住み続けられること。<br>その答えとして選ばれたのが、<br class="sp">樹の家こころ舎の{PRODUCT}です。')}
     <div class="name rv">
       <p class="nm-logo">{PRODUCT}</p>
       <p class="nm-en"><b>Min</b>imum <b>Q</b>uality <b>A</b>rchitect</p>
@@ -717,46 +698,32 @@ def build(key, v):
       <p class="nm-body">資産性と、過ごしやすさ。<br class="sp">家族が長く安心して暮らすために、<br>これだけは譲れない品質の基準線を、<br class="sp">設計で担保した住宅です。<br>流行や飾りを足していくのではなく、<br class="sp">本当に必要な質を、確かに。</p>
     </div>
     <div class="concept rv">
-      <p class="quote">子どもが小さいいまも、<br class="sp">育ちざかりのころも、<br>夫婦ふたりに戻ってからも。<br><em>どの時期にも、住みやすい家</em>を。</p>
       <p class="body"><b>{PRODUCT}</b>は、注文住宅の設計と施工を重ねてきた樹の家こころ舎が、その経験からたどり着いた答えです。家族の成長やはたらき方の変化にも応えられる<b>間取りの骨格</b>から考えるから、どの時期にも住みやすい家になります。<br>規格住宅ではありません。ご要望を伺い、土地・周辺環境・風・光・眺望まで読み解いて一から設計し、<b>設計事務所がつくった工務店</b>が施工まで一貫して手がけます。そして、過ごしやすさと同じくらい大切にしているのが、<b>資産としての価値</b>です。</p>
     </div>
+
+    <div class="reason rv"><span class="en">Reason 01</span><p class="h3">どの時期にも、<br class="sp"><em>住みやすい</em>。</p><p>子どもが小さいいまも、育ちざかりのころも、<br>夫婦ふたりに戻ってからも。<br>{PRODUCT}は、家族の変化を受け止める<br class="sp">間取りの骨格から考えます。</p></div>
     <ol class="life3 rv">
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><circle cx="55" cy="44" r="7" fill="none" stroke="#a8714a" stroke-width="1.6"/><circle cx="85" cy="48" r="6" fill="none" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Now</span><b>きょうだいで広々と</b><span>子どもが小さいうちは、ひと続きの広い部屋で一緒に。</span></li>
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><line x1="75" y1="2" x2="75" y2="78" stroke="#a8714a" stroke-width="2" stroke-dasharray="5 4"/><circle cx="38" cy="42" r="8" fill="none" stroke="#a8714a" stroke-width="1.6"/><circle cx="112" cy="42" r="8" fill="none" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Growing</span><b>成長したら、ふた部屋に</b><span>思春期には、間仕切りでそれぞれの個室へ。</span></li>
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><rect x="18" y="20" width="44" height="24" fill="none" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="22" x2="132" y2="22" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="34" x2="132" y2="34" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="46" x2="132" y2="46" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Later</span><b>夫婦ふたりの時間へ</b><span>子どもが巣立ったあとは、書斎や趣味の部屋として。</span></li>
     </ol>
     <p class="life3-note rv">子ども部屋を例にした、考え方のイメージです。S様邸の子供室7.5帖も、将来2部屋に分けられるつくりです。</p>
+    <p class="day-h rv"><span class="en">Weekday</span>S様邸で想像する、共働きの平日</p>
+    <ol class="day rv">{pts}</ol>
+    {cta('朝の動きや収納を、<br class="sp">実際の家で確かめてみませんか。')}
 
-
-    <div class="asset">
-      <div class="asset-h rv">
-        <span class="eyebrow">Asset Value</span>
-        <p class="h3">売るときも、貸すときも。<br><em>価値が残る家</em>のつくり方。</p>
-        <p>家は、家族の暮らしの器であると<br class="sp">同時に、大切な資産です。<br>{PRODUCT}は、将来の価値まで見すえて設計します。</p>
-      </div>
+    <div class="reason rv"><span class="en">Reason 02</span><p class="h3">将来も、<br class="sp"><em>売れる・貸せる</em>。</p><p>家は、家族の暮らしの器であると<br class="sp">同時に、大切な資産です。<br>転勤や住み替えがあっても、<br class="sp">選ばれる家であるために。</p></div>
       <ol class="asset-l rv">
         <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="10" width="28" height="28"/><path d="M4 16V4h12M44 32v12H32M4 4l8 8M44 44l-8-8"/></svg><span class="n">01</span><b>サイズ感</b><span>広ければよい、ではありません。家族が暮らしやすく、将来買う人・借りる人にも選ばれやすい広さに整えます。</span></li>
         <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="36" height="32"/><path d="M6 24h20M26 8v32M26 30h16"/></svg><span class="n">02</span><b>間取り構成</b><span>特定の家族だけに合わせた、クセの強い間取りにはしません。誰が住んでも使いやすい構成だから、価値が保ちやすい。</span></li>
         <li><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#2f4438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30l3-9a4 4 0 0 1 4-3h18a4 4 0 0 1 4 3l3 9"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/><path d="M4 8h40" stroke-dasharray="3 3"/></svg><span class="n">03</span><b>駐車場の取り方</b><span>車での暮らしが前提の大分では、台数と停めやすさが家の価値に大きく関わります。土地の形を読み解き、敷地の中に必要な台数を確保します。</span></li>
       </ol>
       <p class="asset-note rv">S様邸は、敷地約44坪（144.74㎡）に延床約25坪（83.63㎡）・駐車場3台。暮らしやすさと資産価値を両立させた一例です。</p>
-    </div>
 
-    <div class="perf">
-      <div class="asset-h rv">
-        <span class="eyebrow">Performance</span>
-        <p class="h3">{PRODUCT}が譲らない基準線を、<br class="sp"><em>S様邸の数字</em>で。</p>
-        <p>住み心地と、資産性。<br>ここでいう資産性とは、<br class="sp">将来も「売れる・貸せる」家であること。<br>その土台になるのが、目に見えない性能です。</p>
-      </div>
-      <ul class="perf-l rv">{perf}</ul>
-    </div>
-    {cta('数字だけでは伝わらない心地よさを、<br class="sp">体感してください。')}
+    <div class="reason rv"><span class="en">Reason 03</span><p class="h3">その品質を、<br class="sp"><em>数字で確かめられる</em>。</p><p>住み心地と、資産性。<br>その両方の土台になるのが、<br class="sp">目に見えない性能です。<br>{PRODUCT}が譲らない基準線を、S様邸の数字で。</p></div>
+    <ul class="perf-l rv">{perf}</ul>
 
-    <div class="pr-h rv">
-      <span class="eyebrow">Price</span>
-      <p class="h3"><em>ご希望の土地に</em>、<br class="sp">一戸建てを定額で。</p>
-      <p>建物の価格は、広さごとに定額。<br class="sp">土地の価格がわかれば、<br class="sp">総額の目安がすぐに見えてきます。</p>
-    </div>
+    <div class="reason rv"><span class="en">Reason 04</span><p class="h3">建物は、<br class="sp"><em>広さごとに定額</em>。</p><p>建物の価格が決まっているから、<br class="sp">ご希望の土地に置き換えるだけで、<br>総額の目安がすぐに見えてきます。<br class="sp">S様邸は、25.5坪の価格帯です。</p></div>
     <div class="ptbl rv">
       <div class="pl"><span>建物本体価格（広さごとに定額）</span><small>税込</small></div>
       <div class="row"><div class="pt cur"><i>S様邸</i><span>25.5坪<small class="m2">約84.30㎡</small></span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪<small class="m2">約89.26㎡</small></span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪<small class="m2">約94.21㎡</small></span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪<small class="m2">約99.17㎡</small></span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div></div>
@@ -777,9 +744,17 @@ def build(key, v):
   </div>
 </section>
 
-<section class="s">
+<!-- ================= Chapter 03：S様邸へ ================= -->
+<section class="s alt return-s">
   <div class="wrap">
-    {head('Story', 'S様の家づくり', 'はじめてのご相談から、<br class="sp">お引渡しまで<b>約1年2ヶ月</b>。<br class="sp">走り回れる毎日は、もうすぐそこに。')}
+    {head('Chapter 03', f'想いが形になった家で、<br class="sp">毎日はこう変わります。', f'3つの想いと、{PRODUCT}。<br class="sp">そうして生まれたS様邸での暮らしを、<br>いまの暮らしと比べてみると。')}
+    <div class="sub-h rv"><p class="h3">{v['scene_h']}</p><p>{v['scene_sub']}</p></div>
+    <div class="rv">
+      <div class="scene-hd"><span></span><span>{v['now_label']}</span><span></span><span>S様邸での光景</span></div>
+      {scenes}
+    </div>
+
+    <div class="sub-h rv story-h"><span class="en">Story</span><p class="h3">はじめてのご相談から、<br class="sp"><em>約1年2ヶ月</em>。</p><p>「金池小校区で建てたい」という<br class="sp">ひと言から始まった家づくりが、<br>いま、完成を迎えています。</p></div>
     <ol class="tl rv">
       <li><time>2025.10</time><i></i><b>はじめてのご相談</b><span>「金池小校区で建てたい」</span></li>
       <li><time>{ph('○月')}</time><i></i><b>土地が決まる</b><span>駐車3台が叶う約44坪（144.74㎡）</span></li>
@@ -788,7 +763,24 @@ def build(key, v):
       <li class="now"><time>2026.11</time><i></i><b>完成見学会</b><span>いま、ここ</span></li>
       <li><time>2026.12</time><i></i><b>お引渡し</b><span>新しい暮らしへ</span></li>
     </ol>
-    {cta('お引渡し前の、いまだけ見られる家です。')}
+    {cta('お引渡し前の、<br class="sp">いまだけ見られる家です。')}
+  </div>
+</section>
+
+<!-- ================= 見学会のご案内 ================= -->
+<section class="s know-s">
+  <div class="wrap">
+    {head('Open House', '見学会に来ると、<br class="sp">こんなことがわかります。')}
+    <ol class="learn rv">{learn}</ol>
+    <div class="sub-h rv fit-head"><p class="h3">こんな人に向いてます。</p></div>
+    <div class="fit-g">
+      <div class="fit rv"><p class="fit-h"><span class="mk">○</span>こんな人に向いてます</p><ul>{fit}</ul></div>
+      <div class="unfit rv"><p class="fit-h"><span class="mk">×</span>こんな人には不向きです</p><ul>{unfit}</ul></div>
+    </div>
+    <div class="maker rv">
+      <p class="mk-h">樹の家こころ舎の前身は、<br class="sp">設計事務所です。</p>
+      <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
+    </div>
   </div>
 </section>
 
