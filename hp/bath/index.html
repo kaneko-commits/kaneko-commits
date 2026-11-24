@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>お風呂・浴室のリフォーム｜リフォーム｜樹の家こころ舎</title>
-<meta name="description" content="寒くなる度に、リフォームしとけばよかったと思う。今年こそ、あたたかいお風呂にしたい。健康・快適・経済の3つの面から、樹の家こころ舎のお風呂リフォームをご紹介します。">
+<meta name="description" content="寒くなる度に、リフォームしとけばよかったと思う。今年こそ、あたたかいお風呂にしたい。冬のお風呂の「心の声」から考える、樹の家こころ舎のお風呂リフォーム。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== サイト共通部分のダミー（実サイトのヘッダー・フッターに置き換えるため、本番では不要） ===== */
+/* ===== サイト共通部分のダミー（本番では実サイトのヘッダー・フッターに置き換え、この style は不要） ===== */
 body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-serif}
 .dummy-site{background:#eceae2;color:#5d675f;font-size:12px;text-align:center;padding:18px 16px;border-bottom:1px solid #d6d8cf}
 .dummy-site.foot{border-top:1px solid #d6d8cf;border-bottom:none;padding:40px 16px}
@@ -20,38 +20,36 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
 /* =====================================================================
    お風呂リフォームページ本体
    ・すべて .bath の中だけに効くように書いています（サイトの既存CSSと干渉しない）
-   ・色と書体は下の変数だけ変えれば、サイトに合わせられます
+   ・色と書体は下の変数を変えれば、サイトに合わせられます
    ===================================================================== */
 .bath{
-  --b-bg:#faf9f5; --b-paper:#fff; --b-cream:#f2f0e8; --b-line:#d6d8cf;
+  --b-bg:#faf9f5; --b-cream:#f2f0e8; --b-line:#d6d8cf;
   --b-ink:#25312c; --b-muted:#5d675f;
-  --b-main:#3a5144;        /* サイトのメインカラー */
-  --b-main-deep:#283a30;
-  --b-accent:#c8643b;      /* ボタン・強調 */
-  --b-accent-soft:#f6e3d6;
-  --b-health:#b0573a; --b-health-soft:#f7e7df;
-  --b-comfort:#3d7187; --b-comfort-soft:#e3eef2;
-  --b-econ:#5f7a3c;  --b-econ-soft:#ebf1e1;
+  --b-main:#3a5144; --b-main-deep:#283a30;
+  --b-accent:#c8643b; --b-accent-soft:#f6e3d6;
+  --b-cold:#4d6878; --b-cold-soft:#e4ecf0;
   --b-serif:'Noto Serif JP',serif;
   --b-sans:inherit;
   color:var(--b-ink);background:var(--b-bg);font-family:var(--b-sans);
-  font-size:16px;line-height:1.9;letter-spacing:.03em;
+  font-size:16px;line-height:1.95;letter-spacing:.03em;
 }
 .bath *,.bath *::before,.bath *::after{box-sizing:border-box}
 .bath h1,.bath h2,.bath h3,.bath p,.bath ul,.bath ol,.bath figure,.bath blockquote,.bath dl,.bath dd{margin:0;padding:0}
 .bath ul,.bath ol{list-style:none}
 .bath img,.bath svg{display:block;max-width:100%}
 .bath a{color:inherit}
-.bath .in{max-width:1080px;margin:0 auto;padding:0 20px}
+.bath h3{text-wrap:balance}
+.bath .in{max-width:1080px;margin:0 auto;padding-left:20px;padding-right:20px}
+.bath .narrow{max-width:760px}
 .bath .br{display:inline-block}
-.bath .sec{padding:80px 0}
-@media (max-width:640px){.bath .sec{padding:56px 0}}
-.bath .label{font-family:Georgia,serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--b-main)}
-.bath .h2{font-family:var(--b-serif);font-weight:700;font-size:clamp(23px,4vw,34px);line-height:1.55;letter-spacing:.05em;margin-top:8px;text-wrap:balance}
+.bath .sec{padding:84px 0}
+@media (max-width:640px){.bath .sec{padding:60px 0}}
 .bath .center{text-align:center}
+.bath .label{font-family:Georgia,serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--b-main)}
+.bath .h2{font-family:var(--b-serif);font-weight:700;font-size:clamp(23px,4vw,34px);line-height:1.6;letter-spacing:.05em;margin-top:8px;text-wrap:balance}
 .bath .ph{background:#fff6cc;border:1px dashed #c9a227;color:#7a5d00;padding:0 .3em;border-radius:3px;font-size:.92em}
 .bath .photo{background:repeating-linear-gradient(45deg,#ecebe4,#ecebe4 10px,#e4e3db 10px,#e4e3db 20px);border:1px dashed #c9a227;color:#7a5d00;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.6;padding:12px;border-radius:8px}
-.bath .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font-weight:700;border-radius:999px;padding:13px 26px;font-size:15px;line-height:1.4;transition:opacity .2s}
+.bath .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;border-radius:999px;padding:13px 26px;font-size:15px;line-height:1.4;transition:opacity .2s}
 .bath .btn:hover{opacity:.85}
 .bath .btn.fill{background:var(--b-accent);color:#fff}
 .bath .btn.line{border:1.5px solid var(--b-main);color:var(--b-main);background:#fff}
@@ -62,94 +60,89 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
 .bath .crumb span{margin:0 .5em;opacity:.6}
 
 /* ---- ファーストビュー ---- */
-.bath .hero{padding:24px 0 56px}
-.bath .hero .in{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.bath .hero{padding:20px 0 64px;background:linear-gradient(180deg,var(--b-cold-soft),var(--b-bg))}
+.bath .hero .in{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
 @media (max-width:860px){.bath .hero .in{grid-template-columns:1fr;gap:28px}}
-.bath .hero .cat{display:inline-block;font-size:13px;font-weight:700;color:var(--b-main);border:1px solid var(--b-main);border-radius:4px;padding:2px 10px}
-.bath .hero h1{font-family:var(--b-serif);font-weight:700;font-size:clamp(27px,4.8vw,46px);line-height:1.6;letter-spacing:.05em;margin-top:18px}
-.bath .hero .sub{font-family:var(--b-serif);font-weight:700;font-size:clamp(18px,2.8vw,24px);color:var(--b-accent);margin-top:18px;line-height:1.6}
-.bath .hero .lead{margin-top:18px;font-size:15px;color:var(--b-muted)}
-.bath .hero .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.bath .hero .cat{display:inline-block;font-size:13px;font-weight:700;color:var(--b-main);border:1px solid var(--b-main);border-radius:4px;padding:2px 10px;background:#fff}
+.bath .hero h1{font-family:var(--b-serif);font-weight:700;font-size:clamp(27px,4.6vw,44px);line-height:1.65;letter-spacing:.05em;margin-top:22px;color:var(--b-cold)}
+.bath .hero h1::before{content:"「";margin-left:-.5em}
+.bath .hero h1::after{content:"」"}
+.bath .hero .sub{font-family:var(--b-serif);font-weight:700;font-size:clamp(19px,2.8vw,25px);color:var(--b-accent);margin-top:22px;line-height:1.6}
+.bath .hero .lead{margin-top:16px;font-size:15px;color:var(--b-muted)}
+.bath .hero .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .bath .hero .photo{aspect-ratio:4/3}
-.bath .hero .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;font-size:12.5px;color:var(--b-muted)}
-.bath .hero .tags li{background:var(--b-cream);border-radius:999px;padding:2px 12px}
-
-/* 3つの柱（ページ内ナビを兼ねる） */
-.bath .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
-@media (max-width:760px){.bath .pillars{grid-template-columns:1fr}}
-.bath .pillar{display:block;text-decoration:none;border-radius:12px;padding:20px 22px;position:relative;border:1px solid transparent}
-.bath .pillar .k{font-family:var(--b-serif);font-weight:700;font-size:22px;letter-spacing:.1em}
-.bath .pillar .t{display:block;font-weight:700;font-size:15px;margin-top:2px}
-.bath .pillar .d{display:block;font-size:13px;color:var(--b-muted);margin-top:4px;line-height:1.7}
-.bath .pillar::after{content:"↓";position:absolute;right:18px;top:20px;font-size:14px;opacity:.6}
-.bath .p-health{background:var(--b-health-soft)} .bath .p-health .k{color:var(--b-health)}
-.bath .p-comfort{background:var(--b-comfort-soft)} .bath .p-comfort .k{color:var(--b-comfort)}
-.bath .p-econ{background:var(--b-econ-soft)} .bath .p-econ .k{color:var(--b-econ)}
-.bath .pillar:hover{border-color:currentColor}
 
 /* はじめての方へ（広告から来た方向け） */
 .bath .first{background:var(--b-cream)}
-.bath .first .in{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;padding-top:28px;padding-bottom:28px}
-@media (max-width:760px){.bath .first .in{grid-template-columns:1fr;gap:12px}}
+.bath .first .in{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;padding-top:26px;padding-bottom:26px}
+@media (max-width:760px){.bath .first .in{grid-template-columns:1fr;gap:10px}}
 .bath .first .tt{font-weight:700;font-size:14px;color:var(--b-main);white-space:nowrap}
 .bath .first p{font-size:14px}
 .bath .first a{font-size:14px;font-weight:700;color:var(--b-main);white-space:nowrap}
 
-/* ---- 健康・快適・経済 各ブロック ---- */
-.bath .theme .head{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
-.bath .theme .num{font-family:var(--b-serif);font-weight:700;font-size:15px;color:#fff;border-radius:999px;width:64px;height:64px;display:flex;align-items:center;justify-content:center;letter-spacing:.1em;flex:none}
-.bath .theme .catch{font-family:var(--b-serif);font-weight:700;font-size:clamp(22px,3.8vw,32px);line-height:1.55;letter-spacing:.05em}
-.bath .voices{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px}
-@media (max-width:640px){.bath .voices{grid-template-columns:1fr}}
-.bath .voices li{background:#fff;border-radius:10px;padding:16px 18px 16px 48px;position:relative;font-family:var(--b-serif);font-weight:700;font-size:17px;line-height:1.65}
-.bath .voices li::before{content:"";position:absolute;left:18px;top:21px;width:16px;height:16px;border-radius:50%;border:2px solid currentColor;opacity:.5}
-.bath .then{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media (max-width:860px){.bath .then{grid-template-columns:1fr}}
-.bath .then li{background:#fff;border-radius:10px;padding:20px 22px;border-top:3px solid currentColor}
-.bath .then h3{font-size:16px;line-height:1.6;color:var(--b-ink)}
-.bath .then p{font-size:14px;color:var(--b-muted);margin-top:6px;line-height:1.85}
-.bath .arrow{margin-top:28px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px}
-.bath .arrow::before{content:"";width:28px;height:2px;background:currentColor;flex:none}
-.bath h3{text-wrap:balance}
+/* ---- 心の声（寒い色からあたたかい色へ、少しずつ変わっていく） ---- */
+.bath .intro-voice{padding:80px 0 24px}
+.bath .intro-voice p{font-family:var(--b-serif);font-size:clamp(17px,2.4vw,20px);line-height:2.1;color:var(--b-muted)}
+.bath .ch{padding:72px 0}
+@media (max-width:640px){.bath .ch{padding:52px 0}}
+.bath .ch .in{display:grid;grid-template-columns:200px 1fr;gap:12px 48px}
+@media (max-width:760px){.bath .ch .in{grid-template-columns:1fr}}
+.bath .ch .scene{font-size:13px;color:var(--b-muted);letter-spacing:.08em;padding-top:14px;border-top:1px solid currentColor;align-self:start}
+.bath .ch .scene b{display:block;font-family:Georgia,serif;font-weight:400;font-size:12px;letter-spacing:.18em;margin-bottom:2px}
+.bath .ch blockquote{font-family:var(--b-serif);font-weight:700;font-size:clamp(24px,4.2vw,38px);line-height:1.65;letter-spacing:.04em;color:var(--v)}
+.bath .ch blockquote::before{content:"「";margin-left:-.5em}
+.bath .ch blockquote::after{content:"」"}
+.bath .ch .also{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px}
+.bath .ch .also li{font-family:var(--b-serif);font-weight:700;font-size:clamp(16px,2.4vw,20px);color:var(--v);opacity:.85}
+.bath .ch .also li::before{content:"「"}.bath .ch .also li::after{content:"」"}
+.bath .ch .reply{grid-column:2;margin-top:24px;max-width:36em;font-size:15.5px}
+@media (max-width:760px){.bath .ch .reply{grid-column:1}}
+.bath .ch .reply strong{background:linear-gradient(transparent 62%,rgba(243,210,122,.6) 62%)}
+.bath .c1{background:#e4ecf0;--v:#3e5b6c}
+.bath .c2{background:#eaeeee;--v:#4a6170}
+.bath .c3{background:#f0efea;--v:#5e5f5a}
+.bath .c4{background:#f4ece3;--v:#8a5a3e}
+.bath .c5{background:#f6e6dc;--v:#a8502e}
 
-.bath .t-health{background:var(--b-health-soft)} .bath .t-health .num{background:var(--b-health)} .bath .t-health .voices li,.bath .t-health .then li,.bath .t-health .arrow{color:var(--b-health)}
-.bath .t-comfort{background:var(--b-comfort-soft)} .bath .t-comfort .num{background:var(--b-comfort)} .bath .t-comfort .voices li,.bath .t-comfort .then li,.bath .t-comfort .arrow{color:var(--b-comfort)}
-.bath .t-econ{background:var(--b-econ-soft)} .bath .t-econ .num{background:var(--b-econ)} .bath .t-econ .voices li,.bath .t-econ .then li,.bath .t-econ .arrow{color:var(--b-econ)}
-
-.bath .fig{margin-top:28px;background:#fff;border-radius:12px;padding:20px}
-.bath .fig figcaption{font-size:12.5px;color:var(--b-muted);margin-top:10px}
+/* 温度差の図 */
+.bath .temp{grid-column:2;margin-top:24px;background:#fff;border-radius:12px;padding:18px}
+@media (max-width:760px){.bath .temp{grid-column:1}}
 .bath .temp .tl{font-size:13px;font-weight:700;margin-bottom:6px}
-.bath .temp .tl.after{color:var(--b-health);margin-top:14px}
+.bath .temp .tl.after{color:var(--b-accent);margin-top:14px}
 .bath .temp .tr{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:6px}
 .bath .temp span{border-radius:6px;padding:10px 6px;text-align:center;font-weight:700;font-size:14px;line-height:1.4}
 .bath .temp small{display:block;font-weight:400;font-size:12px}
-.bath .temp .w{background:var(--b-health-soft);color:var(--b-health)}
-.bath .temp .c1{background:var(--b-comfort-soft);color:var(--b-comfort)}
-.bath .temp .c2{background:#c9dbe3;color:#2c4a58}
-.bath .note{font-size:12.5px;color:var(--b-muted);margin-top:18px;line-height:1.8}
+.bath .temp .w{background:var(--b-accent-soft);color:#a8502e}
+.bath .temp .k1{background:#e4ecf0;color:#3e5b6c}
+.bath .temp .k2{background:#c9dbe3;color:#2c4a58}
+.bath .temp figcaption{font-size:12.5px;color:var(--b-muted);margin-top:10px;line-height:1.8}
 
-/* ---- 贅沢じゃない ---- */
-.bath .notlux{background:var(--b-main-deep);color:#eef2ec}
-.bath .notlux .label{color:#f3d27a}
-.bath .notlux .lead{color:#cfdccf;margin-top:16px;max-width:40em;margin-left:auto;margin-right:auto}
-.bath .why3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
-@media (max-width:860px){.bath .why3{grid-template-columns:1fr}}
-.bath .why3 li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:24px}
-.bath .why3 .q{font-size:13px;color:#f3d27a}
-.bath .why3 h3{font-family:var(--b-serif);font-size:19px;line-height:1.6;margin:6px 0 10px}
-.bath .why3 p{font-size:14px;color:#cfdccf;line-height:1.85}
-.bath .calc{margin-top:36px;background:#fff;color:var(--b-ink);border-radius:14px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:20px 32px;align-items:center}
+/* 転換：毎日の健康は、暖かいお風呂から */
+.bath .turn{background:var(--b-accent);color:#fff;text-align:center}
+.bath .turn .big{font-family:var(--b-serif);font-weight:700;font-size:clamp(26px,4.8vw,44px);line-height:1.6;letter-spacing:.06em}
+.bath .turn p.t{margin:22px auto 0;max-width:34em;font-size:15.5px;opacity:.95}
+.bath .turn .note{font-size:12px;opacity:.85;margin-top:18px}
+
+/* 毎日のことだから */
+.bath .daily .lead{margin:16px auto 0;max-width:36em;color:var(--b-muted)}
+.bath .daily3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+@media (max-width:860px){.bath .daily3{grid-template-columns:1fr}}
+.bath .daily3 li{background:var(--b-cream);border-radius:12px;padding:24px}
+.bath .daily3 h3{font-family:var(--b-serif);font-size:19px;line-height:1.6;margin-bottom:8px}
+.bath .daily3 p{font-size:14.5px;color:var(--b-muted);line-height:1.85}
+.bath .calc{margin-top:20px;border:1px solid var(--b-line);border-radius:14px;padding:24px 28px;display:grid;grid-template-columns:1fr auto;gap:16px 32px;align-items:center;background:#fff}
 @media (max-width:760px){.bath .calc{grid-template-columns:1fr;padding:22px 20px}}
 .bath .calc h3{font-size:16px}
-.bath .calc .row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;font-size:15px}
+.bath .calc .row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:15px}
 .bath .calc input{font:inherit;font-size:18px;width:6.5em;padding:6px 10px;border:1px solid var(--b-line);border-radius:6px;text-align:right}
-.bath .calc .res{text-align:center;background:var(--b-econ-soft);border-radius:12px;padding:16px 28px}
+.bath .calc .res{text-align:center;background:var(--b-accent-soft);border-radius:12px;padding:14px 28px}
 .bath .calc .res small{display:block;font-size:13px;color:var(--b-muted)}
-.bath .calc .res b{font-family:var(--b-serif);font-size:40px;color:var(--b-econ);line-height:1.3}
+.bath .calc .res b{font-family:var(--b-serif);font-size:40px;color:var(--b-accent);line-height:1.3}
 .bath .calc .res b span{font-size:18px}
 .bath .calc .cn{grid-column:1/-1;font-size:12px;color:var(--b-muted)}
 
-/* ---- お客様の声 ---- */
+/* お客様の声 */
+.bath .voice{background:var(--b-accent-soft)}
 .bath .voice .in{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
 @media (max-width:860px){.bath .voice .in{grid-template-columns:1fr;gap:28px}}
 .bath .voice blockquote{font-family:var(--b-serif);font-weight:700;font-size:clamp(26px,4.4vw,38px);line-height:1.6;color:var(--b-accent)}
@@ -159,29 +152,33 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
 .bath .ba .photo{aspect-ratio:4/5}
 .bath .ba figcaption{text-align:center;font-size:12px;color:var(--b-muted);margin-top:4px}
 
-/* ---- 費用 ---- */
+/* できること */
+.bath .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media (max-width:860px){.bath .menu{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.bath .menu{grid-template-columns:1fr}}
+.bath .menu li{border:1px solid var(--b-line);border-radius:12px;padding:22px;background:#fff}
+.bath .menu .for{font-family:var(--b-serif);font-size:13.5px;color:var(--b-cold);font-weight:700}
+.bath .menu h3{font-size:17px;line-height:1.6;margin:6px 0}
+.bath .menu p{font-size:14px;color:var(--b-muted);line-height:1.85}
+
+/* 費用 */
 .bath .price{background:var(--b-cream)}
 .bath .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 @media (max-width:860px){.bath .plans{grid-template-columns:1fr}}
-.bath .plan{background:#fff;border-radius:12px;padding:24px;display:flex;flex-direction:column}
+.bath .plan{background:#fff;border-radius:12px;padding:24px}
 .bath .plan .for{font-size:12.5px;color:var(--b-accent);font-weight:700}
 .bath .plan h3{font-family:var(--b-serif);font-size:19px;line-height:1.55;margin:4px 0 10px}
 .bath .plan .yen{font-family:var(--b-serif);font-size:22px;margin-bottom:12px}
-.bath .plan ul{font-size:13.5px;color:var(--b-muted);border-top:1px solid var(--b-line);padding-top:12px;flex:1}
+.bath .plan ul{font-size:13.5px;color:var(--b-muted);border-top:1px solid var(--b-line);padding-top:12px}
 .bath .plan li{padding-left:1.2em;position:relative;line-height:1.8}
 .bath .plan li::before{content:"・";position:absolute;left:0}
-.bath .plan .ic{display:flex;gap:4px;margin-top:14px;flex-wrap:wrap}
-.bath .plan .ic span{font-size:11.5px;border-radius:4px;padding:1px 8px;font-weight:700}
-.bath .ic .h{background:var(--b-health-soft);color:var(--b-health)}
-.bath .ic .c{background:var(--b-comfort-soft);color:var(--b-comfort)}
-.bath .ic .e{background:var(--b-econ-soft);color:var(--b-econ)}
 .bath .subsidy{margin-top:20px;background:#fff;border-radius:12px;padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:6px 20px}
 @media (max-width:640px){.bath .subsidy{grid-template-columns:1fr}}
-.bath .subsidy dt{font-weight:700;font-size:14px;color:var(--b-econ)}
+.bath .subsidy dt{font-weight:700;font-size:14px;color:var(--b-main)}
 .bath .subsidy dd{font-size:14px;color:var(--b-muted);margin-bottom:8px}
 .bath .price .cn{font-size:12px;color:var(--b-muted);margin-top:14px}
 
-/* ---- 流れ ---- */
+/* 流れ */
 .bath .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:36px;counter-reset:s}
 @media (max-width:860px){.bath .steps{grid-template-columns:1fr}}
 .bath .steps li{background:var(--b-cream);border-radius:10px;padding:18px;counter-increment:s}
@@ -189,27 +186,27 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
 .bath .steps b{display:block;font-size:16px;margin:2px 0 4px}
 .bath .steps p{font-size:13.5px;color:var(--b-muted);line-height:1.8}
 
-/* ---- FAQ ---- */
+/* FAQ */
 .bath details{max-width:760px;margin:0 auto 10px;background:#fff;border:1px solid var(--b-line);border-radius:10px;padding:0 20px}
 .bath summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:700;display:flex;gap:10px}
 .bath summary::-webkit-details-marker{display:none}
 .bath summary::before{content:"Q";font-family:Georgia,serif;color:var(--b-accent)}
 .bath details p{padding:0 0 18px 24px;font-size:14.5px;color:var(--b-muted)}
 
-/* ---- 問い合わせ ---- */
-.bath .cta{background:var(--b-accent);color:#fff;text-align:center}
-.bath .cta .pre{font-family:var(--b-serif);font-size:clamp(15px,2.4vw,19px);opacity:.92}
+/* 問い合わせ */
+.bath .cta{background:var(--b-main-deep);color:#fff;text-align:center}
+.bath .cta .pre{font-family:var(--b-serif);font-size:clamp(15px,2.4vw,19px);opacity:.85}
 .bath .cta .h2{color:#fff}
-.bath .cta .txt{max-width:34em;margin:14px auto 0;font-size:15px}
+.bath .cta .txt{max-width:34em;margin:14px auto 0;font-size:15px;color:#cfdccf}
 .bath .cta .box{max-width:760px;margin:32px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media (max-width:640px){.bath .cta .box{grid-template-columns:1fr}}
 .bath .cta .box a{background:#fff;color:var(--b-ink);border-radius:12px;padding:20px;text-decoration:none;display:block}
 .bath .cta .box small{display:block;font-size:13px;color:var(--b-muted)}
 .bath .cta .box b{display:block;font-size:19px;color:var(--b-accent);margin:6px 0}
 
-/* ---- ほかのリフォーム（ページ間の回遊用） ---- */
+/* ほかのリフォーム（ページ間の回遊用） */
 .bath .more{padding:56px 0}
-.bath .more .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.bath .more .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
 @media (max-width:760px){.bath .more .grid{grid-template-columns:repeat(2,1fr)}}
 .bath .more .grid a{display:block;background:#fff;border:1px solid var(--b-line);border-radius:10px;padding:16px;text-decoration:none;font-weight:700;font-size:14px}
 .bath .more .grid a small{display:block;font-weight:400;font-size:12px;color:var(--b-muted)}
@@ -221,7 +218,7 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
   .bath .fix{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--b-accent);color:#fff;text-decoration:none;justify-content:center;align-items:center;height:54px;font-weight:700;font-size:15px}
   .bath{padding-bottom:54px}
 }
-.bath :target{scroll-margin-top:80px}
+.bath [id]{scroll-margin-top:80px}
 </style>
 </head>
 <body>
@@ -230,35 +227,24 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
 
 <main class="bath">
 
-  <!-- パンくず（リフォームページの中の1ページであることを示す） -->
   <nav class="crumb in" aria-label="パンくずリスト">
     <a href="/">ホーム</a><span>›</span><a href="/reform/">リフォーム</a><span>›</span>お風呂・浴室のリフォーム
   </nav>
 
-  <!-- ファーストビュー -->
+  <!-- ファーストビュー：心の声から始める -->
   <section class="hero">
     <div class="in">
       <div>
         <span class="cat">お風呂・浴室のリフォーム</span>
         <h1><span class="br">寒くなる度に、</span><br><span class="br">リフォーム</span><span class="br">しとけば</span><span class="br">よかったと思う</span></h1>
         <p class="sub">今年こそ、あたたかいお風呂にしたい</p>
-        <p class="lead">暖かいお風呂は、贅沢ではなく、毎日の暮らしの土台です。健康・快適・経済の3つの面から、お風呂のリフォームを考えてみませんか。</p>
+        <p class="lead">毎年、冬が来るたびに同じことを思う。<br>そんな方に、読んでいただきたいページです。</p>
         <div class="btns">
           <a class="btn fill" href="#contact">無料で相談・見積もり</a>
           <a class="btn line" href="#price">費用の目安を見る</a>
         </div>
-        <ul class="tags"><li>ユニットバス入れ替え</li><li>タイル浴室から</li><li>脱衣所の断熱</li><li>手すり・段差</li></ul>
       </div>
-      <div class="photo">【要確認】<br>こころ舎が施工した、明るく暖かい浴室の写真</div>
-    </div>
-
-    <!-- 3つの柱：一目でわかる＋ページ内ナビ -->
-    <div class="in">
-      <div class="pillars">
-        <a class="pillar p-health" href="#health"><span class="k">健康</span><span class="t">ヒートショックに備える</span><span class="d">家の中の温度差を小さくして、体への負担を減らします。</span></a>
-        <a class="pillar p-comfort" href="#comfort"><span class="k">快適</span><span class="t">寒くない・またぎやすい</span><span class="d">冬でも、入るのも出るのもおっくうにならないお風呂に。</span></a>
-        <a class="pillar p-econ" href="#economy"><span class="k">経済</span><span class="t">長い目で見て、得をする</span><span class="d">お湯が冷めにくく、掃除がラク。傷みも先送りしない。</span></a>
-      </div>
+      <div class="photo">【要確認】<br>冬の夜、湯気の立つあたたかい浴室の写真</div>
     </div>
   </section>
 
@@ -266,103 +252,103 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
   <aside class="first">
     <div class="in">
       <p class="tt">はじめての方へ</p>
-      <p>樹の家こころ舎は、設計事務所がつくった工務店です。新築の家づくりで大切にしてきた「断熱」と「暮らしやすさ」の考え方で、いまのお住まいのリフォームもお手伝いしています。</p>
+      <p>樹の家こころ舎は、設計事務所がつくった工務店です。新築の家づくりで大切にしてきた「あたたかさ」と「暮らしやすさ」の考え方で、いまのお住まいのリフォームもお手伝いしています。</p>
       <a href="/reform/">こころ舎のリフォームについて ›</a>
     </div>
   </aside>
 
-  <!-- 01 健康 -->
-  <section class="sec theme t-health" id="health">
-    <div class="in">
-      <div class="head">
-        <span class="num">健康</span>
-        <div><p class="label">01 Health</p><h2 class="catch">毎日の健康は、<br>暖かいお風呂から</h2></div>
-      </div>
-      <ul class="voices">
-        <li>風呂に入るのが怖い。</li>
-        <li>ヒートショックが怖い</li>
-      </ul>
+  <!-- 導入 -->
+  <div class="intro-voice in narrow center">
+    <p>冬のお風呂のまわりには、<br>口には出さない「心の声」がたくさんあります。</p>
+  </div>
 
-      <figure class="fig">
-        <div class="temp" role="img" aria-label="温度差のイメージ。いまの家ではリビングが暖かく脱衣所と浴室が寒い。リフォーム後はどこも暖かい。">
-          <p class="tl">いまの家</p>
-          <div class="tr"><span class="w">リビング<small>あたたかい</small></span><span class="c1">脱衣所<small>ひんやり</small></span><span class="c2">浴室<small>寒い</small></span></div>
-          <p class="tl after">リフォーム後</p>
-          <div class="tr"><span class="w">リビング</span><span class="w">脱衣所</span><span class="w">浴室</span></div>
-        </div>
-        <figcaption>温度差のイメージ図です。暖かい部屋から寒い脱衣所・浴室へ移ると、血圧が大きく上がり下がりしやすくなります（ヒートショック）。浴室と脱衣所を一緒に暖かくして、家の中の温度差を小さくします。</figcaption>
+  <!-- 心の声 1 -->
+  <section class="ch c1">
+    <div class="in">
+      <p class="scene"><b>VOICE 01</b>夕ごはんのあと、こたつの中で</p>
+      <blockquote>寒くなると、明日でいっかを繰り返す</blockquote>
+      <p class="reply">シャワーで済ませる日が増えて、湯船につかるのは週に何回か。それは面倒くさがりなのではなく、<strong>お風呂場が寒すぎるせい</strong>かもしれません。お風呂に入るのが楽しみになる家は、つくれます。</p>
+    </div>
+  </section>
+
+  <!-- 心の声 2 -->
+  <section class="ch c2">
+    <div class="in">
+      <p class="scene"><b>VOICE 02</b>家族の「お先にどうぞ」</p>
+      <blockquote>一番風呂、どうぞどうぞ。<br>寒い風呂場は人気がない。</blockquote>
+      <p class="reply">誰かが入って、浴室が少し温まるのをみんなで待っている。浴室そのものが冷えなければ、一番風呂はもう誰かに譲るものではなくなります。お湯が冷めにくい浴槽なら、<strong>家族の入る時間がばらばらでも、追いだきの回数は少なくて済みます</strong>。</p>
+    </div>
+  </section>
+
+  <!-- 心の声 3 -->
+  <section class="ch c3">
+    <div class="in">
+      <p class="scene"><b>VOICE 03</b>脱衣所で、服に手をかけて</p>
+      <blockquote>どうして、こんな寒い場所で<br>全裸になるんだろう。</blockquote>
+      <p class="reply">家の中でいちばん寒いかもしれない場所で、いちばん無防備になる。考えてみれば不思議なことです。壁・床・窓の断熱と、入る前に暖めておける暖房で、<strong>服を脱いでも身がすくまない場所</strong>に変えられます。</p>
+    </div>
+  </section>
+
+  <!-- 心の声 4 -->
+  <section class="ch c4">
+    <div class="in">
+      <p class="scene"><b>VOICE 04</b>湯船から立ち上がるとき</p>
+      <div>
+        <blockquote>よっこいしょ。<br>風呂を出るのが一苦労。</blockquote>
+        <ul class="also"><li>入るのも、出るのもおっくうになる。</li></ul>
+      </div>
+      <p class="reply">深い浴槽、高いまたぎ、つかまる場所のない壁。年齢を重ねるほど、小さな段差が大きな負担になります。またぎの低い浴槽と手すりで、<strong>出入りは驚くほどラクになります</strong>。いまは困っていなくても、10年後の自分のために。</p>
+    </div>
+  </section>
+
+  <!-- 心の声 5 -->
+  <section class="ch c5">
+    <div class="in">
+      <p class="scene"><b>VOICE 05</b>冬のニュースを見るたびに</p>
+      <div>
+        <blockquote>風呂に入るのが怖い。</blockquote>
+        <ul class="also"><li>ヒートショックが怖い</li><li>高血圧だからこそ、暖かいお風呂</li></ul>
+      </div>
+      <p class="reply">暖かい部屋から、冷えた脱衣所へ。服を脱いで寒い浴室に入り、熱いお湯につかる。短い時間に大きな温度差にさらされると、血圧は大きく上がり下がりします。だからこそ、<strong>家の中の温度差を小さくすること</strong>が、いちばんの備えになります。</p>
+      <figure class="temp" role="img" aria-label="温度差のイメージ。いまの家ではリビングが暖かく脱衣所と浴室が寒い。リフォーム後はどこも暖かい。">
+        <p class="tl">いまの家</p>
+        <div class="tr"><span class="w">リビング<small>あたたかい</small></span><span class="k1">脱衣所<small>ひんやり</small></span><span class="k2">浴室<small>寒い</small></span></div>
+        <p class="tl after">リフォーム後</p>
+        <div class="tr"><span class="w">リビング</span><span class="w">脱衣所</span><span class="w">浴室</span></div>
+        <figcaption>イメージ図です。浴室だけでなく脱衣所も一緒にあたたかくすると、家の中の温度差が小さくなります。</figcaption>
       </figure>
-
-      <p class="arrow">高血圧だからこそ、暖かいお風呂</p>
-      <ul class="then">
-        <li><h3>浴室そのものを冷やさない</h3><p>壁・天井・床まで断熱されたユニットバスに。冬でも浴室がキンと冷えません。</p></li>
-        <li><h3>入る前に暖めておける</h3><p>浴室暖房で、服を脱ぐ前から浴室を暖めておけます。</p></li>
-        <li><h3>脱衣所も寒くしない</h3><p>脱衣所の床・壁の断熱や小型暖房で、浴室との温度差をなくします。</p></li>
-      </ul>
-      <p class="note">※ 健康状態や入浴について不安のある方は、かかりつけの医師にご相談ください。</p>
     </div>
   </section>
 
-  <!-- 02 快適 -->
-  <section class="sec theme t-comfort" id="comfort">
+  <!-- 転換 -->
+  <section class="sec turn">
     <div class="in">
-      <div class="head">
-        <span class="num">快適</span>
-        <div><p class="label">02 Comfort</p><h2 class="catch">入るのも、出るのも<br>おっくうになる。</h2></div>
+      <p class="big"><span class="br">毎日の健康は、</span><span class="br">暖かいお風呂から</span></p>
+      <p class="t">一日の終わりに、ほっと肩まで湯船につかる。寒さを我慢せず、怖がらず、おっくうにならずに。それは特別なことではなく、毎日を元気に過ごすための、あたりまえの時間です。</p>
+      <p class="note">※ 健康状態や入浴について不安のある方は、かかりつけの医師にもご相談ください。</p>
+    </div>
+  </section>
+
+  <!-- 毎日のことだから（贅沢ではない） -->
+  <section class="sec daily">
+    <div class="in">
+      <div class="center">
+        <h2 class="h2">お風呂は、<br>毎日入るところだから。</h2>
+        <p class="lead">「お風呂にお金をかけるなんて」と、ためらう方も少なくありません。でも、年に数回の旅行や外食とちがって、お風呂はこれから何年も、毎日使う場所です。</p>
       </div>
-      <ul class="voices">
-        <li>一番風呂、どうぞどうぞ。<br>寒い風呂場は人気がない。</li>
-        <li>どうして、こんな寒い場所で<br>全裸になるんだろう。</li>
-        <li>よっこいしょ。<br>風呂を出るのが一苦労。</li>
+      <ul class="daily3">
+        <li><h3>1日あたりにすると</h3><p>工事費を、使う年数と365日で割ってみてください。毎日のほっとする時間の値段は、思っているより小さいかもしれません。</p></li>
+        <li><h3>冷めにくく、汚れにくく</h3><p>お湯が冷めにくい浴槽、乾きやすい床。追いだきの回数も、カビ取りやこすり洗いの手間と洗剤も、毎日少しずつ減っていきます。</p></li>
+        <li><h3>先送りするほど、傷みは進む</h3><p>タイルのひび割れなどから水がしみ込むと、床下の土台まで傷むことがあります。「明日でいっか」の間にも、お風呂は使われ続けています。</p></li>
       </ul>
-      <p class="arrow">寒さと段差は、リフォームで変えられます</p>
-      <ul class="then">
-        <li><h3>足元がひやっとしない床</h3><p>一歩目が冷たくない断熱性のある床に。水はけがよく、翌朝には乾いています。</p></li>
-        <li><h3>窓からの冷えを止める</h3><p>浴室の熱がいちばん逃げるのは窓。断熱窓や内窓で、すきま風と冷えを抑えます。</p></li>
-        <li><h3>またぎやすい浴槽と手すり</h3><p>またぎの低い浴槽、立ち座りを支える手すり、出入口の段差解消で「よっこいしょ」を減らします。</p></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 03 経済 -->
-  <section class="sec theme t-econ" id="economy">
-    <div class="in">
-      <div class="head">
-        <span class="num">経済</span>
-        <div><p class="label">03 Economy</p><h2 class="catch">寒くなると、<br>明日でいっかを繰り返す</h2></div>
-      </div>
-      <p style="margin-top:20px;max-width:44em">先送りしているあいだも、お風呂は毎日使われ、少しずつ傷んでいきます。暖かいお風呂は、毎日の出費と、将来の出費の両方を抑える選択でもあります。</p>
-      <ul class="then">
-        <li><h3>お湯が冷めにくい</h3><p>保温性の高い浴槽なら、家族の入浴時間がばらばらでもお湯が冷めにくく、追いだきの回数が減ります。</p></li>
-        <li><h3>掃除の手間と洗剤が減る</h3><p>汚れがつきにくく乾きやすい床・壁で、カビ取りやこすり洗いにかける時間と洗剤が減ります。</p></li>
-        <li><h3>傷みを広げない</h3><p>タイルのひび割れなどから水がしみ込むと、床下の土台まで傷むことがあります。早めの工事は、大きな修繕を防ぐことにもつながります。</p></li>
-      </ul>
-      <p class="arrow"><span>補助金や介護保険が使える場合もあります　<a href="#price">費用の目安へ ›</a></span></p>
-    </div>
-  </section>
-
-  <!-- 贅沢じゃない -->
-  <section class="sec notlux" id="notlux">
-    <div class="in center">
-      <p class="label">Not a luxury</p>
-      <h2 class="h2">暖かいお風呂は、<br>贅沢ではありません。</h2>
-      <p class="lead">「お風呂にお金をかけるなんて」と思われるかもしれません。でも、毎日必ず使い、家の中でいちばん無防備になる場所です。</p>
-    </div>
-    <div class="in">
-      <ul class="why3">
-        <li><p class="q">健康の視点</p><h3>家族を守るための設備です</h3><p>手すりや断熱は、車でいえばシートベルトのようなもの。特別な日のためではなく、毎日の安全のための備えです。</p></li>
-        <li><p class="q">快適の視点</p><h3>毎日、何年も使う場所です</h3><p>年に数回の旅行や外食とちがい、お風呂は365日、これから何年も使います。毎日の「ほっとする時間」が変わります。</p></li>
-        <li><p class="q">経済の視点</p><h3>1日あたりにすると、意外と小さい</h3><p>工事費を使う年数と日数で割ってみると、1日あたりの金額は思ったより小さくなります。下の計算で確かめてみてください。</p></li>
-      </ul>
-
       <div class="calc">
         <div>
-          <h3>1日あたり、いくら？</h3>
+          <h3>毎日のお風呂、1日あたりいくら？</h3>
           <div class="row"><label for="c-yen">工事費</label><input id="c-yen" type="number" inputmode="numeric" min="1" value="100">万円 を</div>
           <div class="row"><label for="c-year">使う年数</label><input id="c-year" type="number" inputmode="numeric" min="1" value="15">年 で割ると</div>
         </div>
         <div class="res" aria-live="polite"><small>1日あたり</small><b><span>約</span><output id="c-out">183</output><span>円</span></b></div>
-        <p class="cn">※ 数字を変えて試せる計算例です。初期値の100万円・15年は例で、こころ舎の工事費やユニットバスの耐用年数を示すものではありません。実際の金額は現地調査のうえお見積もりします。</p>
+        <p class="cn">※ 数字を変えて試せる計算例です。初期値の100万円・15年は例で、こころ舎の工事費や設備の耐用年数を示すものではありません。</p>
       </div>
     </div>
   </section>
@@ -374,12 +360,27 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
         <p class="label">Voice</p>
         <blockquote>もっと早く<br>替えとけばよかった。</blockquote>
         <p class="who"><span class="ph">【要確認】○○市　○様（○代）</span></p>
-        <p class="body"><span class="ph">【要確認】お客様の声の本文</span>　例：築年数、リフォーム前に困っていたこと、工事の期間、替えてからの変化（冬の入浴、家族の入浴の順番、光熱費や掃除の手間など）を、ご本人の言葉で。</p>
+        <p class="body"><span class="ph">【要確認】お客様の声の本文</span>　例：リフォーム前に冬のお風呂で感じていたこと、迷っていた理由、替えてからの変化（家族の入浴、冬の過ごし方、掃除の手間など）を、ご本人の言葉で。</p>
       </div>
       <div class="ba">
         <figure><div class="photo">【要確認】<br>施工前の写真</div><figcaption>Before</figcaption></figure>
         <figure><div class="photo">【要確認】<br>施工後の写真</div><figcaption>After</figcaption></figure>
       </div>
+    </div>
+  </section>
+
+  <!-- できること -->
+  <section class="sec" id="menu">
+    <div class="in">
+      <div class="center"><p class="label">What we do</p><h2 class="h2">こころ舎のお風呂リフォームで<br>できること</h2></div>
+      <ul class="menu">
+        <li><p class="for">「一番風呂、どうぞどうぞ」に</p><h3>冷えにくいユニットバス</h3><p>壁・天井・床まで断熱され、保温性の高い浴槽のユニットバスに入れ替えます。</p></li>
+        <li><p class="for">「どうして全裸に」に</p><h3>浴室の窓の断熱・内窓</h3><p>熱がいちばん逃げやすい窓を、断熱窓や内窓に。すきま風と冷えを抑えます。</p></li>
+        <li><p class="for">「風呂に入るのが怖い」に</p><h3>浴室暖房・脱衣所の暖房</h3><p>入る前から暖めておける暖房で、浴室と脱衣所の温度差をなくします。</p></li>
+        <li><p class="for">「よっこいしょ」に</p><h3>またぎやすい浴槽・手すり</h3><p>またぎの低い浴槽、立ち座りを支える手すり、出入口の段差の解消。</p></li>
+        <li><p class="for">「おっくうになる」に</p><h3>脱衣所の床・壁の断熱</h3><p>足元から冷える脱衣所も一緒に。洗面台や収納の入れ替えもご相談ください。</p></li>
+        <li><p class="for">「明日でいっか」に</p><h3>まずは無料の現地調査</h3><p>どこから冷えているのか、傷みはないか。見てみるだけでも、気持ちが決まります。</p></li>
+      </ul>
     </div>
   </section>
 
@@ -390,32 +391,28 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
       <div class="plans">
         <div class="plan">
           <p class="for">いまユニットバスの方</p>
-          <h3>断熱ユニットバスへ入れ替え</h3>
+          <h3>あたたかいユニットバスへ入れ替え</h3>
           <p class="yen"><span class="ph">【要確認】○○万円〜</span></p>
           <ul><li>断熱仕様のユニットバス</li><li>保温浴槽・乾きやすい床</li><li>工期の目安 <span class="ph">○日</span></li></ul>
-          <p class="ic"><span class="h">健康</span><span class="c">快適</span><span class="e">経済</span></p>
         </div>
         <div class="plan">
           <p class="for">タイル張りのお風呂の方</p>
-          <h3>タイル浴室から断熱ユニットバスへ</h3>
+          <h3>タイルのお風呂から、あたたかいユニットバスへ</h3>
           <p class="yen"><span class="ph">【要確認】○○万円〜</span></p>
           <ul><li>解体・下地や土台の確認と補修</li><li>断熱仕様のユニットバス</li><li>工期の目安 <span class="ph">○日</span></li></ul>
-          <p class="ic"><span class="h">健康</span><span class="c">快適</span><span class="e">経済</span></p>
         </div>
         <div class="plan">
-          <p class="for">あわせて検討したい方</p>
+          <p class="for">あわせて考えたい方</p>
           <h3>脱衣所・窓・手すりも一緒に</h3>
           <p class="yen"><span class="ph">【要確認】＋○○万円〜</span></p>
           <ul><li>脱衣所の床・壁の断熱、暖房</li><li>浴室の内窓・断熱窓</li><li>手すり・段差の解消</li></ul>
-          <p class="ic"><span class="h">健康</span><span class="c">快適</span></p>
         </div>
       </div>
-
       <dl class="subsidy">
         <dt>補助金</dt>
-        <dd>断熱改修（断熱浴槽・窓など）やバリアフリー改修は、国や自治体の補助制度の対象になる場合があります。制度は年度ごとに変わるため、ご相談時に最新の内容をお調べします。<span class="ph">【要確認】今年度の対象制度名</span></dd>
+        <dd>断熱の工事（断熱浴槽・窓など）や段差をなくす工事は、国や自治体の補助制度の対象になる場合があります。制度は年度ごとに変わるため、ご相談時に最新の内容をお調べします。<span class="ph">【要確認】今年度の対象制度名</span></dd>
         <dt>介護保険</dt>
-        <dd>要支援・要介護の認定を受けている方は、手すりの取り付けや段差の解消に、介護保険の住宅改修費が使える場合があります（事前の申請が必要です）。</dd>
+        <dd>要支援・要介護の認定を受けている方は、手すりの取り付けや段差の解消に、介護保険の住宅改修費が使える場合があります（工事前の申請が必要です）。</dd>
       </dl>
       <p class="cn">※ 価格は税込です。建物の状態・選ぶ商品によって変わります。<span class="ph">【要確認】○年○月時点</span></p>
     </div>
@@ -428,7 +425,7 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
       <ol class="steps">
         <li><b>ご相談</b><p>「寒い」「またぎがつらい」など、困りごとだけでも大丈夫です。</p></li>
         <li><b>現地調査</b><p>浴室・脱衣所の寸法、窓、床下、給湯器などを確認します。</p></li>
-        <li><b>ご提案・お見積もり</b><p>健康・快適・経済のどこを優先するかで、複数案をご用意します。</p></li>
+        <li><b>ご提案・お見積もり</b><p>ご予算と、何をいちばん解決したいかに合わせて複数案をご用意します。</p></li>
         <li><b>工事</b><p>お風呂が使えない期間と、その間の入浴方法を事前にご説明します。</p></li>
         <li><b>お引渡し・アフター</b><p>使い方のご説明。完成後も気になることはいつでもどうぞ。</p></li>
       </ol>
@@ -441,7 +438,7 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
       <div class="center" style="margin-bottom:28px"><p class="label">FAQ</p><h2 class="h2">よくあるご質問</h2></div>
       <details><summary>工事中、お風呂はどうすればいいですか？</summary><p>工事期間中は浴室が使えません。<span class="ph">【要確認】期間中の入浴方法のご案内</span></p></details>
       <details><summary>冬でも工事できますか？</summary><p>はい、できます。商品の納期や工事の予約状況によって着工までお時間をいただくことがあるため、寒さが本格的になる前のご相談がおすすめです。</p></details>
-      <details><summary>浴室だけ、手すりだけでも頼めますか？</summary><p>はい。ご予算や優先順位に合わせて、必要なところからご提案します。</p></details>
+      <details><summary>手すりだけ、窓だけでも頼めますか？</summary><p>はい。ご予算や優先順位に合わせて、必要なところからご提案します。</p></details>
       <details><summary>見積もりだけでも大丈夫ですか？</summary><p>もちろんです。現地調査・お見積もりは無料です。</p></details>
     </div>
   </section>
@@ -449,9 +446,9 @@ body{margin:0;background:#faf9f5;color:#25312c;font-family:'Noto Sans JP',sans-s
   <!-- 問い合わせ -->
   <section class="sec cta" id="contact">
     <div class="in">
-      <p class="pre">寒くなる度に、後悔するのは今年で終わりに。</p>
+      <p class="pre">来年の冬も、同じことを思わないように。</p>
       <h2 class="h2">今年こそ、<br>あたたかいお風呂に。</h2>
-      <p class="txt">現地調査・お見積もりは無料です。「うちの浴室はどこが寒いのか」を知るだけでも、お気軽にご相談ください。</p>
+      <p class="txt">現地調査・お見積もりは無料です。「うちの浴室はどこが寒いんだろう」を知るだけでも、お気軽にご相談ください。</p>
       <div class="box">
         <a href="tel:"><small>お電話でのご相談</small><b><span class="ph">【要確認】電話番号</span></b><small>受付 <span class="ph">【要確認】○:○〜○:○</span></small></a>
         <a href="#"><small>24時間受付</small><b>相談・見積もりフォーム ›</b><small><span class="ph">【要確認】フォームのURL</span></small></a>
