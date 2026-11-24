@@ -272,7 +272,11 @@ section.s.alt{background:var(--ivory)}
 .wishes li small{font-family:'Noto Sans JP',sans-serif;font-size:13.5px;letter-spacing:.04em;color:var(--muted);margin-top:4px;line-height:1.8}
 .wishes-s .spec{margin-top:28px;background:#fff}
 .minqa-s .name{margin-top:0}
-.story-h{margin-top:96px}
+.weekday-h{margin-top:96px}
+.scene-sub{text-align:center;margin-bottom:28px}
+.scene-sub .h4{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(16px,3.8vw,20px);letter-spacing:.06em;color:var(--forest)}
+.scene-sub p:not(.h4){font-size:13.5px;color:var(--muted);margin-top:6px}
+.know-s .fit,.know-s .unfit{background:#fff}
 .fit-head{margin-top:80px}
 @media(max-width:720px){.reason{margin-top:80px;padding-top:40px}.bridge{margin-top:44px}}
 
@@ -637,7 +641,7 @@ def build(key, v):
   <span class="scroll en">SCROLL</span>
 </div>
 
-<!-- ================= Chapter 01：S様ご夫婦の想い ================= -->
+<!-- ================= Chapter 01：S様邸（想い → 完成見学会） ================= -->
 <section class="s voices-s">
   <div class="wrap">
     {head('Chapter 01', 'ふとした瞬間に、<br class="sp">こんなこと、<br class="sp">思っていませんか。')}
@@ -687,6 +691,50 @@ def build(key, v):
 </div>
 </section>
 
+<section class="s alt life-s">
+  <div class="wrap">
+    <div class="sub-h rv"><span class="en">Life</span><p class="h3">想いが形になった家で、<br class="sp"><em>毎日はこう変わります</em>。</p><p>S様邸での暮らしを、<br class="sp">いまの暮らしと比べてみると。</p></div>
+    <div class="scene-sub rv"><p class="h4">{v['scene_h']}</p><p>{v['scene_sub']}</p></div>
+    <div class="rv">
+      <div class="scene-hd"><span></span><span>{v['now_label']}</span><span></span><span>S様邸での光景</span></div>
+      {scenes}
+    </div>
+    <div class="sub-h rv weekday-h"><span class="en">Weekday</span><p class="h3">共働きのご夫婦の平日を、<br class="sp"><em>S様邸で想像してみると</em>。</p><p>忙しい毎日を、<br class="sp">家のつくりが少し軽くしてくれます。</p></div>
+    <ol class="day rv">{pts}</ol>
+  </div>
+</section>
+
+<section class="s story-s">
+  <div class="wrap">
+    <div class="sub-h rv"><span class="en">Story</span><p class="h3">はじめてのご相談から、<br class="sp"><em>約1年2ヶ月</em>。</p><p>「金池小校区で建てたい」という<br class="sp">ひと言から始まった家づくりが、<br>いま、完成を迎えています。</p></div>
+    <ol class="tl rv">
+      <li><time>2025.10</time><i></i><b>はじめてのご相談</b><span>「金池小校区で建てたい」</span></li>
+      <li><time>{ph('○月')}</time><i></i><b>土地が決まる</b><span>駐車3台が叶う約44坪（144.74㎡）</span></li>
+      <li><time>{ph('○月')}</time><i></i><b>プランのご提案</b><span>土地を読み解き一から設計</span></li>
+      <li><time>{ph('○月')}</time><i></i><b>着工</b><span>設計から施工まで一貫</span></li>
+      <li class="now"><time>2026.11</time><i></i><b>完成見学会</b><span>いま、ここ</span></li>
+      <li><time>2026.12</time><i></i><b>お引渡し</b><span>新しい暮らしへ</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="s alt know-s">
+  <div class="wrap">
+    <div class="sub-h rv"><span class="en">Open House</span><p class="h3">見学会に来ると、<br class="sp"><em>こんなことがわかります</em>。</p></div>
+    <ol class="learn rv">{learn}</ol>
+    <div class="sub-h rv fit-head"><p class="h3">こんな人に向いてます。</p></div>
+    <div class="fit-g">
+      <div class="fit rv"><p class="fit-h"><span class="mk">○</span>こんな人に向いてます</p><ul>{fit}</ul></div>
+      <div class="unfit rv"><p class="fit-h"><span class="mk">×</span>こんな人には不向きです</p><ul>{unfit}</ul></div>
+    </div>
+    <div class="maker rv">
+      <p class="mk-h">樹の家こころ舎の前身は、<br class="sp">設計事務所です。</p>
+      <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
+    </div>
+    {cta('お引渡し前の、<br class="sp">いまだけ見られる家です。')}
+  </div>
+</section>
+
 <!-- ================= Chapter 02：S様が選んだ MinQA ================= -->
 <section class="s minqa-s">
   <div class="wrap narrow">
@@ -708,9 +756,6 @@ def build(key, v):
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><rect x="18" y="20" width="44" height="24" fill="none" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="22" x2="132" y2="22" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="34" x2="132" y2="34" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="46" x2="132" y2="46" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Later</span><b>夫婦ふたりの時間へ</b><span>子どもが巣立ったあとは、書斎や趣味の部屋として。</span></li>
     </ol>
     <p class="life3-note rv">子ども部屋を例にした、考え方のイメージです。S様邸の子供室7.5帖も、将来2部屋に分けられるつくりです。</p>
-    <p class="day-h rv"><span class="en">Weekday</span>S様邸で想像する、共働きの平日</p>
-    <ol class="day rv">{pts}</ol>
-    {cta('朝の動きや収納を、<br class="sp">実際の家で確かめてみませんか。')}
 
     <div class="reason rv"><span class="en">Reason 02</span><p class="h3">将来も、<br class="sp"><em>売れる・貸せる</em>。</p><p>家は、家族の暮らしの器であると<br class="sp">同時に、大切な資産です。<br>転勤や住み替えがあっても、<br class="sp">選ばれる家であるために。</p></div>
       <ol class="asset-l rv">
@@ -740,46 +785,6 @@ def build(key, v):
       <p class="lb-h">住宅ローンの<br class="sp">シミュレーションは、<br class="sp">見学会で。</p>
       <p>頭金・返済期間・金利タイプ、ペアローンや収入合算まで。<br>ご夫婦の収入とライフプランに合わせて、月々の返済額を一緒に試算します。</p>
       <a class="btn light" href="#reserve">見学会を予約する</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= Chapter 03：S様邸へ ================= -->
-<section class="s alt return-s">
-  <div class="wrap">
-    {head('Chapter 03', f'想いが形になった家で、<br class="sp">毎日はこう変わります。', f'3つの想いと、{PRODUCT}。<br class="sp">そうして生まれたS様邸での暮らしを、<br>いまの暮らしと比べてみると。')}
-    <div class="sub-h rv"><p class="h3">{v['scene_h']}</p><p>{v['scene_sub']}</p></div>
-    <div class="rv">
-      <div class="scene-hd"><span></span><span>{v['now_label']}</span><span></span><span>S様邸での光景</span></div>
-      {scenes}
-    </div>
-
-    <div class="sub-h rv story-h"><span class="en">Story</span><p class="h3">はじめてのご相談から、<br class="sp"><em>約1年2ヶ月</em>。</p><p>「金池小校区で建てたい」という<br class="sp">ひと言から始まった家づくりが、<br>いま、完成を迎えています。</p></div>
-    <ol class="tl rv">
-      <li><time>2025.10</time><i></i><b>はじめてのご相談</b><span>「金池小校区で建てたい」</span></li>
-      <li><time>{ph('○月')}</time><i></i><b>土地が決まる</b><span>駐車3台が叶う約44坪（144.74㎡）</span></li>
-      <li><time>{ph('○月')}</time><i></i><b>プランのご提案</b><span>土地を読み解き一から設計</span></li>
-      <li><time>{ph('○月')}</time><i></i><b>着工</b><span>設計から施工まで一貫</span></li>
-      <li class="now"><time>2026.11</time><i></i><b>完成見学会</b><span>いま、ここ</span></li>
-      <li><time>2026.12</time><i></i><b>お引渡し</b><span>新しい暮らしへ</span></li>
-    </ol>
-    {cta('お引渡し前の、<br class="sp">いまだけ見られる家です。')}
-  </div>
-</section>
-
-<!-- ================= 見学会のご案内 ================= -->
-<section class="s know-s">
-  <div class="wrap">
-    {head('Open House', '見学会に来ると、<br class="sp">こんなことがわかります。')}
-    <ol class="learn rv">{learn}</ol>
-    <div class="sub-h rv fit-head"><p class="h3">こんな人に向いてます。</p></div>
-    <div class="fit-g">
-      <div class="fit rv"><p class="fit-h"><span class="mk">○</span>こんな人に向いてます</p><ul>{fit}</ul></div>
-      <div class="unfit rv"><p class="fit-h"><span class="mk">×</span>こんな人には不向きです</p><ul>{unfit}</ul></div>
-    </div>
-    <div class="maker rv">
-      <p class="mk-h">樹の家こころ舎の前身は、<br class="sp">設計事務所です。</p>
-      <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
     </div>
   </div>
 </section>
