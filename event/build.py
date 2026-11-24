@@ -272,13 +272,19 @@ section.s.alt{background:var(--ivory)}
 .wishes li small{font-family:'Noto Sans JP',sans-serif;font-size:13.5px;letter-spacing:.04em;color:var(--muted);margin-top:4px;line-height:1.8}
 .wishes-s .spec{margin-top:28px;background:#fff}
 .minqa-s .name{margin-top:0}
-.weekday-h{margin-top:96px}
-.scene-sub{text-align:center;margin-bottom:28px}
-.scene-sub .h4{font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(16px,3.8vw,20px);letter-spacing:.06em;color:var(--forest)}
-.scene-sub p:not(.h4){font-size:13.5px;color:var(--muted);margin-top:6px}
-.know-s .fit,.know-s .unfit{background:#fff}
+.story-h{margin-top:96px}
 .fit-head{margin-top:80px}
 @media(max-width:720px){.reason{margin-top:80px;padding-top:40px}.bridge{margin-top:44px}}
+
+/* near the station */
+.near{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.near li{background:#fff;border:1px solid var(--line);border-top:3px solid var(--forest);padding:28px 24px 26px;text-align:center}
+.near .en{display:block;font-size:20px;color:var(--accent)}
+.near b{display:block;font-family:'Noto Serif JP',serif;font-weight:500;font-size:19px;letter-spacing:.08em;margin-top:6px;color:var(--forest)}
+.near li>span:not(.en){display:block;font-size:13.5px;color:var(--muted);line-height:1.9;margin-top:10px}
+.near-end{text-align:center;margin-top:40px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(17px,4vw,22px);letter-spacing:.08em;line-height:1.9}
+.near-end em{color:var(--accent)}
+@media(max-width:820px){.near{grid-template-columns:1fr;gap:12px}.near li{padding:22px 20px}}
 
 /* learn / fit */
 .know-s{padding-top:88px}
@@ -641,7 +647,34 @@ def build(key, v):
   <span class="scroll en">SCROLL</span>
 </div>
 
-<!-- ================= Chapter 01：S様邸（想い → 完成見学会） ================= -->
+<!-- ================= 駅チカで、マンション以外の選択肢を ================= -->
+<section class="s near-s">
+  <div class="wrap">
+    {head('Near the Station', '駅の近くで、<br class="sp">マンションではない暮らしを。', '大分駅付近に職場があるS様ご夫婦と子ども2人。<br>4人家族が選んだのは、<br class="sp">駅チカの一戸建てでした。')}
+    <ol class="near rv">
+      <li><span class="en">01</span><b>大分駅から{ph('○分')}</b><span>職場まで、自転車でも通える距離。<br>通勤も、送り迎えも、この街で。</span></li>
+      <li><span class="en">02</span><b>金池小・上野ヶ丘中校区</b><span>子どもの学校を軸に選んだ場所。<br>子育ても、駅近の便利さも。</span></li>
+      <li><span class="en">03</span><b>庭と、駐車場3台</b><span>マンションでは叶わなかった、<br>外で過ごす時間と、車のある暮らし。</span></li>
+    </ol>
+    <p class="near-end rv">駅チカか、一戸建てか。<br class="sp"><em>どちらかを、あきらめなくてよかった。</em></p>
+  </div>
+</section>
+
+<section class="s alt fit-s">
+  <div class="wrap">
+    {head('For You', 'こんな人に、<br class="sp">向いてます。')}
+    <div class="fit-g">
+      <div class="fit rv"><p class="fit-h"><span class="mk">○</span>こんな人に向いてます</p><ul>{fit}</ul></div>
+      <div class="unfit rv"><p class="fit-h"><span class="mk">×</span>こんな人には不向きです</p><ul>{unfit}</ul></div>
+    </div>
+    <div class="maker rv">
+      <p class="mk-h">樹の家こころ舎の前身は、<br class="sp">設計事務所です。</p>
+      <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Chapter 01：S様ご夫婦の想い ================= -->
 <section class="s voices-s">
   <div class="wrap">
     {head('Chapter 01', 'ふとした瞬間に、<br class="sp">こんなこと、<br class="sp">思っていませんか。')}
@@ -664,7 +697,7 @@ def build(key, v):
       <div><small>敷地面積</small><b>144.74㎡</b><em>43.78坪</em></div>
       <div><small>延床面積</small><b>83.63㎡</b><em>25.29坪</em></div>
       <div><small>駐車場</small><b>3台</b></div>
-      <div><small>家族</small><b>4人</b></div>
+      <div><small>家族</small><b>4人</b><em>夫婦＋子ども2人</em></div>
     </div>
     <p class="wish-body rv">S様のご厚意で、完成見学会を開きます。<br>3つの想いがどう叶ったのか、<br class="sp">実際の家で確かめてください。</p>
   </div>
@@ -691,47 +724,10 @@ def build(key, v):
 </div>
 </section>
 
-<section class="s alt life-s">
-  <div class="wrap">
-    <div class="sub-h rv"><span class="en">Life</span><p class="h3">想いが形になった家で、<br class="sp"><em>毎日はこう変わります</em>。</p><p>S様邸での暮らしを、<br class="sp">いまの暮らしと比べてみると。</p></div>
-    <div class="scene-sub rv"><p class="h4">{v['scene_h']}</p><p>{v['scene_sub']}</p></div>
-    <div class="rv">
-      <div class="scene-hd"><span></span><span>{v['now_label']}</span><span></span><span>S様邸での光景</span></div>
-      {scenes}
-    </div>
-    <div class="sub-h rv weekday-h"><span class="en">Weekday</span><p class="h3">共働きのご夫婦の平日を、<br class="sp"><em>S様邸で想像してみると</em>。</p><p>忙しい毎日を、<br class="sp">家のつくりが少し軽くしてくれます。</p></div>
-    <ol class="day rv">{pts}</ol>
-  </div>
-</section>
-
-<section class="s story-s">
-  <div class="wrap">
-    <div class="sub-h rv"><span class="en">Story</span><p class="h3">はじめてのご相談から、<br class="sp"><em>約1年2ヶ月</em>。</p><p>「金池小校区で建てたい」という<br class="sp">ひと言から始まった家づくりが、<br>いま、完成を迎えています。</p></div>
-    <ol class="tl rv">
-      <li><time>2025.10</time><i></i><b>はじめてのご相談</b><span>「金池小校区で建てたい」</span></li>
-      <li><time>{ph('○月')}</time><i></i><b>土地が決まる</b><span>駐車3台が叶う約44坪（144.74㎡）</span></li>
-      <li><time>{ph('○月')}</time><i></i><b>プランのご提案</b><span>土地を読み解き一から設計</span></li>
-      <li><time>{ph('○月')}</time><i></i><b>着工</b><span>設計から施工まで一貫</span></li>
-      <li class="now"><time>2026.11</time><i></i><b>完成見学会</b><span>いま、ここ</span></li>
-      <li><time>2026.12</time><i></i><b>お引渡し</b><span>新しい暮らしへ</span></li>
-    </ol>
-  </div>
-</section>
-
 <section class="s alt know-s">
   <div class="wrap">
-    <div class="sub-h rv"><span class="en">Open House</span><p class="h3">見学会に来ると、<br class="sp"><em>こんなことがわかります</em>。</p></div>
+    {head('Open House', '見学会に来ると、<br class="sp">こんなことがわかります。')}
     <ol class="learn rv">{learn}</ol>
-    <div class="sub-h rv fit-head"><p class="h3">こんな人に向いてます。</p></div>
-    <div class="fit-g">
-      <div class="fit rv"><p class="fit-h"><span class="mk">○</span>こんな人に向いてます</p><ul>{fit}</ul></div>
-      <div class="unfit rv"><p class="fit-h"><span class="mk">×</span>こんな人には不向きです</p><ul>{unfit}</ul></div>
-    </div>
-    <div class="maker rv">
-      <p class="mk-h">樹の家こころ舎の前身は、<br class="sp">設計事務所です。</p>
-      <p>営業マンはいませんが、<br class="sp">家をつくることのプロです。</p>
-    </div>
-    {cta('お引渡し前の、<br class="sp">いまだけ見られる家です。')}
   </div>
 </section>
 
@@ -756,6 +752,9 @@ def build(key, v):
       <li><svg viewBox="0 0 150 80" aria-hidden="true"><rect x="2" y="2" width="146" height="76" fill="#fbfaf7" stroke="#2f4438" stroke-width="2"/><rect x="18" y="20" width="44" height="24" fill="none" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="22" x2="132" y2="22" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="34" x2="132" y2="34" stroke="#a8714a" stroke-width="1.6"/><line x1="96" y1="46" x2="132" y2="46" stroke="#a8714a" stroke-width="1.6"/></svg><span class="t">Later</span><b>夫婦ふたりの時間へ</b><span>子どもが巣立ったあとは、書斎や趣味の部屋として。</span></li>
     </ol>
     <p class="life3-note rv">子ども部屋を例にした、考え方のイメージです。S様邸の子供室7.5帖も、将来2部屋に分けられるつくりです。</p>
+    <p class="day-h rv"><span class="en">Weekday</span>S様邸で想像する、共働き4人家族の平日</p>
+    <ol class="day rv">{pts}</ol>
+    {cta('朝の動きや収納を、<br class="sp">実際の家で確かめてみませんか。')}
 
     <div class="reason rv"><span class="en">Reason 02</span><p class="h3">将来も、<br class="sp"><em>売れる・貸せる</em>。</p><p>家は、家族の暮らしの器であると<br class="sp">同時に、大切な資産です。<br>転勤や住み替えがあっても、<br class="sp">選ばれる家であるために。</p></div>
       <ol class="asset-l rv">
@@ -789,7 +788,31 @@ def build(key, v):
   </div>
 </section>
 
-<section class="s alt">
+<!-- ================= Chapter 03：S様邸へ ================= -->
+<section class="s alt return-s">
+  <div class="wrap">
+    {head('Chapter 03', f'想いが形になった家で、<br class="sp">毎日はこう変わります。', f'3つの想いと、{PRODUCT}。<br class="sp">そうして生まれたS様邸での暮らしを、<br>いまの暮らしと比べてみると。')}
+    <div class="sub-h rv"><p class="h3">{v['scene_h']}</p><p>{v['scene_sub']}</p></div>
+    <div class="rv">
+      <div class="scene-hd"><span></span><span>{v['now_label']}</span><span></span><span>S様邸での光景</span></div>
+      {scenes}
+    </div>
+
+    <div class="sub-h rv story-h"><span class="en">Story</span><p class="h3">はじめてのご相談から、<br class="sp"><em>約1年2ヶ月</em>。</p><p>「金池小校区で建てたい」という<br class="sp">ひと言から始まった家づくりが、<br>いま、完成を迎えています。</p></div>
+    <ol class="tl rv">
+      <li><time>2025.10</time><i></i><b>はじめてのご相談</b><span>「金池小校区で建てたい」</span></li>
+      <li><time>{ph('○月')}</time><i></i><b>土地が決まる</b><span>駐車3台が叶う約44坪（144.74㎡）</span></li>
+      <li><time>{ph('○月')}</time><i></i><b>プランのご提案</b><span>土地を読み解き一から設計</span></li>
+      <li><time>{ph('○月')}</time><i></i><b>着工</b><span>設計から施工まで一貫</span></li>
+      <li class="now"><time>2026.11</time><i></i><b>完成見学会</b><span>いま、ここ</span></li>
+      <li><time>2026.12</time><i></i><b>お引渡し</b><span>新しい暮らしへ</span></li>
+    </ol>
+    {cta('お引渡し前の、<br class="sp">いまだけ見られる家です。')}
+  </div>
+</section>
+
+
+<section class="s">
   <div class="wrap">
     {head('Consultation', v['consult_h'], f'完成見学会 ＆ {v["event"]}。<br class="sp">ご希望の方だけ、<br class="sp">見学のあとにご相談いただけます。')}
     <div class="consult rv">{consult}</div>
@@ -800,7 +823,7 @@ def build(key, v):
   </div>
 </section>
 
-<section class="s">
+<section class="s alt">
   <div class="wrap narrow">
     {head('Q &amp; A', 'よくあるご質問')}
     <div class="faq rv">{faq}</div>
@@ -832,7 +855,7 @@ def build(key, v):
       <div class="f"><p>ご参加人数<span class="opt">任意</span></p>
         <div class="people">
           <label>大人<select name="adults"><option>1名</option><option selected>2名</option><option>3名以上</option></select></label>
-          <label>お子さま<select name="kids"><option>0名</option><option selected>1名</option><option>2名</option><option>3名以上</option></select></label>
+          <label>お子さま<select name="kids"><option>0名</option><option>1名</option><option selected>2名</option><option>3名以上</option></select></label>
         </div>
       </div>
       <div class="f"><p>いまのお住まい<span class="opt">任意</span></p><div class="choices">{current}</div></div>
