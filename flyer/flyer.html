@@ -109,6 +109,33 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .price-tbl .pt span small{display:block;font-size:6.4pt;font-weight:500}
 .knowline{grid-column:1/4;font-size:7.8pt;color:#cfdccf;margin-top:2mm;line-height:1.5}
 .knowline b{color:#fff;font-weight:700}
+.cmp{display:grid;grid-template-columns:17mm 1fr 6mm 1fr;margin-top:3.5mm;border-radius:1.5mm;overflow:hidden;border:1px solid var(--line)}
+.cmp>div{padding:3mm 3.5mm}
+.cmp .cl{background:var(--deep);color:#fff;font-family:'Noto Serif JP',serif;font-weight:700;font-size:13pt;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1mm;line-height:1.2}
+.cmp .cl i{font-style:normal;font-family:Georgia,serif;font-size:9pt;color:var(--sun)}
+.cnow{background:#f1f1ec}
+.cnew{background:#eef3ee}
+.car{background:linear-gradient(90deg,#f1f1ec 50%,#eef3ee 50%);display:flex;align-items:center;justify-content:center;color:var(--warm);font-weight:900;padding:0!important}
+.ct{font-size:9.4pt;font-weight:700;color:var(--muted)}
+.cnew .ct{color:var(--forest)}
+.cn{font-size:8.3pt;color:var(--muted);line-height:1.5;margin-top:1.8mm}
+.cn b{color:var(--forest)}
+.bar{position:relative;height:8mm;background:#ffffffaa;border-radius:1mm;margin-top:1.2mm;display:flex;overflow:hidden}
+.bar span{height:100%;background:#b9bfb7;display:block}
+.cnew .bar span{background:var(--forest)}
+.bar span.yard{background:#a9c7a3!important;color:#fff;font-size:7pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+.bar b{position:absolute;left:2mm;top:50%;transform:translateY(-50%);color:#fff;font-family:Georgia,serif;font-size:13pt;font-weight:400}
+.flow{display:flex;gap:.8mm;margin-top:1.2mm}
+.flow span{flex:1;white-space:nowrap;letter-spacing:-.02em;font-size:7.4pt;font-weight:700;text-align:center;background:#d9dbd4;color:var(--ink);padding:2mm 0 2mm 1.6mm;line-height:1.2;clip-path:polygon(0 0,calc(100% - 2mm) 0,100% 50%,calc(100% - 2mm) 100%,0 100%,2mm 50%);display:flex;align-items:center;justify-content:center}
+.cnew .flow span{background:var(--forest);color:#fff}
+.pk{list-style:none;display:flex;gap:1mm;margin-top:1.2mm}
+.pk li{flex:1;background:#ffffffaa;border-radius:1mm;text-align:center;padding:1.5mm .5mm;line-height:1.25}
+.pk span{display:block;font-size:6.8pt;color:var(--muted);font-weight:700}
+.pk b{display:block;font-size:9.6pt;color:var(--muted)}
+.cnew .pk li{background:var(--forest)}
+.cnew .pk span{color:#cfdccf}
+.cnew .pk b{color:var(--sun);font-size:14pt}
+.cmp-note{font-size:6.8pt;color:var(--muted);margin-top:1mm}
 .month{display:grid;grid-template-columns:1fr 7mm 1fr;margin-top:1.8mm;border-radius:1.5mm;overflow:hidden}
 .month>div{padding:1.3mm 3mm;display:flex;align-items:center;justify-content:space-between;gap:2mm}
 .month span{font-size:7.6pt;line-height:1.3}
@@ -156,7 +183,7 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
 .pts li b{display:block}
 .pts li span{display:block;color:var(--muted);font-size:7.3pt;line-height:1.4}
 .plan-note{font-size:6.8pt;color:var(--muted);margin-top:1.2mm}
-.track{border-top:1px solid var(--line);margin-top:2.5mm;padding-top:1.8mm}
+.track{border-top:1px solid var(--line);margin-top:4.5mm;padding-top:3mm}
 .track-h{display:flex;align-items:baseline;gap:3mm}
 .track-h b{font-family:'Noto Serif JP',serif;font-size:12.5pt;white-space:nowrap}
 .track-h span{font-size:8.6pt;font-weight:700;color:var(--muted)}
@@ -225,30 +252,50 @@ body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-
   </div>
   <div class="foot">
     <div class="msg">注文住宅の完成見学会　<span class="ph" style="font-size:10pt">【要確認】○/○（土）・○（日）</span><small>ご予約制・各回<span class="ph">○</span>組限定・お子さま連れ歓迎</small><small>実際の家を見ながら、住み替えのご相談もどうぞ ▶ 裏面へ</small><span class="fbrand">設計事務所がつくった工務店　<b>樹の家こころ舎</b></span></div>
-    <div class="fqr"><div class="box">【要確認】<br>予約QR</div><span>性能・価格・Q&amp;Aも<br>Webで詳しく<br><em>ご予約もこちら</em></span></div>
+    <div class="fqr"><div class="box">【要確認】<br>予約QR</div><span>広さ・価格・Q&amp;Aも<br>Webで詳しく<br><em>ご予約もこちら</em></span></div>
   </div>
 </section>
 
 <!-- ============ 裏面 ============ -->
 <section class="page back">
-  <div class="sec" style="padding-top:5mm">
-    <div class="sec-h">人生で何時間、<em>車が下りてくるのを</em>待つんだろう。<small class="hs">出庫待ち <b>年間約36時間</b>※</small></div>
-    
-    <div class="scenes"><div class="hd"></div><div class="hd now">いまのマンション</div><div class="hd ar"></div><div class="hd fut">S様邸での光景</div><div class="lb">子ども</div><div class="now">「走らないで！」と、今日も言ってしまう</div><div class="ar">▶</div><div class="fut">吹抜けのリビングに響く足音を、笑って聞いていられる</div><div class="lb">広さ</div><div class="now">いまの専有面積は <span class="wr"></span> ㎡</div><div class="ar">▶</div><div class="fut">延床83.63㎡（25.29坪）＋庭＋駐車場3台</div><div class="lb">駐車場</div><div class="now">寝た子を抱いて、機械式の出庫待ち</div><div class="ar">▶</div><div class="fut">玄関の前に3台分。抱っこのまま数歩で家の中へ</div><div class="lb">収納</div><div class="now">開かずの一部屋に、段ボールが積み上がる</div><div class="ar">▶</div><div class="fut">ベビーカーもBBQ道具も外部収納へ。部屋は家族のために</div><div class="lb">週末</div><div class="now">BBQは車で遠くの公園まで。片付けでへとへと</div><div class="ar">▶</div><div class="fut">南の小さな庭で七輪。焼ける間に、子どもは水遊び</div><div class="lb">お金</div><div class="now">機械式の更新で、修繕積立金が上がる不安</div><div class="ar">▶</div><div class="fut">管理費・駐車場代はゼロ。修繕は自分たちのペースで計画</div></div>
+  <div class="sec" style="padding-top:8mm">
+    <div class="sec-h">いまのマンションと、<em>ここが違う。</em><small class="hs">広さ・動線・駐車場で比べてみてください</small></div>
+
+    <div class="cmp">
+      <div class="cl"><i>01</i>広さ</div>
+      <div class="cnow"><p class="ct">一般的な3LDKマンション</p>
+        <div class="bar"><span style="width:58%"></span><b>約70㎡</b></div>
+        <p class="cn">専有面積の目安。上下左右に住戸</p></div>
+      <div class="car">▶</div>
+      <div class="cnew"><p class="ct">S様邸（4人家族）</p>
+        <div class="bar"><span style="width:70%"></span><span class="yard" style="width:25%">庭</span><b>延床83.63㎡</b></div>
+        <p class="cn"><b>＋吹抜けの18帖LDK＋南の庭</b>。上下階を気にせず、家じゅう走れる</p></div>
+    </div>
+
+    <div class="cmp">
+      <div class="cl"><i>02</i>動線</div>
+      <div class="cnow"><p class="ct">帰宅してから、部屋に入るまで</p>
+        <div class="flow"><span>機械式駐車場</span><span>エレベーター</span><span>共用廊下</span><span>玄関</span></div>
+        <p class="cn">荷物と寝た子を抱えて、玄関まで何ステップも</p></div>
+      <div class="car">▶</div>
+      <div class="cnew"><p class="ct">S様邸なら</p>
+        <div class="flow"><span>玄関前に駐車</span><span>数歩で玄関</span><span>食品庫へ</span><span>LDK</span></div>
+        <p class="cn">帰ってすぐ片づく。朝は<b>洗面横のファミリークローゼット</b>で身支度が一か所に</p></div>
+    </div>
+
+    <div class="cmp">
+      <div class="cl"><i>03</i>駐車場</div>
+      <div class="cnow"><p class="ct">車が下りてくるのを、今日も待つ。</p>
+        <ul class="pk"><li><span>出庫待ち</span><b>年間約36時間</b></li><li><span>台数</span><b>1世帯1台</b></li><li><span>駐車場代</span><b>毎月かかる</b></li></ul></div>
+      <div class="car">▶</div>
+      <div class="cnew"><p class="ct">S様邸なら、玄関の目の前に</p>
+        <ul class="pk"><li><span>待ち時間</span><b>ゼロ</b></li><li><span>台数</span><b>3台</b></li><li><span>駐車場代</span><b>0円</b></li></ul></div>
+    </div>
+    <p class="cmp-note">※一般的な住戸の広さは目安です。S様邸：敷地144.74㎡（43.78坪）／延床83.63㎡（25.29坪）</p>
   </div>
 
-  <div class="sec" style="padding-top:3.5mm">
-    <div class="sec-h">売るときも、貸すときも。<em>価値が残る家</em>を。</div>
-    <p class="plan-lead"><b>MinQA</b>（Minimum Quality Architect）＝資産性と過ごしやすさの「譲れない基準線」を、一から設計で担保する注文住宅。</p>
-    <div class="asset">
-      <div><h4><i>01</i>サイズ感</h4><p><b>買う人・借りる人にも選ばれる広さ</b>に。</p>
-        <ul class="vol"><li><span>延床</span><b>83.63㎡</b><small>25.29坪</small></li><li><span>LDK</span><b>約29.2㎡</b><small>18帖＋吹抜け</small></li><li><span>子供室</span><b>約12.2㎡</b><small>7.5帖</small></li><li><span>寝室</span><b>約9.4㎡</b><small>5.8帖</small></li></ul></div>
-      <div><h4><i>02</i>間取り構成</h4><p><b>クセの強い間取りにしない</b>。誰が住んでも使いやすいから価値が保ちやすい。子供室は将来2部屋に。</p></div>
-      <div><h4><i>03</i>駐車場の取り方</h4><p>車社会の大分では<b>台数が価値に直結</b>。</p>
-        <ul class="vol"><li><span>敷地</span><b>144.74㎡</b><small>43.78坪</small></li><li><span>駐車場</span><b>3台</b><small>＋南の庭</small></li></ul></div>
-    </div>
-    <div class="perf2"><b>価値を支える<br>S様邸の性能</b><span>耐震等級<em>3</em></span><span>断熱性能等級<em>6</em></span><span>UA値<em>0.45</em></span><span>C値<em>0.4</em><small>実測</small></span><span>第一種換気<small>全熱交換</small></span><span>長期優良住宅<small>標準で認定</small></span></div>
-    <p class="perf-note">等級・実測値・点検の記録は、将来売る・貸すときに<b>家の価値を客観的に示す材料</b>になります。　※1帖＝1.62㎡で換算</p>
+  <div class="sec" style="padding-top:6mm">
+    <div class="sec-h sm">売るときも、貸すときも<em>価値が残る家</em>「MinQA」<small class="hs">広さごとの定額制で、総額が見える</small></div>
     <div class="price-tbl"><div class="pl"><b>MinQAは<br>広さごとの定額制</b><span>建物本体価格（税込）</span></div><div class="pt cur"><i>S様邸</i><span>25.5坪<small>約84.30㎡</small></span><b>2,475<small>万円</small></b><em>税抜2,250万円</em></div><div class="pt"><span>27坪<small>約89.26㎡</small></span><b>2,585<small>万円</small></b><em>税抜2,350万円</em></div><div class="pt"><span>28.5坪<small>約94.21㎡</small></span><b>2,695<small>万円</small></b><em>税抜2,450万円</em></div><div class="pt"><span>30坪<small>約99.17㎡</small></span><b>2,860<small>万円</small></b><em>税抜2,600万円</em></div><div class="pn">※付帯工事・外構・諸費用は別途<br>※価格は<span class="ph">【要確認】○年○月</span>時点</div></div>
     <p class="total"><b>例えば</b>土地2,000万円なら、S様邸と同じ25.5坪（約84.30㎡）で総額 <em>4,475万円</em><small>（付帯工事・外構・諸費用は別途）</small>　月々の試算は見学会で。</p>
   </div>
