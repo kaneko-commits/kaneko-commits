@@ -109,10 +109,48 @@ details summary{cursor:pointer;font-weight:700}
 .flow{max-width:1080px;margin-top:24px;display:flex;flex-direction:column;gap:28px}
 .flow section>h2{font-size:20px;margin-bottom:10px}
 .flow p{margin:0 0 8px;max-width:72ch}
-.principle{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.principle{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
 .principle div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px}
 .principle h3{font-size:15px;margin-bottom:4px}
 .principle p{font-size:13px;margin:0}
+.creed{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px 22px;font-family:var(--f-display);font-size:16px;line-height:2;max-width:none}
+.creed p{max-width:60ch;margin:0}
+.creed small{display:block;font-family:var(--f-body);font-size:12px;color:var(--muted);margin-top:6px}
+.journey-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.journey{display:grid;grid-template-columns:120px repeat(6,minmax(130px,1fr));min-width:920px;font-size:12.5px}
+.journey>div{padding:10px;border-bottom:1px solid var(--line);min-width:0}
+.journey .rh{font-weight:700;color:var(--muted);font-size:11.5px;letter-spacing:.04em;background:var(--soft)}
+.journey .ph{display:flex;flex-direction:column;gap:2px}
+.journey .ph .n{width:24px;height:24px;border-radius:50%;border:2px solid var(--forest);color:var(--forest);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.journey .ph.key .n{background:var(--forest);color:var(--forest-ink)}
+.journey .ph b{font-family:var(--f-display);font-size:14px}
+.journey .q{color:var(--ink)}
+.journey .od{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.journey .od i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.journey .od span{font-size:11.5px;color:var(--muted);margin-left:2px}
+.journey .rl{background:var(--ok-bg);color:var(--ok);font-weight:700;border-radius:4px;padding:4px 6px;display:inline-block;font-size:12px}
+.journey .last{border-bottom:0}
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.phase h3{font-size:17px;display:flex;align-items:center;gap:10px}
+.phase h3 .n{width:28px;height:28px;border-radius:50%;border:2px solid var(--forest);color:var(--forest);display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex:none;font-family:var(--f-body)}
+.phase.key h3 .n{background:var(--forest);color:var(--forest-ink)}
+.phase .q{font-size:14px;color:var(--muted);margin:0}
+.phase .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 20px;font-size:13px}
+.phase .cols b{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.04em;margin-bottom:2px}
+.phase ul{margin:0;padding-left:1.1em}
+.phase .real{background:var(--ok-bg);border-radius:6px;padding:8px 10px;align-self:start}
+.phase .real b{color:var(--ok)}
+.phases{display:flex;flex-direction:column;gap:12px}
+.offer{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.offer article{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:8px;padding:14px 16px;font-size:13px}
+.offer h4{margin:0 0 6px;font-family:var(--f-display);font-size:15px}
+.offer ul{margin:0;padding-left:1.1em}
+.offer .ph{display:inline-block;background:#fff5b8;color:#6b5600;outline:1px dashed #d4a800;border-radius:3px;padding:0 4px;font-size:11.5px;margin-top:6px}
+.reals{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.reals div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:13px}
+.reals h4{margin:0 0 2px;font-size:15px;font-family:var(--f-display)}
+.reals .when{font-size:11.5px;color:var(--ok);font-weight:700}
+.reals p{margin:6px 0 0}
 .steps{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:14px}
 .step{position:relative;padding:0 0 22px 28px}
 .step .no{position:absolute;left:-15px;top:0;width:28px;height:28px;border-radius:50%;background:var(--surface);border:2px solid var(--forest);color:var(--forest);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
@@ -202,7 +240,7 @@ tr.match td{font-weight:700;border-top:2px solid var(--ink)}
       <a href="#life" id="tab-life">選択肢と暮らし</a>
       <a href="#sim" id="tab-sim">お金で比べる</a>
       <a href="#both" id="tab-both">ふたつの物差しで見る</a>
-      <a href="#flow" id="tab-flow">セミナー・セールスでの使い方</a>
+      <a href="#flow" id="tab-flow">住まい選びのステップ</a>
     </nav>
   </header>
 
@@ -317,62 +355,86 @@ tr.match td{font-weight:700;border-top:2px solid var(--ink)}
   <main id="view-flow" hidden>
     <div class="flow">
       <section>
-        <h2>このツールの位置づけ</h2>
-        <p>「どの家を買うか」の前に、「どんな暮らしをしたいか」と「お金の心配なく暮らせるか」の両方を、お客様と一緒に確かめるための道具です。新築・中古・中古リフォーム・いまのままの4つを、お金と暮らしの両方で並べます。そうすることで、こころ舎は新築を勧める会社ではなく、住まい選びの判断を手伝う会社として見てもらえます。</p>
-        <p>ライフプランの話は、キャッシュフローや利回りの比べ合いで終わりがちです。数字は大切ですが、家を持つかどうか、どんな家に住むかで変わるのは、冬の朝の過ごし方、休日の庭、子どもの居場所、老後の身軽さといった毎日の手ざわりです。このツールでは、その豊かさも一緒に並べて楽しめるようにしています。</p>
-        <p>新築が合うご家族は、他の選択肢と比べたうえで納得して進めます。新築以外が合うご家族にも正直に伝えることで、紹介や将来の建て替え・リフォームの相談につながる関係が残ります。</p>
+        <h2>私たちの住まい選びの進め方</h2>
+        <div class="creed">
+          <p>いまの住まいに悩みを抱えたご家族が、これからの住まいを考えるとき。複数の選択肢について正しい知識を身につけ、自分たちのモノサシをつくり、よい選択に行きつけるように、私たちは聴き取りと情報の整理・提供を行います。一つの選択肢に絞れたとき、はじめて私たちにできることをご提案します。その途中では私たちの建てた家を見ていただき、大切にしたい価値観を分かち合っていきます。</p>
+          <small>樹の家こころ舎</small>
+        </div>
         <div class="principle" style="margin-top:12px">
-          <div><h3>ふたつの物差しで比べる</h3><p>お金のゆとり（90歳までの預貯金）と、暮らしの豊かさ（大事にしたいこととの重なり）を並べて見ます。</p></div>
-          <div><h3>どれも正解になりうる</h3><p>中古の立地、リフォームの味わい、賃貸の身軽さも、新築の設計の自由と同じ重さで紹介します。他の選択肢のよさから話すと、信頼されます。</p></div>
-          <div><h3>暮らしから入る</h3><p>セミナーも面談も、暮らしの場面と大事にしたいことから始め、そのあとでお金を見ます。数字は暮らしを実現するための確認です。</p></div>
-          <div><h3>前提を隠さない</h3><p>金利・修繕・光熱費の前提をお客様の前で見せ、その場で変えられるようにします。新築に有利な前提は置きません。</p></div>
-          <div><h3>2回見せる</h3><p>セミナーではサンプル家族で考え方を、個別面談ではお客様自身の数字で答えを見せます。</p></div>
-          <div><h3>決めるのは上限額</h3><p>ライフプランの結論は「安心して住まいに使える上限」と「住まい方の方向性」。土地・物件探しはその後です。</p></div>
+          <div><h3>悩みから始める</h3><p>最初に聞くのは予算や希望の間取りではなく、いまの住まいの困りごとと、気に入っているところです。</p></div>
+          <div><h3>知識は偏りなく</h3><p>新築・中古・中古リフォーム・賃貸のどれにも、得られるものと引き受けることがあります。他の選択肢のよさから話します。</p></div>
+          <div><h3>モノサシはご家族のもの</h3><p>大事にしたいことと、安心して使える上限額。私たちは引き出して整理する役で、決めるのはご家族です。</p></div>
+          <div><h3>絞ってから提案する</h3><p>こころ舎の家の提案は、方向性が一つに絞れてから。新築以外が合うなら、そのまま伝えます。</p></div>
+          <div><h3>実棟で価値観を分かち合う</h3><p>どの段階でも、私たちの建てた家を見ていただきます。言葉や数字では伝わらない豊かさを、体で確かめてもらうためです。</p></div>
         </div>
       </section>
 
       <section>
-        <h2>セールスステップの中での使い方</h2>
-        <p class="note">塗りつぶしの番号が、このツールを主役として使う場面です。</p>
-        <div class="steps" id="steps"></div>
+        <h2>6つのステップの全体像</h2>
+        <p class="note">選択肢の点は、そのステップで検討している住まい方の数です。ステップ4で一つに絞り、ステップ5で私たちの提案に入ります。</p>
+        <div class="journey-wrap"><div class="journey" id="journey"></div></div>
+      </section>
+
+      <section>
+        <h2>ステップごとの進め方</h2>
+        <div class="phases" id="steps"></div>
+      </section>
+
+      <section>
+        <h2>絞り込んだ住まい方ごとに、私たちができること</h2>
+        <p>ステップ5でご提案する内容です。新築以外を選ばれたご家族とも、関係が続く形にしておきます。</p>
+        <div class="offer" id="offer"></div>
+      </section>
+
+      <section>
+        <h2>実棟で分かち合う価値観</h2>
+        <p>見ていただく家の種類ごとに、伝わるものが違います。ステップに合わせて使い分けます。</p>
+        <div class="reals">
+          <div><h4>完成見学会</h4><span class="when">ステップ2・選択肢を知る</span><p>冬の暖かさ、光の入り方、木や漆喰の手ざわり。知識として聞いたことを、体で確かめていただく場です。</p></div>
+          <div><h4>お住まいの施主様宅</h4><span class="when">ステップ3・モノサシをつくる</span><p>住んで数年たった家の暮らしと、施主様が何を大事にして選んだかを聞く場です。自分たちのモノサシと照らし合わせられます。</p></div>
+          <div><h4>構造見学会・建築中の現場</h4><span class="when">ステップ5・提案を受ける</span><p>完成すると見えなくなる断熱や構造、つくり手の仕事ぶりを見ていただく場です。家のつくり方に対する私たちの考え方が伝わります。</p></div>
+          <div><h4>ご自身の家</h4><span class="when">ステップ6・暮らす</span><p>暮らし始めたご家族の家が、次のご家族にとっての実棟になります。価値観を分かち合う輪が、ここで次につながります。</p></div>
+        </div>
       </section>
 
       <section class="seminar">
-        <h2>セミナーの組み立て（60〜90分）</h2>
+        <h2>ステップ2・3をまとめて行うセミナー（60〜90分）</h2>
         <p>タイトル案：「新築・中古・リフォーム・賃貸　4つの住まい方で過ごす、これからの暮らしとお金」</p>
         <div class="card">
           <ol>
-            <li><b>住まい選びのふたつの物差し（10分）</b>お金のゆとりと暮らしの豊かさ。月々の支払いや利回りだけで決めると、何のために家を選ぶのかを見失いやすいこと。4つの住まい方は、どれも正解になりうること。</li>
-            <li><b>4つの住まい方で過ごす、ある一日（15分）</b>「選択肢と暮らし」の暮らしの場面を投影。冬の朝、休日の午後、子どもが中学生のころ、巣立ったあと、75歳。中古の立地や賃貸の身軽さなど、新築以外のよさから先に話す。</li>
-            <li><b>わが家が大事にしたいことを選ぶ（10分）</b>配布シートで、ご夫婦それぞれに「大事さ」の星をつけてもらう。答え合わせで会話が生まれるのがこのパートのねらい。</li>
-            <li><b>お金で比べる（20分）</b>サンプル家族で4本の預貯金の推移を重ねる。差がつく5つのポイント（①老後の家賃 ②修繕の時期と金額 ③断熱性能と光熱費 ④金利と住宅ローン控除 ⑤90歳で残る土地・建物）を、前提を動かしながら見せる。</li>
-            <li><b>ふたつの物差しで見る（10分）</b>サンプル家族の散布図を見せ、「大事にしたいことが変わると、合う住まい方も変わる」ことを、星を入れ替えて実演する。</li>
-            <li><b>完成見学会で体感（任意・15分）</b>冬の暖かさ、光の入り方、木の手ざわりなど、数字にならない豊かさを体で確かめる。見学会と同日開催にすると参加のハードルが下がる。</li>
-            <li><b>あなたの場合はどうなるか（5分）</b>個別のライフプラン作成（無料・約60分）の予約をその場で受ける。記入した「大事にしたいこと」のシートは面談に持ってきてもらう。</li>
+            <li><b>いまの住まいの悩みを書き出す（10分）</b>冬の寒さ、駐車場、子ども部屋、家賃。参加者に書き出してもらい、住まいで解決できる悩みとそうでない悩みを分ける。</li>
+            <li><b>4つの住まい方で過ごす、ある一日（15分）</b>「選択肢と暮らし」の暮らしの場面を投影。中古の立地や賃貸の身軽さなど、新築以外のよさから先に話す。</li>
+            <li><b>住まいのお金の基本（20分）</b>サンプル家族で4本の預貯金の推移を重ね、差がつく5つのポイント（老後の家賃、修繕、光熱費、金利と控除、残る土地・建物）を、前提を動かしながら見せる。</li>
+            <li><b>わが家のモノサシをつくる（15分）</b>配布シートで、ご夫婦それぞれに「大事にしたいこと」の星をつけてもらう。答え合わせで会話が生まれるのがねらい。最後に「ふたつの物差し」で、星が変わると合う住まい方も変わることを実演する。</li>
+            <li><b>完成見学会で体感（任意・15分）</b>見学会と同日開催にすると、知識と体感を一度に得られる。</li>
+            <li><b>次のステップのご案内（5分）</b>ご家族の数字でモノサシを仕上げる個別相談（無料・約60分）と、施主様宅訪問のご案内。書いたシートは個別相談に持ってきていただく。</li>
           </ol>
         </div>
-        <p class="note" style="margin-top:8px">セミナーのゴールは契約ではなく、個別ライフプランの予約です。予約率を毎回記録すると改善しやすくなります。</p>
       </section>
 
       <section>
-        <h2>個別面談でうかがうこと</h2>
+        <h2>聴き取ること</h2>
         <div class="card">
+          <p><b>ステップ1　いまの住まいについて</b></p>
           <ul class="check">
-            <li>ご家族の年齢、お子さまの人数と年齢・予定</li>
-            <li>世帯の手取り収入（源泉徴収票）、共働きの予定</li>
-            <li>現在の家賃・駐車場代・更新料</li>
-            <li>預貯金、ご両親からの援助の予定</li>
-            <li>月々の生活費のおおよそ（住居費・光熱費を除く）</li>
-            <li>教育の考え方（公立中心か、大学は自宅からか）</li>
-            <li>退職の予定年齢、退職金・年金の見込み</li>
-            <li>希望エリア・校区、通勤、駐車台数</li>
-            <li>いまの住まいの困りごと（広さ・寒さ・音・駐車場）</li>
-            <li>中古・リフォームも選択肢に入れているか</li>
-            <li>いまの住まいで好きなところ（残したい暮らし）</li>
+            <li>いまの住まいで困っていること（寒さ・広さ・音・駐車場・家賃）</li>
+            <li>いまの住まいで気に入っていること（残したい暮らし）</li>
+            <li>住まいを考え始めたきっかけと、いつまでに解決したいか</li>
             <li>休日の過ごし方、家で長く過ごす場所</li>
-            <li>子どもが巣立ったあと・老後に暮らしたい場所</li>
-            <li>「わが家が大事にしたいこと」の星（ご夫婦それぞれ）</li>
+            <li>希望エリア・校区、通勤、駐車台数</li>
+            <li>中古・リフォーム・賃貸も選択肢に入れているか</li>
           </ul>
+          <p style="margin-top:12px"><b>ステップ3　モノサシをつくるために</b></p>
+          <ul class="check">
+            <li>「わが家が大事にしたいこと」の星（ご夫婦それぞれ）</li>
+            <li>ご家族の年齢、お子さまの人数・年齢・予定</li>
+            <li>世帯の手取り収入（源泉徴収票）、共働きの予定</li>
+            <li>預貯金、ご両親からの援助・介護の予定</li>
+            <li>月々の生活費のおおよそ、教育の考え方</li>
+            <li>退職の予定、退職金・年金の見込み</li>
+            <li>子どもが巣立ったあと・老後に暮らしたい場所</li>
+          </ul>
+          <p class="note" style="margin-top:10px">お金の数字は、事前にフォームやAIで入力してきていただいても構いません。面談の時間は、数字の確認と、ご家族の話し合いに使います。</p>
         </div>
       </section>
 
@@ -381,11 +443,13 @@ tr.match td{font-weight:700;border-top:2px solid var(--ink)}
         <div class="card">
           <ul class="check todo">
             <li>中古リフォームを自社で請け負うか、提携先へ紹介するか</li>
-            <li>中古を選ぶお客様への対応（インスペクション・リフォーム見積の紹介先）</li>
-            <li>セミナー講師と面談担当（FP資格者が担当するか）</li>
-            <li>サンプル家族の数字を、大分の家賃・中古相場・土地価格に合わせて調整</li>
+            <li>中古・賃貸を選んだご家族への対応（建物確認の紹介先、再相談の時期）</li>
+            <li>施主様宅訪問に協力していただける施主様と、お礼の形</li>
+            <li>構造見学会・現場見学をいつ、どの現場で行うか</li>
+            <li>聴き取りと整理の担当（FP資格者が担当するか）</li>
+            <li>サンプル家族の数字と、10の物差しの点数を社内で見直す</li>
             <li>住宅ローン控除・補助金の最新条件を毎年確認する担当</li>
-            <li>試算結果をお客様に渡す方法（印刷・PDF）と個人情報の扱い</li>
+            <li>「わが家のモノサシ」「住まいの方針」をお渡しする形（印刷・PDF）と個人情報の扱い</li>
           </ul>
         </div>
       </section>
@@ -742,37 +806,50 @@ function renderYearly(){
   document.getElementById('yearly').innerHTML=t+'</tbody>';
 }
 
-/* ---------- 使い方：ステップ ---------- */
-const PILL=k=>{const sc=SC.find(x=>x.key===k);return `<span class="pill" style="--c:var(${sc.color})"><i class="sw" style="background:var(${sc.color})"></i>${sc.short}</span>`};
-const STEPS=[
-  {t:'集客',s:'チラシ・LP・SNS',feel:'家賃がもったいない気がする。でも買うのは不安。',show:['rent'],
-   use:'お金と暮らしの両面から問いかける。例：「家賃8万円、90歳まで払い続けると？」「冬の朝、洗面所は寒くないですか？」',next:'完成見学会・セミナーの予約'},
-  {t:'完成見学会',s:'実物で暮らしと性能を体感',feel:'こんな家に住みたい。でもうちの収入で大丈夫？',show:['new','rent'],
-   use:'暖かさ・光・木の手ざわりを体感してもらいながら、「暮らしの場面」の冬の朝や休日の午後を話題にする。アンケートで年齢・家族・家賃・預貯金の大枠を聞き、4つの住まい方を比べるセミナーへ案内する。',next:'住まい方セミナーの予約'},
-  {t:'住まい方セミナー',s:'4つを同じ物差しで比べる',feel:'新築・中古・賃貸、結局どれが得なの？',show:['new','used','reno','rent'],key:true,
-   use:'「選択肢と暮らし」で4つの暮らしを見せ、参加者に大事にしたいことの星をつけてもらう。続けて「お金で比べる」、最後に「ふたつの物差し」で両方を重ねる。',next:'個別ライフプラン（無料）の予約'},
-  {t:'個別面談①　ヒアリング',s:'お客様の数字を集める',feel:'自分の家の場合を知りたい。',show:[],
-   use:'まず、いまの住まいで好きなところ・困っていること、休日の過ごし方を聞き、ご夫婦で「大事にしたいこと」の星をつけてもらう。そのあとでお金の数字を聞き取って入力する。源泉徴収票などは次回までにお願いする。',next:'ライフプラン提示の日程'},
-  {t:'個別面談②　ライフプランの提示',s:'お客様の数字で4つを比べる',feel:'うちはいくらまでなら安心？わが家に合うのはどの暮らし？',show:['new','used','reno','rent'],key:true,
-   use:'「ふたつの物差し」から見せ、お金のゆとりと暮らしの豊かさのどちらを、どこまで優先するかを話し合う。そのうえで「安心して住まいに使える上限額」と「住まい方の方向性」を決める。金利上昇のケースも見せ、新築以外が合う場合もそのまま伝える。',next:'土地・物件探し（上限額の範囲で）'},
-  {t:'土地・物件探し',s:'上限額の中で探す',feel:'この土地（物件）で本当に大丈夫？',show:['new','reno'],
-   use:'候補の土地価格・中古物件の価格を入れて、上限を超えないかその場で確認する。中古はインスペクションとリフォーム見積で修繕の前提を差し替える。',next:'プラン・見積の依頼'},
-  {t:'プラン・見積の提示',s:'見積と性能値で確定版に',feel:'他社や中古と比べて、本当にこの金額の価値がある？',show:['new','used','reno'],key:true,
-   use:'見積額・断熱性能から出した光熱費・メンテナンス計画で「新築」を確定値に更新する。「大事にしたいこと」の星がプランのどこで叶っているかを一つずつ示し、中古・中古リフォームと並べたまま提示する。',next:'ご契約'},
-  {t:'契約・資金計画の確定',s:'ローンと控除を確定',feel:'金利タイプや返済期間はどうする？',show:['new'],
-   use:'本審査の金利・返済期間・住宅ローン控除の条件を確定版に入れ、変動金利が上がった場合の推移も見せておく。',next:'着工・お引き渡し'},
-  {t:'お引き渡し後',s:'定期点検とセットで見直す',feel:'このままで大丈夫かな。',show:['new'],
-   use:'定期点検の際にライフプランを最新の収入・家族で更新し、メンテナンス計画と合わせて渡す。',next:'ご紹介・将来のメンテナンス'}
+/* ---------- 住まい選びのステップ ---------- */
+const PHASES=[
+  {t:'悩みを聴く',q:'いまの住まいの、何に困っていて、何が気に入っている？',opts:4,
+   we:['困っていることと気に入っていることを、冬の朝・休日・駐車場・子どもの成長など場面ごとに聴く','考え始めたきっかけと、いつまでに解決したいかを聴く','住まいで解決できる悩みと、住まい以外で解決できる悩みを分ける'],
+   tool:'—（聴き取りが中心）',real:null,out:'いまの住まいの整理メモ',sign:'悩みとそのきっかけを、ご家族の言葉で話せる'},
+  {t:'選択肢を知る',q:'新築・中古・リフォーム・賃貸、実際はどう違う？',opts:4,
+   we:['4つの選択肢の得られるもの・引き受けることを、偏りなく伝える','暮らしの場面で、それぞれの毎日を思い描いてもらう','お金の基本（老後の家賃・修繕・光熱費・金利と控除・残る資産）を伝える'],
+   tool:'選択肢と暮らし／お金で比べる（サンプル家族）／セミナー',real:['完成見学会','暖かさ・光・素材を体で知る'],out:'4つの選択肢のまとめ',sign:'4つの違いを、自分たちの言葉で説明できる'},
+  {t:'モノサシをつくる',q:'わが家が大事にしたいことは？いくらまでなら安心？',opts:4,key:true,
+   we:['ご夫婦それぞれに大事にしたいことの星をつけてもらい、違いを話し合う','ご家族の数字でお金を試算する','ふたつの物差しを重ね、何をどこまで優先するかを言葉にする'],
+   tool:'大事にしたいこと／お金で比べる（ご家族の数字）／ふたつの物差し',real:['施主様宅訪問','住んで数年の暮らしと照らす'],out:'わが家のモノサシ（大事にしたいこと・安心して使える上限額）',sign:'大事にしたいことの上位3つと上限額に、ご夫婦が合意している'},
+  {t:'一つに絞る',q:'わが家に合うのは、結局どれ？',opts:1,key:true,
+   we:['モノサシに照らして4つを並べ、方向性を一つに絞る','新築以外が合う場合も、そのまま伝える','選んだ理由と、手放したものを書き残す'],
+   tool:'ふたつの物差し',real:null,out:'わが家の住まいの方針（選んだ住まい方とその理由）',sign:'選んだ理由を、ご家族が自分の言葉で言える'},
+  {t:'私たちにできることを提案',q:'その住まい方で、何をどう進める？',opts:1,
+   we:['絞った住まい方に合わせて、こころ舎としてできることを提示する（下の表）','モノサシの項目が、プランのどこで叶うかを一つずつ示す','見積・性能値で試算を確定値に更新し、他の選択肢と並べたまま見せる'],
+   tool:'お金で比べる（確定値）／ふたつの物差し（実際のプランで点数を更新）',real:['構造見学会・現場','見えなくなる部分のつくり方を知る'],out:'プラン・見積と、確定版の試算',sign:'ご契約、または選んだ住まい方での次の一歩'},
+  {t:'つくる・暮らす',q:'暮らし始めて、方針どおりになっている？',opts:1,
+   we:['設計・工事のなかで迷ったら、モノサシに立ち返って判断する','定期点検のときに、試算と方針を見直す','施主様として、次のご家族に暮らしを見せていただく'],
+   tool:'お金で比べる（見直し）',real:['ご自身の家','次のご家族の実棟になる'],out:'点検ごとの方針の見直し',sign:'—'}
+];
+const OFFER=[
+  {k:'new',items:['注文住宅（MinQA・おまかせプラン）のご提案','土地探しへの同行と、土地ごとの試算','モノサシの項目に沿ったプランと見積'],ph:null},
+  {k:'reno',items:['物件探しの助言と、購入前の建物確認（インスペクション）','断熱・耐震・間取りのリフォーム提案','リフォーム費用を含めた確定版の試算'],ph:'自社で請け負うか、提携先へ紹介するか要確認'},
+  {k:'used',items:['中古物件を見るときのポイントのお伝え','購入前の建物確認の紹介','将来手を入れるときの相談窓口'],ph:null},
+  {k:'rent',items:['住み替えを考える時期と条件を、一緒に決めておく','いまの住まいを快適にする工夫（窓の寒さ対策など）','時期が来たときの再相談と、試算の見直し'],ph:null}
 ];
 function buildSteps(){
-  document.getElementById('steps').innerHTML=STEPS.map((s,i)=>`<div class="step${s.key?' key':''}"><span class="no num">${i+1}</span>
-    <h3>${s.t}<small>${s.s}</small></h3>
-    <div class="grid">
-      <div><b>お客様の気持ち</b>${s.feel}</div>
-      <div><b>見せる住まい方</b><span class="pills">${s.show.length?s.show.map(PILL).join(''):'—（聞き取りが中心）'}</span></div>
-      <div><b>次につなぐ行動</b>${s.next}</div>
-      <div style="grid-column:1/-1"><b>ライフプランの使い方</b>${s.use}</div>
-    </div></div>`).join('');
+  const dots=n=>n===4?SC.map(sc=>`<i style="background:var(${sc.color})"></i>`).join('')+'<span>4つ</span>':`<i style="background:var(--forest)"></i><span>1つ</span>`;
+  let j='<div class="rh">ステップ</div>'+PHASES.map((p,i)=>`<div class="ph${p.key?' key':''}"><span class="n num">${i+1}</span><b>${p.t}</b></div>`).join('');
+  j+='<div class="rh">ご家族の問い</div>'+PHASES.map(p=>`<div class="q">${p.q}</div>`).join('');
+  j+='<div class="rh">検討する選択肢</div>'+PHASES.map(p=>`<div class="od">${dots(p.opts)}</div>`).join('');
+  j+='<div class="rh">お渡しするもの</div>'+PHASES.map(p=>`<div>${p.out}</div>`).join('');
+  j+='<div class="rh last">実棟で分かち合う</div>'+PHASES.map(p=>`<div class="last">${p.real?`<span class="rl">${p.real[0]}</span>`:'<span class="note">—</span>'}</div>`).join('');
+  document.getElementById('journey').innerHTML=j;
+  document.getElementById('steps').innerHTML=PHASES.map((p,i)=>`<article class="phase${p.key?' key':''}">
+    <h3><span class="n num">${i+1}</span>${p.t}</h3>
+    <p class="q">${p.q}</p>
+    <div class="cols">
+      <div><b>私たちがすること</b><ul>${p.we.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      <div><b>使う画面</b>${p.tool}<br><br><b>お渡しするもの</b>${p.out}<br><br><b>次へ進む目安</b>${p.sign}</div>
+      ${p.real?`<div class="real"><b>実棟で分かち合う：${p.real[0]}</b>${p.real[1]}</div>`:''}
+    </div></article>`).join('');
+  document.getElementById('offer').innerHTML=OFFER.map(o=>{const sc=SC.find(x=>x.key===o.k);return `<article style="--c:var(${sc.color})"><h4>${sc.name}を選んだら</h4><ul>${o.items.map(x=>`<li>${x}</li>`).join('')}</ul>${o.ph?`<span class="ph">${o.ph}</span>`:''}</article>`}).join('');
 }
 
 /* ---------- 選択肢と暮らし ---------- */
