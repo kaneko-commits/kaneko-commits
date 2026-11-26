@@ -1,0 +1,626 @@
+<title>住まい方別ライフプラン</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap">
+<style>
+/* Layout: 左に入力パネル、右に結果（グラフ→4つの比較カード→内訳表）。投影モードでは入力を隠す。 */
+:root{
+  --bg:#f6f6f1; --surface:#ffffff; --ink:#25312c; --muted:#5d675f; --line:#d9dcd2;
+  --forest:#3a5144; --forest-ink:#ffffff; --soft:#eef1ea; --warm:#b4532a;
+  --ok:#1f7a3a; --ok-bg:#e4f2e7; --bad:#b42318; --bad-bg:#fde8e6;
+  --s1:#257de0; --s2:#f47230; --s3:#00b894; --s4:#f2a600;
+  --grid:#e6e8e1; --zero:#7a837c; --neg:#fbeceb;
+  --f-display:'Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+  --f-body:'Noto Sans JP','Hiragino Sans','Yu Gothic',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a17; --surface:#1c2420; --ink:#e7ece8; --muted:#a3aea6; --line:#34413a;
+  --forest:#7fa58c; --forest-ink:#0f1612; --soft:#222c27; --warm:#e9895d;
+  --ok:#6fcf8a; --ok-bg:#1d3325; --bad:#f2837a; --bad-bg:#3a1f1d;
+  --s1:#338ced; --s2:#e76624; --s3:#00a888; --s4:#d28e05;
+  --grid:#2b352f; --zero:#8a958d; --neg:#2e1f1e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a17; --surface:#1c2420; --ink:#e7ece8; --muted:#a3aea6; --line:#34413a;
+  --forest:#7fa58c; --forest-ink:#0f1612; --soft:#222c27; --warm:#e9895d;
+  --ok:#6fcf8a; --ok-bg:#1d3325; --bad:#f2837a; --bad-bg:#3a1f1d;
+  --s1:#338ced; --s2:#e76624; --s3:#00a888; --s4:#d28e05;
+  --grid:#2b352f; --zero:#8a958d; --neg:#2e1f1e; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:1280px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.4;margin:0}
+.num{font-variant-numeric:tabular-nums}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-block:28px 16px;border-bottom:1px solid var(--line)}
+header.top .eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted);font-weight:700}
+header.top h1{font-size:26px;letter-spacing:.04em}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
+nav.tabs a{padding:8px 14px;border-radius:6px;color:var(--ink);text-decoration:none;font-weight:700;border:1px solid var(--line);background:var(--surface)}
+nav.tabs a[aria-current="page"]{background:var(--forest);color:var(--forest-ink);border-color:var(--forest)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--warm);outline-offset:2px}
+
+/* ===== シミュレーター ===== */
+.sim{display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px;margin-top:20px;align-items:start}
+.sim.present{grid-template-columns:minmax(0,1fr)}
+.sim.present .panel{display:none}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}
+.panel h2{font-size:16px;margin-bottom:8px}
+.panel fieldset{border:0;padding:0;margin:0 0 14px}
+.panel legend{font-weight:700;font-size:13px;color:var(--forest);margin-bottom:6px;padding:0}
+.f{display:grid;grid-template-columns:minmax(0,1fr) 92px auto;align-items:center;gap:4px 8px;margin-bottom:6px}
+.f label{font-size:12.5px;color:var(--ink)}
+.f input,.f select{width:100%;font:inherit;font-size:13px;padding:4px 6px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);text-align:right}
+.f select{text-align:left}
+.f .u{font-size:11px;color:var(--muted);min-width:44px}
+.f.wide{grid-template-columns:1fr}
+.f.wide input,.f.wide select{text-align:left}
+.f .hint{font-size:11px;color:var(--muted);line-height:1.5}
+.sc-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:10px}
+.sc-tabs button{font:inherit;font-size:12px;font-weight:700;padding:6px 2px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
+.sc-tabs button[aria-pressed="true"]{border-color:var(--ink);background:var(--soft)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;flex:none}
+.sc-desc{font-size:12px;color:var(--muted);margin:0 0 8px}
+.panel .actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.btn{font:inherit;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:5px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--forest);color:var(--forest-ink);border-color:var(--forest)}
+
+.results{display:flex;flex-direction:column;gap:20px;min-width:0}
+.res-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:8px 16px}
+.res-head h2{font-size:20px}
+.res-head p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.sample{display:inline-block;font-size:11px;font-weight:700;color:var(--warm);border:1px solid var(--warm);border-radius:3px;padding:0 6px;margin-left:6px;vertical-align:2px;font-family:var(--f-body)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+.chart-title{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline;margin-bottom:6px}
+.chart-title h3{font-size:15px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--ink)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:16px;height:3px;border-radius:2px}
+.chart-box{position:relative}
+.chart-box svg{display:block;width:100%;height:auto}
+.chart-box text{font-family:var(--f-body);fill:var(--muted);font-size:11px}
+.chart-box .lbl{fill:var(--ink);font-weight:700;font-size:11.5px}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.12);min-width:180px;z-index:2}
+.tip b{display:block;margin-bottom:2px}
+.tip div{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.tip div span{display:inline-flex;align-items:center;gap:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.sc-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px;border-top:4px solid var(--c)}
+.sc-card h4{margin:0;font-size:15px;font-family:var(--f-display)}
+.sc-card .big{font-size:22px;font-weight:700;line-height:1.2}
+.sc-card .big small{font-size:12px;font-weight:500;color:var(--muted);display:block}
+.sc-card dl{margin:0;display:grid;grid-template-columns:auto auto;gap:2px 8px;font-size:12.5px}
+.sc-card dt{color:var(--muted)}
+.sc-card dd{margin:0;text-align:right;font-weight:700}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;width:fit-content}
+.chip.ok{background:var(--ok-bg);color:var(--ok)}
+.chip.bad{background:var(--bad-bg);color:var(--bad)}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12px;color:var(--muted);font-weight:700}
+tr.total td{font-weight:700;border-top:2px solid var(--ink)}
+td.neg{color:var(--bad)}
+details summary{cursor:pointer;font-weight:700}
+.note{font-size:12px;color:var(--muted);line-height:1.7}
+.note ul{margin:4px 0 0;padding-left:1.2em}
+
+/* ===== 使い方（セミナー・セールスステップ） ===== */
+.flow{max-width:1080px;margin-top:24px;display:flex;flex-direction:column;gap:28px}
+.flow section>h2{font-size:20px;margin-bottom:10px}
+.flow p{margin:0 0 8px;max-width:72ch}
+.principle{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.principle div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px}
+.principle h3{font-size:15px;margin-bottom:4px}
+.principle p{font-size:13px;margin:0}
+.steps{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:14px}
+.step{position:relative;padding:0 0 22px 28px}
+.step .no{position:absolute;left:-15px;top:0;width:28px;height:28px;border-radius:50%;background:var(--surface);border:2px solid var(--forest);color:var(--forest);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+.step.key .no{background:var(--forest);color:var(--forest-ink)}
+.step h3{font-size:16px;padding-top:2px}
+.step h3 small{font-family:var(--f-body);font-size:12px;color:var(--muted);font-weight:500;margin-left:8px}
+.step .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px 18px;margin-top:6px;font-size:13px}
+.step .grid div b{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.pills{display:flex;gap:4px;flex-wrap:wrap}
+.pill{font-size:11.5px;font-weight:700;border-radius:3px;padding:0 6px;border:1px solid var(--c);display:inline-flex;align-items:center;gap:4px}
+.seminar ol{margin:0;padding-left:1.4em}
+.seminar li{margin-bottom:8px}
+.seminar li b{display:block}
+.check{columns:2 260px;column-gap:24px;margin:0;padding-left:1.2em;font-size:13px}
+.check li{break-inside:avoid;margin-bottom:4px}
+.todo li::marker{content:'□ '}
+
+@media (max-width:900px){
+  .sim{grid-template-columns:minmax(0,1fr)}
+  .panel{position:static;max-height:none;order:2}
+  .results{order:1}
+}
+@media print{
+  body{background:#fff}
+  nav.tabs,.panel,.btn{display:none!important}
+  .sim{grid-template-columns:1fr}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">樹の家こころ舎　資金計画ツール</div>
+      <h1>住まい方別ライフプラン</h1>
+    </div>
+    <nav class="tabs" aria-label="表示の切り替え">
+      <a href="#sim" id="tab-sim">4つの住まい方を比べる</a>
+      <a href="#flow" id="tab-flow">セミナー・セールスでの使い方</a>
+    </nav>
+  </header>
+
+  <!-- ===================== シミュレーター ===================== -->
+  <main id="view-sim">
+    <div class="sim" id="sim">
+      <aside class="panel" aria-label="前提条件の入力">
+        <h2>前提条件</h2>
+        <fieldset id="common-fields"><legend>ご家族とお金</legend></fieldset>
+        <fieldset>
+          <legend>住まい方ごとの条件</legend>
+          <div class="sc-tabs" id="sc-tabs" role="group" aria-label="住まい方を選ぶ"></div>
+          <p class="sc-desc" id="sc-desc"></p>
+          <div id="sc-fields"></div>
+        </fieldset>
+        <div class="actions">
+          <button class="btn" id="reset" type="button">サンプルに戻す</button>
+        </div>
+        <p class="note" style="margin-top:10px">入力した数字はこのブラウザの中だけに保存されます。お客様ごとに使うときは、面談の最後に「サンプルに戻す」を押してください。</p>
+      </aside>
+
+      <section class="results" aria-live="polite">
+        <div class="res-head">
+          <div>
+            <h2 id="res-title">貯蓄の推移を比べる<span class="sample" id="sample-badge">サンプル家族</span></h2>
+            <p id="res-sub"></p>
+          </div>
+          <button class="btn primary" id="present" type="button">入力を隠す（投影用）</button>
+        </div>
+
+        <div class="card">
+          <div class="chart-title">
+            <h3>手元に残るお金（預貯金）の推移</h3>
+            <div class="legend" id="legend"></div>
+          </div>
+          <div class="chart-box" id="chart"></div>
+          <p class="note" style="margin:4px 0 0">横軸は世帯主の年齢。0を下回ると、その年齢で貯蓄が足りなくなる計算です。</p>
+        </div>
+
+        <div class="cards" id="cards"></div>
+
+        <div class="card">
+          <div class="chart-title"><h3 id="bd-title">住まいにかかるお金の合計（光熱費を含む）</h3></div>
+          <div class="tbl-wrap"><table id="breakdown"></table></div>
+        </div>
+
+        <div class="card">
+          <details>
+            <summary>1年ごとの収支を見る</summary>
+            <div class="sc-tabs" id="yr-tabs" style="margin-top:10px;max-width:520px" role="group" aria-label="住まい方を選ぶ"></div>
+            <div class="tbl-wrap"><table id="yearly"></table></div>
+          </details>
+        </div>
+
+        <div class="note card">
+          <b>試算の前提と注意</b>
+          <ul>
+            <li>金額はすべて「万円」。物価上昇・税制や年金の変更は入れていません。住宅ローン控除は年末残高×0.7%を、入力した上限まで受け取る計算です。</li>
+            <li>住宅ローン控除の借入上限・期間は、入居年・住宅の性能・世帯の条件で変わります。お客様に見せる前に、その年の制度で確認してください。</li>
+            <li>修繕費・光熱費・終了時の不動産評価は目安です。新築は見積と性能値、中古はインスペクションとリフォーム見積が出たら差し替えます。</li>
+            <li>この試算は住まい方を比べるための目安で、将来の金額や融資を約束するものではありません。</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===================== 使い方 ===================== -->
+  <main id="view-flow" hidden>
+    <div class="flow">
+      <section>
+        <h2>このツールの位置づけ</h2>
+        <p>「どの家を買うか」の前に、「どう暮らせば、お金の心配なく暮らせるか」をお客様と一緒に決めるための道具です。新築・中古・中古リフォーム・いまのままの4つを同じ物差しで並べるので、こころ舎は新築を勧める会社ではなく、住まい選びの判断を手伝う会社として見てもらえます。</p>
+        <p>新築が合うご家族は、他の選択肢と比べたうえで納得して進めます。新築以外が合うご家族にも正直に伝えることで、紹介や将来の建て替え・リフォームの相談につながる関係が残ります。</p>
+        <div class="principle" style="margin-top:12px">
+          <div><h3>同じ物差しで比べる</h3><p>月々の支払いではなく、90歳までに住まいにかかるお金の合計と、手元に残る貯蓄で比べます。</p></div>
+          <div><h3>前提を隠さない</h3><p>金利・修繕・光熱費の前提をお客様の前で見せ、その場で変えられるようにします。新築に有利な前提は置きません。</p></div>
+          <div><h3>2回見せる</h3><p>セミナーではサンプル家族で考え方を、個別面談ではお客様自身の数字で答えを見せます。</p></div>
+          <div><h3>決めるのは上限額</h3><p>ライフプランの結論は「安心して住まいに使える上限」と「住まい方の方向性」。土地・物件探しはその後です。</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>セールスステップの中での使い方</h2>
+        <p class="note">塗りつぶしの番号が、ライフプランを主役として使う場面です。</p>
+        <div class="steps" id="steps"></div>
+      </section>
+
+      <section class="seminar">
+        <h2>セミナーの組み立て（60〜90分）</h2>
+        <p>タイトル案：「家を買う前に知っておきたい　新築・中古・リフォーム・賃貸、90歳までのお金の話」</p>
+        <div class="card">
+          <ol>
+            <li><b>住まいのお金の全体像（10分）</b>「月々いくら」ではなく「一生でいくら、手元にいくら残るか」で考える理由。家賃も住宅ローンも、住まいにかかるお金の一部にすぎないこと。</li>
+            <li><b>サンプル家族で4つの住まい方を比べる（20分）</b>このツールを投影モードで使用。まず「いまのまま」の家賃総額と老後の家賃を見せ、次に新築・中古・中古リフォームを重ねる。どれが正解かではなく、どこで差がつくかを見てもらう。</li>
+            <li><b>差がつく5つのポイント（20分）</b>①老後も家賃が続くか　②修繕がいつ・いくら来るか　③断熱性能と光熱費　④金利と住宅ローン控除　⑤90歳のときに土地や建物が残るか。各ポイントで前提を変えて、グラフが動くところを見せる。</li>
+            <li><b>完成見学会・モデルで性能を体感（任意・15分）</b>光熱費の差を数字だけでなく体感で確かめる。見学会と同日開催にすると参加のハードルが下がる。</li>
+            <li><b>あなたの場合はどうなるか（10分）</b>結果は家族構成・収入・年齢で大きく変わることを伝え、個別ライフプラン作成（無料・約60分）の予約をその場で受ける。アンケートで年齢・家族・家賃・貯蓄の大枠だけ先にいただく。</li>
+          </ol>
+        </div>
+        <p class="note" style="margin-top:8px">セミナーのゴールは契約ではなく、個別ライフプランの予約です。予約率を毎回記録すると改善しやすくなります。</p>
+      </section>
+
+      <section>
+        <h2>個別面談でうかがうこと</h2>
+        <div class="card">
+          <ul class="check">
+            <li>ご家族の年齢、お子さまの人数と年齢・予定</li>
+            <li>世帯の手取り収入（源泉徴収票）、共働きの予定</li>
+            <li>現在の家賃・駐車場代・更新料</li>
+            <li>預貯金、ご両親からの援助の予定</li>
+            <li>月々の生活費のおおよそ（住居費・光熱費を除く）</li>
+            <li>教育の考え方（公立中心か、大学は自宅からか）</li>
+            <li>退職の予定年齢、退職金・年金の見込み</li>
+            <li>希望エリア・校区、通勤、駐車台数</li>
+            <li>いまの住まいの困りごと（広さ・寒さ・音・駐車場）</li>
+            <li>中古・リフォームも選択肢に入れているか</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>使う前に社内で決めておくこと</h2>
+        <div class="card">
+          <ul class="check todo">
+            <li>中古リフォームを自社で請け負うか、提携先へ紹介するか</li>
+            <li>中古を選ぶお客様への対応（インスペクション・リフォーム見積の紹介先）</li>
+            <li>セミナー講師と面談担当（FP資格者が担当するか）</li>
+            <li>サンプル家族の数字を、大分の家賃・中古相場・土地価格に合わせて調整</li>
+            <li>住宅ローン控除・補助金の最新条件を毎年確認する担当</li>
+            <li>試算結果をお客様に渡す方法（印刷・PDF）と個人情報の扱い</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script>
+(function(){
+/* ---------- 定義 ---------- */
+const SC = [
+  {key:'new',  name:'新築',          short:'新築',      color:'--s1', kind:'buy',
+   desc:'注文住宅（土地＋建物）。性能が高く光熱費・修繕が抑えられる一方、借入は大きくなります。'},
+  {key:'used', name:'中古',          short:'中古',      color:'--s2', kind:'buy',
+   desc:'築25年前後の中古戸建を、ほぼそのまま買う場合。購入額は小さく、修繕が早めに来ます。'},
+  {key:'reno', name:'中古＋リフォーム', short:'中古リフォ', color:'--s3', kind:'buy',
+   desc:'中古戸建を買い、断熱・耐震・水回りをリフォームしてから住む場合。リフォーム費用も借入に含めます。'},
+  {key:'rent', name:'いまのまま（賃貸）', short:'いまのまま', color:'--s4', kind:'rent',
+   desc:'いまの賃貸に住み続ける場合。老後も家賃が続きます。住み替える年齢と家賃も設定できます。'}
+];
+const COMMON = [
+  {k:'age',      l:'世帯主の年齢', u:'歳', step:1},
+  {k:'kids',     l:'お子さまの年齢（カンマ区切り）', u:'', type:'text', wide:true, hint:'例：4,1　いなければ空欄'},
+  {k:'income',   l:'世帯の手取り年収', u:'万円/年', step:10},
+  {k:'raise',    l:'手取りの伸び', u:'%/年', step:0.1},
+  {k:'savings',  l:'いまの預貯金', u:'万円', step:10},
+  {k:'livingW',  l:'生活費（現役）', u:'万円/月', step:0.5, hint:''},
+  {k:'livingR',  l:'生活費（老後）', u:'万円/月', step:0.5},
+  {k:'edu',      l:'教育の考え方', type:'select', wide:true, opts:[['a','公立中心・大学は国公立（自宅）'],['b','公立中心・大学は私立（自宅）'],['c','公立中心・大学は私立（下宿）']]},
+  {k:'retire',   l:'退職する年齢', u:'歳', step:1},
+  {k:'severance',l:'退職金', u:'万円', step:50},
+  {k:'pensionAge',l:'年金を受け取る年齢', u:'歳', step:1},
+  {k:'pension',  l:'年金（世帯・手取り）', u:'万円/年', step:10},
+  {k:'yield',    l:'預貯金の運用利回り', u:'%/年', step:0.1},
+  {k:'endAge',   l:'試算する年齢まで', u:'歳', step:1}
+];
+const BUY = [
+  {k:'price',   l:'物件価格（土地・建物・付帯工事）', u:'万円', step:50},
+  {k:'reform',  l:'リフォーム費用', u:'万円', step:50},
+  {k:'down',    l:'頭金', u:'万円', step:10},
+  {k:'fees',    l:'諸費用（現金で支払う分）', u:'万円', step:10},
+  {k:'years',   l:'返済期間', u:'年', step:1},
+  {k:'r1',      l:'金利（1〜10年目）', u:'%', step:0.05},
+  {k:'r2',      l:'金利（11年目以降）', u:'%', step:0.05},
+  {k:'tax',     l:'固定資産税など', u:'万円/年', step:1},
+  {k:'ins',     l:'火災・地震保険', u:'万円/年', step:0.5},
+  {k:'mgmt',    l:'管理費・修繕積立金', u:'万円/月', step:0.5, hint:''},
+  {k:'util',    l:'光熱費', u:'万円/月', step:0.1},
+  {k:'maint',   l:'修繕の予定（何年後:金額）', type:'text', wide:true, hint:'例：15:180, 30:250　→15年後に180万円、30年後に250万円'},
+  {k:'dedLimit',l:'ローン控除の対象となる借入の上限', u:'万円', step:500},
+  {k:'dedYears',l:'ローン控除の期間', u:'年', step:1},
+  {k:'dedCap',  l:'ローン控除の年間上限（納税額の目安）', u:'万円/年', step:1},
+  {k:'value',   l:'試算終了時の不動産評価（目安）', u:'万円', step:100}
+];
+const RENT = [
+  {k:'rent',    l:'家賃（駐車場込み）', u:'万円/月', step:0.5},
+  {k:'renew',   l:'更新料（2年ごと）', u:'か月分', step:0.5},
+  {k:'ins',     l:'家財保険', u:'万円/年', step:0.5},
+  {k:'util',    l:'光熱費', u:'万円/月', step:0.1},
+  {k:'moveAge', l:'住み替える年齢', u:'歳', step:1, hint:''},
+  {k:'rent2',   l:'住み替え後の家賃', u:'万円/月', step:0.5}
+];
+const SAMPLE = {
+  common:{age:35,kids:'4,1',income:620,raise:0.5,savings:600,livingW:26,livingR:22,edu:'b',
+          retire:65,severance:1000,pensionAge:65,pension:260,yield:0,endAge:90},
+  new:{price:4800,reform:0,down:100,fees:250,years:35,r1:0.9,r2:1.5,tax:13,ins:4,mgmt:0,util:1.3,
+       maint:'10:30, 15:180, 25:80, 30:250, 40:100',dedLimit:4500,dedYears:13,dedCap:25,value:1500},
+  used:{price:2300,reform:0,down:100,fees:200,years:35,r1:0.9,r2:1.5,tax:8,ins:4.5,mgmt:0,util:2.3,
+       maint:'1:80, 3:250, 10:150, 15:100, 20:300, 30:300, 40:150',dedLimit:2000,dedYears:10,dedCap:14,value:900},
+  reno:{price:2000,reform:1200,down:100,fees:220,years:35,r1:0.9,r2:1.5,tax:8,ins:4,mgmt:0,util:1.7,
+       maint:'15:150, 20:120, 30:250, 40:150',dedLimit:2000,dedYears:10,dedCap:14,value:900},
+  rent:{rent:8,renew:1,ins:1.5,util:1.6,moveAge:90,rent2:8}
+};
+const EDU = { // 年齢ごとの年額（万円）
+  a:[[0,2,10],[3,5,15],[6,11,30],[12,14,45],[15,17,55],[18,21,90]],
+  b:[[0,2,10],[3,5,15],[6,11,30],[12,14,45],[15,17,55],[18,21,140]],
+  c:[[0,2,10],[3,5,15],[6,11,30],[12,14,45],[15,17,55],[18,21,250]]
+};
+const KEY='kokorosya-lifeplan-v1';
+let state = load();
+let curSc='new', yrSc='new';
+
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.common)return s}catch(e){}return clone(SAMPLE)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+function isSample(){return JSON.stringify(state)===JSON.stringify(SAMPLE)}
+const cssv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* ---------- 計算 ---------- */
+function pmt(P,r,n){return n<=0?0:(r===0?P/n:P*r/(1-Math.pow(1+r,-n)))}
+function schedule(P,years,r1,r2){
+  const pay=[],end=[];let bal=P,m=years*12,mp=pmt(bal,r1/1200,m),r=r1;
+  for(let y=0;y<years;y++){
+    if(y===10){r=r2;mp=pmt(bal,r/1200,m-120)}
+    let s=0;for(let k=0;k<12;k++){const it=bal*r/1200;bal-=mp-it;s+=mp}
+    pay.push(s);end.push(Math.max(bal,0));
+  }
+  return {pay,end,monthly0:pmt(P,r1/1200,m)};
+}
+function parseMaint(t){const m={};String(t||'').split(/[,、，\s]+/).forEach(p=>{const a=p.split(/[:：]/);if(a.length===2){const y=parseInt(a[0]),v=parseFloat(a[1]);if(!isNaN(y)&&!isNaN(v))m[y]=(m[y]||0)+v}});return m}
+function eduCost(age,plan){for(const [a,b,v] of EDU[plan]||EDU.b){if(age>=a&&age<=b)return v}return 0}
+function num(v){const n=parseFloat(v);return isNaN(n)?0:n}
+
+function simulate(key){
+  const c=state.common,s=state[key],sc=SC.find(x=>x.key===key);
+  const N=Math.max(1,num(c.endAge)-num(c.age)+1);
+  const kids=String(c.kids||'').split(/[,、，\s]+/).map(parseFloat).filter(x=>!isNaN(x));
+  let bal=num(c.savings);
+  const rows=[],parts={loan:0,initial:0,keep:0,maint:0,util:0,ded:0};
+  let loan=null,principal=0,maint={};
+  if(sc.kind==='buy'){
+    principal=Math.max(0,num(s.price)+num(s.reform)-num(s.down));
+    loan=schedule(principal,num(s.years),num(s.r1),num(s.r2));
+    maint=parseMaint(s.maint);
+    parts.initial=num(s.down)+num(s.fees);
+  }
+  let minBal=Infinity,minAge=null,firstShort=null;
+  for(let i=0;i<N;i++){
+    const age=num(c.age)+i;
+    let inc=0;
+    if(age<num(c.retire))inc=num(c.income)*Math.pow(1+num(c.raise)/100,i);
+    if(age===num(c.retire))inc+=num(c.severance);
+    if(age>=num(c.pensionAge))inc+=num(c.pension);
+    const living=(age<num(c.retire)?num(c.livingW):num(c.livingR))*12;
+    const edu=kids.reduce((a,k)=>a+eduCost(k+i,c.edu),0);
+    let h=0,hl=0,hk=0,hm=0,hu=num(s.util)*12,hd=0;
+    if(sc.kind==='buy'){
+      if(i===0)h+=parts.initial;
+      hl=loan.pay[i]||0;
+      hk=num(s.tax)+num(s.ins)+num(s.mgmt)*12;
+      hm=maint[i]||0;
+      if(i<num(s.dedYears)&&loan.end[i]!=null)hd=Math.min(Math.min(loan.end[i],num(s.dedLimit))*0.007,num(s.dedCap));
+    }else{
+      const r=age>=num(s.moveAge)?num(s.rent2):num(s.rent);
+      hl=r*12+(i%2===1?r*num(s.renew):0);
+      hk=num(s.ins);
+    }
+    h+=hl+hk+hm+hu-hd;
+    parts.loan+=hl;parts.keep+=hk;parts.maint+=hm;parts.util+=hu;parts.ded+=hd;
+    bal=bal*(1+num(c.yield)/100)+inc-living-edu-h;
+    if(bal<minBal){minBal=bal;minAge=age}
+    if(bal<0&&firstShort===null)firstShort=age;
+    rows.push({age,inc,living,edu,h,bal});
+  }
+  const total=parts.loan+parts.initial+parts.keep+parts.maint+parts.util-parts.ded;
+  let monthly0,loanMonthly0;
+  if(sc.kind==='buy'){loanMonthly0=loan.monthly0/1;monthly0=loanMonthly0+(num(s.tax)+num(s.ins))/12+num(s.mgmt)+num(s.util)}
+  else{loanMonthly0=num(s.rent);monthly0=num(s.rent)+num(s.ins)/12+num(s.util)+num(s.rent)*num(s.renew)/24}
+  const loanEndAge=sc.kind==='buy'&&principal>0?num(c.age)+num(s.years)-1:null;
+  return {key,rows,parts,total,minBal,minAge,firstShort,endBal:rows[rows.length-1].bal,
+          value:sc.kind==='buy'?num(s.value):0,monthly0,loanMonthly0,principal,loanEndAge};
+}
+
+/* ---------- 表示ヘルパー ---------- */
+const man=v=>{const r=Math.round(v);return (r<0?'−':'')+Math.abs(r).toLocaleString('ja-JP')+'万円'};
+const man1=v=>(Math.round(v*10)/10).toLocaleString('ja-JP',{minimumFractionDigits:1,maximumFractionDigits:1})+'万円';
+const el=(t,a={},h='')=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);e.innerHTML=h;return e};
+
+/* ---------- 入力パネル ---------- */
+function fieldEl(f,obj,prefix){
+  const id=prefix+'-'+f.k;
+  const w=el('div',{class:'f'+(f.wide?' wide':'')});
+  w.appendChild(el('label',{for:id},f.l));
+  let inp;
+  if(f.type==='select'){inp=el('select',{id});f.opts.forEach(([v,t])=>{const o=el('option',{value:v},t);if(obj[f.k]===v)o.selected=true;inp.appendChild(o)})}
+  else{inp=el('input',{id,type:f.type==='text'?'text':'number',inputmode:f.type==='text'?'text':'decimal'});if(f.step)inp.step=f.step;inp.value=obj[f.k]}
+  inp.addEventListener('input',()=>{obj[f.k]=f.type==='text'||f.type==='select'?inp.value:inp.value;save();render()});
+  w.appendChild(inp);
+  if(!f.wide)w.appendChild(el('span',{class:'u'},f.u||''));
+  if(f.hint)w.appendChild(el('span',{class:'hint'},f.hint));
+  return w;
+}
+function buildCommon(){const box=document.getElementById('common-fields');box.querySelectorAll('.f').forEach(n=>n.remove());COMMON.forEach(f=>box.appendChild(fieldEl(f,state.common,'c')))}
+function scButtons(container,cur,onPick){
+  container.innerHTML='';
+  SC.forEach(sc=>{const b=el('button',{type:'button','aria-pressed':sc.key===cur?'true':'false'},`<i class="sw" style="background:var(${sc.color})"></i>${sc.short}`);b.addEventListener('click',()=>onPick(sc.key));container.appendChild(b)});
+}
+function buildSc(){
+  scButtons(document.getElementById('sc-tabs'),curSc,k=>{curSc=k;buildSc()});
+  const sc=SC.find(x=>x.key===curSc);
+  document.getElementById('sc-desc').textContent=sc.desc;
+  const box=document.getElementById('sc-fields');box.innerHTML='';
+  (sc.kind==='buy'?BUY:RENT).forEach(f=>{
+    if(f.k==='reform'&&curSc==='new')return;
+    box.appendChild(fieldEl(f,state[curSc],curSc));
+  });
+}
+
+/* ---------- グラフ ---------- */
+let lastRes=[];
+function drawChart(res){
+  const box=document.getElementById('chart');
+  const W=Math.max(340,box.clientWidth||820),narrow=W<600,H=narrow?300:360,ml=narrow?46:64,mr=narrow?84:118,mt=26,mb=34;
+  const ages=res[0].rows.map(r=>r.age);
+  const all=res.flatMap(r=>r.rows.map(x=>x.bal));
+  let lo=Math.min(0,...all),hi=Math.max(0,...all);
+  const span=hi-lo||1,raw=span/5,mag=Math.pow(10,Math.floor(Math.log10(raw))),stepT=[1,2,2.5,5,10].map(m=>m*mag).find(s=>s>=raw);
+  lo=Math.floor(lo/stepT)*stepT;hi=Math.ceil(hi/stepT)*stepT;
+  const x=a=>ml+(a-ages[0])/Math.max(1,ages[ages.length-1]-ages[0])*(W-ml-mr);
+  const y=v=>mt+(hi-v)/(hi-lo)*(H-mt-mb);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="住まい方別の預貯金の推移">`;
+  if(lo<0)s+=`<rect x="${ml}" y="${y(0)}" width="${W-ml-mr}" height="${y(lo)-y(0)}" fill="var(--neg)"/>`;
+  for(let v=lo;v<=hi+1e-6;v+=stepT){
+    s+=`<line x1="${ml}" x2="${W-mr}" y1="${y(v)}" y2="${y(v)}" stroke="${v===0?'var(--zero)':'var(--grid)'}" stroke-width="${v===0?1.5:1}"/>`;
+    s+=`<text x="${ml-8}" y="${y(v)+4}" text-anchor="end" class="num">${v===0?'0':(v<0?'−':'')+Math.abs(v).toLocaleString('ja-JP')}</text>`;
+  }
+  s+=`<text x="${ml-8}" y="12" text-anchor="end" style="font-size:10px">（万円）</text>`;
+  ages.forEach(a=>{if(a%(narrow?10:5)===0){s+=`<line x1="${x(a)}" x2="${x(a)}" y1="${H-mb}" y2="${H-mb+4}" stroke="var(--zero)"/><text x="${x(a)}" y="${H-mb+18}" text-anchor="middle" class="num">${a}歳</text>`}});
+  // 退職ライン
+  const ra=num(state.common.retire);
+  if(ra>ages[0]&&ra<ages[ages.length-1])s+=`<line x1="${x(ra)}" x2="${x(ra)}" y1="${mt}" y2="${H-mb}" stroke="var(--zero)" stroke-dasharray="3 4"/><text x="${x(ra)+4}" y="${mt+10}" style="font-size:10.5px">退職</text>`;
+  res.forEach((r,i)=>{
+    const d=r.rows.map((p,j)=>(j?'L':'M')+x(p.age).toFixed(1)+','+y(p.bal).toFixed(1)).join('');
+    s+=`<path d="${d}" fill="none" stroke="var(${SC[i].color})" stroke-width="2.2" stroke-linejoin="round"/>`;
+  });
+  // 右端ラベル（重なり回避）
+  const ends=res.map((r,i)=>({i,y:y(r.endBal),v:r.endBal})).sort((a,b)=>a.y-b.y);
+  for(let k=1;k<ends.length;k++)if(ends[k].y-ends[k-1].y<28)ends[k].y=ends[k-1].y+28;
+  const over=ends[ends.length-1].y-(H-mb+6);if(over>0)ends.forEach(e=>e.y-=over);
+  ends.forEach(e=>{
+    const r=res[e.i],ex=x(ages[ages.length-1]);
+    s+=`<circle cx="${ex}" cy="${y(r.endBal)}" r="4" fill="var(${SC[e.i].color})" stroke="var(--surface)" stroke-width="2"/>`;
+    s+=`<text x="${ex+10}" y="${e.y-1}" class="lbl">${SC[e.i].short}</text><text x="${ex+10}" y="${e.y+12}" class="num">${man(r.endBal)}</text>`;
+  });
+  s+=`<line id="xh" x1="0" x2="0" y1="${mt}" y2="${H-mb}" stroke="var(--muted)" stroke-width="1" visibility="hidden"/>`;
+  s+=`<g id="dots"></g><rect id="hit" x="${ml}" y="${mt}" width="${W-ml-mr}" height="${H-mt-mb}" fill="transparent"/></svg>`;
+  box.innerHTML=s+'<div class="tip" id="tip" hidden></div>';
+  const svg=box.querySelector('svg'),hit=svg.querySelector('#hit'),xh=svg.querySelector('#xh'),tip=box.querySelector('#tip'),dots=svg.querySelector('#dots');
+  const move=ev=>{
+    const pt=svg.createSVGPoint();const t=ev.touches?ev.touches[0]:ev;pt.x=t.clientX;pt.y=t.clientY;
+    const p=pt.matrixTransform(svg.getScreenCTM().inverse());
+    const a=Math.round(ages[0]+(p.x-ml)/(W-ml-mr)*(ages[ages.length-1]-ages[0]));
+    const j=Math.max(0,Math.min(ages.length-1,a-ages[0]));const ax=x(ages[j]);
+    xh.setAttribute('x1',ax);xh.setAttribute('x2',ax);xh.setAttribute('visibility','visible');
+    dots.innerHTML=res.map((r,i)=>`<circle cx="${ax}" cy="${y(r.rows[j].bal)}" r="4.5" fill="var(${SC[i].color})" stroke="var(--surface)" stroke-width="2"/>`).join('');
+    tip.innerHTML=`<b>${ages[j]}歳のとき</b>`+res.map((r,i)=>({i,v:r.rows[j].bal})).sort((a,b)=>b.v-a.v).map(o=>`<div><span><i class="sw" style="background:var(${SC[o.i].color})"></i>${SC[o.i].short}</span><span class="num">${man(o.v)}</span></div>`).join('');
+    tip.hidden=false;
+    const bw=box.clientWidth,px=ax/W*bw;tip.style.top='8px';
+    tip.style.left=(px>bw/2?px-tip.offsetWidth-12:px+12)+'px';
+  };
+  const leave=()=>{tip.hidden=true;xh.setAttribute('visibility','hidden');dots.innerHTML=''};
+  hit.addEventListener('mousemove',move);hit.addEventListener('touchstart',move,{passive:true});hit.addEventListener('touchmove',move,{passive:true});
+  hit.addEventListener('mouseleave',leave);
+}
+
+/* ---------- 結果 ---------- */
+function render(){
+  const res=SC.map(sc=>simulate(sc.key));lastRes=res;
+  const c=state.common;
+  document.getElementById('sample-badge').hidden=!isSample();
+  const kids=String(c.kids||'').trim();
+  document.getElementById('res-sub').textContent=`世帯主${num(c.age)}歳・${kids?'お子さま'+kids.split(/[,、，\s]+/).filter(Boolean).length+'人':'お子さまなし'}・手取り${num(c.income).toLocaleString()}万円/年・預貯金${num(c.savings).toLocaleString()}万円で、${num(c.endAge)}歳まで試算`;
+  document.getElementById('legend').innerHTML=SC.map(sc=>`<span><i style="background:var(${sc.color})"></i>${sc.name}</span>`).join('');
+  drawChart(res);
+  // カード
+  document.getElementById('cards').innerHTML=res.map((r,i)=>{
+    const sc=SC[i];
+    const chip=r.firstShort!==null?`<span class="chip bad">✕ ${r.firstShort}歳で預貯金が不足</span>`:`<span class="chip ok">✓ ${num(c.endAge)}歳まで預貯金が残る</span>`;
+    return `<article class="sc-card" style="--c:var(${sc.color})">
+      <h4>${sc.name}</h4>${chip}
+      <div class="big num">${man(r.endBal)}<small>${num(c.endAge)}歳時点の預貯金</small></div>
+      <dl class="num">
+        <dt>はじめの月々の住まいのお金</dt><dd>${man1(r.monthly0)}</dd>
+        <dt>${sc.kind==='buy'?'うちローン返済':'うち家賃'}</dt><dd>${man1(r.loanMonthly0)}</dd>
+        ${sc.kind==='buy'?`<dt>借入額／完済</dt><dd>${man(r.principal)}／${r.loanEndAge?r.loanEndAge+'歳':'—'}</dd>`:`<dt>老後の家賃</dt><dd>${num(state.rent.moveAge)<=num(c.endAge)?man1(num(state.rent.rent2))+'/月':'今と同じ'}</dd>`}
+        <dt>${num(c.endAge)}歳までの住まいのお金</dt><dd>${man(r.total)}</dd>
+        <dt>預貯金がいちばん少ない時</dt><dd>${man(r.minBal)}（${r.minAge}歳）</dd>
+        <dt>不動産の評価（目安）</dt><dd>${sc.kind==='buy'?man(r.value):'なし'}</dd>
+      </dl></article>`}).join('');
+  // 内訳
+  document.getElementById('bd-title').textContent=`${num(c.endAge)}歳までに住まいにかかるお金（光熱費を含む）`;
+  const rowsDef=[['ローン返済／家賃・更新料','loan'],['頭金・諸費用','initial'],['税金・保険・管理費','keep'],['修繕・リフォームのやり直し','maint'],['光熱費','util'],['住宅ローン控除（戻る分）','ded']];
+  let t='<thead><tr><th>内訳</th>'+SC.map(sc=>`<th><span style="display:inline-flex;align-items:center;gap:6px"><i class="sw" style="background:var(${sc.color})"></i>${sc.name}</span></th>`).join('')+'</tr></thead><tbody>';
+  rowsDef.forEach(([l,k])=>{t+=`<tr><td>${l}</td>`+res.map(r=>k==='ded'?`<td class="num ${r.parts.ded>0?'neg':''}">${r.parts.ded>0?man(-r.parts.ded):'—'}</td>`:`<td class="num">${r.parts[k]?man(r.parts[k]):'—'}</td>`).join('')+'</tr>'});
+  t+='<tr class="total"><td>合計</td>'+res.map(r=>`<td class="num">${man(r.total)}</td>`).join('')+'</tr>';
+  t+='<tr><td>終了時に残る不動産（目安）</td>'+res.map((r,i)=>`<td class="num">${SC[i].kind==='buy'?man(r.value):'—'}</td>`).join('')+'</tr>';
+  t+=`<tr><td>${num(c.endAge)}歳時点の預貯金</td>`+res.map(r=>`<td class="num ${r.endBal<0?'neg':''}">${man(r.endBal)}</td>`).join('')+'</tr></tbody>';
+  document.getElementById('breakdown').innerHTML=t;
+  renderYearly();
+}
+function renderYearly(){
+  scButtons(document.getElementById('yr-tabs'),yrSc,k=>{yrSc=k;renderYearly()});
+  const r=lastRes.find(x=>x.key===yrSc);
+  let t='<thead><tr><th>世帯主の年齢</th><th>収入</th><th>生活費</th><th>教育費</th><th>住まいのお金</th><th>年末の預貯金</th></tr></thead><tbody>';
+  r.rows.forEach(p=>{t+=`<tr><td class="num">${p.age}歳</td><td class="num">${man(p.inc)}</td><td class="num">${man(p.living)}</td><td class="num">${p.edu?man(p.edu):'—'}</td><td class="num">${man(p.h)}</td><td class="num ${p.bal<0?'neg':''}">${man(p.bal)}</td></tr>`});
+  document.getElementById('yearly').innerHTML=t+'</tbody>';
+}
+
+/* ---------- 使い方：ステップ ---------- */
+const PILL=k=>{const sc=SC.find(x=>x.key===k);return `<span class="pill" style="--c:var(${sc.color})"><i class="sw" style="background:var(${sc.color})"></i>${sc.short}</span>`};
+const STEPS=[
+  {t:'集客',s:'チラシ・LP・SNS',feel:'家賃がもったいない気がする。でも買うのは不安。',show:['rent'],
+   use:'「いまのまま」の家賃総額と、老後も家賃が続くことを一言で伝える。例：「家賃8万円、90歳まで払い続けると？」',next:'完成見学会・セミナーの予約'},
+  {t:'完成見学会',s:'実物で暮らしと性能を体感',feel:'こんな家に住みたい。でもうちの収入で大丈夫？',show:['new','rent'],
+   use:'アンケートで年齢・家族・家賃・預貯金の大枠を聞く。その場で「いまのまま」と「新築」の2本だけ見せ、残り2つはセミナーで、と案内する。',next:'住まい方セミナーの予約'},
+  {t:'住まい方セミナー',s:'4つを同じ物差しで比べる',feel:'新築・中古・賃貸、結局どれが得なの？',show:['new','used','reno','rent'],key:true,
+   use:'サンプル家族で4本を重ねて見せ、差がつく5つのポイントを解説。前提をその場で動かしてグラフの変化を見せる。',next:'個別ライフプラン（無料）の予約'},
+  {t:'個別面談①　ヒアリング',s:'お客様の数字を集める',feel:'自分の家の場合を知りたい。',show:[],
+   use:'下の「個別面談でうかがうこと」を聞き取り、その場で入力しておおまかな形を見せる。源泉徴収票などを次回までにお願いする。',next:'ライフプラン提示の日程'},
+  {t:'個別面談②　ライフプランの提示',s:'お客様の数字で4つを比べる',feel:'うちはいくらまでなら安心？どの住まい方が合う？',show:['new','used','reno','rent'],key:true,
+   use:'4本を見せ、「安心して住まいに使える上限額」と「住まい方の方向性」を一緒に決める。金利上昇のケースも見せる。新築以外が合う場合もそのまま伝える。',next:'土地・物件探し（上限額の範囲で）'},
+  {t:'土地・物件探し',s:'上限額の中で探す',feel:'この土地（物件）で本当に大丈夫？',show:['new','reno'],
+   use:'候補の土地価格・中古物件の価格を入れて、上限を超えないかその場で確認する。中古はインスペクションとリフォーム見積で修繕の前提を差し替える。',next:'プラン・見積の依頼'},
+  {t:'プラン・見積の提示',s:'見積と性能値で確定版に',feel:'他社や中古と比べて、本当にこの金額の価値がある？',show:['new','used','reno'],key:true,
+   use:'見積額・断熱性能から出した光熱費・メンテナンス計画で「新築」を確定値に更新し、中古・中古リフォームと並べたまま提示する。',next:'ご契約'},
+  {t:'契約・資金計画の確定',s:'ローンと控除を確定',feel:'金利タイプや返済期間はどうする？',show:['new'],
+   use:'本審査の金利・返済期間・住宅ローン控除の条件を確定版に入れ、変動金利が上がった場合の推移も見せておく。',next:'着工・お引き渡し'},
+  {t:'お引き渡し後',s:'定期点検とセットで見直す',feel:'このままで大丈夫かな。',show:['new'],
+   use:'定期点検の際にライフプランを最新の収入・家族で更新し、メンテナンス計画と合わせて渡す。',next:'ご紹介・将来のメンテナンス'}
+];
+function buildSteps(){
+  document.getElementById('steps').innerHTML=STEPS.map((s,i)=>`<div class="step${s.key?' key':''}"><span class="no num">${i+1}</span>
+    <h3>${s.t}<small>${s.s}</small></h3>
+    <div class="grid">
+      <div><b>お客様の気持ち</b>${s.feel}</div>
+      <div><b>見せる住まい方</b><span class="pills">${s.show.length?s.show.map(PILL).join(''):'—（聞き取りが中心）'}</span></div>
+      <div><b>次につなぐ行動</b>${s.next}</div>
+      <div style="grid-column:1/-1"><b>ライフプランの使い方</b>${s.use}</div>
+    </div></div>`).join('');
+}
+
+/* ---------- 画面切り替え ---------- */
+function route(){
+  const h=location.hash==='#flow'?'flow':'sim';
+  document.getElementById('view-sim').hidden=h!=='sim';
+  document.getElementById('view-flow').hidden=h!=='flow';
+  document.getElementById('tab-sim').setAttribute('aria-current',h==='sim'?'page':'false');
+  document.getElementById('tab-flow').setAttribute('aria-current',h==='flow'?'page':'false');
+  if(h==='sim')render();
+}
+document.getElementById('present').addEventListener('click',e=>{
+  const s=document.getElementById('sim');s.classList.toggle('present');
+  e.target.textContent=s.classList.contains('present')?'入力を表示':'入力を隠す（投影用）';render();
+});
+document.getElementById('reset').addEventListener('click',()=>{state=clone(SAMPLE);save();buildCommon();buildSc();render()});
+window.addEventListener('hashchange',route);
+let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(!document.getElementById('view-sim').hidden)drawChart(lastRes)},150)});
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',render);
+buildCommon();buildSc();buildSteps();route();
+window.__lp={simulate,SC};
+})();
+</script>
