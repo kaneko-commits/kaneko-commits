@@ -130,6 +130,56 @@ details summary{cursor:pointer;font-weight:700}
 .check li{break-inside:avoid;margin-bottom:4px}
 .todo li::marker{content:'□ '}
 
+/* ===== 選択肢と暮らし ===== */
+.life,.both{margin-top:24px;display:flex;flex-direction:column;gap:32px}
+.life .intro h2{font-size:24px;letter-spacing:.03em}
+.life .intro p,.lead{margin:6px 0 0;max-width:70ch;color:var(--muted)}
+.sh{font-size:19px;margin-bottom:4px}
+.opt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:10px}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;border-top:4px solid var(--c)}
+.opt h3{font-size:17px}
+.opt h3 small{display:block;font-family:var(--f-body);font-size:12px;font-weight:500;color:var(--muted)}
+.opt .lab{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+.opt ul{margin:0;padding-left:1.1em;font-size:13px}
+.opt li{margin-bottom:3px}
+.opt .gain li::marker{content:'＋ ';color:var(--ok)}
+.opt .take li::marker{content:'－ ';color:var(--warm)}
+.opt .fit{font-size:13px;background:var(--soft);border-radius:6px;padding:8px 10px}
+.scene-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
+.scene-tabs button{font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.scene-tabs button[aria-selected="true"]{background:var(--forest);color:var(--forest-ink);border-color:var(--forest)}
+.scene-head{font-family:var(--f-display);font-size:16px;margin:0 0 10px;color:var(--ink)}
+.scene-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;border-left:4px solid var(--c)}
+.scene h4{margin:0 0 6px;font-size:14px;display:flex;align-items:center;gap:6px}
+.scene p{margin:0;font-size:13.5px;line-height:1.85}
+table.values td,table.values th{white-space:normal}
+table.values td:first-child{min-width:190px}
+table.values td.vname b{display:block;font-size:13.5px}
+table.values td.vname span{font-size:11.5px;color:var(--muted)}
+table.values tr.grp td{background:var(--soft);font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--forest);padding:5px 10px}
+table.values tr.off td:not(:nth-child(2)){opacity:.38}
+.wt{display:inline-flex;border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.wt button{font:inherit;font-size:12px;border:0;background:var(--surface);color:var(--muted);padding:3px 7px;cursor:pointer;min-width:30px}
+.wt button+button{border-left:1px solid var(--line)}
+.wt button[aria-pressed="true"]{background:var(--forest);color:var(--forest-ink);font-weight:700}
+.dots{font:inherit;background:none;border:1px dashed transparent;border-radius:4px;padding:2px 4px;cursor:pointer;display:inline-flex;gap:3px}
+.dots:hover{border-color:var(--line)}
+.dots i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--c);display:inline-block}
+.dots i.on{background:var(--c)}
+tr.match td{font-weight:700;border-top:2px solid var(--ink)}
+.meter{display:flex;align-items:center;gap:6px;justify-content:flex-end}
+.meter span{display:inline-block;height:6px;border-radius:3px;background:var(--c)}
+.both-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;border-top:4px solid var(--c);display:flex;flex-direction:column;gap:10px}
+.both-card h4{margin:0;font-family:var(--f-display);font-size:16px}
+.both-card .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.both-card .two>div{min-width:0}
+.both-card .lab{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--muted)}
+.both-card .v{font-size:20px;font-weight:700;line-height:1.3}
+.both-card .s{font-size:12px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:11.5px;border-radius:3px;padding:1px 7px;background:var(--ok-bg);color:var(--ok);font-weight:700}
+.tag.t{background:var(--bad-bg);color:var(--bad)}
 @media (max-width:900px){
   .sim{grid-template-columns:minmax(0,1fr)}
   .panel{position:static;max-height:none;order:2}
@@ -145,17 +195,46 @@ details summary{cursor:pointer;font-weight:700}
 <div class="wrap">
   <header class="top">
     <div>
-      <div class="eyebrow">樹の家こころ舎　資金計画ツール</div>
+      <div class="eyebrow">樹の家こころ舎　住まい選びのツール</div>
       <h1>住まい方別ライフプラン</h1>
     </div>
     <nav class="tabs" aria-label="表示の切り替え">
-      <a href="#sim" id="tab-sim">4つの住まい方を比べる</a>
+      <a href="#life" id="tab-life">選択肢と暮らし</a>
+      <a href="#sim" id="tab-sim">お金で比べる</a>
+      <a href="#both" id="tab-both">ふたつの物差しで見る</a>
       <a href="#flow" id="tab-flow">セミナー・セールスでの使い方</a>
     </nav>
   </header>
 
+  <!-- ===================== 選択肢と暮らし ===================== -->
+  <main id="view-life" hidden>
+    <div class="life">
+      <section class="intro">
+        <h2>4つの住まい方を、同じテーブルに並べる</h2>
+        <p>新築・中古・中古リフォーム・いまのまま。どれにも、得られるものと引き受けることがあります。お金の計算に入る前に、それぞれでどんな毎日になるのかを見てみましょう。どれを選んでも正解になりえます。</p>
+      </section>
+      <section>
+        <h2 class="sh">それぞれで得られるもの・引き受けること</h2>
+        <div class="opt-grid" id="opt-grid"></div>
+      </section>
+      <section>
+        <h2 class="sh">暮らしの場面で比べる</h2>
+        <p class="lead">同じ時間を4つの住まい方で過ごしたら、どんな景色になるでしょう。</p>
+        <div class="scene-tabs" id="scene-tabs" role="tablist" aria-label="暮らしの場面"></div>
+        <p class="scene-head" id="scene-head"></p>
+        <div class="scene-grid" id="scene-grid"></div>
+      </section>
+      <section>
+        <h2 class="sh">わが家が大事にしたいこと</h2>
+        <p class="lead">ご家族で「大事さ」を選んでください。右の点は、それぞれの住まい方でその豊かさが得られやすいかの目安（5段階）です。物件や土地によって変わるので、点をクリックすると変えられます。</p>
+        <div class="card" style="margin-top:10px"><div class="tbl-wrap"><table id="values" class="values"></table></div></div>
+        <p class="note" style="margin-top:6px">「重なり」は、大事さ×得られやすさを合計したものです。順位をつけるためではなく、ご家族の大事にしたいことがどの住まい方と重なるかを見るための目安です。</p>
+      </section>
+    </div>
+  </main>
+
   <!-- ===================== シミュレーター ===================== -->
-  <main id="view-sim">
+  <main id="view-sim" hidden>
     <div class="sim" id="sim">
       <aside class="panel" aria-label="前提条件の入力">
         <h2>前提条件</h2>
@@ -218,15 +297,34 @@ details summary{cursor:pointer;font-weight:700}
     </div>
   </main>
 
+  <!-- ===================== ふたつの物差し ===================== -->
+  <main id="view-both" hidden>
+    <div class="both">
+      <section>
+        <h2 class="sh">ふたつの物差しで見る</h2>
+        <p class="lead">横はお金のゆとり（試算終了時の預貯金）、縦は暮らしの豊かさ（わが家が大事にしたいこととの重なり）です。どちらを優先するかを決めるのは、ご家族です。</p>
+        <div class="card" style="margin-top:12px">
+          <div class="chart-title"><h3>お金のゆとりと、暮らしの豊かさ</h3><div class="legend" id="legend2"></div></div>
+          <div class="chart-box" id="scatter"></div>
+          <p class="note" style="margin:4px 0 0">数字は「お金で比べる」と「選択肢と暮らし」の入力から計算しています。どちらかを変えると、点が動きます。</p>
+        </div>
+      </section>
+      <div class="cards" id="both-cards"></div>
+    </div>
+  </main>
+
   <!-- ===================== 使い方 ===================== -->
   <main id="view-flow" hidden>
     <div class="flow">
       <section>
         <h2>このツールの位置づけ</h2>
-        <p>「どの家を買うか」の前に、「どう暮らせば、お金の心配なく暮らせるか」をお客様と一緒に決めるための道具です。新築・中古・中古リフォーム・いまのままの4つを同じ物差しで並べるので、こころ舎は新築を勧める会社ではなく、住まい選びの判断を手伝う会社として見てもらえます。</p>
+        <p>「どの家を買うか」の前に、「どんな暮らしをしたいか」と「お金の心配なく暮らせるか」の両方を、お客様と一緒に確かめるための道具です。新築・中古・中古リフォーム・いまのままの4つを、お金と暮らしの両方で並べます。そうすることで、こころ舎は新築を勧める会社ではなく、住まい選びの判断を手伝う会社として見てもらえます。</p>
+        <p>ライフプランの話は、キャッシュフローや利回りの比べ合いで終わりがちです。数字は大切ですが、家を持つかどうか、どんな家に住むかで変わるのは、冬の朝の過ごし方、休日の庭、子どもの居場所、老後の身軽さといった毎日の手ざわりです。このツールでは、その豊かさも一緒に並べて楽しめるようにしています。</p>
         <p>新築が合うご家族は、他の選択肢と比べたうえで納得して進めます。新築以外が合うご家族にも正直に伝えることで、紹介や将来の建て替え・リフォームの相談につながる関係が残ります。</p>
         <div class="principle" style="margin-top:12px">
-          <div><h3>同じ物差しで比べる</h3><p>月々の支払いではなく、90歳までに住まいにかかるお金の合計と、手元に残る貯蓄で比べます。</p></div>
+          <div><h3>ふたつの物差しで比べる</h3><p>お金のゆとり（90歳までの預貯金）と、暮らしの豊かさ（大事にしたいこととの重なり）を並べて見ます。</p></div>
+          <div><h3>どれも正解になりうる</h3><p>中古の立地、リフォームの味わい、賃貸の身軽さも、新築の設計の自由と同じ重さで紹介します。他の選択肢のよさから話すと、信頼されます。</p></div>
+          <div><h3>暮らしから入る</h3><p>セミナーも面談も、暮らしの場面と大事にしたいことから始め、そのあとでお金を見ます。数字は暮らしを実現するための確認です。</p></div>
           <div><h3>前提を隠さない</h3><p>金利・修繕・光熱費の前提をお客様の前で見せ、その場で変えられるようにします。新築に有利な前提は置きません。</p></div>
           <div><h3>2回見せる</h3><p>セミナーではサンプル家族で考え方を、個別面談ではお客様自身の数字で答えを見せます。</p></div>
           <div><h3>決めるのは上限額</h3><p>ライフプランの結論は「安心して住まいに使える上限」と「住まい方の方向性」。土地・物件探しはその後です。</p></div>
@@ -235,20 +333,22 @@ details summary{cursor:pointer;font-weight:700}
 
       <section>
         <h2>セールスステップの中での使い方</h2>
-        <p class="note">塗りつぶしの番号が、ライフプランを主役として使う場面です。</p>
+        <p class="note">塗りつぶしの番号が、このツールを主役として使う場面です。</p>
         <div class="steps" id="steps"></div>
       </section>
 
       <section class="seminar">
         <h2>セミナーの組み立て（60〜90分）</h2>
-        <p>タイトル案：「家を買う前に知っておきたい　新築・中古・リフォーム・賃貸、90歳までのお金の話」</p>
+        <p>タイトル案：「新築・中古・リフォーム・賃貸　4つの住まい方で過ごす、これからの暮らしとお金」</p>
         <div class="card">
           <ol>
-            <li><b>住まいのお金の全体像（10分）</b>「月々いくら」ではなく「一生でいくら、手元にいくら残るか」で考える理由。家賃も住宅ローンも、住まいにかかるお金の一部にすぎないこと。</li>
-            <li><b>サンプル家族で4つの住まい方を比べる（20分）</b>このツールを投影モードで使用。まず「いまのまま」の家賃総額と老後の家賃を見せ、次に新築・中古・中古リフォームを重ねる。どれが正解かではなく、どこで差がつくかを見てもらう。</li>
-            <li><b>差がつく5つのポイント（20分）</b>①老後も家賃が続くか　②修繕がいつ・いくら来るか　③断熱性能と光熱費　④金利と住宅ローン控除　⑤90歳のときに土地や建物が残るか。各ポイントで前提を変えて、グラフが動くところを見せる。</li>
-            <li><b>完成見学会・モデルで性能を体感（任意・15分）</b>光熱費の差を数字だけでなく体感で確かめる。見学会と同日開催にすると参加のハードルが下がる。</li>
-            <li><b>あなたの場合はどうなるか（10分）</b>結果は家族構成・収入・年齢で大きく変わることを伝え、個別ライフプラン作成（無料・約60分）の予約をその場で受ける。アンケートで年齢・家族・家賃・貯蓄の大枠だけ先にいただく。</li>
+            <li><b>住まい選びのふたつの物差し（10分）</b>お金のゆとりと暮らしの豊かさ。月々の支払いや利回りだけで決めると、何のために家を選ぶのかを見失いやすいこと。4つの住まい方は、どれも正解になりうること。</li>
+            <li><b>4つの住まい方で過ごす、ある一日（15分）</b>「選択肢と暮らし」の暮らしの場面を投影。冬の朝、休日の午後、子どもが中学生のころ、巣立ったあと、75歳。中古の立地や賃貸の身軽さなど、新築以外のよさから先に話す。</li>
+            <li><b>わが家が大事にしたいことを選ぶ（10分）</b>配布シートで、ご夫婦それぞれに「大事さ」の星をつけてもらう。答え合わせで会話が生まれるのがこのパートのねらい。</li>
+            <li><b>お金で比べる（20分）</b>サンプル家族で4本の預貯金の推移を重ねる。差がつく5つのポイント（①老後の家賃 ②修繕の時期と金額 ③断熱性能と光熱費 ④金利と住宅ローン控除 ⑤90歳で残る土地・建物）を、前提を動かしながら見せる。</li>
+            <li><b>ふたつの物差しで見る（10分）</b>サンプル家族の散布図を見せ、「大事にしたいことが変わると、合う住まい方も変わる」ことを、星を入れ替えて実演する。</li>
+            <li><b>完成見学会で体感（任意・15分）</b>冬の暖かさ、光の入り方、木の手ざわりなど、数字にならない豊かさを体で確かめる。見学会と同日開催にすると参加のハードルが下がる。</li>
+            <li><b>あなたの場合はどうなるか（5分）</b>個別のライフプラン作成（無料・約60分）の予約をその場で受ける。記入した「大事にしたいこと」のシートは面談に持ってきてもらう。</li>
           </ol>
         </div>
         <p class="note" style="margin-top:8px">セミナーのゴールは契約ではなく、個別ライフプランの予約です。予約率を毎回記録すると改善しやすくなります。</p>
@@ -268,6 +368,10 @@ details summary{cursor:pointer;font-weight:700}
             <li>希望エリア・校区、通勤、駐車台数</li>
             <li>いまの住まいの困りごと（広さ・寒さ・音・駐車場）</li>
             <li>中古・リフォームも選択肢に入れているか</li>
+            <li>いまの住まいで好きなところ（残したい暮らし）</li>
+            <li>休日の過ごし方、家で長く過ごす場所</li>
+            <li>子どもが巣立ったあと・老後に暮らしたい場所</li>
+            <li>「わが家が大事にしたいこと」の星（ご夫婦それぞれ）</li>
           </ul>
         </div>
       </section>
@@ -353,19 +457,87 @@ const SAMPLE = {
        maint:'1:80, 3:250, 10:150, 15:100, 20:300, 30:300, 40:150',dedLimit:2000,dedYears:10,dedCap:14,value:900},
   reno:{price:2000,reform:1200,down:100,fees:220,years:35,r1:0.9,r2:1.5,tax:8,ins:4,mgmt:0,util:1.7,
        maint:'15:150, 20:120, 30:250, 40:150',dedLimit:2000,dedYears:10,dedCap:14,value:900},
-  rent:{rent:8,renew:1,ins:1.5,util:1.6,moveAge:90,rent2:8}
+  rent:{rent:8,renew:1,ins:1.5,util:1.6,moveAge:90,rent2:8},
+  weights:{warm:3,light:2,space:3,material:1,garden:2,design:1,story:1,move:1,care:2,place:2},
+  rich:{
+    new: {warm:5,light:5,space:5,material:5,garden:4,design:5,story:2,move:2,care:4,place:3},
+    used:{warm:2,light:3,space:3,material:2,garden:4,design:1,story:4,move:2,care:2,place:4},
+    reno:{warm:4,light:3,space:4,material:4,garden:4,design:3,story:5,move:2,care:3,place:4},
+    rent:{warm:2,light:2,space:2,material:1,garden:1,design:1,story:2,move:5,care:5,place:5}
+  }
 };
 const EDU = { // 年齢ごとの年額（万円）
   a:[[0,2,10],[3,5,15],[6,11,30],[12,14,45],[15,17,55],[18,21,90]],
   b:[[0,2,10],[3,5,15],[6,11,30],[12,14,45],[15,17,55],[18,21,140]],
   c:[[0,2,10],[3,5,15],[6,11,30],[12,14,45],[15,17,55],[18,21,250]]
 };
+const OPT={
+  new:{sub:'注文住宅（土地＋建物）',
+    gain:['家族の暮らしに合わせて、間取り・光・風の入り方を一から設計できる','断熱・気密の性能を高められ、冬暖かく夏涼しい。家じゅうの温度差が小さい','木や漆喰など素材を選べ、住むほどに味わいが増す家になる'],
+    take:['借入がいちばん大きく、金利の影響を長く受ける','土地探しから始まり、入居まで1年前後かかる','立地は土地の出方しだい。希望エリアで見つからないこともある'],
+    fit:'同じ場所に長く住むつもりで、家の中で過ごす時間や住み心地を大切にしたいご家族'},
+  used:{sub:'築25年前後の中古戸建をそのまま',
+    gain:['購入額を抑えられ、借入と月々の負担が小さい','駅近や成熟した住宅地など、立地の選択肢が広い','育った庭木や落ち着いた街並みなど、時間がつくった環境ごと手に入る'],
+    take:['断熱が弱いことが多く、冬の寒さや結露とつき合う','入居後早めに修繕が来やすく、時期と金額が読みにくい','間取りは前の家族のもの。暮らしを合わせる工夫が要る'],
+    fit:'立地やお金のゆとりを優先したいご家族。自分たちで少しずつ手を入れるのが好きなご家族'},
+  reno:{sub:'中古を買って性能と間取りを整える',
+    gain:['新築より抑えた費用で、断熱・耐震・水回りを今の水準に近づけられる','古い梁や建具など元の家の味わいを残しつつ、自分たちらしい場所をつくれる','中古と同じく、立地の選択肢が広い'],
+    take:['壁を開けるまで分からない傷みがあり、費用が増えることがある','構造上動かせない柱や壁があり、間取りの自由には限りがある','物件探し・調査・設計・工事と、決めることが多い'],
+    fit:'立地にこだわりつつ、住み心地も妥協したくないご家族。古いものの味わいが好きなご家族'},
+  rent:{sub:'いまの賃貸に住み続ける',
+    gain:['修繕や固定資産税の心配がなく、手入れの手間が少ない','仕事や家族の変化に合わせて住み替えられる身軽さ','購入時のまとまったお金が要らず、手元資金をほかのことに回せる'],
+    take:['老後も家賃が続く。高齢になると新しく借りにくくなることもある','広さ・間取り・性能は選べる範囲に限られ、自分では手を入れられない','90歳のときに住まいとして残るものはない'],
+    fit:'転勤や家族の予定がまだ決まっていないご家族。身軽さを大切にしたいご家族'}
+};
+const SCENES=[
+  {k:'winter',t:'冬の朝6時',head:'冬の朝6時。暖房をつける前の家で、目が覚める。',
+   new:'家じゅうの温度差が小さく、布団から出るのがつらくない。洗面所もトイレも寒くないので、朝の支度が自然に早くなる。',
+   used:'暖房した部屋と廊下・洗面所の温度差が大きく、窓辺には結露。厚手のスリッパと、朝いちばんの暖房がこの家の冬の作法。',
+   reno:'窓と床・壁の断熱を改修していれば、よく使う場所はしっかり暖かい。どこまで手を入れたかで、冬の朝の景色が変わる。',
+   rent:'上下左右に住戸がある集合住宅は、意外と冷えにくいことも。ただ窓まわりの寒さや結露は、自分では直せない。'},
+  {k:'holiday',t:'休日の午後',head:'晴れた休日の午後。家族はどこで、何をしているだろう。',
+   new:'庭とつながるリビングで、子どもは外と中を行き来し、大人はデッキで一息。窓から見える景色も、光の入り方も、自分たちで決めたもの。',
+   used:'前の住まい手が育てた庭木が、季節を教えてくれる。休日が棚づくりや庭の手入れの時間になり、家に少しずつ自分たちの手のあとが増えていく。',
+   reno:'残した古い梁の下で、家族がそれぞれ好きな場所にいる。昔からの家の記憶と、自分たちの暮らしが重なっていく。',
+   rent:'掃除も手入れも少ない分、休日は外へ。公園、海、街の店。家は帰る場所と割り切った、身軽な過ごし方。'},
+  {k:'teen',t:'子どもが中学生のころ',head:'子どもが中学生になった。ひとりの時間も、家族の気配も欲しい年ごろ。',
+   new:'子ども部屋の広さや、リビングから気配が届く距離を最初から設計できる。将来ふたつに仕切れる部屋なども計画しておける。',
+   used:'部屋数は多いことが多い。ただ間取りは前の家族のもの。家具の置き方や部屋の使い分けで、暮らしを合わせていく。',
+   reno:'間取り変更である程度は合わせられる。動かせない柱や壁を、逆に家族の居場所の手がかりにすることも。',
+   rent:'2LDKでは個室が足りなくなりがち。家族の成長に合わせて、広い部屋へ住み替えを考える時期。身軽さが活きる場面でもある。'},
+  {k:'nest',t:'子どもが巣立ったあと',head:'子どもが巣立ち、夫婦ふたりの暮らしが始まる。',
+   new:'子ども部屋を趣味の部屋や客間に。設計のときに将来の使い方を考えておくと、手を入れずに暮らしを変えられる。',
+   used:'2回目の大きな修繕の時期と重なりやすい。どこまで直して住み続けるか、家と相談するタイミング。',
+   reno:'もう一度リフォームして、夫婦の暮らしに合わせ直すこともできる。家とともに暮らしを更新していく。',
+   rent:'ふたりにちょうどいい広さ、便利な場所へ住み替えやすい。身軽さがいちばん活きる時期。'},
+  {k:'old',t:'75歳の毎日',head:'75歳。毎日の暮らしの中心は、家とそのまわりになる。',
+   new:'1階で暮らしが完結する設計なら、長く住み続けやすい。手をかけてきた家と庭は、年月の分だけ味わいが増している。',
+   used:'建物は築75年前後。建て替えや住み替えも含めて考える時期。土地は残り、次の住まいの元手になる。',
+   reno:'性能を上げてあれば住み続けられる。建物の寿命を見極めながら、終の住まいにするかを決める。',
+   rent:'年金の中から家賃を払い続ける。高齢になると新しく借りにくくなることもあるので、早めの住み替え計画が安心。'}
+];
+const VALUES=[
+  {g:'住み心地'},
+  {k:'warm',l:'冬暖かく、夏涼しい',d:'家じゅうの温度差、結露、光熱費'},
+  {k:'light',l:'光と風の入り方',d:'朝日、明るさ、風の通り道'},
+  {k:'space',l:'家族にちょうどいい広さと間取り',d:'居場所の数、収納、家事のしやすさ'},
+  {g:'建築の楽しみ'},
+  {k:'material',l:'木や漆喰など素材の手ざわり',d:'経年で味わいが増す素材'},
+  {k:'garden',l:'庭や外とのつながり',d:'デッキ、縁側、家庭菜園、駐車場'},
+  {k:'design',l:'自分たちで設計する楽しみ',d:'家づくりの過程そのもの'},
+  {k:'story',l:'時間が刻まれた家と街の味わい',d:'古い梁、育った庭木、街並み'},
+  {g:'暮らし方の自由'},
+  {k:'move',l:'住み替えの身軽さ',d:'転勤、家族の変化、老後の移動'},
+  {k:'care',l:'手入れ・修繕の手間が少ない',d:'修繕の予定が読める、任せられる'},
+  {k:'place',l:'立地・通勤・校区の選びやすさ',d:'駅からの距離、通勤時間、校区'}
+];
+const WT=['—','★','★★','★★★'];
 const KEY='kokorosya-lifeplan-v1';
 let state = load();
-let curSc='new', yrSc='new';
+let curSc='new', yrSc='new', curScene='winter';
 
 function clone(o){return JSON.parse(JSON.stringify(o))}
-function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.common)return s}catch(e){}return clone(SAMPLE)}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.common){for(const k in SAMPLE)if(!(k in s))s[k]=clone(SAMPLE[k]);return s}}catch(e){}return clone(SAMPLE)}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
 function isSample(){return JSON.stringify(state)===JSON.stringify(SAMPLE)}
 const cssv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -574,19 +746,19 @@ function renderYearly(){
 const PILL=k=>{const sc=SC.find(x=>x.key===k);return `<span class="pill" style="--c:var(${sc.color})"><i class="sw" style="background:var(${sc.color})"></i>${sc.short}</span>`};
 const STEPS=[
   {t:'集客',s:'チラシ・LP・SNS',feel:'家賃がもったいない気がする。でも買うのは不安。',show:['rent'],
-   use:'「いまのまま」の家賃総額と、老後も家賃が続くことを一言で伝える。例：「家賃8万円、90歳まで払い続けると？」',next:'完成見学会・セミナーの予約'},
+   use:'お金と暮らしの両面から問いかける。例：「家賃8万円、90歳まで払い続けると？」「冬の朝、洗面所は寒くないですか？」',next:'完成見学会・セミナーの予約'},
   {t:'完成見学会',s:'実物で暮らしと性能を体感',feel:'こんな家に住みたい。でもうちの収入で大丈夫？',show:['new','rent'],
-   use:'アンケートで年齢・家族・家賃・預貯金の大枠を聞く。その場で「いまのまま」と「新築」の2本だけ見せ、残り2つはセミナーで、と案内する。',next:'住まい方セミナーの予約'},
+   use:'暖かさ・光・木の手ざわりを体感してもらいながら、「暮らしの場面」の冬の朝や休日の午後を話題にする。アンケートで年齢・家族・家賃・預貯金の大枠を聞き、4つの住まい方を比べるセミナーへ案内する。',next:'住まい方セミナーの予約'},
   {t:'住まい方セミナー',s:'4つを同じ物差しで比べる',feel:'新築・中古・賃貸、結局どれが得なの？',show:['new','used','reno','rent'],key:true,
-   use:'サンプル家族で4本を重ねて見せ、差がつく5つのポイントを解説。前提をその場で動かしてグラフの変化を見せる。',next:'個別ライフプラン（無料）の予約'},
+   use:'「選択肢と暮らし」で4つの暮らしを見せ、参加者に大事にしたいことの星をつけてもらう。続けて「お金で比べる」、最後に「ふたつの物差し」で両方を重ねる。',next:'個別ライフプラン（無料）の予約'},
   {t:'個別面談①　ヒアリング',s:'お客様の数字を集める',feel:'自分の家の場合を知りたい。',show:[],
-   use:'下の「個別面談でうかがうこと」を聞き取り、その場で入力しておおまかな形を見せる。源泉徴収票などを次回までにお願いする。',next:'ライフプラン提示の日程'},
-  {t:'個別面談②　ライフプランの提示',s:'お客様の数字で4つを比べる',feel:'うちはいくらまでなら安心？どの住まい方が合う？',show:['new','used','reno','rent'],key:true,
-   use:'4本を見せ、「安心して住まいに使える上限額」と「住まい方の方向性」を一緒に決める。金利上昇のケースも見せる。新築以外が合う場合もそのまま伝える。',next:'土地・物件探し（上限額の範囲で）'},
+   use:'まず、いまの住まいで好きなところ・困っていること、休日の過ごし方を聞き、ご夫婦で「大事にしたいこと」の星をつけてもらう。そのあとでお金の数字を聞き取って入力する。源泉徴収票などは次回までにお願いする。',next:'ライフプラン提示の日程'},
+  {t:'個別面談②　ライフプランの提示',s:'お客様の数字で4つを比べる',feel:'うちはいくらまでなら安心？わが家に合うのはどの暮らし？',show:['new','used','reno','rent'],key:true,
+   use:'「ふたつの物差し」から見せ、お金のゆとりと暮らしの豊かさのどちらを、どこまで優先するかを話し合う。そのうえで「安心して住まいに使える上限額」と「住まい方の方向性」を決める。金利上昇のケースも見せ、新築以外が合う場合もそのまま伝える。',next:'土地・物件探し（上限額の範囲で）'},
   {t:'土地・物件探し',s:'上限額の中で探す',feel:'この土地（物件）で本当に大丈夫？',show:['new','reno'],
    use:'候補の土地価格・中古物件の価格を入れて、上限を超えないかその場で確認する。中古はインスペクションとリフォーム見積で修繕の前提を差し替える。',next:'プラン・見積の依頼'},
   {t:'プラン・見積の提示',s:'見積と性能値で確定版に',feel:'他社や中古と比べて、本当にこの金額の価値がある？',show:['new','used','reno'],key:true,
-   use:'見積額・断熱性能から出した光熱費・メンテナンス計画で「新築」を確定値に更新し、中古・中古リフォームと並べたまま提示する。',next:'ご契約'},
+   use:'見積額・断熱性能から出した光熱費・メンテナンス計画で「新築」を確定値に更新する。「大事にしたいこと」の星がプランのどこで叶っているかを一つずつ示し、中古・中古リフォームと並べたまま提示する。',next:'ご契約'},
   {t:'契約・資金計画の確定',s:'ローンと控除を確定',feel:'金利タイプや返済期間はどうする？',show:['new'],
    use:'本審査の金利・返済期間・住宅ローン控除の条件を確定版に入れ、変動金利が上がった場合の推移も見せておく。',next:'着工・お引き渡し'},
   {t:'お引き渡し後',s:'定期点検とセットで見直す',feel:'このままで大丈夫かな。',show:['new'],
@@ -603,14 +775,84 @@ function buildSteps(){
     </div></div>`).join('');
 }
 
+/* ---------- 選択肢と暮らし ---------- */
+function overlap(key){let n=0,d=0;VALUES.forEach(v=>{if(!v.k)return;const w=num(state.weights[v.k]);n+=w*num(state.rich[key][v.k]);d+=w*5});return d?Math.round(n/d*100):0}
+function buildOpts(){
+  document.getElementById('opt-grid').innerHTML=SC.map(sc=>{const o=OPT[sc.key];return `<article class="opt" style="--c:var(${sc.color})">
+    <h3>${sc.name}<small>${o.sub}</small></h3>
+    <div><div class="lab">得られるもの</div><ul class="gain">${o.gain.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div><div class="lab">引き受けること</div><ul class="take">${o.take.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div class="fit"><div class="lab">こんなご家族に</div>${o.fit}</div></article>`}).join('');
+}
+function buildScenes(){
+  const tabs=document.getElementById('scene-tabs');tabs.innerHTML='';
+  SCENES.forEach(sn=>{const b=el('button',{type:'button',role:'tab','aria-selected':sn.k===curScene?'true':'false'},sn.t);b.addEventListener('click',()=>{curScene=sn.k;buildScenes()});tabs.appendChild(b)});
+  const sn=SCENES.find(x=>x.k===curScene);
+  document.getElementById('scene-head').textContent=sn.head;
+  document.getElementById('scene-grid').innerHTML=SC.map(sc=>`<div class="scene" style="--c:var(${sc.color})"><h4><i class="sw" style="background:var(${sc.color})"></i>${sc.name}</h4><p>${sn[sc.key]}</p></div>`).join('');
+}
+function renderValues(){
+  let t='<thead><tr><th>豊かさの物差し</th><th>わが家の大事さ</th>'+SC.map(sc=>`<th><span style="display:inline-flex;align-items:center;gap:6px"><i class="sw" style="background:var(${sc.color})"></i>${sc.short}</span></th>`).join('')+'</tr></thead><tbody>';
+  VALUES.forEach(v=>{
+    if(v.g){t+=`<tr class="grp"><td colspan="6">${v.g}</td></tr>`;return}
+    const w=num(state.weights[v.k]);
+    t+=`<tr class="${w?'':'off'}"><td class="vname"><b>${v.l}</b><span>${v.d}</span></td><td><span class="wt" role="group" aria-label="${v.l}の大事さ">${WT.map((x,i)=>`<button type="button" data-w="${v.k}" data-v="${i}" aria-pressed="${i===w}" aria-label="${['気にしない','少し大事','大事','とても大事'][i]}">${x}</button>`).join('')}</span></td>`;
+    SC.forEach(sc=>{const r=num(state.rich[sc.key][v.k]);t+=`<td><button type="button" class="dots" style="--c:var(${sc.color})" data-r="${sc.key}" data-k="${v.k}" aria-label="${sc.name}：${v.l} ${r}/5（クリックで変更）">${[1,2,3,4,5].map(i=>`<i class="${i<=r?'on':''}"></i>`).join('')}</button></td>`});
+    t+='</tr>';
+  });
+  t+='<tr class="match"><td>大事にしたいこととの重なり</td><td></td>'+SC.map(sc=>{const o=overlap(sc.key);return `<td><span class="meter num" style="--c:var(${sc.color})"><span style="width:${Math.round(o*0.6)}px"></span>${o}%</span></td>`}).join('')+'</tr></tbody>';
+  const tb=document.getElementById('values');tb.innerHTML=t;
+  tb.querySelectorAll('[data-w]').forEach(b=>b.addEventListener('click',()=>{state.weights[b.dataset.w]=+b.dataset.v;save();renderValues()}));
+  tb.querySelectorAll('[data-r]').forEach(b=>b.addEventListener('click',()=>{const o=state.rich[b.dataset.r];o[b.dataset.k]=num(o[b.dataset.k])%5+1;save();renderValues()}));
+}
+
+/* ---------- ふたつの物差し ---------- */
+function renderBoth(){
+  const res=SC.map(sc=>simulate(sc.key));lastRes=res;const c=state.common;
+  document.getElementById('legend2').innerHTML=SC.map(sc=>`<span><i style="background:var(${sc.color});height:10px;width:10px;border-radius:50%"></i>${sc.name}</span>`).join('');
+  const box=document.getElementById('scatter');
+  const W=Math.max(340,box.clientWidth||820),narrow=W<600,H=narrow?320:380,ml=narrow?46:64,mr=24,mt=20,mb=46;
+  const xs=res.map(r=>r.endBal);let lo=Math.min(0,...xs),hi=Math.max(...xs,1);
+  const raw=(hi-lo)/5,mag=Math.pow(10,Math.floor(Math.log10(raw))),st=[1,2,2.5,5,10].map(m=>m*mag).find(v=>v>=raw);
+  lo=Math.floor(lo/st)*st;hi=Math.ceil(hi/st)*st;if(hi===Math.max(...xs))hi+=st;
+  const x=v=>ml+(v-lo)/(hi-lo)*(W-ml-mr), y=v=>mt+(100-v)/100*(H-mt-mb);
+  let sv=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="お金のゆとりと暮らしの豊かさの散布図">`;
+  if(lo<0)sv+=`<rect x="${x(lo)}" y="${mt}" width="${x(0)-x(lo)}" height="${H-mt-mb}" fill="var(--neg)"/>`;
+  for(let v=0;v<=100;v+=25)sv+=`<line x1="${ml}" x2="${W-mr}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/><text x="${ml-8}" y="${y(v)+4}" text-anchor="end" class="num">${v}%</text>`;
+  for(let v=lo;v<=hi+1e-6;v+=st)sv+=`<line x1="${x(v)}" x2="${x(v)}" y1="${mt}" y2="${H-mb}" stroke="${v===0?'var(--zero)':'var(--grid)'}"/><text x="${x(v)}" y="${H-mb+16}" text-anchor="middle" class="num">${(v<0?'−':'')+Math.abs(v).toLocaleString('ja-JP')}</text>`;
+  sv+=`<text x="${(ml+W-mr)/2}" y="${H-8}" text-anchor="middle">${num(c.endAge)}歳時点の預貯金（万円）→ お金のゆとり</text>`;
+  sv+=`<text x="${ml}" y="12" text-anchor="start">↑ 大事にしたいこととの重なり</text>`;
+  const pts=res.map((r,i)=>({i,cx:x(r.endBal),cy:y(overlap(SC[i].key)),o:overlap(SC[i].key),v:r.endBal}));
+  // ラベル位置（重なり回避）
+  const lab=pts.map(p=>({...p,ly:p.cy-12})).sort((a,b)=>a.ly-b.ly);
+  for(let k=1;k<lab.length;k++)if(Math.abs(lab[k].cx-lab[k-1].cx)<120&&lab[k].ly-lab[k-1].ly<30)lab[k].ly=lab[k-1].ly+30;
+  pts.forEach(p=>{sv+=`<circle cx="${p.cx}" cy="${p.cy}" r="8" fill="var(${SC[p.i].color})" stroke="var(--surface)" stroke-width="2"><title>${SC[p.i].name}：預貯金 ${man(p.v)}／重なり ${p.o}%</title></circle>`});
+  lab.forEach(p=>{const right=p.cx<W-150;sv+=`<text x="${p.cx+(right?14:-14)}" y="${p.ly}" text-anchor="${right?'start':'end'}" class="lbl">${SC[p.i].name}</text><text x="${p.cx+(right?14:-14)}" y="${p.ly+13}" text-anchor="${right?'start':'end'}" class="num">${man(p.v)}・${p.o}%</text>`});
+  box.innerHTML=sv+'</svg>';
+  // カード
+  document.getElementById('both-cards').innerHTML=res.map((r,i)=>{
+    const sc=SC[i],w=state.weights,ri=state.rich[sc.key];
+    const good=VALUES.filter(v=>v.k&&num(w[v.k])>=2&&num(ri[v.k])>=4).map(v=>`<span class="tag">${v.l}</span>`).join('')||'<span class="s">—</span>';
+    const hard=VALUES.filter(v=>v.k&&num(w[v.k])>=2&&num(ri[v.k])<=2).map(v=>`<span class="tag t">${v.l}</span>`).join('')||'<span class="s">—</span>';
+    const chip=r.firstShort!==null?`<span class="chip bad">✕ ${r.firstShort}歳で預貯金が不足</span>`:`<span class="chip ok">✓ ${num(c.endAge)}歳まで預貯金が残る</span>`;
+    return `<article class="both-card" style="--c:var(${sc.color})"><h4>${sc.name}</h4>
+      <div class="two">
+        <div><div class="lab">お金で見ると</div><div class="v num">${man(r.endBal)}</div><div class="s">${num(c.endAge)}歳の預貯金・はじめの月々 ${man1(r.monthly0)}</div><div style="margin-top:6px">${chip}</div></div>
+        <div><div class="lab">暮らしで見ると</div><div class="v num">${overlap(sc.key)}%</div><div class="s">大事にしたいこととの重なり</div></div>
+      </div>
+      <div><div class="lab">大事にしたいことで、得られやすいもの</div><div class="tags">${good}</div></div>
+      <div><div class="lab">大事にしたいことで、工夫が要るもの</div><div class="tags">${hard}</div></div>
+    </article>`}).join('');
+}
+
 /* ---------- 画面切り替え ---------- */
+const VIEWS=['life','sim','both','flow'];
 function route(){
-  const h=location.hash==='#flow'?'flow':'sim';
-  document.getElementById('view-sim').hidden=h!=='sim';
-  document.getElementById('view-flow').hidden=h!=='flow';
-  document.getElementById('tab-sim').setAttribute('aria-current',h==='sim'?'page':'false');
-  document.getElementById('tab-flow').setAttribute('aria-current',h==='flow'?'page':'false');
+  const h=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):'life';
+  VIEWS.forEach(v=>{document.getElementById('view-'+v).hidden=v!==h;document.getElementById('tab-'+v).setAttribute('aria-current',v===h?'page':'false')});
   if(h==='sim')render();
+  if(h==='life')renderValues();
+  if(h==='both')renderBoth();
 }
 document.getElementById('present').addEventListener('click',e=>{
   const s=document.getElementById('sim');s.classList.toggle('present');
@@ -618,9 +860,9 @@ document.getElementById('present').addEventListener('click',e=>{
 });
 document.getElementById('reset').addEventListener('click',()=>{state=clone(SAMPLE);save();buildCommon();buildSc();render()});
 window.addEventListener('hashchange',route);
-let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(!document.getElementById('view-sim').hidden)drawChart(lastRes)},150)});
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',render);
-buildCommon();buildSc();buildSteps();route();
+let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(!document.getElementById('view-sim').hidden)drawChart(lastRes);if(!document.getElementById('view-both').hidden)renderBoth()},150)});
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',route);
+buildCommon();buildSc();buildSteps();buildOpts();buildScenes();route();
 window.__lp={simulate,SC};
 })();
 </script>
