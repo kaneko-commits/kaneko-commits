@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<title>判田台 この家でこれからも｜樹の家こころ舎</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+:root{--ink:#25312c;--muted:#5a645c;--forest:#3a5144;--deep:#283a30;--ivory:#faf9f5;--cream:#f2efe4;--line:#d6d8cf;--warm:#c8643b;--sun:#f3d27a;--plum:#8a5a2b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8b918c;font-family:'Noto Sans JP',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page>*{flex-shrink:0}
+.page{width:210mm;height:297mm;margin:10mm auto;background:var(--ivory);position:relative;overflow:hidden;box-shadow:0 4px 24px #0004;page-break-after:always;display:flex;flex-direction:column}
+@media print{body{background:none}.page{margin:0;box-shadow:none}}
+.ph{color:var(--ink);background:#fff5b8;outline:1.5px dashed #d4a800;padding:0 1mm;border-radius:1mm;font-weight:700}
+em{font-style:normal}
+
+.top{display:flex;justify-content:space-between;align-items:center;padding:6mm 12mm 0}
+.top .to{font-size:12pt;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--plum);padding:1mm 4mm}
+.top .brand{font-family:'Noto Serif JP',serif;font-weight:900;font-size:16pt;letter-spacing:.14em;color:var(--forest);text-align:right;line-height:1.2}
+.top .brand small{display:block;font-family:'Noto Sans JP';font-size:8pt;font-weight:500;letter-spacing:.04em;color:var(--muted)}
+
+/* ===== 表面 ===== */
+.head{padding:4mm 12mm 0;text-align:center}
+.head .pre{font-family:'Noto Serif JP',serif;font-weight:700;font-size:16pt;letter-spacing:.08em;color:var(--muted)}
+.head h1{font-family:'Noto Serif JP',serif;font-weight:900;font-size:33pt;line-height:1.25;letter-spacing:.04em;margin-top:2mm}
+.head h1 .r{color:var(--forest)}.head h1 .t{color:var(--warm)}
+.head .lead{font-size:12pt;line-height:1.6;margin-top:2mm;font-weight:700}
+
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:6mm 12mm 0;position:relative}
+.vs figure{height:42mm;background-size:cover;position:relative}
+.vs figure:first-child{border-radius:3mm 0 0 3mm}.vs figure:last-child{border-radius:0 3mm 3mm 0}
+.vs figcaption{position:absolute;left:0;right:0;bottom:0;padding:3mm 4mm;color:#fff;background:linear-gradient(0deg,#000b,#0000);font-size:11pt;font-weight:700;line-height:1.45}
+.vs figure:nth-child(2) figcaption{padding-left:14mm}
+.vs figcaption b{display:block;font-family:'Noto Serif JP',serif;font-size:18pt;letter-spacing:.1em}
+.vs .or{position:absolute;left:50%;top:50%;transform:translate(-50%,-60%);width:22mm;height:22mm;border-radius:50%;background:var(--ivory);border:1.2mm solid var(--sun);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-weight:900;font-size:13pt;color:var(--forest);line-height:1.2;text-align:center}
+
+.facts{margin:3.5mm 12mm 0}
+.facts h2{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14.5pt;text-align:center;letter-spacing:.05em}
+.facts h2 em{color:var(--plum)}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:2mm}
+.facts .c{background:#fff;border-radius:3mm;padding:2mm 3mm 2.5mm;box-shadow:0 1px 3px #0001;border-top:2.5mm solid var(--forest)}
+.facts .n{font-family:Georgia,serif;color:var(--warm);font-size:14pt;font-weight:700}
+.facts .c b{display:block;font-size:10.8pt;line-height:1.45;margin-top:.5mm}
+.facts .c p{font-size:10pt;line-height:1.55;color:var(--muted);margin-top:1.5mm}
+.facts .src{font-size:8pt;color:var(--muted);margin-top:2mm;text-align:right}
+
+.neutral{margin:4mm 12mm 3mm;background:var(--cream);border-radius:3mm;padding:4mm 5mm;display:flex;gap:4mm;align-items:center}
+.neutral .badge{flex:0 0 auto;background:var(--forest);color:#fff;font-weight:900;font-size:10.5pt;line-height:1.35;padding:2.5mm 3mm;border-radius:2mm;text-align:center}
+.neutral p{font-size:12pt;line-height:1.6;font-weight:700}
+.neutral p em{color:var(--warm)}
+
+.cta{background:var(--deep);color:#fff;padding:5mm 12mm 6mm;text-align:center;margin-top:auto}
+.cta .msg{font-size:13.5pt;font-weight:700;letter-spacing:.05em}
+.cta .msg em{color:var(--sun)}
+.tel{display:flex;align-items:center;justify-content:center;gap:4mm;margin-top:1.5mm}
+.tel .ico{width:15mm;height:15mm;border-radius:50%;background:var(--warm);display:flex;align-items:center;justify-content:center}
+.tel .num{font-family:Georgia,'Times New Roman',serif;font-size:44pt;letter-spacing:.03em;line-height:1}
+.cta .hours{font-size:11.5pt;margin-top:2mm;color:#e3eae2}
+.cta .co{font-size:8.5pt;color:#c9d5c9;margin-top:2.5mm;border-top:1px solid #ffffff30;padding-top:2mm}
+
+/* ===== 裏面 ===== */
+.check{margin:3mm 12mm 0}
+.check h2{font-family:'Noto Serif JP',serif;font-weight:900;font-size:19pt;text-align:center;letter-spacing:.04em;color:var(--forest)}
+.check h2 small{display:block;font-family:'Noto Sans JP';font-size:11pt;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.check .cols{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm}
+.check .col{background:#fff;border:2px solid var(--forest);border-radius:3mm;overflow:hidden}
+.check .col.t{border-color:var(--warm)}
+.check .col h3{background:var(--forest);color:#fff;font-size:13pt;text-align:center;padding:1.8mm 0;letter-spacing:.06em}
+.check .col.t h3{background:var(--warm)}
+.check ul{list-style:none;padding:2.2mm 3.5mm 2.5mm}
+.check li{font-size:11pt;font-weight:700;line-height:1.4;padding:.7mm 0 .7mm 6mm;position:relative}
+.check li:before{content:'';position:absolute;left:0;top:2.1mm;width:3.8mm;height:3.8mm;border:1.6px solid var(--muted);border-radius:.6mm;background:#fff}
+
+.cmp{margin:4mm 12mm 0}
+.cmp h3{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;text-align:center;letter-spacing:.04em}
+.cmp h3 em{color:var(--warm)}
+.cmp table{width:100%;border-collapse:collapse;margin-top:2mm;font-size:10.3pt;table-layout:fixed;background:#fff}
+.cmp th,.cmp td{border:1px solid var(--line);padding:1.2mm 2mm;line-height:1.4;vertical-align:middle}
+.cmp thead th{background:var(--cream);font-size:11pt}
+.cmp thead th.r{color:var(--forest)}.cmp thead th.t{color:var(--warm)}
+.cmp tbody th{background:#f7f6f1;text-align:left;font-size:10.5pt}
+.cmp .note{font-size:8.5pt;color:var(--muted);margin-top:1.2mm}
+
+.family{margin:3mm 12mm 0;border:2px dashed var(--plum);border-radius:3mm;padding:2mm 4mm;font-size:11pt;line-height:1.5;font-weight:700;text-align:center}
+.family em{color:var(--plum)}
+
+.staff{padding:3.5mm 12mm 0}
+.staff-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14.5pt;text-align:center;letter-spacing:.05em}
+.staff-h em{color:var(--warm)}
+.staff-row{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:2.5mm}
+.person{background:#fff;border-radius:3mm;padding:2.2mm;display:flex;gap:2.5mm;align-items:center;box-shadow:0 1px 3px #0002}
+.face{flex:0 0 17mm;height:17mm;border-radius:50%;background:#e4e6df 50% 30%/cover no-repeat;border:1.2mm solid var(--cream);display:flex;align-items:center;justify-content:center;font-size:8pt}
+.person b{display:block;font-size:8.6pt;color:var(--warm);line-height:1.3;white-space:nowrap}
+.person .nm{font-family:'Noto Serif JP',serif;font-weight:900;font-size:18pt;line-height:1.2;letter-spacing:.2em}
+.person .ds{font-size:8.6pt;line-height:1.45;color:var(--muted);margin-top:.5mm}
+
+.flow{margin:3.5mm 12mm 3mm}
+.flow h4{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14.5pt;text-align:center;letter-spacing:.05em}
+.flow h4 em{color:var(--warm)}
+.flow ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;margin-top:2.5mm;counter-reset:s}
+.flow li{background:#fff;border:1.5px solid var(--line);border-radius:2mm;padding:2.2mm 2mm;text-align:center;position:relative;counter-increment:s}
+.flow li:not(:last-child):after{content:'';position:absolute;right:-4.2mm;top:50%;margin-top:-2.2mm;border:2.2mm solid transparent;border-left:3mm solid var(--warm)}
+.flow li b{display:block;font-size:12pt;line-height:1.35}
+.flow li b:before{content:counter(s);display:inline-block;width:6.5mm;height:6.5mm;margin-right:1.5mm;border-radius:50%;background:var(--forest);color:#fff;font-family:Georgia,serif;font-size:10.5pt;line-height:6.5mm;vertical-align:1px}
+.flow li span{display:block;font-size:9.5pt;color:var(--muted);margin-top:.4mm;line-height:1.4}
+
+/* 相談会 */
+.head h1 small{display:block;font-size:24pt;color:var(--forest);letter-spacing:.12em;margin-top:1mm}
+.head .q{display:inline-block;font-family:'Zen Maru Gothic';font-size:17pt;color:var(--plum);border:2px solid var(--plum);border-radius:8mm;padding:1.2mm 6mm;background:#fff}
+.head .q small{font-family:'Noto Sans JP';font-size:12pt;color:var(--ink);font-weight:700}
+.event{margin:3.5mm 12mm 0;display:grid;grid-template-columns:auto 1fr;border:2px solid var(--forest);border-radius:3mm;overflow:hidden;background:#fff}
+.event .lb{background:var(--forest);color:#fff;font-weight:900;font-size:12pt;line-height:1.4;padding:3mm 4mm;display:flex;align-items:center;text-align:center}
+.event dl{display:grid;grid-template-columns:16mm 1fr;gap:1mm 2mm;padding:2.5mm 4mm;font-size:12pt;align-items:center}
+.event dt{font-weight:900;color:var(--warm)}
+.event dd{font-weight:700}
+.worries{margin:3.5mm 12mm 0}
+.worries h2{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;text-align:center;letter-spacing:.05em}
+.bubbles{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm 6mm;margin-top:3mm}
+.bub{position:relative;background:#fff;border:2px solid var(--line);border-radius:6mm;padding:3mm 4mm;font-family:'Zen Maru Gothic',sans-serif;font-size:14pt;line-height:1.4;text-align:center;display:flex;align-items:center;justify-content:center;min-height:19mm}
+.bub:after{content:'';position:absolute;bottom:-3.2mm;width:4.5mm;height:4.5mm;background:#fff;border-right:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg)}
+.bub:nth-child(odd):after{left:12mm}.bub:nth-child(even):after{right:12mm}
+.sol{margin:3mm 12mm 0}
+.sol h2{font-family:'Noto Serif JP',serif;font-weight:900;font-size:18pt;text-align:center;letter-spacing:.04em;color:var(--forest)}
+.sol h2 small{display:block;font-family:'Noto Sans JP';font-size:11pt;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.sol table{width:100%;border-collapse:collapse;margin-top:2.5mm;table-layout:fixed;background:#fff;font-size:10.5pt}
+.sol th,.sol td{border:1px solid var(--line);padding:1.3mm 2.5mm;line-height:1.4;vertical-align:middle}
+.sol thead th{font-size:12pt;color:#fff;letter-spacing:.06em}
+.sol thead th.r{background:var(--forest)}.sol thead th.t{background:var(--warm)}.sol thead th.k{background:var(--plum)}
+.sol tbody th{background:#f7f6f1;text-align:left;font-family:'Zen Maru Gothic';font-size:10.5pt;color:var(--plum);font-weight:700}
+.sol .note{font-size:8.5pt;color:var(--muted);margin-top:1.2mm}
+.years{margin:3mm 12mm 0;display:grid;grid-template-columns:auto 1fr;gap:3mm;align-items:center;background:var(--cream);border-radius:3mm;padding:3mm 4mm}
+.years .q{font-family:'Zen Maru Gothic';font-size:13pt;color:var(--plum);line-height:1.35;text-align:center}
+.years p{font-size:11pt;line-height:1.6;font-weight:700}
+.years p em{color:var(--warm)}
+
+/* 判田台 */
+.hd{padding:5mm 12mm 0;text-align:center}
+.hd .pre{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;color:var(--muted);letter-spacing:.08em}
+.hd h1{font-family:'Noto Serif JP',serif;font-weight:900;font-size:40pt;line-height:1.25;letter-spacing:.06em;color:var(--forest);margin-top:1mm}
+.hd h1 em{color:var(--warm)}
+.hd .lead{font-size:12.5pt;line-height:1.65;margin-top:2.5mm;font-weight:700}
+.opts{margin:5mm 12mm 0;display:grid;grid-template-columns:repeat(3,1fr);gap:3.5mm}
+.opt{background:#fff;border-radius:3mm;box-shadow:0 1px 3px #0002;padding:3mm 3mm 3.5mm;text-align:center;border-top:3mm solid var(--forest)}
+.opt:nth-child(2){border-top-color:var(--warm)}.opt:nth-child(3){border-top-color:var(--plum)}
+.opt svg{width:100%;height:28mm;display:block}
+.opt b{display:block;font-family:'Noto Serif JP',serif;font-size:13.5pt;line-height:1.35;margin-top:1.5mm}
+.opt p{font-size:10pt;line-height:1.5;color:var(--muted);margin-top:1mm}
+.stay{margin:5mm 12mm 0;display:grid;grid-template-columns:62mm 1fr;gap:5mm;align-items:center}
+.stay figure{height:44mm;border-radius:3mm;background:url('../reform-usuki/img/rouka.jpg') 50% 60%/cover}
+.stay h3{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;line-height:1.5;color:var(--forest)}
+.stay p{font-size:11.5pt;line-height:1.7;margin-top:1.5mm}
+.ways{margin:3mm 12mm 0}
+.ways h2{font-family:'Noto Serif JP',serif;font-weight:900;font-size:19pt;text-align:center;letter-spacing:.04em;color:var(--forest)}
+.ways h2 small{display:block;font-family:'Noto Sans JP';font-size:11pt;font-weight:700;color:var(--muted)}
+.ways .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5mm;margin-top:3mm}
+.way{background:#fff;border:2px solid var(--forest);border-radius:3mm;overflow:hidden}
+.way:nth-child(2){border-color:var(--warm)}.way:nth-child(3){border-color:var(--plum)}
+.way h3{background:var(--forest);color:#fff;text-align:center;font-size:12.5pt;padding:1.8mm 0;letter-spacing:.04em}
+.way:nth-child(2) h3{background:var(--warm)}.way:nth-child(3) h3{background:var(--plum)}
+.way ul{list-style:none;padding:2mm 2.5mm 1.2mm}
+.way li{font-size:10.5pt;line-height:1.4;padding:.5mm 0 .5mm 4mm;position:relative;font-weight:700}
+.way li:before{content:'';position:absolute;left:0;top:2.4mm;width:2mm;height:2mm;border-radius:50%;background:var(--sun)}
+.way .fit{margin:0 3mm 3mm;background:var(--cream);border-radius:2mm;padding:1.8mm 2.5mm;font-size:9.8pt;line-height:1.5}
+.way .fit b{color:var(--warm)}
+.cmp2{margin:4mm 12mm 0}
+.cmp2 table{width:100%;border-collapse:collapse;table-layout:fixed;background:#fff;font-size:10.5pt}
+.cmp2 th,.cmp2 td{border:1px solid var(--line);padding:1.2mm 2mm;line-height:1.4;text-align:center}
+.cmp2 thead th{background:var(--cream);font-size:11pt}
+.cmp2 tbody th{background:#f7f6f1;text-align:left}
+.cmp2 .note{font-size:8.5pt;color:var(--muted);margin-top:1.2mm}
+.memory{margin:4mm 12mm 0;border:2px dashed var(--plum);border-radius:3mm;padding:2.5mm 5mm;text-align:center;font-size:11.5pt;line-height:1.6;font-weight:700}
+.memory em{color:var(--plum)}
+</style></head>
+<body>
+
+<!-- ================= 表面 ================= -->
+<section class="page">
+  <div class="top">
+    <span class="to">判田台にお住まいの皆さまへ</span>
+    <div class="brand">樹の家こころ舎<small>新築もリフォームもする工務店</small></div>
+  </div>
+
+  <div class="hd">
+    <p class="pre">子育てを終えた、判田台の家。</p>
+    <h1>この家で、<br><em>これからも</em>。</h1>
+    <p class="lead">住み慣れた家を、これからのご夫婦の暮らしに合わせて。<br>住みやすくするリフォームも、二階建てを平屋にする工事も。</p>
+  </div>
+
+  <div class="worries">
+    <h2>こんなこと、ありませんか？</h2>
+    <div class="bubbles">
+      <div class="bub">子ども部屋だった2階が、<br>物置になっている</div>
+      <div class="bub">階段の上り下りが、<br>この先ちょっと不安</div>
+      <div class="bub">二人には広すぎて、<br>掃除も冷暖房も大変</div>
+      <div class="bub">でも、この家を<br>離れるつもりはない</div>
+    </div>
+  </div>
+
+  <div class="opts">
+    <div class="opt"><svg viewBox="0 0 120 80"><g fill="none" stroke="#3a5144" stroke-width="2.5" stroke-linejoin="round"><path d="M30 38 L60 16 L90 38"/><rect x="34" y="38" width="52" height="36"/><line x1="34" y1="56" x2="86" y2="56"/></g><rect x="35.3" y="57.3" width="49.4" height="15.4" fill="#f3d27a" opacity=".7"/><text x="60" y="69" font-size="9" text-anchor="middle" fill="#25312c" font-weight="700">1階で暮らす</text><text x="60" y="50" font-size="8" text-anchor="middle" fill="#5a645c">2階はそのまま</text></svg><b>1階で暮らせる<br>リフォーム</b><p>寝室を1階に。<br>2階はそのまま残します</p></div>
+    <div class="opt"><svg viewBox="0 0 120 80"><g fill="none" stroke="#c8643b" stroke-width="2.5" stroke-linejoin="round"><path d="M14 36 L30 24 L46 36" stroke-dasharray="3 3" opacity=".6"/><rect x="17" y="36" width="26" height="16" stroke-dasharray="3 3" opacity=".6"/><rect x="17" y="52" width="26" height="22"/><path d="M58 52 L70 52" /><path d="M66 48 L71 52 L66 56"/><path d="M76 52 L95 40 L114 52"/><rect x="79" y="52" width="32" height="22"/></g><text x="30" y="47" font-size="7" text-anchor="middle" fill="#c8643b">2階</text><text x="95" y="67" font-size="8" text-anchor="middle" fill="#25312c" font-weight="700">平屋に</text></svg><b>2階を取って<br>平屋にする</b><p>今の家の1階を生かして<br>平屋に（減築）</p></div>
+    <div class="opt"><svg viewBox="0 0 120 80"><g fill="none" stroke="#8a5a2b" stroke-width="2.5" stroke-linejoin="round"><path d="M16 46 L60 24 L104 46"/><rect x="22" y="46" width="76" height="28"/><rect x="34" y="54" width="14" height="20"/><rect x="60" y="54" width="26" height="11"/></g><text x="60" y="20" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="700">新しい平屋</text></svg><b>平屋に<br>建て替える</b><p>土地はそのまま、<br>新しい平屋を建てます</p></div>
+  </div>
+
+  <div class="neutral">
+    <div class="badge">新築も<br>リフォームも</div>
+    <p>どちらもする工務店だから、<em>3つの方法を並べて</em>ご提案できます。<br>家の状態と、これからの暮らし方に合う方法を一緒に選びましょう。</p>
+  </div>
+
+  <div class="cta">
+    <p class="msg">「この家で、これからも」のご相談は、<em>お電話一本で</em>。</p>
+    <div class="tel">
+      <span class="ico"><svg width="9mm" height="9mm" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span>
+      <span class="num">0972-83-5918</span>
+    </div>
+    <p class="hours">受付時間 <span class="ph">【要確認】9:00〜18:00（○曜定休）</span>　「判田台のチラシを見た」とお伝えください</p>
+    <p class="co">設計事務所がつくった工務店　株式会社 樹の家こころ舎　<span class="ph">【要確認】住所・建設業許可番号</span></p>
+  </div>
+</section>
+
+<!-- ================= 裏面 ================= -->
+<section class="page">
+  <div class="top">
+    <span class="to">判田台にお住まいの皆さまへ</span>
+    <div class="brand">樹の家こころ舎<small>新築もリフォームもする工務店</small></div>
+  </div>
+
+  <div class="ways">
+    <h2><small>ご夫婦の暮らしに合わせた</small>1階で、暮らしが完結する家へ</h2>
+    <div class="cols">
+      <div class="way"><h3>1階で暮らせるリフォーム</h3>
+        <ul><li>1階の和室を寝室に</li><li>水まわりを寝室の近くに</li><li>段差をなくし、手すりを</li><li>1階の窓と床を断熱</li></ul>
+        <p class="fit"><b>こんな方に：</b>2階は子や孫の部屋に残したい</p></div>
+      <div class="way"><h3>2階を取って平屋に</h3>
+        <ul><li>2階を取り、屋根をかけ直す</li><li>家が軽くなり、補強しやすい</li><li>冷暖房と掃除がラクに</li><li>1階の柱や間取りを生かす</li></ul>
+        <p class="fit"><b>こんな方に：</b>2階は使わない。面影は残したい</p></div>
+      <div class="way"><h3>平屋に建て替え</h3>
+        <ul><li>土地の広さを生かした平屋</li><li>今の基準の耐震・断熱で</li><li>動きやすい間取りを一から</li><li>庭や駐車場も考え直せる</li></ul>
+        <p class="fit"><b>こんな方に：</b>傷みが大きい。長く住みたい</p></div>
+    </div>
+  </div>
+
+  <div class="cmp2">
+    <table>
+      <colgroup><col style="width:34mm"><col><col><col></colgroup>
+      <thead><tr><th></th><th>1階で暮らせる<br>リフォーム</th><th>2階を取って<br>平屋に</th><th>平屋に<br>建て替え</th></tr></thead>
+      <tbody>
+        <tr><th>工事の大きさ</th><td>小〜中</td><td>中〜大</td><td>大</td></tr>
+        <tr><th>住みながら工事</th><td>できることが多い</td><td>仮住まいの場合あり</td><td>仮住まいが必要</td></tr>
+        <tr><th>今の家の面影</th><td>そのまま</td><td>1階を中心に残る</td><td>新しい家に</td></tr>
+        <tr><th>2階</th><td>そのまま残る</td><td>なくなる</td><td>なし</td></tr>
+      </tbody>
+    </table>
+    <p class="note">※家の状態によって、向いている方法は変わります。ご自宅を拝見してからご提案します。</p>
+  </div>
+
+  <div class="memory">床の間の柱、子どもの背比べの跡。<em>残したいものがあれば、教えてください。</em></div>
+
+  <div class="staff">
+    <p class="staff-h">ご自宅に伺うのは、<em>この3人</em>です。</p>
+    <div class="staff-row">
+      <div class="person"><figure class="face" style="background-image:url('../reform-usuki/img/staff-kudo.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>耐震診断士・設計士</b><p class="nm">工藤</p><p class="ds">家を診て、<br>3つの方法を描きます</p></div></div>
+      <div class="person"><figure class="face" style="background-image:url('../reform-usuki/img/staff-narita.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>施工管理技士</b><p class="nm">成田</p><p class="ds">工事の段取りと<br>仕上がりを守ります</p></div></div>
+      <div class="person"><figure class="face" style="background-image:url('../reform-usuki/img/staff-himeno.jpg')"><span class="ph">顔写真</span></figure>
+        <div><b>大工・職人</b><p class="nm">姫野</p><p class="ds">残したい柱も、<br>この手で生かします</p></div></div>
+    </div>
+  </div>
+
+  <div class="flow">
+    <h4>お打ち合わせは、<em>すべてご自宅で</em>。</h4>
+    <ol>
+      <li><b>お電話</b><span>暮らしの困りごとを<br>お聞かせください</span></li>
+      <li><b>家を診る</b><span>傷み・耐震・<br>間取りを拝見します</span></li>
+      <li><b>3つをご提案</b><span>合う方法を<br>並べてご説明</span></li>
+      <li><b>工事</b><span>ご納得いただけたら<br>着工します</span></li>
+    </ol>
+  </div>
+
+  <div class="cta">
+    <p class="msg">住み慣れた判田台の家で、<em>これからも心地よく</em>。</p>
+    <div class="tel">
+      <span class="ico"><svg width="9mm" height="9mm" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span>
+      <span class="num">0972-83-5918</span>
+    </div>
+    <p class="hours">受付時間 <span class="ph">【要確認】9:00〜18:00（○曜定休）</span>　「判田台のチラシを見た」とお伝えください</p>
+    <p class="co">設計事務所がつくった工務店　株式会社 樹の家こころ舎　<span class="ph">【要確認】住所・建設業許可番号</span></p>
+  </div>
+</section>
+</body></html>
