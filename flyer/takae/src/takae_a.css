@@ -1,0 +1,58 @@
+
+/* ===== パターンA：住み替えか、この家か（同じ熱量） ===== */
+:root{--move:#55628c}
+.hd h1 .m{color:var(--move)}.hd h1 .s{color:var(--leaf)}
+.hd h1{font-size:32pt}
+.duo{margin:4.5mm 12mm 0;display:grid;grid-template-columns:1fr 12mm 1fr;align-items:stretch}
+.opt{background:#fff;border-radius:3mm;border:2.5px solid var(--move);box-shadow:0 1px 4px #0002;text-align:center;padding:0 0 3.5mm;overflow:hidden}
+.opt.st{border-color:var(--leaf)}
+.opt .k{background:var(--move);color:#fff;font-family:'Noto Serif JP',serif;font-weight:900;font-size:16pt;letter-spacing:.06em;padding:2mm 0}
+.opt.st .k{background:var(--leaf)}
+.opt svg{display:block;width:34mm;height:22mm;margin:3mm auto 0}
+.opt .big{font-family:'Noto Serif JP',serif;font-weight:900;font-size:16pt;margin-top:2mm;color:var(--move);line-height:1.3}
+.opt.st .big{color:var(--leaf)}
+.free{display:inline-block;font-family:'Noto Sans JP';font-size:11pt;font-weight:900;color:#fff;background:var(--warm);border-radius:1.5mm;padding:.2mm 2mm;margin-right:1.5mm;vertical-align:3px}
+.opt ul{list-style:none;text-align:left;margin:2.5mm 5mm 0}
+.opt li{font-size:11.5pt;font-weight:700;line-height:1.45;padding:.8mm 0 .8mm 5.5mm;position:relative;border-bottom:1px dashed var(--line)}
+.opt li:last-child{border-bottom:0}
+.opt li:before{content:'';position:absolute;left:.5mm;top:2.6mm;width:2.6mm;height:1.4mm;border-left:2.2px solid var(--move);border-bottom:2.2px solid var(--move);transform:rotate(-45deg)}
+.opt.st li:before{border-color:var(--leaf)}
+.vs{display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-weight:900;font-size:12pt;color:var(--muted);letter-spacing:.2em}
+.both{margin:4mm 12mm 3mm;background:var(--cream);border-radius:3mm;padding:3mm 5mm;text-align:center}
+.both p{font-size:11.5pt;font-weight:700;line-height:1.6}
+.both b{display:block;font-family:'Noto Serif JP',serif;font-size:15pt;color:var(--forest)}
+.both em{color:var(--warm)}
+
+.pair{margin-top:4mm}
+.pp{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:2.5mm}
+.pc{background:#fff;border-radius:3mm;border:2px solid var(--move);overflow:hidden}
+.pc.st{border-color:var(--leaf)}
+.pc .k{background:var(--move);color:#fff;font-size:10.5pt;font-weight:700;padding:1.5mm 3.5mm;display:flex;align-items:center;justify-content:space-between}
+.pc.st .k{background:var(--leaf)}
+.pc .k b{font-family:'Noto Serif JP',serif;font-size:14pt;font-weight:900}
+.pc .k .free{font-size:9.5pt;vertical-align:2px}
+.pc .in{padding:2.5mm 3.5mm 3mm;display:grid;grid-template-columns:22mm 1fr;gap:3mm;align-items:center}
+.pc .in svg{width:22mm;height:26mm}
+.pc .in.pl{grid-template-columns:1fr;gap:1.5mm}
+.pc .in.pl svg{width:100%;height:30mm}
+.pc ul{list-style:none}
+.pc li{font-size:10.8pt;font-weight:700;line-height:1.45;padding:.6mm 0 .6mm 4mm;position:relative}
+.pc li:before{content:'';position:absolute;left:0;top:2.3mm;width:2mm;height:2mm;border-radius:50%;background:var(--move)}
+.pc.st li:before{background:var(--leaf)}
+.pair .note{font-size:8.5pt;color:var(--muted);margin-top:1mm;text-align:right}
+.cmp .note{display:none}
+
+.opt svg{width:40mm!important;height:27mm!important;margin-top:4mm!important}
+.opt .big{font-size:17pt!important;margin-top:3mm!important}
+.duo{margin-top:5mm!important}
+.both{margin-top:5mm!important}
+.pair{margin-top:3.5mm!important}
+.page:first-of-type .hd{padding-top:5mm!important}
+.page:first-of-type .hd .lead{margin-top:3.5mm}
+.duo{margin-top:7mm!important}
+.both{margin:6mm 12mm 4mm!important}
+.page:first-of-type .kijun{margin-bottom:5mm}
+.opt li{font-size:12.5pt!important;padding:1.4mm 0 1.4mm 6mm!important}
+.opt li:before{top:3.3mm!important}
+.opt .k{font-size:17pt!important;padding:2.5mm 0!important}
+.both p{font-size:12pt!important}.both b{font-size:16pt!important}

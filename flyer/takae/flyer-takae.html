@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>高江ニュータウン ふたりの暮らし｜樹の家こころ舎</title>
+<title>高江ニュータウン 住み替えか、この家か｜樹の家こころ舎</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
@@ -118,6 +118,64 @@ em{font-style:normal}
 .idea b{margin-top:1.5mm!important}
 .cmp th,.cmp td{padding:1mm 2.5mm!important}
 .garden{margin-bottom:3mm!important}.hd{padding-top:3mm!important}
+
+/* ===== パターンA：住み替えか、この家か（同じ熱量） ===== */
+:root{--move:#55628c}
+.hd h1 .m{color:var(--move)}.hd h1 .s{color:var(--leaf)}
+.hd h1{font-size:32pt}
+.duo{margin:4.5mm 12mm 0;display:grid;grid-template-columns:1fr 12mm 1fr;align-items:stretch}
+.opt{background:#fff;border-radius:3mm;border:2.5px solid var(--move);box-shadow:0 1px 4px #0002;text-align:center;padding:0 0 3.5mm;overflow:hidden}
+.opt.st{border-color:var(--leaf)}
+.opt .k{background:var(--move);color:#fff;font-family:'Noto Serif JP',serif;font-weight:900;font-size:16pt;letter-spacing:.06em;padding:2mm 0}
+.opt.st .k{background:var(--leaf)}
+.opt svg{display:block;width:34mm;height:22mm;margin:3mm auto 0}
+.opt .big{font-family:'Noto Serif JP',serif;font-weight:900;font-size:16pt;margin-top:2mm;color:var(--move);line-height:1.3}
+.opt.st .big{color:var(--leaf)}
+.free{display:inline-block;font-family:'Noto Sans JP';font-size:11pt;font-weight:900;color:#fff;background:var(--warm);border-radius:1.5mm;padding:.2mm 2mm;margin-right:1.5mm;vertical-align:3px}
+.opt ul{list-style:none;text-align:left;margin:2.5mm 5mm 0}
+.opt li{font-size:11.5pt;font-weight:700;line-height:1.45;padding:.8mm 0 .8mm 5.5mm;position:relative;border-bottom:1px dashed var(--line)}
+.opt li:last-child{border-bottom:0}
+.opt li:before{content:'';position:absolute;left:.5mm;top:2.6mm;width:2.6mm;height:1.4mm;border-left:2.2px solid var(--move);border-bottom:2.2px solid var(--move);transform:rotate(-45deg)}
+.opt.st li:before{border-color:var(--leaf)}
+.vs{display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-weight:900;font-size:12pt;color:var(--muted);letter-spacing:.2em}
+.both{margin:4mm 12mm 3mm;background:var(--cream);border-radius:3mm;padding:3mm 5mm;text-align:center}
+.both p{font-size:11.5pt;font-weight:700;line-height:1.6}
+.both b{display:block;font-family:'Noto Serif JP',serif;font-size:15pt;color:var(--forest)}
+.both em{color:var(--warm)}
+
+.pair{margin-top:4mm}
+.pp{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:2.5mm}
+.pc{background:#fff;border-radius:3mm;border:2px solid var(--move);overflow:hidden}
+.pc.st{border-color:var(--leaf)}
+.pc .k{background:var(--move);color:#fff;font-size:10.5pt;font-weight:700;padding:1.5mm 3.5mm;display:flex;align-items:center;justify-content:space-between}
+.pc.st .k{background:var(--leaf)}
+.pc .k b{font-family:'Noto Serif JP',serif;font-size:14pt;font-weight:900}
+.pc .k .free{font-size:9.5pt;vertical-align:2px}
+.pc .in{padding:2.5mm 3.5mm 3mm;display:grid;grid-template-columns:22mm 1fr;gap:3mm;align-items:center}
+.pc .in svg{width:22mm;height:26mm}
+.pc .in.pl{grid-template-columns:1fr;gap:1.5mm}
+.pc .in.pl svg{width:100%;height:30mm}
+.pc ul{list-style:none}
+.pc li{font-size:10.8pt;font-weight:700;line-height:1.45;padding:.6mm 0 .6mm 4mm;position:relative}
+.pc li:before{content:'';position:absolute;left:0;top:2.3mm;width:2mm;height:2mm;border-radius:50%;background:var(--move)}
+.pc.st li:before{background:var(--leaf)}
+.pair .note{font-size:8.5pt;color:var(--muted);margin-top:1mm;text-align:right}
+.cmp .note{display:none}
+
+.opt svg{width:40mm!important;height:27mm!important;margin-top:4mm!important}
+.opt .big{font-size:17pt!important;margin-top:3mm!important}
+.duo{margin-top:5mm!important}
+.both{margin-top:5mm!important}
+.pair{margin-top:3.5mm!important}
+.page:first-of-type .hd{padding-top:5mm!important}
+.page:first-of-type .hd .lead{margin-top:3.5mm}
+.duo{margin-top:7mm!important}
+.both{margin:6mm 12mm 4mm!important}
+.page:first-of-type .kijun{margin-bottom:5mm}
+.opt li{font-size:12.5pt!important;padding:1.4mm 0 1.4mm 6mm!important}
+.opt li:before{top:3.3mm!important}
+.opt .k{font-size:17pt!important;padding:2.5mm 0!important}
+.both p{font-size:12pt!important}.both b{font-size:16pt!important}
 </style></head>
 <body>
 
@@ -130,41 +188,37 @@ em{font-style:normal}
 
   <div class="hd">
     <p class="pre">子どもたちが巣立った、高江ニュータウンの家。</p>
-    <h1><span class="m">住み替える</span>か、<br>この家を<em>ふたりの家</em>にするか。</h1>
-    <p class="lead">駅に近いマンションへの住み替えも、ひとつの選択です。<br>決める前に、<em>この家に住み続けたら、どんな暮らしができるか</em>を<br>知っておきませんか。</p>
+    <h1><span class="m">住み替える</span>か、<br><span class="s">この家で暮らす</span>か。</h1>
+    <p class="lead">どちらも、これからのふたりにとって良い選択です。<br>樹の家こころ舎は、<em>どちらを選んでも、決めるための材料</em>をおつくりします。</p>
   </div>
 
-  <div class="two">
-    <div class="a"><b>住み替える</b><span>駅や街に近い、<br>コンパクトな暮らし</span><i>この家の<strong>査定書</strong>をおつくりします</i></div>
-    <div class="or">それとも</div>
-    <div class="b"><b>この家で暮らす</b><span>広さと庭を生かした、<br>ふたりの暮らし</span><i>リフォームの<strong>ご提案</strong>をおつくりします</i></div>
-  </div>
-
-  <div class="sec">
-    <h2><small>この家で暮らすなら</small>ふたりが、<em>それぞれの時間</em>を楽しめる家に</h2>
-    <div class="ideas">
-      <div class="idea"><svg viewBox="0 0 60 40" fill="none" stroke="#3a5144" stroke-width="1.8"><rect x="4" y="6" width="24" height="28" rx="1"/><rect x="32" y="6" width="24" height="28" rx="1"/><path d="M9 28h14M12 28v-6h8v6" stroke="#c8643b"/><circle cx="44" cy="20" r="4" stroke="#c8643b"/><path d="M38 31c2-4 10-4 12 0" stroke="#c8643b"/><text x="16" y="15" font-size="6" fill="#3a5144" stroke="none" text-anchor="middle" font-family="Noto Sans JP" font-weight="700">書斎</text><text x="44" y="13" font-size="6" fill="#3a5144" stroke="none" text-anchor="middle" font-family="Noto Sans JP" font-weight="700">趣味</text></svg><b>それぞれの部屋</b><p>使わなくなった子ども部屋を、書斎や趣味の部屋に。</p></div>
-      <div class="idea"><svg viewBox="0 0 60 40" fill="none" stroke="#c8643b" stroke-width="1.8"><rect x="4" y="6" width="52" height="28" rx="1"/><path d="M30 6v28" stroke-dasharray="2 2"/><rect x="9" y="17" width="16" height="11" rx="1.5"/><rect x="35" y="17" width="16" height="11" rx="1.5"/><path d="M9 20.5h5M35 20.5h5"/></svg><b>寝室は<br>近くて別々に</b><p>寝る時間やいびきが気にならない、隣り合う寝室に。</p></div>
-      <div class="idea"><svg viewBox="0 0 60 40" fill="none" stroke="#5d7d45" stroke-width="1.8"><path d="M4 18 18 8l14 10"/><path d="M7 16v18h22V16"/><path d="M29 29h17" stroke="#8a6a45" stroke-width="2.6"/><path d="M31 29v5M44 29v5" stroke="#8a6a45"/><path d="M51 34V23"/><circle cx="51" cy="18" r="5"/><path d="M57 34v-6"/><circle cx="57" cy="25" r="2.6"/></svg><b>庭とつながる<br>リビング</b><p>ウッドデッキで、庭がもうひとつの居間に。</p></div>
+  <div class="duo">
+    <div class="opt mv">
+      <p class="k">住み替えるなら</p>
+      <svg viewBox="0 0 60 40" fill="none" stroke="#55628c" stroke-width="1.8" stroke-linejoin="round"><rect x="18" y="4" width="24" height="32" rx="1"/><path d="M23 10h4M33 10h4M23 16h4M33 16h4M23 22h4M33 22h4"/><path d="M27 36v-7h6v7"/><path d="M4 36h52"/><path d="M48 36v-9M44 27h8" stroke-width="1.4"/><text x="9" y="30" font-size="5.5" fill="#55628c" stroke="none" text-anchor="middle" font-family="Noto Sans JP" font-weight="900">駅</text><rect x="4" y="24" width="10" height="9" rx="1.5" stroke-width="1.2"/></svg>
+      <p class="big"><span class="free">無料</span>この家の査定書</p>
+      <ul><li>この家の、今の価値がわかる</li><li>住み替え先の予算が立てやすい</li><li>売るか住むか、数字で比べられる</li><li>急がず、比べてから決められる</li></ul>
+    </div>
+    <div class="vs">それとも</div>
+    <div class="opt st">
+      <p class="k">この家で暮らすなら</p>
+      <svg viewBox="0 0 60 40" fill="none" stroke="#5d7d45" stroke-width="1.8" stroke-linejoin="round"><path d="M6 19 21 8l15 11"/><path d="M9 17v19h24V17"/><path d="M18 36v-8h6v8"/><path d="M33 31h14" stroke="#8a6a45" stroke-width="2.6"/><path d="M35 31v5M45 31v5" stroke="#8a6a45"/><path d="M52 36V25"/><circle cx="52" cy="20" r="5"/><path d="M4 36h54"/></svg>
+      <p class="big">ふたりのリフォーム提案</p>
+      <ul><li>子ども部屋を、それぞれの部屋に</li><li>寝室は、近くて別々に</li><li>庭とつながるリビングに</li><li>間取りと費用を、具体的に</li></ul>
     </div>
   </div>
 
-  <div class="garden">
-    <p class="t">庭、どう<br>使いますか？</p>
-    <ul>
-      <li><i>育てる</i>家庭菜園を<br>楽しむ庭に</li>
-      <li><i>くつろぐ</i>デッキで<br>お茶や外ごはん</li>
-      <li><i>楽にする</i>手入れの<br>楽な庭に</li>
-    </ul>
+  <div class="both">
+    <p><b>まだ決めなくて、大丈夫です。</b>査定書とリフォームの提案、<em>両方をそろえて</em>、ご夫婦でゆっくり比べてください。</p>
   </div>
 
   <div class="kijun">
-    <div class="t">わが家は<br>何年の基準？</div>
-    <p>新耐震（1981年〜）の家でも、<em>2000年より前に建てた木造住宅</em>は、2000年に強化された接合金物や壁の配置を、リフォームの機会に一度確かめておくと安心です。</p>
+    <div class="t">売るときも<br>住むときも</div>
+    <p>まずは家の状態を知ることから。新耐震（1981年〜）の家でも、<em>2000年より前に建てた木造住宅</em>は、2000年に強化された接合金物や壁の配置を一度確かめておくと安心です。</p>
   </div>
 
   <div class="cta">
-    <p class="msg">住み替えか、この家か。<em>迷っている今こそ</em>、ご相談ください。</p>
+    <p class="msg">住み替えも、この家も。<em>どちらのご相談も</em>、お電話一本で。</p>
     <div class="tel">
       <span class="ico"><svg width="9mm" height="9mm" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span>
       <span class="num">0120-32-5566</span>
@@ -188,21 +242,25 @@ em{font-style:normal}
       <thead><tr><th class="x">比べること</th><th class="a">駅近くのマンションへ住み替え</th><th class="b">この家をリフォーム</th></tr></thead>
       <tbody>
         <tr><th>暮らしの便利さ</th><td>駅・買い物・病院が近い</td><td>車が中心。静かで落ち着いた環境</td></tr>
-        <tr><th>広さと庭</th><td>コンパクト。庭はない</td><td>今の広さと庭を、そのまま生かせる</td></tr>
+        <tr><th>広さと庭</th><td>コンパクトで、掃除や管理が楽</td><td>今の広さと庭を、そのまま生かせる</td></tr>
         <tr><th>費用</th><td>購入費・引越し代、管理費・修繕積立金</td><td>工事費。範囲はご予算に合わせて</td></tr>
-        <tr><th>荷物と思い出</th><td>広さに合わせて、大きく整理</td><td>必要な分だけ整理すればよい</td></tr>
-        <tr><th>ご近所</th><td>新しいつながりから</td><td>今のつながりのまま</td></tr>
+        <tr><th>荷物と思い出</th><td>広さに合わせて整理し、身軽に</td><td>必要な分だけ整理すればよい</td></tr>
+        <tr><th>ご近所</th><td>新しい街で、新しいつながりを</td><td>今のつながりのまま</td></tr>
       </tbody>
     </table>
-    <p class="note">住み替えなら<em>この家の査定書</em>を、この家で暮らすなら<em>工事の中身と費用</em>を。<br>両方を並べて、ご夫婦でゆっくり比べてください。</p>
   </div>
 
-  <div class="sec plan">
-    <h2><small>たとえば、こんなリフォーム</small>ふたり暮らしの間取りに</h2>
-    <div class="pv">
-      <figure><figcaption>いま</figcaption><svg viewBox="0 0 162 92"><text x="1" y="16" font-size="6" fill="#5a645c" font-family="Noto Sans JP" font-weight="700">2階</text><rect x="12.0" y="2" width="46.92" height="24" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="35.46" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">子ども部屋</text><rect x="58.92" y="2" width="46.92" height="24" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="82.38" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">子ども部屋</text><rect x="105.84" y="2" width="52.44" height="24" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="132.06" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">主寝室</text><text x="1" y="52" font-size="6" fill="#5a645c" font-family="Noto Sans JP" font-weight="700">1階</text><rect x="12.0" y="36" width="41.4" height="28" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="32.7" y="52.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">和室</text><rect x="53.4" y="36" width="69.0" height="28" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="87.9" y="52.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">LDK</text><rect x="122.4" y="36" width="35.88" height="28" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="140.34" y="52.4" font-size="6.2" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">水まわり</text><rect x="12.0" y="70" width="146.28" height="18" fill="#eef2e8" stroke="#5d7d45" stroke-width=".8" stroke-dasharray="2 1.5"/><text x="85.14" y="81.2" font-size="6.5" text-anchor="middle" fill="#5d7d45" font-family="Noto Sans JP" font-weight="700">庭（あまり使っていない）</text></svg></figure>
-      <div class="ar">▶</div>
-      <figure class="af"><figcaption>リフォーム後</figcaption><svg viewBox="0 0 162 92"><text x="1" y="16" font-size="6" fill="#5a645c" font-family="Noto Sans JP" font-weight="700">2階</text><rect x="12.0" y="2" width="46.92" height="24" fill="#fbeee6" stroke="#c8643b" stroke-width=".8"/><text x="35.46" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">夫の書斎</text><rect x="58.92" y="2" width="46.92" height="24" fill="#fbeee6" stroke="#c8643b" stroke-width=".8"/><text x="82.38" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">妻の趣味室</text><rect x="105.84" y="2" width="52.44" height="24" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="132.06" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">寝室</text><path d="M132.06 3v14" stroke="#c8643b" stroke-width=".9" stroke-dasharray="1.5 1.2"/><text x="132.06" y="24" font-size="5" text-anchor="middle" fill="#c8643b" font-family="Noto Sans JP" font-weight="700">仕切れる</text><text x="1" y="52" font-size="6" fill="#5a645c" font-family="Noto Sans JP" font-weight="700">1階</text><rect x="12.0" y="36" width="110.4" height="28" fill="#fbeee6" stroke="#c8643b" stroke-width=".8"/><text x="67.2" y="52.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">庭を眺める広いLDK</text><rect x="122.4" y="36" width="35.88" height="28" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="140.34" y="52.4" font-size="6.2" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">水まわり</text><rect x="12.0" y="64" width="110.4" height="7" fill="#d9c2a3" stroke="#8a6a45" stroke-width=".8"/><text x="67.2" y="69.7" font-size="5.2" text-anchor="middle" fill="#5a3d1f" font-family="Noto Sans JP" font-weight="700">ウッドデッキ</text><rect x="12.0" y="73" width="146.28" height="15" fill="#eef2e8" stroke="#5d7d45" stroke-width=".8"/><text x="85.14" y="82.7" font-size="6.5" text-anchor="middle" fill="#5d7d45" font-family="Noto Sans JP" font-weight="700">家庭菜園・お茶ができる庭</text></svg></figure>
+  <div class="sec pair">
+    <h2><small>どちらを選んでも</small>樹の家こころ舎が、<em>ここまで</em>おつくりします</h2>
+    <div class="pp">
+      <div class="pc mv">
+        <p class="k">住み替えるなら<b><span class="free">無料</span>査定書</b></p>
+        <div class="in"><svg viewBox="0 0 40 48" fill="none" stroke="#55628c" stroke-width="1.6"><path d="M6 3h20l8 8v34H6z" fill="#fff"/><path d="M26 3v8h8"/><text x="20" y="18" font-size="6.5" fill="#55628c" stroke="none" text-anchor="middle" font-family="Noto Sans JP" font-weight="900">査定書</text><path d="M11 25h18M11 31h18M11 37h12" stroke-width="1.3"/></svg><ul><li>この家の査定価格と、その根拠</li><li>住み替え先を探すときの予算の目安に</li><li>ご自宅を見て、おつくりします</li><li>ご相談だけでも大丈夫です</li></ul></div>
+      </div>
+      <div class="pc st">
+        <p class="k">この家で暮らすなら<b>リフォームの提案</b></p>
+        <div class="in pl"><svg viewBox="0 0 162 92"><text x="1" y="16" font-size="6" fill="#5a645c" font-family="Noto Sans JP" font-weight="700">2階</text><rect x="12.0" y="2" width="46.92" height="24" fill="#fbeee6" stroke="#c8643b" stroke-width=".8"/><text x="35.46" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">夫の書斎</text><rect x="58.92" y="2" width="46.92" height="24" fill="#fbeee6" stroke="#c8643b" stroke-width=".8"/><text x="82.38" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">妻の趣味室</text><rect x="105.84" y="2" width="52.44" height="24" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="132.06" y="16.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">寝室</text><path d="M132.06 3v14" stroke="#c8643b" stroke-width=".9" stroke-dasharray="1.5 1.2"/><text x="132.06" y="24" font-size="5" text-anchor="middle" fill="#c8643b" font-family="Noto Sans JP" font-weight="700">仕切れる</text><text x="1" y="52" font-size="6" fill="#5a645c" font-family="Noto Sans JP" font-weight="700">1階</text><rect x="12.0" y="36" width="110.4" height="28" fill="#fbeee6" stroke="#c8643b" stroke-width=".8"/><text x="67.2" y="52.4" font-size="7" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">庭を眺める広いLDK</text><rect x="122.4" y="36" width="35.88" height="28" fill="#fff" stroke="#5a645c" stroke-width=".8"/><text x="140.34" y="52.4" font-size="6.2" text-anchor="middle" fill="#25312c" font-family="Noto Sans JP" font-weight="700">水まわり</text><rect x="12.0" y="64" width="110.4" height="7" fill="#d9c2a3" stroke="#8a6a45" stroke-width=".8"/><text x="67.2" y="69.7" font-size="5.2" text-anchor="middle" fill="#5a3d1f" font-family="Noto Sans JP" font-weight="700">ウッドデッキ</text><rect x="12.0" y="73" width="146.28" height="15" fill="#eef2e8" stroke="#5d7d45" stroke-width=".8"/><text x="85.14" y="82.7" font-size="6.5" text-anchor="middle" fill="#5d7d45" font-family="Noto Sans JP" font-weight="700">家庭菜園・お茶ができる庭</text></svg><ul><li>子ども部屋2つを、書斎と趣味室に</li><li>和室とLDKをつなげ、庭を眺める居間に</li></ul></div>
+      </div>
     </div>
     <p class="note">※間取りは一例です。お住まいに合わせてご提案します。</p>
   </div>
@@ -224,8 +282,8 @@ em{font-style:normal}
     <ol>
       <li><b>お電話</b><span>迷っていることを<br>お聞かせください</span></li>
       <li><b>ご自宅へ</b><span>家と庭を一緒に<br>見て回ります</span></li>
-      <li><b>ご提案</b><span>工事のご提案や<br>査定書をお渡しします</span></li>
-      <li><b>工事</b><span>ご納得いただけたら<br>着工します</span></li>
+      <li><b>お渡し</b><span>査定書や<br>リフォームの提案を</span></li>
+      <li><b>ご決断</b><span>ご夫婦で、ゆっくり<br>決めてください</span></li>
     </ol>
   </div>
 

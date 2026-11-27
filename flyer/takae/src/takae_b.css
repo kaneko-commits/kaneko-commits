@@ -1,0 +1,45 @@
+
+/* ===== パターンB：高江ニュータウンだからできる ===== */
+.hd h1{font-size:34pt;line-height:1.25}
+.hd h1 small{display:block;font-size:22pt;color:var(--forest);letter-spacing:.06em;margin-bottom:1mm}
+.hd h1 em{color:var(--warm)}
+.free{display:inline-block;font-family:'Noto Sans JP';font-size:10pt;font-weight:900;color:#fff;background:var(--warm);border-radius:1.5mm;padding:.2mm 2mm;margin-right:2mm;vertical-align:1px}
+
+.why{margin:4.5mm 12mm 0;display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.why>div{background:#eef2e8;border-radius:3mm;padding:3mm 3.5mm;display:flex;gap:3mm;align-items:center}
+.why>div:nth-child(2){background:#fbeee6}
+.why .n{flex:0 0 15mm;height:15mm;border-radius:50%;background:var(--leaf);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8.5pt;font-weight:900;line-height:1}
+.why>div:nth-child(2) .n{background:var(--warm)}
+.why .n b{font-family:Georgia,serif;font-size:18pt;line-height:1}
+.why p{font-size:10.5pt;line-height:1.5;font-weight:700}
+.why p b{display:block;font-family:'Noto Serif JP',serif;font-size:14pt;color:var(--leaf);line-height:1.3;margin-bottom:.5mm}
+.why>div:nth-child(2) p b{color:var(--warm)}
+.why p em{color:var(--warm)}
+
+.six .ideas{grid-template-columns:repeat(3,1fr);gap:3mm}
+.six .idea{border-top-width:2mm}
+.six .idea:nth-child(4){border-top-color:#8a6a45}.six .idea:nth-child(5){border-top-color:var(--forest)}.six .idea:nth-child(6){border-top-color:var(--warm)}
+.six .idea:nth-child(1){border-top-color:var(--leaf)}.six .idea:nth-child(2){border-top-color:var(--warm)}.six .idea:nth-child(3){border-top-color:var(--leaf)}
+.six .idea svg{width:26mm;height:17mm;margin-top:2.5mm}
+.six .idea b{font-size:13pt;margin-top:1.5mm}
+.six .idea p{font-size:10.3pt;padding:1mm 2mm 2.5mm}
+
+.day ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:3mm}
+.day li{background:#fff;border-radius:3mm;box-shadow:0 1px 3px #0002;padding:2.5mm 3mm 3mm;text-align:center;position:relative}
+.day li span{display:inline-block;font-weight:900;font-size:10pt;color:#fff;background:var(--leaf);border-radius:3mm;padding:.3mm 3mm}
+.day li:nth-child(3) span{background:var(--warm)}.day li:nth-child(4) span{background:var(--forest)}
+.day li b{display:block;font-family:'Noto Serif JP',serif;font-size:12.5pt;line-height:1.35;margin-top:1.5mm}
+.day li p{font-size:10pt;line-height:1.5;margin-top:1mm;color:var(--ink)}
+
+.page:nth-of-type(2) .kijun{margin:3mm 12mm 0}
+.satei{margin:2.5mm 12mm 0;border:2px dashed var(--move);border-radius:3mm;padding:1.8mm 4mm;text-align:center;font-size:11pt;font-weight:700}
+.satei b{color:var(--move)}
+
+.plan svg{height:34mm!important}
+.day li{padding:2mm 2.5mm 2.5mm!important}
+.page:first-of-type .hd{padding-top:5mm!important}
+.why{margin-top:6mm!important}
+.six{margin-top:6mm!important}
+.six .idea p{padding-bottom:3.5mm!important}
+.page:nth-of-type(2) .flow{margin:2.5mm 12mm 2mm!important}.satei{margin-top:2mm!important}
+.six .ideas{gap:4mm 3mm!important}.why{margin-top:7mm!important}

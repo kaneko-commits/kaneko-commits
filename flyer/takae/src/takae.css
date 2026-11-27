@@ -1,0 +1,69 @@
+
+/* ===== 高江ニュータウン ===== */
+:root{--leaf:#5d7d45;--move:#6b6f86}
+.top .to{background:var(--leaf)}
+.hd{padding:4mm 12mm 0;text-align:center}
+.hd .pre{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14pt;color:var(--muted);letter-spacing:.08em}
+.hd h1{font-family:'Noto Serif JP',serif;font-weight:900;font-size:30pt;line-height:1.35;letter-spacing:.03em;color:var(--forest);margin-top:1.5mm}
+.hd h1 .m{color:var(--move)}.hd h1 em{font-style:normal;color:var(--warm)}
+.hd .lead{font-size:12pt;line-height:1.65;margin-top:2.5mm;font-weight:700}
+.hd .lead em{color:var(--warm)}
+
+.two{margin:4mm 12mm 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch}
+.two>div{border-radius:3mm;padding:3mm 4mm;text-align:center}
+.two .a{background:#ecedf2;color:var(--move)}
+.two .b{background:#eef2e8;color:var(--leaf);border:2px solid var(--leaf)}
+.two b{display:block;font-family:'Noto Serif JP',serif;font-size:15pt;line-height:1.35}
+.two span{display:block;font-size:10.5pt;font-weight:700;color:var(--ink);margin-top:1mm;line-height:1.5}
+.two .or{display:flex;align-items:center;justify-content:center;width:19mm;font-family:'Noto Serif JP',serif;font-weight:900;font-size:11pt;color:var(--muted);padding:0}
+
+.sec{margin:4mm 12mm 0}
+.sec h2{font-family:'Noto Serif JP',serif;font-weight:900;font-size:18pt;text-align:center;letter-spacing:.04em;color:var(--forest)}
+.sec h2 em{color:var(--warm)}
+.sec h2 small{display:block;font-family:'Noto Sans JP';font-size:11pt;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5mm;margin-top:3mm}
+.idea{background:#fff;border-radius:3mm;box-shadow:0 1px 4px #0002;overflow:hidden;text-align:center;border-top:2.5mm solid var(--forest)}
+.idea:nth-child(2){border-top-color:var(--warm)}.idea:nth-child(3){border-top-color:var(--leaf)}
+.idea svg{display:block;margin:3mm auto 0;width:30mm;height:20mm}
+.idea b{display:block;font-family:'Noto Serif JP',serif;font-size:14pt;line-height:1.35;margin-top:2mm;padding:0 2mm}
+.idea p{font-size:10.5pt;line-height:1.55;padding:1.5mm 3mm 3.5mm;font-weight:500}
+
+.garden{margin:4.5mm 12mm 3.5mm;background:#eef2e8;border-radius:3mm;padding:3mm 5mm;display:grid;grid-template-columns:auto 1fr;gap:4mm;align-items:center}
+.garden .t{font-family:'Noto Serif JP',serif;font-weight:900;font-size:15pt;color:var(--leaf);line-height:1.35;text-align:center}
+.garden ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm}
+.garden li{background:#fff;border-radius:2mm;padding:2mm;text-align:center;font-size:11pt;font-weight:700;line-height:1.4}
+.garden li i{display:block;font-style:normal;font-size:9pt;color:var(--leaf);font-weight:900;letter-spacing:.04em}
+
+/* 裏面 */
+.cmp{margin-top:2.5mm}
+.cmp table{width:100%;border-collapse:collapse;table-layout:fixed;background:#fff;margin-top:2.5mm;font-size:10.8pt}
+.cmp th,.cmp td{border:1px solid var(--line);padding:1.1mm 2.5mm;line-height:1.4;vertical-align:middle}
+.cmp thead th{color:#fff;font-size:11.5pt;text-align:center}
+.cmp thead th.x{background:var(--forest)}.cmp thead th.a{background:var(--move)}.cmp thead th.b{background:var(--leaf)}
+.cmp tbody th{background:#f7f6f1;text-align:left;font-size:11pt}
+.cmp .note{font-size:10.5pt;font-weight:700;margin-top:1.8mm;text-align:center;line-height:1.55}
+.cmp .note em{color:var(--warm)}
+
+.plan{margin-top:3mm}
+.plan .pv{display:grid;grid-template-columns:1fr 8mm 1fr;align-items:center;margin-top:2mm}
+.plan .pv .ar{text-align:center;color:var(--warm);font-size:16pt;font-weight:900}
+.plan figure{background:#fff;border-radius:3mm;box-shadow:0 1px 3px #0002;padding:2mm 3mm 2.5mm}
+.plan figcaption{font-weight:900;font-size:11pt;text-align:center;margin-bottom:1mm}
+.plan figure.af figcaption{color:var(--warm)}
+.plan svg{width:100%;height:38mm;display:block}
+.plan .note{font-size:8.5pt;color:var(--muted);margin-top:1mm;text-align:right}
+
+.kijun{margin:0 12mm 3mm;display:grid;grid-template-columns:auto 1fr;gap:4mm;align-items:center;background:var(--cream);border-radius:3mm;padding:2.2mm 4mm}
+.kijun .t{font-weight:900;font-size:10.5pt;color:#fff;background:var(--forest);border-radius:2mm;padding:1.5mm 3mm;text-align:center;line-height:1.35}
+.kijun p{font-size:10.5pt;line-height:1.55;font-weight:700}
+.kijun p em{color:var(--warm)}
+.page:nth-of-type(2) .staff{padding-top:3mm}
+.page:nth-of-type(2) .flow{margin:3mm 12mm 2.5mm}
+.two i{display:inline-block;font-style:normal;font-size:10.5pt;font-weight:700;margin-top:1.8mm;background:#fff;border-radius:3mm;padding:.6mm 3mm;color:var(--ink)}
+.two .a i strong{color:var(--move)}.two .b i strong{color:var(--leaf)}
+.two>div{padding:2.5mm 4mm 3mm}
+.idea svg{margin-top:2.5mm!important;height:17mm!important}
+.idea p{padding:1.2mm 3mm 2.5mm!important}
+.idea b{margin-top:1.5mm!important}
+.cmp th,.cmp td{padding:1mm 2.5mm!important}
+.garden{margin-bottom:3mm!important}.hd{padding-top:3mm!important}
