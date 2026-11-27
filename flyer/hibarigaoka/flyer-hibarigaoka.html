@@ -20,36 +20,6 @@ em{font-style:normal}
 .top .brand{font-family:'Noto Serif JP',serif;font-weight:900;font-size:16pt;letter-spacing:.14em;color:var(--forest);text-align:right;line-height:1.2}
 .top .brand small{display:block;font-family:'Noto Sans JP';font-size:8pt;font-weight:500;letter-spacing:.04em;color:var(--muted)}
 
-/* ===== 表面 ===== */
-.head{padding:4mm 12mm 0;text-align:center}
-.head .pre{font-family:'Noto Serif JP',serif;font-weight:700;font-size:16pt;letter-spacing:.08em;color:var(--muted)}
-.head h1{font-family:'Noto Serif JP',serif;font-weight:900;font-size:33pt;line-height:1.25;letter-spacing:.04em;margin-top:2mm}
-.head h1 .r{color:var(--forest)}.head h1 .t{color:var(--warm)}
-.head .lead{font-size:12pt;line-height:1.6;margin-top:2mm;font-weight:700}
-
-.vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:6mm 12mm 0;position:relative}
-.vs figure{height:42mm;background-size:cover;position:relative}
-.vs figure:first-child{border-radius:3mm 0 0 3mm}.vs figure:last-child{border-radius:0 3mm 3mm 0}
-.vs figcaption{position:absolute;left:0;right:0;bottom:0;padding:3mm 4mm;color:#fff;background:linear-gradient(0deg,#000b,#0000);font-size:11pt;font-weight:700;line-height:1.45}
-.vs figure:nth-child(2) figcaption{padding-left:14mm}
-.vs figcaption b{display:block;font-family:'Noto Serif JP',serif;font-size:18pt;letter-spacing:.1em}
-.vs .or{position:absolute;left:50%;top:50%;transform:translate(-50%,-60%);width:22mm;height:22mm;border-radius:50%;background:var(--ivory);border:1.2mm solid var(--sun);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-weight:900;font-size:13pt;color:var(--forest);line-height:1.2;text-align:center}
-
-.facts{margin:3.5mm 12mm 0}
-.facts h2{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14.5pt;text-align:center;letter-spacing:.05em}
-.facts h2 em{color:var(--plum)}
-.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:2mm}
-.facts .c{background:#fff;border-radius:3mm;padding:2mm 3mm 2.5mm;box-shadow:0 1px 3px #0001;border-top:2.5mm solid var(--forest)}
-.facts .n{font-family:Georgia,serif;color:var(--warm);font-size:14pt;font-weight:700}
-.facts .c b{display:block;font-size:10.8pt;line-height:1.45;margin-top:.5mm}
-.facts .c p{font-size:10pt;line-height:1.55;color:var(--muted);margin-top:1.5mm}
-.facts .src{font-size:8pt;color:var(--muted);margin-top:2mm;text-align:right}
-
-.neutral{margin:4mm 12mm 3mm;background:var(--cream);border-radius:3mm;padding:4mm 5mm;display:flex;gap:4mm;align-items:center}
-.neutral .badge{flex:0 0 auto;background:var(--forest);color:#fff;font-weight:900;font-size:10.5pt;line-height:1.35;padding:2.5mm 3mm;border-radius:2mm;text-align:center}
-.neutral p{font-size:12pt;line-height:1.6;font-weight:700}
-.neutral p em{color:var(--warm)}
-
 .cta{background:var(--deep);color:#fff;padding:5mm 12mm 6mm;text-align:center;margin-top:auto}
 .cta .msg{font-size:13.5pt;font-weight:700;letter-spacing:.05em}
 .cta .msg em{color:var(--sun)}
@@ -58,32 +28,6 @@ em{font-style:normal}
 .tel .num{font-family:Georgia,'Times New Roman',serif;font-size:44pt;letter-spacing:.03em;line-height:1}
 .cta .hours{font-size:11.5pt;margin-top:2mm;color:#e3eae2}
 .cta .co{font-size:8.5pt;color:#c9d5c9;margin-top:2.5mm;border-top:1px solid #ffffff30;padding-top:2mm}
-
-/* ===== 裏面 ===== */
-.check{margin:3mm 12mm 0}
-.check h2{font-family:'Noto Serif JP',serif;font-weight:900;font-size:19pt;text-align:center;letter-spacing:.04em;color:var(--forest)}
-.check h2 small{display:block;font-family:'Noto Sans JP';font-size:11pt;font-weight:700;color:var(--muted);letter-spacing:.02em}
-.check .cols{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm}
-.check .col{background:#fff;border:2px solid var(--forest);border-radius:3mm;overflow:hidden}
-.check .col.t{border-color:var(--warm)}
-.check .col h3{background:var(--forest);color:#fff;font-size:13pt;text-align:center;padding:1.8mm 0;letter-spacing:.06em}
-.check .col.t h3{background:var(--warm)}
-.check ul{list-style:none;padding:2.2mm 3.5mm 2.5mm}
-.check li{font-size:11pt;font-weight:700;line-height:1.4;padding:.7mm 0 .7mm 6mm;position:relative}
-.check li:before{content:'';position:absolute;left:0;top:2.1mm;width:3.8mm;height:3.8mm;border:1.6px solid var(--muted);border-radius:.6mm;background:#fff}
-
-.cmp{margin:4mm 12mm 0}
-.cmp h3{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;text-align:center;letter-spacing:.04em}
-.cmp h3 em{color:var(--warm)}
-.cmp table{width:100%;border-collapse:collapse;margin-top:2mm;font-size:10.3pt;table-layout:fixed;background:#fff}
-.cmp th,.cmp td{border:1px solid var(--line);padding:1.2mm 2mm;line-height:1.4;vertical-align:middle}
-.cmp thead th{background:var(--cream);font-size:11pt}
-.cmp thead th.r{color:var(--forest)}.cmp thead th.t{color:var(--warm)}
-.cmp tbody th{background:#f7f6f1;text-align:left;font-size:10.5pt}
-.cmp .note{font-size:8.5pt;color:var(--muted);margin-top:1.2mm}
-
-.family{margin:3mm 12mm 0;border:2px dashed var(--plum);border-radius:3mm;padding:2mm 4mm;font-size:11pt;line-height:1.5;font-weight:700;text-align:center}
-.family em{color:var(--plum)}
 
 .staff{padding:3mm 12mm 0}
 .staff-h{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14.5pt;text-align:center;letter-spacing:.05em}
@@ -105,76 +49,81 @@ em{font-style:normal}
 .flow li b:before{content:counter(s);display:inline-block;width:6.5mm;height:6.5mm;margin-right:1.5mm;border-radius:50%;background:var(--forest);color:#fff;font-family:Georgia,serif;font-size:10.5pt;line-height:6.5mm;vertical-align:1px}
 .flow li span{display:block;font-size:9.5pt;color:var(--muted);margin-top:.4mm;line-height:1.4}
 
-/* 相談会 */
-.head h1 small{display:block;font-size:24pt;color:var(--forest);letter-spacing:.12em;margin-top:1mm}
-.head .q{display:inline-block;font-family:'Zen Maru Gothic';font-size:17pt;color:var(--plum);border:2px solid var(--plum);border-radius:8mm;padding:1.2mm 6mm;background:#fff}
-.head .q small{font-family:'Noto Sans JP';font-size:12pt;color:var(--ink);font-weight:700}
-.event{margin:3.5mm 12mm 0;display:grid;grid-template-columns:auto 1fr;border:2px solid var(--forest);border-radius:3mm;overflow:hidden;background:#fff}
-.event .lb{background:var(--forest);color:#fff;font-weight:900;font-size:12pt;line-height:1.4;padding:3mm 4mm;display:flex;align-items:center;text-align:center}
-.event dl{display:grid;grid-template-columns:16mm 1fr;gap:1mm 2mm;padding:2.5mm 4mm;font-size:12pt;align-items:center}
-.event dt{font-weight:900;color:var(--warm)}
-.event dd{font-weight:700}
-.worries{margin:3.5mm 12mm 0}
-.worries h2{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;text-align:center;letter-spacing:.05em}
-.bubbles{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm 6mm;margin-top:3mm}
-.bub{position:relative;background:#fff;border:2px solid var(--line);border-radius:6mm;padding:3mm 4mm;font-family:'Zen Maru Gothic',sans-serif;font-size:14pt;line-height:1.4;text-align:center;display:flex;align-items:center;justify-content:center;min-height:19mm}
-.bub:after{content:'';position:absolute;bottom:-3.2mm;width:4.5mm;height:4.5mm;background:#fff;border-right:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg)}
-.bub:nth-child(odd):after{left:12mm}.bub:nth-child(even):after{right:12mm}
-.sol{margin:3mm 12mm 0}
-.sol h2{font-family:'Noto Serif JP',serif;font-weight:900;font-size:18pt;text-align:center;letter-spacing:.04em;color:var(--forest)}
-.sol h2 small{display:block;font-family:'Noto Sans JP';font-size:11pt;font-weight:700;color:var(--muted);letter-spacing:.02em}
-.sol table{width:100%;border-collapse:collapse;margin-top:2.5mm;table-layout:fixed;background:#fff;font-size:10.5pt}
-.sol th,.sol td{border:1px solid var(--line);padding:1.3mm 2.5mm;line-height:1.4;vertical-align:middle}
-.sol thead th{font-size:12pt;color:#fff;letter-spacing:.06em}
-.sol thead th.r{background:var(--forest)}.sol thead th.t{background:var(--warm)}.sol thead th.k{background:var(--plum)}
-.sol tbody th{background:#f7f6f1;text-align:left;font-family:'Zen Maru Gothic';font-size:10.5pt;color:var(--plum);font-weight:700}
-.sol .note{font-size:8.5pt;color:var(--muted);margin-top:1.2mm}
-.years{margin:3mm 12mm 0;display:grid;grid-template-columns:auto 1fr;gap:3mm;align-items:center;background:var(--cream);border-radius:3mm;padding:3mm 4mm}
-.years .q{font-family:'Zen Maru Gothic';font-size:13pt;color:var(--plum);line-height:1.35;text-align:center}
-.years p{font-size:11pt;line-height:1.6;font-weight:700}
-.years p em{color:var(--warm)}
 
+/* ===== ひばりが丘 4つの心配 ===== */
+:root{--anshin:#3f6f8f;--kenko:#c8643b}
+.hd{padding:2mm 12mm 0;text-align:center}
+.hd .pre{font-family:'Noto Serif JP',serif;font-weight:700;font-size:14pt;color:var(--muted);letter-spacing:.08em}
+.hd h1{font-family:'Noto Serif JP',serif;font-weight:900;font-size:30pt;line-height:1.3;letter-spacing:.04em;color:var(--forest);margin-top:1mm}
+.hd h1 .a{color:var(--anshin)}.hd h1 .k{color:var(--kenko)}
+.four{display:flex;justify-content:center;gap:2.5mm;margin-top:2mm}
+.four span{font-weight:900;font-size:13pt;color:#fff;padding:1.2mm 3.5mm;border-radius:5mm;letter-spacing:.04em}
+.four .a{background:var(--anshin)}.four .k{background:var(--kenko)}
+.hd .lead{font-size:12pt;line-height:1.5;margin-top:1.5mm;font-weight:700}
 
-/* ひばりが丘 */
-.know{margin:2.5mm 12mm 0;display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
-.know>div{background:#fff;border-left:2.5mm solid var(--warm);border-radius:2mm;padding:2mm 3.5mm;box-shadow:0 1px 3px #0001}
-.know>div:last-child{border-left-color:var(--plum)}
-.know b{font-family:'Noto Serif JP',serif;font-size:14pt;color:var(--warm)}
-.know>div:last-child b{color:var(--plum)}
-.know p{font-size:10.3pt;line-height:1.55;margin-top:.8mm}
-.know-note{margin:1mm 12mm 0;font-size:8.5pt;color:var(--muted);text-align:right}
-.shots{margin:3.5mm 12mm 0;display:grid;grid-template-columns:1fr 1fr;gap:3mm}
-.shots figure{height:23mm;border-radius:3mm;background-size:cover;position:relative}
-.shots figcaption{position:absolute;left:0;bottom:0;background:#000a;color:#fff;font-size:9.5pt;font-weight:700;padding:.8mm 3mm;border-radius:0 2mm 0 3mm}
+.grp{margin:4mm 12mm 0;display:grid;grid-template-columns:1fr 1fr;gap:3.5mm 4mm}
+.gl{grid-column:span 1;font-family:'Noto Serif JP',serif;font-weight:900;font-size:13pt;letter-spacing:.06em;display:flex;align-items:center;gap:2mm}
+.gl:before,.gl:after{content:'';flex:1;height:1.5px;background:currentColor;opacity:.5}
+.gl.a{color:var(--anshin)}.gl.k{color:var(--kenko)}
+.card{background:#fff;border-radius:3mm;box-shadow:0 1px 4px #0002;overflow:hidden;border:2px solid var(--anshin);display:flex;flex-direction:column}
+.card.k{border-color:var(--kenko)}
+.card .h{display:flex;align-items:center;gap:2.5mm;background:var(--anshin);color:#fff;padding:1.2mm 3.5mm}
+.card.k .h{background:var(--kenko)}
+.card .h svg{flex:0 0 9mm;height:9mm}
+.card .h b{font-family:'Noto Serif JP',serif;font-size:19pt;letter-spacing:.08em;line-height:1.1}
+.card .q{font-family:'Zen Maru Gothic',sans-serif;font-size:12pt;line-height:1.35;padding:1.5mm 3.5mm 1.3mm;background:#f6f4ee;border-bottom:1.5px dashed var(--line)}
+.card .q:before{content:'心配';display:inline-block;font-family:'Noto Sans JP';font-size:8.5pt;font-weight:900;color:var(--muted);border:1.2px solid var(--muted);border-radius:1mm;padding:0 1mm;margin-right:1.5mm;vertical-align:2px}
+.card .ans{padding:2mm 3.5mm 2.5mm;flex:1}
+.card .ans .lb{font-size:9pt;font-weight:900;color:var(--anshin);letter-spacing:.06em}
+.card.k .ans .lb{color:var(--kenko)}
+.card ul{list-style:none;margin-top:.5mm}
+.card li{font-size:11pt;font-weight:700;line-height:1.35;padding:.4mm 0 .6mm 5mm;position:relative}
+.card li:before{content:'';position:absolute;left:.3mm;top:2.1mm;width:2.6mm;height:1.4mm;border-left:2.2px solid var(--anshin);border-bottom:2.2px solid var(--anshin);transform:rotate(-45deg)}
+.card.k li:before{border-color:var(--kenko)}
+.card .res{margin-top:1.2mm;font-size:10.5pt;font-weight:900;color:var(--ink);background:var(--cream);border-radius:1.5mm;padding:1mm 2.5mm}
+.card .res:before{content:'→ ';color:var(--anshin)}
+.card.k .res:before{color:var(--kenko)}
 
-.hd{padding:5mm 12mm 0;text-align:center}
-.hd .pre{font-family:'Noto Serif JP',serif;font-weight:700;font-size:15pt;color:var(--muted);letter-spacing:.08em}
-.hd h1{font-family:'Noto Serif JP',serif;font-weight:900;font-size:31pt;line-height:1.35;letter-spacing:.04em;color:var(--forest);margin-top:1.5mm}
-.hd h1 em{color:var(--warm)}
-.hd .lead{font-size:12.5pt;line-height:1.65;margin-top:2.5mm;font-weight:700}
-.pillars{margin:5mm 12mm 0;display:grid;grid-template-columns:1fr 1fr;gap:4mm}
-.pl{background:#fff;border-radius:3mm;box-shadow:0 1px 3px #0002;overflow:hidden;text-align:center}
-.pl .k{display:flex;align-items:center;justify-content:center;gap:2mm;background:var(--forest);color:#fff;padding:2mm 0}
-.pl:nth-child(1) .k{background:var(--plum)}.pl:nth-child(2) .k{background:var(--warm)}
-.pl .k b{font-family:'Noto Serif JP',serif;font-size:24pt;line-height:1.1;letter-spacing:.1em}
-.pl .k span{font-size:11pt;font-weight:700;text-align:left;line-height:1.3}
-.pl ul{list-style:none;padding:2.5mm 3mm 3mm;text-align:left}
-.pl li{font-size:12pt;font-weight:700;line-height:1.35;padding:.5mm 0 .5mm 4.5mm;position:relative}
-.pl li:before{content:'';position:absolute;left:0;top:2.5mm;width:2.2mm;height:2.2mm;border-radius:50%;background:var(--sun)}
-.spots{margin:2mm 12mm 0}
-.spots h2{font-family:'Noto Serif JP',serif;font-weight:900;font-size:19pt;text-align:center;letter-spacing:.04em;color:var(--forest)}
-.spots h2 small{display:block;font-family:'Noto Sans JP';font-size:11pt;font-weight:700;color:var(--muted)}
-.spots table{width:100%;border-collapse:collapse;table-layout:fixed;background:#fff;font-size:10.8pt;margin-top:2.5mm}
-.spots th,.spots td{border:1px solid var(--line);padding:1.5mm 2.5mm;line-height:1.4}
-.spots thead th{background:var(--forest);color:#fff;font-size:11pt}
-.spots tbody th{background:#f7f6f1;color:var(--forest);font-size:11.5pt;text-align:left}
-.spots td.w{color:var(--plum);font-weight:700}
-.kaigo{margin:3mm 12mm 0;display:grid;grid-template-columns:auto 1fr;gap:4mm;align-items:center;background:#eaf1f5;border-radius:3mm;padding:2mm 4mm}
-.kaigo .t{font-weight:900;font-size:11pt;color:#fff;background:var(--plum);border-radius:2mm;padding:2mm 3mm;text-align:center;line-height:1.35}
-.kaigo p{font-size:10.8pt;line-height:1.6;font-weight:700}
+.mado{margin:4.5mm 12mm 3mm;background:var(--forest);color:#fff;border-radius:3mm;padding:3mm 5mm;display:grid;grid-template-columns:auto 1fr;gap:4mm;align-items:center}
+.mado .t{font-family:'Noto Serif JP',serif;font-weight:900;font-size:14pt;line-height:1.35;text-align:center;border-right:1.5px solid #ffffff55;padding-right:4mm}
+.mado .t small{display:block;font-family:'Noto Sans JP';font-size:9pt;font-weight:700;color:var(--sun);letter-spacing:.06em}
+.mado p{font-size:11.5pt;font-weight:700;line-height:1.55}
+.mado p em{color:var(--sun)}
+.tag{display:inline-block;font-size:10pt;font-weight:900;border-radius:3mm;padding:0 2.5mm;margin-right:1mm;color:#fff}
+.tag.a{background:var(--anshin)}.tag.k{background:var(--kenko)}
+
+/* 裏面 */
+.mx{margin:1mm 12mm 0}
+.mx h2{font-family:'Noto Serif JP',serif;font-weight:900;font-size:17pt;text-align:center;letter-spacing:.04em;color:var(--forest)}
+.mx h2 small{display:block;font-family:'Noto Sans JP';font-size:11pt;font-weight:700;color:var(--muted)}
+.mx table{width:100%;border-collapse:collapse;table-layout:fixed;background:#fff;margin-top:2.5mm}
+.mx th,.mx td{border:1px solid var(--line);padding:1.3mm 2mm;line-height:1.3}
+.mx thead th{color:#fff;font-size:11pt;text-align:center;letter-spacing:.02em}
+.mx thead th.w{background:var(--forest)}
+.mx thead th.a{background:var(--anshin)}.mx thead th.k{background:var(--kenko)}
+.mx tbody th{text-align:left;font-size:11pt;background:#fbfaf6}
+.mx tbody th small{display:inline;margin-left:2mm;font-size:8.8pt;font-weight:500;color:var(--muted)}
+.mx td{text-align:center;font-size:13pt;line-height:1}
+.mx td.a{color:var(--anshin)}.mx td.k{color:var(--kenko)}
+.mx tr.hl th{background:#fdf5d9}
+.mx .note{font-size:8.5pt;color:var(--muted);margin-top:.6mm}
+
+.tips{margin:2.5mm 12mm 0;display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.tips>div{background:#fff;border-left:2.5mm solid var(--anshin);border-radius:2mm;padding:1.8mm 3mm;box-shadow:0 1px 3px #0001}
+.tips>div.k{border-left-color:var(--kenko)}
+.tips b{float:left;margin-right:2.5mm;font-family:'Noto Serif JP',serif;font-size:12.5pt;line-height:1.3;color:var(--anshin)}
+.tips>div.k b{color:var(--kenko)}
+.tips p{font-size:10.3pt;line-height:1.5;margin-top:.3mm}
+.tips-note{margin:.5mm 12mm 0;font-size:8.5pt;color:var(--muted);text-align:right}
+
+.kaigo{margin:2mm 12mm 0;display:grid;grid-template-columns:auto 1fr;gap:4mm;align-items:center;background:var(--cream);border-radius:3mm;padding:1.5mm 4mm}
+.kaigo .t{font-weight:900;font-size:10.5pt;color:#fff;background:var(--forest);border-radius:2mm;padding:1mm 3mm;text-align:center;line-height:1.35}
+.kaigo p{font-size:10.8pt;line-height:1.55;font-weight:700}
 .kaigo p small{display:block;font-size:8.5pt;font-weight:500;color:var(--muted)}
-.small1{margin:3mm 12mm 0;border:2px dashed var(--warm);border-radius:3mm;padding:2mm 4mm;text-align:center;font-size:11pt;font-weight:700;line-height:1.55}
-.small1 em{color:var(--warm)}
+.page:nth-of-type(2) .staff{padding-top:2.5mm}
+.page:nth-of-type(2) .flow{margin:2mm 12mm 2mm}
+.page:nth-of-type(2) .flow li{padding:1.5mm 1.5mm}
+.page:nth-of-type(2) .flow li span{font-size:9pt;line-height:1.3}
 </style></head>
 <body>
 
@@ -187,35 +136,30 @@ em{font-style:normal}
 
   <div class="hd">
     <p class="pre">住み慣れた、ひばりが丘の家で。</p>
-    <h1>これからの毎日を、<br><em>安心</em>と<em>健康</em>に。</h1>
-    <p class="lead">冬の<em style="color:var(--warm)">ヒートショック</em>、夏の<em style="color:var(--warm)">熱中症</em>、そして地震や家の傷み。<br>気になることを、小さな工事から、ひとつずつ整えます。</p>
+    <h1>これからの毎日を、<span class="a">安心</span>と<span class="k">健康</span>に。</h1>
+    <div class="four"><span class="a">防犯</span><span class="a">地震</span><span class="k">ヒートショック</span><span class="k">熱中症</span></div>
+    <p class="lead">この家で暮らす4つの心配に、<em style="color:var(--warm)">家の工事でひとつずつ答えます</em>。</p>
   </div>
 
-  <div class="worries">
-    <h2>こんなこと、ありませんか？</h2>
-    <div class="bubbles">
-      <div class="bub">夏の夜の寝室、<br>熱中症が心配</div>
-      <div class="bub">夜中のトイレ、<br>廊下がとても寒い</div>
-      <div class="bub">冬のお風呂、<br>ヒートショックが心配</div>
-      <div class="bub">大きな地震が来たら、<br>この家は大丈夫？</div>
-    </div>
+  <div class="grp">
+    <p class="gl a">安心　家と暮らしを守る</p><p class="gl k">健康　体への負担を減らす</p>
+    <div class="card a"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.3" r="1.4" fill="#fff"/><path d="M12 16.5v2"/></svg><b>防犯</b></div>
+      <p class="q">留守のときや夜、窓や玄関から<br>入られないか心配</p>
+      <div class="ans"><p class="lb">こころ舎の答え</p><ul><li>防犯ガラス・面格子・補助錠で窓を強く</li><li>玄関の鍵を、ピッキングに強い鍵に</li><li>録画テレビドアホン・センサーライト</li></ul><p class="res">入りにくく、顔を見て応対できる家に</p></div></div>
+    <div class="card k"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12.5V5.5a2 2 0 0 1 3.8-.8"/><path d="M7 19.5 6 21.5M17 19.5l1 2"/><path d="M13 9.5c0-1.2 1-1.4 1-2.6M16.5 9.5c0-1.2 1-1.4 1-2.6"/></svg><b>ヒートショック</b></div>
+      <p class="q">冬のお風呂・脱衣所・トイレが<br>寒くてつらい</p>
+      <div class="ans"><p class="lb">こころ舎の答え</p><ul><li>冷めにくい浴槽の、暖かいユニットバス</li><li>浴室暖房、脱衣所・トイレの暖房</li><li>内窓で、窓辺の冷え込みを和らげる</li></ul><p class="res">家の中の温度差が小さい家に</p></div></div>
+    <div class="card a"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5 12 5l7 6.5"/><path d="M7 10v8.5h10V10"/><path d="M10.5 18.5v-4h3v4"/><path d="M1.8 9.5l1.2 1.5-1.2 1.5 1.2 1.5"/><path d="M22.2 9.5 21 11l1.2 1.5L21 14"/><path d="M3 21.5h18"/></svg><b>地震</b></div>
+      <p class="q">大きな地震が来たら、<br>この家は大丈夫？</p>
+      <div class="ans"><p class="lb">こころ舎の答え</p><ul><li>耐震診断士が、家の強さを診断</li><li>壁・接合金物・基礎の補強</li><li>重い瓦屋根を、軽い屋根へ</li></ul><p class="res">揺れに強い家に</p></div></div>
+    <div class="card k"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M10 14.8V5a2 2 0 0 1 4 0v9.8a3.8 3.8 0 1 1-4 0z"/><path d="M12 9v7.5"/><circle cx="12" cy="18" r="1.3" fill="#fff"/><path d="M18 4.5l1.6-1.2M18.5 8.5h2M3.5 8.5h2M6 4.5 4.4 3.3"/></svg><b>熱中症</b></div>
+      <p class="q">夏の夜、寝室が暑くて<br>よく眠れない</p>
+      <div class="ans"><p class="lb">こころ舎の答え</p><ul><li>内窓・断熱で、外の熱を入りにくく</li><li>外付けシェードなどで、日差しを遮る</li><li>エアコンが効きやすい部屋に</li></ul><p class="res">夜も過ごしやすい温度の寝室に</p></div></div>
   </div>
 
-  <div class="pillars">
-    <div class="pl"><div class="k"><b>安心</b><span>もしもに<br>備える家に</span></div>
-      <ul><li>耐震診断と、必要な補強</li><li>屋根・外壁・雨どいの点検</li><li>雨漏り・水漏れに早めの対応</li><li>困った時は、電話一本で</li></ul></div>
-    <div class="pl"><div class="k"><b>健康</b><span>ヒートショックと<br>熱中症に備える家に</span></div>
-      <ul><li>浴室・脱衣所を暖かく</li><li>トイレや廊下との温度差を小さく</li><li>内窓・断熱で、夏の暑さを和らげる</li><li>寝室を、夜も過ごしやすい温度に</li></ul></div>
-  </div>
-
-  <div class="shots">
-    <figure style="background-image:url('../reform-usuki/img/genkan.jpg');background-position:30% 45%"><figcaption>明るい玄関（施工例）</figcaption></figure>
-    <figure style="background-image:url('../reform-usuki/img/rouka.jpg');background-position:60% 48%"><figcaption>やわらかな明かりの廊下（施工例）</figcaption></figure>
-  </div>
-
-  <div class="neutral">
-    <div class="badge">小さな<br>工事から</div>
-    <p>内窓1か所、点検1回からでも大丈夫です。<br><em>今いちばん気になる所から</em>、ひとつずつ整えましょう。</p>
+  <div class="mado">
+    <div class="t"><small>まずはここから</small>内窓<br>ひとつで</div>
+    <p><span class="tag k">冬の寒さ</span><span class="tag k">夏の暑さ</span><span class="tag a">防犯</span><br>今ある窓の内側に、もう1枚の窓を付ける工事です。<br><em>いちばん気になるお部屋の、窓1か所から</em>でも大丈夫です。</p>
   </div>
 
   <div class="cta">
@@ -236,34 +180,28 @@ em{font-style:normal}
     <div class="brand">樹の家こころ舎<small>新築もリフォームもする工務店</small></div>
   </div>
 
-  <div class="spots">
-    <h2><small>ヒートショック・熱中症・地震に備えて</small>場所ごとの「気をつけたい」と「できること」</h2>
+  <div class="mx">
+    <h2><small>ひとつの工事で、いくつもの心配に</small>工事ごとの「備えられること」</h2>
     <table>
-      <colgroup><col style="width:30mm"><col style="width:82mm"><col></colgroup>
-      <thead><tr><th>場所</th><th>気をつけたいこと</th><th>できること</th></tr></thead>
-      <tbody>
-        <tr><th>浴室・脱衣所</th><td class="w">冬の寒さと温度差（ヒートショック）</td><td>暖かいユニットバス・暖房・内窓</td></tr>
-        <tr><th>トイレ・廊下</th><td class="w">冬の夜、寒くて行くのがつらい</td><td>暖房・内窓・断熱</td></tr>
-        <tr><th>寝室</th><td class="w">夏の夜の暑さ（熱中症）と冬の寒さ</td><td>内窓・断熱・エアコンの位置の見直し</td></tr>
-        <tr><th>居間</th><td class="w">窓辺が寒い、冷暖房が効きにくい</td><td>内窓・床や天井の断熱</td></tr>
-        <tr><th>屋根・外壁</th><td class="w">雨漏りや傷みが気になる</td><td>点検・補修・塗装</td></tr>
-        <tr><th>家全体</th><td class="w">大きな地震が来たら心配</td><td>耐震診断・耐震補強</td></tr>
-      </tbody>
+      <colgroup><col><col style="width:17mm"><col style="width:17mm"><col style="width:31mm"><col style="width:20mm"></colgroup>
+      <thead><tr><th class="w">工事</th><th class="a">防犯</th><th class="a">地震</th><th class="k" style="font-size:10pt;letter-spacing:0;padding:1mm .5mm">ヒートショック</th><th class="k">熱中症</th></tr></thead>
+      <tbody><tr class="hl"><th>内窓（二重窓）<small>窓の内側に、もう1枚</small></th><td class="a">●</td><td class="a"></td><td class="k">●</td><td class="k">●</td></tr><tr class="hl"><th>耐震診断・補強＋断熱<small>壁を開けるついでに断熱材も</small></th><td class="a"></td><td class="a">●</td><td class="k">●</td><td class="k">●</td></tr><tr><th>防犯ガラス・面格子・補助錠<small>1階の窓・勝手口から</small></th><td class="a">●</td><td class="a"></td><td class="k"></td><td class="k"></td></tr><tr><th>玄関の鍵・録画ドアホン・センサーライト</th><td class="a">●</td><td class="a"></td><td class="k"></td><td class="k"></td></tr><tr><th>屋根の軽量化<small>重い瓦を軽い屋根に</small></th><td class="a"></td><td class="a">●</td><td class="k"></td><td class="k"></td></tr><tr><th>暖かいユニットバス・浴室や脱衣所・トイレの暖房<small></small></th><td class="a"></td><td class="a"></td><td class="k">●</td><td class="k"></td></tr><tr><th>日よけ・エアコンの見直し<small>シェード・エアコン位置</small></th><td class="a"></td><td class="a"></td><td class="k"></td><td class="k">●</td></tr></tbody>
     </table>
+    <p class="note">黄色の2つは、ひとつの工事で3つの心配に備えられる、おすすめの組み合わせです。</p>
   </div>
 
-  <div class="know">
-    <div><b>ヒートショック</b><p>暖かい部屋から寒い脱衣所・浴室へ移るときなどの、急な温度の変化が体の負担になること。家の中の温度差を小さくすることが備えになります。</p></div>
-    <div><b>熱中症</b><p>外だけでなく、家の中、夜の寝室でも起こることがあります。窓からの熱を抑え、エアコンが効きやすい部屋にすることが備えになります。</p></div>
+  <div class="tips">
+    <div class="k"><b>ヒートショック</b><p>急な温度の変化が体の負担になること。浴室・トイレとの温度差を小さくすることが備えに。</p></div>
+    <div class="k"><b>熱中症</b><p>夜の寝室など家の中でも起こります。窓からの熱を抑え、冷房が効く部屋にすることが備えに。</p></div>
+    <div><b>防犯</b><p>窓や玄関を入るのに時間がかかるつくりにし、来た人を確かめて応対できることが備えに。</p></div>
+    <div><b>地震</b><p>まず家の強さを知ることから。診断の結果をもとに、弱い所から順に補強します。</p></div>
   </div>
-  <p class="know-note">※体調のことは、かかりつけのお医者さまにもご相談ください。</p>
+  <p class="tips-note">※体調のことは、かかりつけのお医者さまにもご相談ください。</p>
 
   <div class="kaigo">
-    <div class="t">工事の<br>あとも安心</div>
-    <p>工事のあとも、気になることがあればお電話ください。これからも近くにいます。<small><span class="ph">【要確認】定期点検やアフターサービスの内容があれば記載</span></small></p>
+    <div class="t">工事のあとも安心</div>
+    <p>気になることがあれば、工事のあともお電話ください。<small><span class="ph">【要確認】定期点検やアフターサービスの内容があれば記載</span></small></p>
   </div>
-
-  <div class="small1">「住み替えも考えたけれど、やっぱりこの家で」──その毎日を、<em>この家のまま、安心に</em>。</div>
 
   <div class="staff">
     <p class="staff-h">ご自宅に伺うのは、<em>この3人</em>です。</p>
