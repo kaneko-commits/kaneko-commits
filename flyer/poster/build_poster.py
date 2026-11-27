@@ -1,0 +1,99 @@
+"""完成見学会 動線掲示ポスター（A2縦）を矢印の向き別に生成する。
+
+    python3 build_poster.py  ->  poster-right.html / poster-left.html / poster-up.html
+"""
+from pathlib import Path
+
+HERE = Path(__file__).parent
+
+ARROWS = {  # 矢印の向き -> (ファイル名, 回転角)
+    "right": ("poster-right.html", 0),
+    "left": ("poster-left.html", 180),
+    "up": ("poster-up.html", -90),
+}
+
+COFFEE = '''<svg viewBox="0 0 64 64"><path d="M10 26h34v14a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14z"/>
+<path d="M44 30h4a7 7 0 0 1 0 14h-5"/><path d="M6 58h46"/>
+<path d="M20 8c-3 4 3 7 0 12M28 6c-3 4 3 8 0 13M36 8c-3 4 3 7 0 12"/></svg>'''
+# 臼杵焼の器（皿と小鉢）
+POTTERY = '''<svg viewBox="0 0 64 64"><ellipse cx="32" cy="44" rx="27" ry="7"/>
+<path d="M5 44c2 7 13 11 27 11s25-4 27-11"/>
+<path d="M18 22h28l-3 13a8 8 0 0 1-8 6h-6a8 8 0 0 1-8-6z"/>
+<path d="M24 27h16M23 31h18" stroke-dasharray="2 3"/></svg>'''
+
+ARROW = '''<svg class="arrow" viewBox="0 0 100 60" style="transform:rotate({rot}deg)">
+<path d="M4 22h56V6l36 24-36 24V38H4z"/></svg>'''
+
+CSS = '''
+@page{size:420mm 594mm;margin:0}
+:root{--ink:#25312c;--muted:#5d675f;--forest:#3a5144;--deep:#283a30;--ivory:#faf9f5;--line:#d6d8cf;--warm:#c8643b;--sun:#f3d27a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#8b918c}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:420mm;height:594mm;margin:0 auto;background:var(--ivory);position:relative;overflow:hidden}
+@media print{html,body{background:none}}
+.serif{font-family:'Noto Serif JP',serif}
+
+/* 上：外観写真 */
+.hero{position:absolute;left:0;right:0;top:0;height:250mm;background:url('../img/exterior.jpg') 47% 45%/cover no-repeat}
+.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#1d2a2366 0%,#0000 45%,#0000 70%,#faf9f5 100%)}
+.hero .tag{position:absolute;z-index:1;left:26mm;top:24mm;background:var(--forest);color:#fff;padding:5mm 10mm;border-radius:2mm;font-weight:900;font-size:30pt;letter-spacing:.12em;line-height:1.3}
+.hero .tag b{color:var(--sun)}
+.hero .nm{position:absolute;z-index:1;left:26mm;top:52mm;color:#fff;font-family:'Noto Serif JP',serif;font-weight:700;font-size:58pt;letter-spacing:.14em;text-shadow:0 3px 18px #0008}
+.hero .cg{position:absolute;z-index:1;right:6mm;top:6mm;color:#fff;font-size:12pt;background:#0005;padding:1mm 4mm}
+
+/* 中：メッセージ */
+.msg{position:absolute;left:0;right:0;top:218mm;text-align:center}
+.icons{display:flex;justify-content:center;gap:24mm}
+.icons .c{width:66mm;height:66mm;border-radius:50%;background:#fff;border:2.5px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px #0001}
+.icons svg{width:40mm;height:40mm;stroke:var(--forest);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.icons p{margin-top:4mm;font-size:22pt;font-weight:700;color:var(--forest);letter-spacing:.06em}
+.lead{margin-top:16mm;font-family:'Noto Serif JP',serif;font-weight:700;font-size:40pt;color:var(--muted);letter-spacing:.14em}
+h1{margin-top:7mm;font-family:'Noto Serif JP',serif;font-weight:700;font-size:70pt;line-height:1.45;letter-spacing:.06em;color:var(--ink)}
+h1 em{font-style:normal;color:var(--warm)}
+.rule{width:60mm;height:2px;background:var(--line);margin:12mm auto 0}
+
+/* 下：誘導 */
+.go{position:absolute;left:0;right:0;bottom:30mm;height:118mm;background:var(--forest);display:flex;align-items:center;justify-content:center;gap:20mm;color:#fff}
+.go .t{text-align:left}
+.go .t span{display:block;font-size:28pt;font-weight:700;color:#cfdccf;letter-spacing:.14em}
+.go .t b{display:block;font-family:'Noto Serif JP',serif;font-size:84pt;font-weight:700;letter-spacing:.12em;line-height:1.25}
+.arrow{width:110mm;height:66mm;fill:var(--sun);flex:none}
+.foot{position:absolute;left:0;right:0;bottom:0;height:30mm;background:var(--deep);color:#fff;display:flex;align-items:center;justify-content:center;gap:8mm}
+.foot small{font-size:15pt;color:#cfdccf}
+.foot b{font-family:'Noto Serif JP',serif;font-size:26pt;letter-spacing:.14em}
+'''
+
+def build(rot):
+    arrow = ARROW.format(rot=rot)
+    left_arrow = rot == 180
+    go = (arrow if left_arrow else '') + '''<div class="t"><span>見学会の入口</span><b>こちらへ</b></div>''' + ('' if left_arrow else arrow)
+    return f'''<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>完成見学会 誘導ポスター｜樹の家こころ舎</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>{CSS}</style></head><body>
+<div class="page">
+  <div class="hero">
+    <div class="tag">注文住宅 <b>完成見学会</b></div>
+    <div class="nm">S様邸</div>
+    <div class="cg">※イメージCG</div>
+  </div>
+  <div class="msg">
+    <div class="icons">
+      <div><div class="c">{COFFEE}</div><p>コーヒー</p></div>
+      <div><div class="c">{POTTERY}</div><p>臼杵焼き</p></div>
+    </div>
+    <p class="lead">室内では、</p>
+    <h1>おいしい<em>コーヒー</em>と<br><em>臼杵焼き</em>をお楽しみください</h1>
+  </div>
+  <div class="go">{go}</div>
+  <div class="foot"><small>設計事務所がつくった工務店</small><b>樹の家こころ舎</b></div>
+</div>
+</body></html>'''
+
+if __name__ == "__main__":
+    for name, rot in ARROWS.values():
+        (HERE / name).write_text(build(rot), encoding="utf-8")
+        print("wrote", name)
