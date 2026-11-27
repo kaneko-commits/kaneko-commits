@@ -108,7 +108,7 @@ em{font-style:normal}
 .mx tr.hl th{background:#fdf5d9}
 .mx .note{font-size:8.5pt;color:var(--muted);margin-top:.6mm}
 
-.tips{margin:4mm 12mm 0;display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.tips{margin:3mm 12mm 0;display:grid;grid-template-columns:1fr 1fr;gap:3mm}
 .tips>div{background:#fff;border-left:2.5mm solid var(--anshin);border-radius:2mm;padding:1.8mm 3mm;box-shadow:0 1px 3px #0001}
 .tips>div.k{border-left-color:var(--kenko)}
 .tips b{float:left;margin-right:2.5mm;font-family:'Noto Serif JP',serif;font-size:12.5pt;line-height:1.3;color:var(--anshin)}
@@ -118,7 +118,7 @@ em{font-style:normal}
 .tips p.c{font-family:'Noto Serif JP',serif;font-weight:900;font-size:13.5pt;line-height:1.3;color:var(--ink);margin-top:.3mm;letter-spacing:-.02em}
 .tips-note{margin:.5mm 12mm 0;font-size:8.5pt;color:var(--muted);text-align:right}
 
-.kaigo{margin:3mm 12mm 0;display:grid;grid-template-columns:auto 1fr;gap:4mm;align-items:center;background:var(--cream);border-radius:3mm;padding:1.5mm 4mm}
+.kaigo{margin:2mm 12mm 0;display:grid;grid-template-columns:auto 1fr;gap:4mm;align-items:center;background:var(--cream);border-radius:3mm;padding:1.5mm 4mm}
 .kaigo .t{font-weight:900;font-size:10.5pt;color:#fff;background:var(--forest);border-radius:2mm;padding:1mm 3mm;text-align:center;line-height:1.35}
 .kaigo p{font-size:10.8pt;line-height:1.55;font-weight:700}
 .kaigo p small{display:block;font-size:8.5pt;font-weight:500;color:var(--muted)}
@@ -129,6 +129,9 @@ em{font-style:normal}
 .mx h2{font-size:21pt!important;line-height:1.3}
 .mx h2 em{color:var(--warm)}
 .mx h2 small{margin-top:.5mm}
+.tips p.fa{margin-top:1mm;font-size:11pt;font-weight:700;display:flex;align-items:center;gap:2mm}
+.tips p.fa:before{content:'まずは';flex:0 0 auto;font-size:9pt;font-weight:900;color:#fff;background:var(--anshin);border-radius:1mm;padding:.2mm 1.8mm}
+.tips>div.k p.fa:before{background:var(--kenko)}
 </style></head>
 <body>
 
@@ -196,12 +199,12 @@ em{font-style:normal}
   </div>
 
   <div class="tips">
-    <div class="k"><b>ヒートショック</b><p class="c">血圧の気になる方こそ、家中暖かく。</p><p>お風呂やトイレも、温度差の小さい家に。</p></div>
-    <div class="k"><b>熱中症</b><p class="c">暑い夏でも、健康に。</p><p>家の中がいちばん多く、半数以上が65歳以上。</p></div>
-    <div><b>防犯</b><p class="c">留守中も夜も、安心できる家に。</p></div>
-    <div><b>地震</b><p class="c">揺れに強い家で、これからも。</p></div>
+    <div class="k"><b>ヒートショック</b><p class="c">血圧の気になる方こそ、家中暖かく。</p><p class="fa">脱衣所とトイレに、暖房を1台</p></div>
+    <div class="k"><b>熱中症</b><p class="c">暑い夏でも、健康に。</p><p class="fa">寝室の窓に、内窓を付ける</p></div>
+    <div><b>防犯</b><p class="c">留守中も夜も、安心できる家に。</p><p class="fa">1階の窓に、補助錠を付ける</p></div>
+    <div><b>地震</b><p class="c">揺れに強い家で、これからも。</p><p class="fa">耐震診断で、家の強さを知る</p></div>
   </div>
-  <p class="tips-note">熱中症の内容は総務省消防庁の発表（5〜9月の救急搬送）より。※体調のことは、かかりつけのお医者さまにもご相談ください。</p>
+  <p class="tips-note">※体調のことは、かかりつけのお医者さまにもご相談ください。</p>
 
   <div class="kaigo">
     <div class="t">ご自宅の<br>かかりつけ医に</div>
