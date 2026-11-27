@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>こころ舎とマルシェ 動線ポスター</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* A2 縦 420 × 594 mm ／ ?dir=right | left | up で矢印の向きを切り替え */
+@page { size: 420mm 594mm; margin: 0; }
+:root{
+  --paper:#EEE5D3;   /* ベージュ */
+  --paper2:#E6DAC3;
+  --ink:#3F6A55;     /* チラシのグリーン */
+  --ink-soft:#6E8F7C;
+  --warm:#9C6B4A;    /* コーヒーのブラウン */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:420mm;height:594mm;background:var(--paper)}
+body{font-family:'Zen Maru Gothic',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{position:relative;width:420mm;height:594mm;overflow:hidden;background:var(--paper)}
+#grain{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+
+/* 枠線 */
+.frame{position:absolute;inset:12mm;border:1.1mm solid var(--ink);border-radius:6mm}
+.frame::after{content:"";position:absolute;inset:2.6mm;border:.35mm solid var(--ink);border-radius:4mm}
+
+/* アーチ状タイトル */
+#arch{position:absolute;left:0;top:0;width:100%;height:120mm}
+#arch span{position:absolute;font-weight:500;font-size:26mm;line-height:1;transform-origin:50% 50%;width:30mm;text-align:center}
+.latin{position:absolute;top:88mm;left:0;width:100%;text-align:center;font-family:'Jost',sans-serif;font-weight:400;font-size:12.5mm;letter-spacing:.06em}
+
+/* イラスト */
+#illust{position:absolute;left:50%;top:102mm;width:296mm;transform:translateX(-50%)}
+
+/* メッセージ */
+.msg{position:absolute;top:327mm;left:0;width:100%;text-align:center}
+.msg .lead{display:inline-block;font-size:15mm;font-weight:700;letter-spacing:.12em;padding:0 9mm 2.5mm;border-bottom:.9mm solid var(--ink);margin-bottom:9mm}
+.msg p{font-size:17mm;font-weight:700;line-height:1.62;letter-spacing:.04em}
+.msg .en{font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.02em;font-size:19mm}
+.msg small{font-size:13mm;font-weight:500}
+
+/* 誘導 */
+.guide{position:absolute;top:452mm;left:34mm;right:34mm;height:86mm;background:var(--ink);color:var(--paper);border-radius:43mm;display:flex;align-items:center;justify-content:center;gap:12mm}
+.guide .t{text-align:center;line-height:1}
+.guide .t b{display:block;font-size:30mm;font-weight:900;letter-spacing:.14em}
+.guide .t i{display:block;font-style:normal;font-family:'Jost';font-size:9mm;letter-spacing:.32em;margin-top:5mm;opacity:.85}
+.guide svg{width:112mm;height:66mm;flex:none;overflow:visible}
+.dir-left .guide{flex-direction:row-reverse}
+.dir-up .guide svg{width:66mm;height:66mm}
+
+/* フッター */
+.foot{position:absolute;bottom:24mm;left:0;width:100%;text-align:center;font-size:8.6mm;font-weight:500;letter-spacing:.08em;line-height:1}
+.foot .d{font-family:'Jost';font-weight:500;font-size:11mm;letter-spacing:.04em;margin-right:2mm}
+.foot .sep{display:inline-block;width:.5mm;height:9mm;background:var(--ink);vertical-align:-1.6mm;margin:0 6mm;opacity:.7}
+</style>
+</head>
+<body>
+<div class="page" id="page">
+  <canvas id="grain"></canvas>
+  <div class="frame"></div>
+
+  <div id="arch"></div>
+  <div class="latin">kokorosya marché</div>
+
+  <svg id="illust" viewBox="0 0 1000 720" fill="none" stroke-linecap="round" stroke-linejoin="round"></svg>
+
+  <div class="msg">
+    <span class="lead">室内では、</span>
+    <p><span class="en">suzunari coffee</span> さんの<br>おいしいコーヒーと臼杵焼きを<br>お楽しみください</p>
+  </div>
+
+  <div class="guide">
+    <div class="t"><b>室内へ</b><i>COFFEE &amp; USUKI-YAKI</i></div>
+    <svg id="arrow" viewBox="0 0 560 330" fill="none" stroke-linecap="round" stroke-linejoin="round"></svg>
+  </div>
+
+  <div class="foot">
+    <span class="d">11.28 SAT</span> 10:00〜15:00<span class="sep"></span>会場：樹の家こころ舎 臼杵モデルハウス「五感の家」
+  </div>
+</div>
+
+<script>
+const dir = new URLSearchParams(location.search).get('dir') || 'right';
+document.getElementById('page').classList.add('dir-' + dir);
+
+/* ---------- 擬似乱数 & 手描き風ノイズ ---------- */
+let seed = 7;
+const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+function wobble(pts, amp){
+  const ph = [rnd()*6.28, rnd()*6.28, rnd()*6.28];
+  const n = pts.length;
+  return pts.map((p, i) => {
+    const t = i / Math.max(1, n - 1);
+    const a = i ? i - 1 : 0, b = i < n - 1 ? i + 1 : n - 1;
+    let dx = pts[b][0] - pts[a][0], dy = pts[b][1] - pts[a][1];
+    const L = Math.hypot(dx, dy) || 1; dx /= L; dy /= L;
+    const k = amp * (Math.sin(t*9.1+ph[0])*.55 + Math.sin(t*23.7+ph[1])*.3 + Math.sin(t*51+ph[2])*.15);
+    return [p[0] - dy*k, p[1] + dx*k];
+  });
+}
+const toD = pts => 'M' + pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('L');
+function draw(svg, pts, w, color, amp = 2.4, op = 1){
+  color = color || getComputedStyle(document.documentElement).getPropertyValue('--ink').trim();
+  // 2回なぞってペン描きの揺らぎを出す
+  [[w, op], [w*.45, op*.55]].forEach(([sw, o]) => {
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', toD(wobble(pts, amp)));
+    p.setAttribute('stroke', color); p.setAttribute('stroke-width', sw); p.setAttribute('opacity', o);
+    svg.appendChild(p);
+  });
+}
+function fill(svg, pts, color, op){
+  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  p.setAttribute('d', toD(pts) + 'Z'); p.setAttribute('fill', color); p.setAttribute('opacity', op); p.setAttribute('stroke', 'none');
+  svg.appendChild(p);
+}
+
+/* ---------- 形状ヘルパ ---------- */
+function bez(p0, p1, p2, p3, n = 60){
+  const o = [];
+  for (let i = 0; i <= n; i++){ const t = i/n, u = 1-t;
+    o.push([u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*t*t*p2[0]+t*t*t*p3[0], u*u*u*p0[1]+3*u*u*t*p1[1]+3*u*t*t*p2[1]+t*t*t*p3[1]]); }
+  return o;
+}
+function ell(cx, cy, rx, ry, a0 = 0, a1 = Math.PI*2, n = 160, lobes = 0, depth = 0){
+  const o = [];
+  for (let i = 0; i <= n; i++){ const a = a0 + (a1-a0)*i/n;
+    const r = lobes ? 1 - depth * Math.pow(Math.abs(Math.sin(a*lobes/2)), 3) : 1;
+    o.push([cx + Math.cos(a)*rx*r, cy + Math.sin(a)*ry*r]); }
+  return o;
+}
+
+/* ---------- アーチ状タイトル ---------- */
+(function(){
+  const chars = [...'こころ舎とマルシェ'];
+  const box = document.getElementById('arch');
+  const cx = 210, cy = 272, R = 228, span = 62 * Math.PI/180;
+  chars.forEach((c, i) => {
+    const a = -Math.PI/2 - span/2 + span * i/(chars.length-1);
+    const s = document.createElement('span'); s.textContent = c;
+    if (c === 'ェ') s.style.fontSize = '22mm';
+    const x = cx + Math.cos(a)*R, y = cy + Math.sin(a)*R;
+    s.style.left = (x - 15) + 'mm'; s.style.top = (y - 13) + 'mm';
+    s.style.transform = `rotate(${(a + Math.PI/2)}rad)`;
+    box.appendChild(s);
+  });
+})();
+
+/* ---------- イラスト：臼杵焼の輪花皿とコーヒーカップ ---------- */
+(function(){
+  const s = document.getElementById('illust'), C = getComputedStyle(document.documentElement);
+  const ink = C.getPropertyValue('--ink').trim(), warm = C.getPropertyValue('--warm').trim();
+  const W = 7;
+
+  // 輪花皿（型打ちの花びら縁）
+  draw(s, ell(500, 585, 320, 88, 0, Math.PI*2, 320, 16, .05), W);
+  draw(s, ell(500, 598, 230, 58, 0.05, Math.PI-0.05, 160), W*.7);                 // 見込み
+  draw(s, ell(500, 602, 323, 91, 0.12, Math.PI-0.12, 220, 16, .05).map(p=>[p[0],p[1]+14]), W*.8); // 皿の厚み
+  for (let k = 0; k < 16; k++){                                                   // 型打ちの筋
+    const a = (k + .5) * Math.PI*2/16;
+    if (Math.sin(a) < -0.35) continue;
+    const p1 = [500 + Math.cos(a)*300, 585 + Math.sin(a)*82], p2 = [500 + Math.cos(a)*242, 596 + Math.sin(a)*62];
+    draw(s, [p1, [(p1[0]+p2[0])/2, (p1[1]+p2[1])/2], p2], 3.2, ink, 1.2, .8);
+  }
+
+  // カップ
+  const top = 330, bot = 585;
+  const paper = C.getPropertyValue('--paper').trim();
+  fill(s, [...bez([342, top], [345, 470], [380, 560], [418, bot]), ...ell(500, bot - 2, 84, 20, Math.PI, 0, 40),
+           ...bez([582, bot], [620, 560], [655, 470], [658, top]), ...ell(500, top, 158, 40, 0, -Math.PI, 60)], paper, 1);
+  fill(s, [...bez([652, 385], [770, 360], [790, 470], [622, 520]), ...bez([632, 492], [742, 465], [735, 405], [650, 415])], paper, 1);
+  fill(s, ell(500, top + 12, 132, 30), warm, .55);                                // コーヒー
+  draw(s, ell(500, top, 158, 40), W);                                             // 口縁
+  draw(s, ell(500, top + 12, 132, 30, Math.PI*1.03, Math.PI*1.97, 80), 3.5, ink, 1.4, .8);
+  draw(s, bez([342, top + 2], [345, 470], [380, 560], [418, bot]), W);            // 胴 左
+  draw(s, bez([658, top + 2], [655, 470], [620, 560], [582, bot]), W);            // 胴 右
+  draw(s, ell(500, bot - 2, 84, 20, 0.15, Math.PI - 0.15, 60), W);                // 高台
+  for (const f of [-.62, -.31, 0, .31, .62]){                                     // 輪花の縦筋
+    const x0 = 500 + f*150, x1 = 500 + f*80;
+    draw(s, bez([x0, top + 40 + Math.abs(f)*-8], [x0 + f*4, 440], [x1 + f*14, 520], [x1, bot - 4]), 3, ink, 1.4, .7);
+  }
+  // 取っ手
+  draw(s, bez([652, 385], [770, 360], [790, 470], [622, 520]), W);
+  draw(s, bez([650, 415], [735, 405], [742, 465], [632, 492]), W*.75);
+  // 湯気
+  for (const [x, h] of [[440, 0], [505, 26], [570, 6]]){
+    draw(s, bez([x, top - 60], [x - 42, top - 120 - h], [x + 42, top - 170 - h], [x, top - 238 - h]), 4.5, ink, 2, .85);
+  }
+
+  // 一輪挿し（左）
+  const g0 = s; { const g = document.createElementNS('http://www.w3.org/2000/svg','g'); g.setAttribute('transform','translate(-55 30)'); s.appendChild(g); var sv = g; }
+  draw(sv, bez([130, 610], [70, 600], [70, 470], [118, 445]), W*.85);
+  draw(sv, bez([190, 610], [250, 600], [250, 470], [202, 445]), W*.85);
+  draw(sv, [[118, 445], [122, 395]], W*.85); draw(sv, [[202, 445], [198, 395]], W*.85);
+  draw(sv, ell(160, 393, 40, 10), W*.75);
+  draw(sv, ell(160, 610, 32, 8, 0.1, Math.PI-0.1, 40), W*.75);
+  draw(sv, bez([162, 392], [150, 300], [180, 230], [150, 120]), 4.5);
+  draw(sv, bez([160, 330], [120, 300], [100, 250], [95, 205]), 4);
+  for (const [x, y, a] of [[150, 120, -1.9], [95, 205, -2.3], [168, 250, -.8], [110, 268, -2.6], [174, 180, -.6]]){
+    const L = 46, ex = x + Math.cos(a)*L, ey = y + Math.sin(a)*L, nx = -Math.sin(a)*14, ny = Math.cos(a)*14;
+    draw(sv, [...bez([x, y], [x + (ex-x)*.3 + nx, y + (ey-y)*.3 + ny], [x + (ex-x)*.7 + nx, y + (ey-y)*.7 + ny], [ex, ey], 30),
+             ...bez([ex, ey], [x + (ex-x)*.7 - nx, y + (ey-y)*.7 - ny], [x + (ex-x)*.3 - nx, y + (ey-y)*.3 - ny], [x, y], 30)], 3.6, ink, 1.2);
+  }
+
+  // コーヒー豆（右）
+  for (const [x, y, r] of [[880, 650, .4], [940, 615, -.5], [935, 680, 1.1], [855, 700, -.2]]){
+    const pts = ell(0, 0, 26, 17, 0, Math.PI*2, 60).map(([a, b]) => [x + a*Math.cos(r) - b*Math.sin(r), y + a*Math.sin(r) + b*Math.cos(r)]);
+    draw(s, pts, 4.2, ink, 1);
+    const c = bez([-22, 2], [-8, -9], [8, 9], [22, -2], 20).map(([a, b]) => [x + a*Math.cos(r) - b*Math.sin(r), y + a*Math.sin(r) + b*Math.cos(r)]);
+    draw(s, c, 3, ink, .8);
+  }
+})();
+
+/* ---------- 矢印 ---------- */
+(function(){
+  const s = document.getElementById('arrow');
+  const paper = getComputedStyle(document.documentElement).getPropertyValue('--paper').trim();
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  const rot = {right: 0, left: 180, up: -90}[dir] ?? 0;
+  g.setAttribute('transform', `rotate(${rot} 280 165)`);
+  s.appendChild(g);
+  seed = 21;
+  draw(g, bez([40, 175], [180, 150], [330, 185], [500, 160], 80), 26, paper, 4);
+  draw(g, bez([500, 160], [460, 128], [425, 92], [392, 58], 30), 26, paper, 3);
+  draw(g, bez([500, 160], [462, 196], [430, 232], [398, 268], 30), 26, paper, 3);
+})();
+
+/* ---------- 紙の粒子 ---------- */
+(function(){
+  const cv = document.getElementById('grain'), W = 1400, H = 1980;
+  cv.width = W; cv.height = H;
+  const x = cv.getContext('2d'), img = x.createImageData(W, H);
+  for (let i = 0; i < img.data.length; i += 4){
+    const v = Math.random();
+    const dark = v > .5;
+    img.data[i] = dark ? 120 : 255; img.data[i+1] = dark ? 100 : 252; img.data[i+2] = dark ? 70 : 240;
+    img.data[i+3] = Math.abs(v - .5) * 34;
+  }
+  x.putImageData(img, 0, 0);
+})();
+document.fonts.ready.then(() => document.body.dataset.ready = '1');
+</script>
+</body>
+</html>
