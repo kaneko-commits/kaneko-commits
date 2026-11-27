@@ -43,18 +43,17 @@ bubbles = ['下の階に、足音が<br>響いていないか心配', '子ども
            '駐車場が<br>足りない・遠い', '家賃を払い続けて<br>いいのかな']
 bub = ''.join(f'<div class="bub">{b}</div>' for b in bubbles)
 
-whys = [('敷地にゆとり', '庭や駐車スペースを<br>とりやすい広さ'),
-        ('新耐震以降の家', '1981年以降の基準で<br>建てられた家が多い'),
-        ('落ち着いた住宅地', '同じ時期に整った、<br>静かな街並み')]
-why = ''.join(f'<li><b>{a}</b><span>{b}</span></li>' for a, b in whys)
+takae = [('1', '敷地にゆとりがある', '庭もデッキも、車も自転車も。<br>外の暮らしが、ぐんと広がります。'),
+         ('2', '家が比較的新しい', '新耐震以降の家が多く、骨組みを<br>生かしやすい。予算を内装・断熱・<br>設備に回せます。'),
+         ('3', 'まわりも一戸建て', '一戸建てが並ぶ住宅地。足音や<br>生活音を気にせず、のびのびと。'),
+         ('4', '出会える家がある', '子どもが独立し、住み替える世帯も。<br>だから出会える家があります。')]
+tk = ''.join(f'<div class="tk"><span class="n">{n}</span><div><b>{a}</b><p>{b}</p></div></div>' for n, a, b in takae)
 
-goods = [('予算', '予算の幅が広がる', '土地から買って新築<br>するのとは別の、<br>もうひとつの選び方。'),
-         ('間取り', '家族に合う間取り', '壁を取って、<br>広いLDKに。<br>収納もたっぷり。'),
-         ('性能', '断熱も耐震も', '内装をはがす機会に、<br>断熱や耐震の補強も<br>一緒に。'),
-         ('庭', '庭のある暮らし', '走り回れる庭。<br>足音を気にしない<br>毎日を。')]
-good = ''.join(f'<div class="g"><span>{t}</span><b>{a}</b><p>{b}</p></div>' for t, a, b in goods)
+ideas = ['家族が集まる<br>広いLDK', '庭につながる<br>ウッドデッキ', '帰ってすぐ片づく<br>土間収納',
+         '家族みんなの<br>ファミリークローゼット', '断熱で、<br>夏も冬も快適に', '成長に合わせて<br>仕切れる子ども部屋']
+idea = ''.join(f'<li>{i}</li>' for i in ideas)
 
-flowhtml = C.flow([('物件探し', '高江ニュータウンの<br>家を一緒に探します'), ('無料の建物診断', '買う前に、家の<br>状態を確かめます'), ('設計・お見積り', '購入費とあわせて<br>ご予算をご提案'), ('工事', 'お引き渡しまで<br>しっかりと')]).replace('お打ち合わせは、<em>すべてご自宅で</em>。', '家探しから、<em>住むまでずっと</em>。')
+flowhtml = C.flow([('ご相談', 'ローン診断と<br>ライフプランから'), ('物件探し', '高江ニュータウンの<br>家を一緒に探します'), ('無料の建物診断', '買う前に、家の<br>状態を確かめます'), ('設計・工事', 'お引き渡しまで<br>しっかりと')]).replace('お打ち合わせは、<em>すべてご自宅で</em>。', '家探しから、<em>住むまでずっと</em>。')
 html = C.head('高江ニュータウン 中古住宅をフルリノベーション', css) + f'''
 <!-- ================= 表面 ================= -->
 <section class="page">
@@ -78,41 +77,34 @@ html = C.head('高江ニュータウン 中古住宅をフルリノベーショ�
   </div>
 
   <div class="sec front">
-    <h2><small>中古の一戸建て × フルリノベーション</small>ここが、いいところ</h2>
-    <div class="goods">{good}</div>
+    <h2><small>判田で暮らすなら</small>高江ニュータウンだからこそ、<em>できること</em></h2>
+    <div class="tks">{tk}</div>
   </div>
 
 
-  <div class="shindan"><span class="free">無料</span><p><b>買う前に、建物診断。</b>気になる家は、耐震診断士が無料で見に行きます。</p></div>
-
-{C.ctabox('物件探しと<em>無料の建物診断</em>、お電話一本でどうぞ。')}</section>
+{C.ctabox('物件探し・<em>無料の建物診断</em>・ローンのご相談まで、お電話一本で。')}</section>
 
 <!-- ================= 裏面 ================= -->
 <section class="page">
 {top}
 
 
-  <div class="sec plan">
-    <h2><small>たとえば、こんなフルリノベーション</small>家族4人の間取りに</h2>
-    <div class="pv">
-      <figure><figcaption>買ったときの家</figcaption>{plan(False)}</figure>
-      <div class="ar">▶</div>
-      <figure class="af"><figcaption>フルリノベーション後</figcaption>{plan(True)}</figure>
+  <div class="sec ideas6">
+    <h2><small>骨組みを生かして、中はまるごと新しく</small>フルリノベで、こんな暮らしに</h2>
+    <ul>{idea}</ul>
+    <p class="note">土地から買って新築するのとは別の、<em>もうひとつの予算の組み方</em>です。</p>
+  </div>
+
+  <div class="sec support">
+    <h2><small>家探しから、住むまで</small>まるごと、<em>お手伝いします</em></h2>
+    <div class="sp">
+      <div><span class="t">物件探し</span><b>家を、<br>一緒に探します</b><p>高江ニュータウンで、<br>リノベに向いた家を<br>一緒に探します。</p></div>
+      <div><span class="t">建物診断</span><span class="free">無料</span><b>買う前に、<br>家を見ます</b><p>耐震診断士が、柱や<br>基礎、雨漏りの跡まで<br>確かめます。</p></div>
+      <div><span class="t">お金のこと</span><b>ローン診断と<br>ライフプラン</b><p>購入費とリノベ費用を<br>合わせて、無理のない<br>返済計画を一緒に。</p></div>
     </div>
-    <p class="note">※間取りは一例です。お選びになった家に合わせてご提案します。</p>
   </div>
 
-  <div class="why">
-    <p class="t">高江ニュータウン<br>を選ぶ理由</p>
-    <ul>{why}</ul>
-  </div>
-
-  <div class="two-band">
-    <div><span class="t">買う前に</span><span class="free">無料</span><p><b>建物診断で、耐震診断士が家を見ます。</b>柱や基礎、雨漏りの跡まで確かめて、買ってよい家かを一緒に判断します。</p></div>
-    <div><span class="t">お金のこと</span><p><b>購入とリノベを、まとめて。</b>家の購入費とリノベーション費用を、まとめて借りられる住宅ローンもあります。</p></div>
-  </div>
-
-{C.staffhtml('買う前に家を診て、<br>間取りを描きます', '古い家も、<br>この手で新しく').replace('ご自宅に伺うのは、', 'ご一緒するのは、')}{flowhtml}
+{C.staffhtml('買う前に家を診て、<br>暮らしを描きます', '古い家も、<br>この手で新しく').replace('ご自宅に伺うのは、', 'ご一緒するのは、')}{flowhtml}
 {C.ctabox('判田で、<em>庭のある一戸建て</em>を。まずはお電話ください。')}</section>
 </body></html>
 '''

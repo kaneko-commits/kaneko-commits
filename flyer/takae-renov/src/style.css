@@ -82,3 +82,29 @@
 .shindan p b{font-family:'Noto Serif JP',serif;font-size:14pt;color:var(--warm);margin-right:2mm}
 .photo figure{height:43mm!important}.page:first-of-type .sec.front{margin-top:4.5mm}.page:first-of-type .worries{margin-top:4.5mm}
 .shindan .free{white-space:nowrap}
+
+/* v2: 高江だからこそ */
+.sec h2 em{color:var(--warm)}
+.tks{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-top:3mm}
+.tk{background:#fff;border-radius:3mm;box-shadow:0 1px 3px #0002;padding:3mm 3.5mm;display:flex;gap:3mm;align-items:flex-start;border-left:2.5mm solid var(--leaf)}
+.tk:nth-child(2){border-left-color:var(--sky)}.tk:nth-child(3){border-left-color:var(--warm)}.tk:nth-child(4){border-left-color:var(--forest)}
+.tk .n{flex:0 0 9mm;height:9mm;border-radius:50%;background:var(--leaf);color:#fff;font-family:Georgia,serif;font-size:15pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tk:nth-child(2) .n{background:var(--sky)}.tk:nth-child(3) .n{background:var(--warm)}.tk:nth-child(4) .n{background:var(--forest)}
+.tk b{display:block;font-family:'Noto Serif JP',serif;font-size:14pt;line-height:1.3}
+.tk p{font-size:10.5pt;line-height:1.55;margin-top:.8mm;font-weight:500}
+.ideas6{margin-top:3mm}
+.ideas6 ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm;margin-top:3mm}
+.ideas6 li{background:#fff;border:2px solid var(--line);border-radius:3mm;padding:3mm 2mm;text-align:center;font-family:'Noto Serif JP',serif;font-weight:700;font-size:12.5pt;line-height:1.4}
+.ideas6 .note{font-size:10.5pt;font-weight:700;text-align:center;margin-top:2mm}
+.ideas6 .note em{color:var(--warm)}
+.support{margin-top:4mm}
+.sp{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:3mm}
+.sp>div{background:var(--cream);border-radius:3mm;padding:3mm 3.5mm}
+.sp .t{display:inline-block;font-size:9.5pt;font-weight:900;color:#fff;background:var(--forest);border-radius:1.2mm;padding:.2mm 2.2mm}
+.sp>div:nth-child(2) .t{background:var(--sky)}.sp>div:nth-child(3) .t{background:var(--leaf)}
+.sp b{display:block;font-family:'Noto Serif JP',serif;font-size:13pt;line-height:1.35;margin-top:1.5mm}
+.sp p{font-size:10.3pt;line-height:1.55;margin-top:1mm}
+.page:first-of-type .sec.front{margin:5mm 12mm 3mm}
+.ideas6 li{padding:3.5mm 2mm!important}
+.support{margin-top:5mm!important}
+.sp>div{padding:3.5mm 3.5mm 4mm!important}
