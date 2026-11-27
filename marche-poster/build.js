@@ -1,7 +1,7 @@
-// node build.js  ->  A2 PDF（矢印 右・左・上）とプレビューPNGを書き出す
+// node build.js  ->  A2 PDF（矢印 右）とプレビューPNGを書き出す
 const { chromium } = require('playwright');
 const path = require('path');
-const names = { right: '右', left: '左', up: '上' };
+const names = { right: '右' };
 (async () => {
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: 1587, height: 2245 } });
